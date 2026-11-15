@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:learntz/features/learners/models/learner_access_models.dart';
-import 'package:learntz/features/learners/providers/learner_auth_providers.dart';
 import 'package:learntz/features/learners/screens/child_device_management_screen.dart';
 import 'package:learntz/features/learners/screens/learner_login_screen.dart';
 import 'package:learntz/features/learners/services/learner_auth_service.dart';
