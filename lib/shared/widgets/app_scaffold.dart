@@ -18,7 +18,9 @@ class AppScaffold extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     if (location == AppRoutes.learnerLogin ||
-        location == AppRoutes.learnerDashboard) {
+        location == AppRoutes.learnerDashboard ||
+        location == AppRoutes.welcome ||
+        location == AppRoutes.home) {
       return child;
     }
 
@@ -29,15 +31,16 @@ class AppScaffold extends ConsumerWidget {
         authEvent?.session != null || client?.auth.currentSession != null;
     final isWide = MediaQuery.sizeOf(context).width >= 900;
     final destinations = [
-      (AppRoutes.welcome, l10n.navigationWelcome, Icons.waving_hand_outlined),
-      (AppRoutes.home, l10n.navigationHome, Icons.home_outlined),
+      (AppRoutes.welcome, l10n.navigationHome, Icons.home_outlined),
       (AppRoutes.about, l10n.navigationAbout, Icons.info_outline),
       (AppRoutes.country, l10n.navigationCountry, Icons.public),
       (AppRoutes.help, l10n.navigationHelp, Icons.help_outline),
     ];
-    final selectedIndex = destinations.indexWhere(
-      (destination) => destination.$1 == location,
-    );
+    final selectedIndex = (location == AppRoutes.welcome || location == AppRoutes.home)
+        ? 0
+        : destinations.indexWhere(
+            (destination) => destination.$1 == location,
+          );
 
     return Scaffold(
       appBar: AppBar(
@@ -108,7 +111,7 @@ class _BrandMark extends ConsumerWidget {
         height: 36,
         productName: country.productName,
         countryBadge: country.countryCode,
-        onTap: () => context.go(AppRoutes.home),
+        onTap: () => context.go(AppRoutes.welcome),
       ),
     );
   }

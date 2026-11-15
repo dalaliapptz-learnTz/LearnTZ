@@ -25,6 +25,7 @@ class AppBrandLogo extends StatelessWidget {
     final logoWidget = Image.asset(
       'assets/branding/learntz_logo.png',
       height: height,
+      width: height * 1.17,
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) {
         // Fallback to stylized vector brandmark if asset fails to load

@@ -28,7 +28,7 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
   });
 
-  testWidgets('welcome navigates to home and country selection', (
+  testWidgets('unified landing page opens directly and navigates to country selection', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(390, 844);
@@ -36,11 +36,9 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: LearnTzApp()));
     await tester.pumpAndSettle();
 
+    expect(find.text('LEARN ANYWHERE, ANYTIME.'), findsOneWidget);
     expect(find.text('Learning that moves with your child.'), findsOneWidget);
-
-    await tester.tap(find.text('Explore LearnTZ'));
-    await tester.pumpAndSettle();
-    expect(find.text('Welcome to LearnTZ'), findsOneWidget);
+    expect(find.text('GET STARTED'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('nav-/country')));
     await tester.pumpAndSettle();
@@ -66,7 +64,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Elimu inayosonga pamoja na mtoto wako.'), findsOneWidget);
-    expect(find.text('Karibu'), findsOneWidget);
+    expect(find.textContaining('Karibu'), findsWidgets);
   });
 
   testWidgets('wide layout uses the top navigation without overflow', (
@@ -74,14 +72,15 @@ void main() {
   ) async {
     tester.view.physicalSize = const Size(1280, 900);
     tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
     await tester.pumpWidget(const ProviderScope(child: LearnTzApp()));
     await tester.pumpAndSettle();
 
     expect(find.byKey(const ValueKey('nav-/about')), findsOneWidget);
     expect(tester.takeException(), isNull);
-
-    tester.view.resetPhysicalSize();
-    tester.view.resetDevicePixelRatio();
   });
 
   testWidgets('unauthenticated users are redirected from protected routes', (
@@ -131,15 +130,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('LearnKE'), findsOneWidget);
-    expect(find.text('Explore LearnKE'), findsOneWidget);
-    expect(find.text('Learning, rooted in Kenya'), findsOneWidget);
+    expect(find.text('LearnKE'), findsWidgets);
+    expect(find.text('Learning, rooted in Kenya'), findsWidgets);
+    expect(find.text('Welcome to LearnKE'), findsOneWidget);
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(app.theme!.colorScheme.primary, const Color(0xFF6A1B9A));
-
-    await tester.tap(find.text('Explore LearnKE'));
-    await tester.pumpAndSettle();
-    expect(find.text('Welcome to LearnKE'), findsOneWidget);
 
     tester.view.resetPhysicalSize();
     tester.view.resetDevicePixelRatio();

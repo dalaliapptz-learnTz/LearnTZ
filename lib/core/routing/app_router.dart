@@ -297,7 +297,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         }
         return AppRoutes.account;
       }
-      if (isSignedIn && path == AppRoutes.welcome) {
+      if (isChildMode && (path == AppRoutes.welcome || path == AppRoutes.home)) {
+        return AppRoutes.learnerDashboard;
+      }
+      if (isSignedIn && (path == AppRoutes.welcome || path == AppRoutes.home)) {
+        final adminCapabilities =
+            ref.read(adminCapabilitiesProvider).asData?.value;
+        if (adminCapabilities != null && adminCapabilities.canAccessAdmin) {
+          return AppRoutes.adminDashboard;
+        }
         return AppRoutes.account;
       }
       return null;
