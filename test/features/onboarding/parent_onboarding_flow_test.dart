@@ -238,7 +238,7 @@ void main() {
       tester.view.resetDevicePixelRatio();
     });
 
-    testWidgets('OnboardingOtpScreen renders 6 PIN boxes and resend timer', (
+    testWidgets('OnboardingOtpScreen renders 6 PIN boxes, resend timer, and instant test fill', (
       tester,
     ) async {
       tester.view.physicalSize = const Size(800, 1000);
@@ -257,6 +257,20 @@ void main() {
       expect(find.byType(TextFormField), findsNWidgets(6));
       expect(find.text('Confirm & Continue'), findsOneWidget);
       expect(find.text('Edit Phone Number'), findsOneWidget);
+      expect(find.text('Instant Verification (Testing Mode)'), findsOneWidget);
+      expect(find.text('Quick Fill Test Code (123456)'), findsOneWidget);
+
+      await tester.tap(find.text('Quick Fill Test Code (123456)'));
+      await tester.pumpAndSettle();
+
+      final fields = tester.widgetList<TextFormField>(find.byType(TextFormField)).toList();
+      expect(fields.length, 6);
+      expect(fields[0].controller?.text, '1');
+      expect(fields[1].controller?.text, '2');
+      expect(fields[2].controller?.text, '3');
+      expect(fields[3].controller?.text, '4');
+      expect(fields[4].controller?.text, '5');
+      expect(fields[5].controller?.text, '6');
 
       tester.view.resetPhysicalSize();
       tester.view.resetDevicePixelRatio();
