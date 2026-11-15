@@ -10,6 +10,7 @@ import '../../../core/routing/app_router.dart';
 import '../../../core/state/app_providers.dart';
 import '../admin_models.dart';
 import '../admin_providers.dart';
+import '../services/demo_accounts_service.dart';
 
 /// LearnTZ — Enterprise Super Admin Control Centre
 /// Central multi-module administration interface across all 6 East African nations.
@@ -33,6 +34,9 @@ class _SuperAdminControlCentreScreenState
   String _auditFilter = '';
   final _userSearchController = TextEditingController();
   String _userSearchQuery = '';
+  int _demoTab = 0;
+  String _demoCountryFilter = 'ALL';
+  bool _isDemoActionBusy = false;
 
   @override
   void initState() {
@@ -150,6 +154,11 @@ class _SuperAdminControlCentreScreenState
             label: 'Immutable Audit Trail',
             icon: Icons.history_outlined,
           ),
+          AdminNavItem(
+            route: 'demo-sandbox',
+            label: 'Demo Accounts & Sandbox',
+            icon: Icons.science_outlined,
+          ),
         ],
       ),
     ];
@@ -246,6 +255,7 @@ class _SuperAdminControlCentreScreenState
           'support' => 'Customer Support',
           'security' => 'Security & Sessions',
           'audit-logs' => 'Immutable Audit Trail',
+          'demo-sandbox' => 'Demo Sandbox & Test Data',
           _ => _activeModule.toUpperCase(),
         };
 
@@ -285,6 +295,7 @@ class _SuperAdminControlCentreScreenState
       'support' => _buildSupportModule(stats),
       'security' => _buildSecurityModule(),
       'audit-logs' => _buildAuditLogsModule(),
+      'demo-sandbox' => _buildDemoSandboxModule(),
       _ => _buildDashboardModule(stats),
     };
   }
@@ -830,5 +841,547 @@ class _SuperAdminControlCentreScreenState
         ],
       ),
     );
+  }
+
+  // 9. Demo Sandbox & Test Data Module
+  Widget _buildDemoSandboxModule() {
+    final overviewAsync = ref.watch(demoAccountsOverviewProvider);
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Demo Accounts & Sandbox Engine',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: LearnTzColors.textPrimary,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Pre-provisioned test environments across Parents, Learners, and Administrators.',
+                      style: TextStyle(fontSize: 13, color: LearnTzColors.textSecondary),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              Row(
+                children: [
+                  if (_isDemoActionBusy)
+                    const Padding(
+                      padding: EdgeInsets.only(right: 12),
+                      child: SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                    ),
+                  OutlinedButton.icon(
+                    onPressed: _isDemoActionBusy ? null : _handleResetDemoActivity,
+                    icon: const Icon(Icons.restore, size: 16, color: LearnTzColors.accent),
+                    label: const Text('Reset Learner Activity'),
+                  ),
+                  const SizedBox(width: 8),
+                  ElevatedButton.icon(
+                    onPressed: _isDemoActionBusy ? null : _handleReprovisionDemoData,
+                    icon: const Icon(Icons.autorenew, size: 16),
+                    label: const Text('Re-provision All'),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    onPressed: () => ref.invalidate(demoAccountsOverviewProvider),
+                    icon: const Icon(Icons.refresh, size: 20),
+                    tooltip: 'Refresh Overview',
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+
+          AppCard(
+            padding: const EdgeInsets.all(16),
+            backgroundColor: LearnTzColors.primary50,
+            borderColor: LearnTzColors.primary200,
+            child: Row(
+              children: [
+                const Icon(Icons.shield_outlined, color: LearnTzColors.primary, size: 28),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Isolated Sandbox Environment (is_demo = true)',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: LearnTzColors.primary),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'All demo records are strictly filtered from business reporting, production metrics, and revenue analytics. '
+                        'Default passwords: "ParentDemo1234!" (Parents), "AdminDemo1234!" (Admins), PIN: "1234" (Learners).',
+                        style: TextStyle(fontSize: 12, color: LearnTzColors.neutral700),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+
+          overviewAsync.when(
+            loading: () => const Center(
+              child: Padding(
+                padding: EdgeInsets.all(40),
+                child: CircularProgressIndicator(),
+              ),
+            ),
+            error: (err, _) => AppCard(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: Text('Error loading demo accounts overview: $err', style: const TextStyle(color: LearnTzColors.error)),
+              ),
+            ),
+            data: (overview) => Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildDemoKpiCard(
+                        'Demo Parents',
+                        overview.totalParents.toString(),
+                        Icons.escalator_warning_outlined,
+                        LearnTzColors.primary,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _buildDemoKpiCard(
+                        'Demo Learners',
+                        overview.totalLearners.toString(),
+                        Icons.school_outlined,
+                        LearnTzColors.secondary,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _buildDemoKpiCard(
+                        'Administrators',
+                        overview.totalAdmins.toString(),
+                        Icons.admin_panel_settings_outlined,
+                        LearnTzColors.accent,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+
+                Row(
+                  children: [
+                    SegmentedButton<int>(
+                      segments: [
+                        ButtonSegment(value: 0, label: Text('Parents (${overview.parents.length})')),
+                        ButtonSegment(value: 1, label: Text('Learners (${overview.learners.length})')),
+                        ButtonSegment(value: 2, label: Text('Admins (${overview.admins.length})')),
+                      ],
+                      selected: {_demoTab},
+                      onSelectionChanged: (set) => setState(() => _demoTab = set.first),
+                    ),
+                    const Spacer(),
+                    Wrap(
+                      spacing: 6,
+                      children: ['ALL', 'TZ', 'KE', 'UG', 'RW'].map((c) {
+                        final isSel = _demoCountryFilter == c;
+                        return ChoiceChip(
+                          label: Text(c, style: TextStyle(fontSize: 11, fontWeight: isSel ? FontWeight.bold : FontWeight.normal)),
+                          selected: isSel,
+                          onSelected: (_) => setState(() => _demoCountryFilter = c),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
+                if (_demoTab == 0)
+                  _buildDemoParentsList(overview.parents)
+                else if (_demoTab == 1)
+                  _buildDemoLearnersList(overview.learners)
+                else
+                  _buildDemoAdminsList(overview.admins),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDemoKpiCard(String label, String value, IconData icon, Color color) {
+    return AppCard(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: color.withValues(alpha: 0.12),
+            child: Icon(icon, color: color, size: 20),
+          ),
+          const SizedBox(width: 14),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(label, style: const TextStyle(fontSize: 12, color: LearnTzColors.textSecondary)),
+              const SizedBox(height: 2),
+              Text(value, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: LearnTzColors.textPrimary)),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDemoParentsList(List<DemoParentAccount> parents) {
+    final filtered = parents.where((p) {
+      if (_demoCountryFilter == 'ALL') return true;
+      return p.countryCode == _demoCountryFilter;
+    }).toList();
+
+    if (filtered.isEmpty) {
+      return const Padding(
+        padding: EdgeInsets.all(32),
+        child: Center(
+          child: AppEmptyState(
+            icon: Icons.person_search_outlined,
+            title: 'No Parents Found',
+            message: 'No demo parents match the selected country filter.',
+          ),
+        ),
+      );
+    }
+
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: filtered.length,
+      separatorBuilder: (_, _) => const SizedBox(height: 10),
+      itemBuilder: (context, index) {
+        final p = filtered[index];
+        return AppCard(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: LearnTzColors.primary100,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  p.countryCode,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: LearnTzColors.primary),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(p.fullName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: LearnTzColors.secondary50,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            p.status,
+                            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: LearnTzColors.secondary),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${p.email} • ${p.phoneNumber} • ${p.learnerCount} ${p.learnerCount == 1 ? "child" : "children"}',
+                      style: const TextStyle(fontSize: 12, color: LearnTzColors.textSecondary),
+                    ),
+                  ],
+                ),
+              ),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text('Password:', style: TextStyle(fontSize: 10, color: LearnTzColors.neutral500)),
+                  Text(
+                    'ParentDemo1234!',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: 11, fontWeight: FontWeight.bold, color: LearnTzColors.neutral700),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildDemoLearnersList(List<DemoLearnerAccount> learners) {
+    final filtered = learners.where((l) {
+      if (_demoCountryFilter == 'ALL') return true;
+      return l.countryCode == _demoCountryFilter;
+    }).toList();
+
+    if (filtered.isEmpty) {
+      return const Padding(
+        padding: EdgeInsets.all(32),
+        child: Center(
+          child: AppEmptyState(
+            icon: Icons.school_outlined,
+            title: 'No Learners Found',
+            message: 'No demo learners match the selected country filter.',
+          ),
+        ),
+      );
+    }
+
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: filtered.length,
+      separatorBuilder: (_, _) => const SizedBox(height: 10),
+      itemBuilder: (context, index) {
+        final l = filtered[index];
+        final isIndependent = l.accessMode == 'independent_device';
+
+        return AppCard(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: LearnTzColors.primary100,
+                child: Text(
+                  l.countryCode,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: LearnTzColors.primary),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(l.fullName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: isIndependent ? LearnTzColors.primary50 : LearnTzColors.neutral100,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                isIndependent ? Icons.devices : Icons.family_restroom,
+                                size: 10,
+                                color: isIndependent ? LearnTzColors.primary : LearnTzColors.neutral700,
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                isIndependent ? 'Independent' : 'Parent-Managed',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color: isIndependent ? LearnTzColors.primary : LearnTzColors.neutral700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Code: ${l.learnerCode} • Username: @${l.username} • Grade: ${l.gradeName} • Parent: ${l.parentName}',
+                      style: const TextStyle(fontSize: 12, color: LearnTzColors.textSecondary),
+                    ),
+                  ],
+                ),
+              ),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text('PIN:', style: TextStyle(fontSize: 10, color: LearnTzColors.neutral500)),
+                  Text(
+                    '1234',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: 13, fontWeight: FontWeight.bold, color: LearnTzColors.primary),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildDemoAdminsList(List<DemoAdminAccount> admins) {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: admins.length,
+      separatorBuilder: (_, _) => const SizedBox(height: 10),
+      itemBuilder: (context, index) {
+        final a = admins[index];
+        final isGlobal = a.countryCode == null;
+
+        return AppCard(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: isGlobal ? LearnTzColors.accent.withValues(alpha: 0.15) : LearnTzColors.primary100,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  a.countryCode ?? 'GLOBAL',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 11,
+                    color: isGlobal ? LearnTzColors.neutral900 : LearnTzColors.primary,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(a.fullName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: LearnTzColors.primary50,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            a.roleName,
+                            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: LearnTzColors.primary),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${a.email} • Status: ${a.accountStatus} • MFA Enrolled',
+                      style: const TextStyle(fontSize: 12, color: LearnTzColors.textSecondary),
+                    ),
+                  ],
+                ),
+              ),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text('Password:', style: TextStyle(fontSize: 10, color: LearnTzColors.neutral500)),
+                  Text(
+                    'AdminDemo1234!',
+                    style: TextStyle(fontFamily: 'monospace', fontSize: 11, fontWeight: FontWeight.bold, color: LearnTzColors.neutral700),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _handleResetDemoActivity() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Reset Demo Learner Activity?'),
+        content: const Text(
+          'This will clear recommendations, progress logs, and test attempts for all demo learners without deleting their accounts. This action is safe in development and cannot be undone.',
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: const Text('Cancel')),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: LearnTzColors.error),
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Reset Activity'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    setState(() => _isDemoActionBusy = true);
+    try {
+      final service = ref.read(demoAccountsServiceProvider);
+      if (service == null) throw Exception('Supabase service unavailable');
+      final res = await service.resetDemoData();
+      ref.invalidate(demoAccountsOverviewProvider);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res['message']?.toString() ?? 'Demo activity reset successfully.'),
+          backgroundColor: LearnTzColors.secondary,
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Reset failed: $e'), backgroundColor: LearnTzColors.error),
+      );
+    } finally {
+      if (mounted) setState(() => _isDemoActionBusy = false);
+    }
+  }
+
+  Future<void> _handleReprovisionDemoData() async {
+    setState(() => _isDemoActionBusy = true);
+    try {
+      final service = ref.read(demoAccountsServiceProvider);
+      if (service == null) throw Exception('Supabase service unavailable');
+      final res = await service.provisionDemoData(forceReset: false);
+      ref.invalidate(demoAccountsOverviewProvider);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Demo accounts provisioned successfully (${res["environment"] ?? "dev"}).'),
+          backgroundColor: LearnTzColors.secondary,
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Provisioning failed: $e'), backgroundColor: LearnTzColors.error),
+      );
+    } finally {
+      if (mounted) setState(() => _isDemoActionBusy = false);
+    }
   }
 }

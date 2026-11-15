@@ -122,4 +122,7 @@ BEGIN
   VALUES (superadmin_id, 'super_admin')
   ON CONFLICT (user_id, role, coalesce(country_code, '')) DO NOTHING;
 
+  -- Provision complete demo accounts and seed data
+  PERFORM public.provision_demo_data(false);
+
 END $$;
