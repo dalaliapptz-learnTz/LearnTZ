@@ -84,7 +84,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
     if (_hasNavigated || !mounted) return;
     _hasNavigated = true;
     _countdownTimer?.cancel();
-    context.go(AppRoutes.country);
+    context.go(AppRoutes.onboardingCountry);
   }
 
   void _replayAnimation() {
@@ -158,13 +158,13 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
 
         // Description
         Text(
-          l10n.welcomeDescription(country.productName),
+          "A smarter way to support your child's learning journey. ${l10n.welcomeDescription(country.productName)}",
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: LearnTzColors.textSecondary,
                 height: 1.5,
               ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 18),
 
         // Action Buttons
         Wrap(
@@ -176,14 +176,26 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
               icon: const Icon(Icons.arrow_forward),
               label: Text(l10n.getStarted(country.productName)),
               style: FilledButton.styleFrom(
+                backgroundColor: LearnTzColors.primary,
+                minimumSize: const Size(48, 52),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+              ),
+            ),
+            FilledButton.icon(
+              onPressed: () => context.go(AppRoutes.onboardingCountry),
+              icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+              label: const Text('GET STARTED'),
+              style: FilledButton.styleFrom(
+                backgroundColor: LearnTzColors.secondary,
+                foregroundColor: Colors.white,
                 minimumSize: const Size(48, 52),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
               ),
             ),
             OutlinedButton.icon(
-              onPressed: () => context.go(AppRoutes.country),
-              icon: const Icon(Icons.language_rounded, size: 18),
-              label: Text(l10n.countryTitle),
+              onPressed: () => context.go(AppRoutes.signIn),
+              icon: const Icon(Icons.login_rounded, size: 18),
+              label: const Text('SIGN IN'),
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(48, 52),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -193,7 +205,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
               onPressed: () => context.go(AppRoutes.about),
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(48, 52),
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
               ),
               child: Text(l10n.learnAboutUs(country.productName)),
             ),
@@ -344,7 +356,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(
         horizontal: isWide ? 40 : 20,
-        vertical: 28,
+        vertical: isWide ? 28 : 16,
       ),
       child: Center(
         child: ConstrainedBox(

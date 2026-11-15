@@ -48,7 +48,69 @@ class ParentDashboardScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      OutlinedButton.icon(
+                        onPressed: () => context.go(AppRoutes.accountSettings),
+                        icon: const Icon(Icons.settings_outlined, size: 18),
+                        label: const Text('Settings'),
+                      ),
+                      FilledButton.icon(
+                        onPressed: () => context.go(AppRoutes.addLearner),
+                        icon: const Icon(Icons.add, size: 18),
+                        label: const Text('+ Add Child'),
+                      ),
+                    ],
+                  ),
                 ],
+              ),
+              const SizedBox(height: 16),
+              // Family Subscription & Safety Status Banner
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.verified_user_rounded,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Family Learning Account Active • Subscribed to National Curriculum Tracks',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      decoration: BoxDecoration(
+                        color: Colors.green.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: const Text(
+                        'Active',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 11,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 24),
               overviewAsync.when(

@@ -43,6 +43,11 @@ import '../../features/learning/learning_screens.dart';
 import '../../features/learning/parent_dashboard_screen.dart';
 import '../../features/learning/resource_library_screen.dart';
 import '../../features/learning/revision_centre_screen.dart';
+import '../../features/onboarding/screens/onboarding_add_child_screen.dart';
+import '../../features/onboarding/screens/onboarding_confirm_screen.dart';
+import '../../features/onboarding/screens/onboarding_country_screen.dart';
+import '../../features/onboarding/screens/onboarding_otp_screen.dart';
+import '../../features/onboarding/screens/onboarding_register_screen.dart';
 import '../../features/social/screens/community_feed_screen.dart';
 import '../../features/social/screens/communities_hub_screen.dart';
 import '../../features/social/screens/challenges_and_leaderboard_screen.dart';
@@ -56,6 +61,11 @@ abstract final class AppRoutes {
   static const home = '/home';
   static const about = '/about';
   static const country = '/country';
+  static const onboardingCountry = '/onboarding/country';
+  static const onboardingRegister = '/onboarding/register';
+  static const onboardingVerifyOtp = '/onboarding/verify-otp';
+  static const onboardingAddChild = '/onboarding/add-child';
+  static const onboardingConfirm = '/onboarding/confirm';
   static const help = '/help';
   static const signIn = '/sign-in';
   static const signUp = '/register';
@@ -175,8 +185,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           path.startsWith('${AppRoutes.admin}/') ||
           path == AppRoutes.learn ||
           path.startsWith('${AppRoutes.learn}/') ||
+          path == AppRoutes.onboardingAddChild ||
+          path == AppRoutes.onboardingConfirm ||
           path == AppRoutes.examUpload;
       if (isProtected && !isSignedIn) {
+        if (path == AppRoutes.onboardingAddChild ||
+            path == AppRoutes.onboardingConfirm) {
+          return AppRoutes.onboardingRegister;
+        }
         return Uri(
           path: AppRoutes.signIn,
           queryParameters: {'next': path},
@@ -225,6 +241,28 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: AppRoutes.country,
             builder: (context, state) => const SelectCountryScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.onboardingCountry,
+            builder: (context, state) => const OnboardingCountryScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.onboardingRegister,
+            builder: (context, state) => const OnboardingRegisterScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.onboardingVerifyOtp,
+            builder: (context, state) => const OnboardingOtpScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.onboardingAddChild,
+            builder: (context, state) => OnboardingAddChildScreen(
+              editingChildId: state.uri.queryParameters['editId'],
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.onboardingConfirm,
+            builder: (context, state) => const OnboardingConfirmScreen(),
           ),
           GoRoute(
             path: AppRoutes.help,
