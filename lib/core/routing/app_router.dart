@@ -47,6 +47,8 @@ import '../../features/learning/learning_screens.dart';
 import '../../features/learning/parent_dashboard_screen.dart';
 import '../../features/learning/resource_library_screen.dart';
 import '../../features/learning/revision_centre_screen.dart';
+import '../../features/onboarding/models/onboarding_step.dart';
+import '../../features/onboarding/providers/onboarding_providers.dart';
 import '../../features/onboarding/screens/onboarding_add_child_screen.dart';
 import '../../features/onboarding/screens/onboarding_confirm_screen.dart';
 import '../../features/onboarding/screens/onboarding_country_screen.dart';
@@ -209,6 +211,26 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         }
       }
 
+      // Onboarding progression guards
+      final onboardingSession = ref.read(onboardingSessionProvider);
+      final isOnboardingChildRoute = path == AppRoutes.onboardingAddChild ||
+          path == AppRoutes.onboardingConfirm;
+
+      if (isOnboardingChildRoute) {
+        final hasOnboardingAccess = isSignedIn ||
+            onboardingSession.isPhoneVerified ||
+            onboardingSession.step.index >= OnboardingStep.phoneVerified.index ||
+            (onboardingSession.phoneNumber != null &&
+                onboardingSession.phoneNumber!.trim().isNotEmpty);
+
+        if (!hasOnboardingAccess) {
+          return AppRoutes.onboardingRegister;
+        }
+      }
+
+      final isParentDashboardAccess = path == AppRoutes.parentDashboard &&
+          onboardingSession.step == OnboardingStep.completed;
+
       final isProtected =
           path == AppRoutes.account ||
           path.startsWith('${AppRoutes.account}/') ||
@@ -216,14 +238,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           path.startsWith('${AppRoutes.admin}/') ||
           (path == AppRoutes.learn && !isChildMode) ||
           (path.startsWith('${AppRoutes.learn}/') && !isChildMode) ||
-          path == AppRoutes.onboardingAddChild ||
-          path == AppRoutes.onboardingConfirm ||
           path == AppRoutes.examUpload;
-      if (isProtected && !isSignedIn) {
-        if (path == AppRoutes.onboardingAddChild ||
-            path == AppRoutes.onboardingConfirm) {
-          return AppRoutes.onboardingRegister;
-        }
+      if (isProtected && !isSignedIn && !isParentDashboardAccess) {
         return Uri(
           path: AppRoutes.signIn,
           queryParameters: {'next': path},

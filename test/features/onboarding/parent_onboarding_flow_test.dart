@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:learntz/app.dart';
 import 'package:learntz/core/config/country_configuration.dart';
+import 'package:learntz/core/routing/app_router.dart';
 import 'package:learntz/features/onboarding/models/child_draft.dart';
 import 'package:learntz/features/onboarding/models/onboarding_session.dart';
 import 'package:learntz/features/onboarding/models/onboarding_step.dart';
@@ -353,6 +355,38 @@ void main() {
       expect(find.text('Standard 5 • Primary Education'), findsOneWidget);
       expect(find.text('Kisutu Primary School'), findsOneWidget);
       expect(find.text('CONFIRM AND CONTINUE'), findsOneWidget);
+
+      container.dispose();
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    testWidgets('GoRouter allows transition from OTP to Add Child when phone is verified', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(800, 1000);
+      tester.view.devicePixelRatio = 1;
+
+      final container = ProviderContainer();
+      container.read(onboardingSessionProvider.notifier).setParentRegistration(
+            fullName: 'David Mwangi',
+            phoneNumber: '+255712345678',
+          );
+      container.read(onboardingSessionProvider.notifier).markPhoneVerified();
+
+      await tester.pumpWidget(
+        UncontrolledProviderScope(
+          container: container,
+          child: const LearnTzApp(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      container.read(appRouterProvider).go(AppRoutes.onboardingAddChild);
+      await tester.pumpAndSettle();
+
+      expect(find.text("LET'S ADD YOUR FIRST CHILD"), findsOneWidget);
+      expect(find.text('Create Parent Account'), findsNothing);
 
       container.dispose();
       tester.view.resetPhysicalSize();
