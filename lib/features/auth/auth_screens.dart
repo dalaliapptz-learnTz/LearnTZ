@@ -57,11 +57,11 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     }
   }
 
-  Future<void> _submitSuperAdminDemo() async {
+  Future<void> _submitDemoLogin(String email, String password) async {
     final repository = ref.read(authRepositoryProvider);
     if (repository == null) return;
-    _email.text = 'superadmin@learntz.com';
-    _password.text = 'SuperAdmin1234!';
+    _email.text = email;
+    _password.text = password;
     setState(() {
       _isSubmitting = true;
       _error = null;
@@ -71,12 +71,16 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         email: _email.text,
         password: _password.text,
       );
-      if (mounted) context.go(widget.next ?? AppRoutes.admin);
+      if (mounted) context.go(_safeNextPath(widget.next));
     } on AuthException catch (error) {
       if (mounted) setState(() => _error = error.message);
     } finally {
       if (mounted) setState(() => _isSubmitting = false);
     }
+  }
+
+  Future<void> _submitSuperAdminDemo() async {
+    await _submitDemoLogin('superadmin@demo.learntz.test', 'AdminDemo1234!');
   }
 
   @override
@@ -122,15 +126,31 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           label: l10n.signInAction,
           onPressed: _isSubmitting ? null : _submit,
         ),
-        if (!kReleaseMode &&
-            ref.watch(appEnvironmentProvider).name ==
-                AppEnvironmentName.development) ...[
+        if (ref.watch(appEnvironmentProvider).name ==
+            AppEnvironmentName.development) ...[
           const SizedBox(height: 12),
-          OutlinedButton.icon(
-            key: const Key('super-admin-demo-sign-in'),
-            icon: const Icon(Icons.admin_panel_settings_outlined),
-            label: const Text('Super Admin Demo Sign-In'),
-            onPressed: _isSubmitting ? null : _submitSuperAdminDemo,
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              OutlinedButton.icon(
+                key: const Key('super-admin-demo-sign-in'),
+                icon: const Icon(Icons.admin_panel_settings_outlined, size: 16),
+                label: const Text('Super Admin Demo'),
+                onPressed: _isSubmitting ? null : _submitSuperAdminDemo,
+              ),
+              OutlinedButton.icon(
+                key: const Key('curriculum-admin-demo-sign-in'),
+                icon: const Icon(Icons.menu_book, size: 16),
+                label: const Text('Curriculum Admin Demo'),
+                onPressed: _isSubmitting
+                    ? null
+                    : () => _submitDemoLogin(
+                          'admin.content@demo.learntz.test',
+                          'AdminDemo1234!',
+                        ),
+              ),
+            ],
           ),
         ],
         TextButton(
