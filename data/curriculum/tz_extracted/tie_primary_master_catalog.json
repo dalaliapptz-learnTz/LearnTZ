@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "en-1724244732-Curriculum for Primary Education.pdf",
+    "title": "Curriculum for Primary Education Standard I - VI",
+    "swahili_title": "Mtaala wa Elimu ya Msingi Darasa la I - VI",
+    "subject_name": "General Curriculum Framework",
+    "subject_code": "TZ-TIE-PRI-FRAMEWORK",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-852-1",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "b5298c4153dbe9f9d22fb21740a7a666405cb2a2c875db1a506379aac834a447",
+    "size_bytes": 1171410,
+    "page_count": 34,
+    "standards_covered": [
+      "Standard I",
+      "Standard II",
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "en-1727083562-PRIMARY EDUCATION SYLLABUS STD 1-II FINAL.pdf",
+    "title": "Primary Education Syllabus Standard I – II",
+    "swahili_title": "Muhtasari wa Elimu ya Msingi Darasa la I – II",
+    "subject_name": "Foundational Learning (3Rs, Health, Arts)",
+    "subject_code": "TZ-TIE-PRI-STD1-2",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-837-8",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "34a99e256d89fd117f951223a78f4a13afaf15e630299f7cb5c250b09157a8b1",
+    "size_bytes": 651402,
+    "page_count": 42,
+    "standards_covered": [
+      "Standard I",
+      "Standard II"
+    ]
+  },
+  {
+    "filename": "en-1727166774-GEOGRAPHY STANDARD III-VI .pdf",
+    "title": "Geography and the Environment Syllabus for Primary Education Standard III – VI",
+    "swahili_title": "Muhtasari wa Jiografia na Mazingira Elimu ya Msingi Darasa la III – VI",
+    "subject_name": "Geography and Environment",
+    "subject_code": "TZ-TIE-PRI-GEO",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-859-0",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "fe373aee700908a968ebad4dfc365a7141891c260dfc828eedbf882a75a3489d",
+    "size_bytes": 704729,
+    "page_count": 37,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "en-1727169918-SYLLABUS FOR MATHEMATICS PRIMARY EDUCATION.pdf",
+    "title": "Mathematics Syllabus for Primary School Education Standard III-VI",
+    "swahili_title": "Muhtasari wa Somo la Hisabati Elimu ya Msingi Darasa la III-VI",
+    "subject_name": "Mathematics",
+    "subject_code": "TZ-TIE-PRI-MATH",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-858-3",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "baef25143a8133b1a435854134f0971133585bb8674d873ba99b83826a0e6eb8",
+    "size_bytes": 826615,
+    "page_count": 40,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "en-1727175605-Science Syllabus For Primary Education Standard III - VI.pdf",
+    "title": "Science Syllabus for Primary Education Standard III─VI",
+    "swahili_title": "Muhtasari wa Sayansi na Teknolojia Elimu ya Msingi Darasa la III─VI",
+    "subject_name": "Science and Technology",
+    "subject_code": "TZ-TIE-PRI-SCI",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-860-6",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "f83ea3623f244c0505b6df390a797db9b014d0449ea99172d5622d1ab95f6157",
+    "size_bytes": 398091,
+    "page_count": 49,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "en-1727176628-SPORT and Arts Primary Education Syllabus III -  VI.pdf",
+    "title": "Arts and Sports Syllabus for Primary Education Standard III─VI",
+    "swahili_title": "Muhtasari wa Sanaa na Michezo Elimu ya Msingi Darasa la III─VI",
+    "subject_name": "Arts and Sports",
+    "subject_code": "TZ-TIE-PRI-ARTS",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-857-6",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "49aa2159d9801f2fc597befb79f73ed3f528b00b25bf9106ae4f718ec9fc2011",
+    "size_bytes": 1017452,
+    "page_count": 39,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "sw-1727168466-ENGLISH Syllabus III-VI FINAL.pdf",
+    "title": "English Language Syllabus for Primary Education Standard III─VI",
+    "swahili_title": "Muhtasari wa Lugha ya Kiingereza Elimu ya Msingi Darasa la III─VI",
+    "subject_name": "English Language",
+    "subject_code": "TZ-TIE-PRI-ENG",
+    "classification": "compulsory",
+    "language": "en",
+    "isbn": "978-9987-09-726-5",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "ae6b2f5d28b60bb77bd3bb2d7816535bacb671934cca4660705cfa937f9aacd2",
+    "size_bytes": 1113809,
+    "page_count": 64,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "sw-1727176969-MUHTASARI WA LUGHA YA KICHINA ELIMU YA MSINGI III - VI.pdf",
+    "title": "Muhtasari wa Lugha ya Kichina Elimu ya Msingi Darasa la III–VI",
+    "swahili_title": "Muhtasari wa Lugha ya Kichina Elimu ya Msingi Darasa la III–VI",
+    "subject_name": "Chinese Language",
+    "subject_code": "TZ-TIE-PRI-CHIN",
+    "classification": "elective",
+    "language": "sw",
+    "isbn": "978-9987-09-844-6",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "323905446a4d04fabc32e05aeaa3bf97616afbde37b12c6c0d1aec7193e8f21d",
+    "size_bytes": 745977,
+    "page_count": 78,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "sw-1727177907-MUHTASARI SOMO KISWAHILI DRS III - VI.pdf",
+    "title": "Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI",
+    "swahili_title": "Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI",
+    "subject_name": "Kiswahili",
+    "subject_code": "TZ-TIE-PRI-KISW",
+    "classification": "compulsory",
+    "language": "sw",
+    "isbn": "978-9987-09-782-1",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b",
+    "size_bytes": 944426,
+    "page_count": 76,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  },
+  {
+    "filename": "sw-1788263951-KAMISHINA Muhtasari historia ya Tanzania na Maadili A.pdf",
+    "title": "Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi Darasa la III-VI",
+    "swahili_title": "Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi Darasa la III-VI",
+    "subject_name": "Historia ya Tanzania na Maadili",
+    "subject_code": "TZ-TIE-PRI-HIST",
+    "classification": "compulsory",
+    "language": "sw",
+    "isbn": "978-9987-09-795-1",
+    "publication_year": 2023,
+    "publisher": "Tanzania Institute of Education (TIE)",
+    "sha256": "4ea0df6a92752fbba00dbb9aa2f9cacd4f66733c8471d650bb3d99e4c83c70e3",
+    "size_bytes": 843958,
+    "page_count": 52,
+    "standards_covered": [
+      "Standard III",
+      "Standard IV",
+      "Standard V",
+      "Standard VI"
+    ]
+  }
+]

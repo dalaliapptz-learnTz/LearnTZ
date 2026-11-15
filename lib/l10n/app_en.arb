@@ -789,6 +789,58 @@
   "@topicsLabel": {},
   "lessonsLabel": "lessons",
   "@lessonsLabel": {},
+  "subtopicsLabel": "subtopics",
+  "@subtopicsLabel": {},
+  "periodCountLabel": "{count} periods",
+  "@periodCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalPeriodsLabel": "{count} total periods",
+  "@totalPeriodsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "competencyCodeLabel": "Competency Code",
+  "@competencyCodeLabel": {},
+  "assessmentCriteriaLabel": "Assessment Criteria",
+  "@assessmentCriteriaLabel": {},
+  "learningOutcomesLabel": "Learning Outcomes & Specific Competences",
+  "@learningOutcomesLabel": {},
+  "sourcePageLabel": "Page {page}",
+  "@sourcePageLabel": {
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "classificationCompulsory": "Compulsory",
+  "@classificationCompulsory": {},
+  "classificationElective": "Elective",
+  "@classificationElective": {},
+  "officialCurriculumBadge": "Official TIE 2023 Curriculum",
+  "@officialCurriculumBadge": {},
+  "syllabusReferenceLabel": "Syllabus Reference",
+  "@syllabusReferenceLabel": {},
+  "allSubjectsFilter": "All Subjects",
+  "@allSubjectsFilter": {},
+  "compulsoryFilter": "Compulsory Only",
+  "@compulsoryFilter": {},
+  "electiveFilter": "Electives Only",
+  "@electiveFilter": {},
+  "searchCurriculumPlaceholder": "Search subjects, competencies, or topics...",
+  "@searchCurriculumPlaceholder": {},
+  "viewOfficialSyllabusAction": "View Syllabus Info",
+  "@viewOfficialSyllabusAction": {},
+  "officialDocumentDetailsTitle": "Official TIE Syllabus Details",
+  "@officialDocumentDetailsTitle": {},
   "studyLessonAction": "Study",
   "@studyLessonAction": {},
   "parentDashboardSubtitle": "Monitor your children's learning activities, mastery progress, and subject performance.",

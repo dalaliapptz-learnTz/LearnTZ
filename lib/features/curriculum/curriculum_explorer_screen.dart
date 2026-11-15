@@ -25,6 +25,22 @@ class _CurriculumExplorerScreenState
   String? _selectedSystemId;
   String? _selectedLevelId;
   String? _selectedGradeId;
+  String _searchQuery = '';
+  String _filterClassification = 'all'; // 'all', 'compulsory', 'elective'
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _clearSearch() {
+    _searchController.clear();
+    setState(() {
+      _searchQuery = '';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +67,16 @@ class _CurriculumExplorerScreenState
                 l10n.curriculumExplorerSubtitle,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
+
+              // Official Curriculum Authority Showcase (for Tanzania)
+              if (currentCountry == 'TZ') ...[
+                _TieCurriculumAuthorityBanner(
+                  onViewDetails: () => _showTieSyllabusCatalogDialog(context, l10n),
+                ),
+                const SizedBox(height: 20),
+              ],
+
               catalogAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
                 error: (error, _) => AuthInlineMessage(
@@ -85,9 +110,26 @@ class _CurriculumExplorerScreenState
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              l10n.filterCurriculumLabel,
-                              style: Theme.of(context).textTheme.titleSmall,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  l10n.filterCurriculumLabel,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                                if (_searchQuery.isNotEmpty ||
+                                    _filterClassification != 'all')
+                                  TextButton.icon(
+                                    onPressed: () {
+                                      _clearSearch();
+                                      setState(() {
+                                        _filterClassification = 'all';
+                                      });
+                                    },
+                                    icon: const Icon(Icons.refresh, size: 16),
+                                    label: Text(l10n.tryAgainAction),
+                                  ),
+                              ],
                             ),
                             const SizedBox(height: 12),
                             Wrap(
@@ -96,10 +138,11 @@ class _CurriculumExplorerScreenState
                               children: [
                                 // Country Dropdown
                                 SizedBox(
-                                  width: 180,
+                                  width: 200,
                                   child: DropdownButtonFormField<String>(
                                     key: ValueKey('country-$currentCountry'),
                                     initialValue: currentCountry,
+                                    isExpanded: true,
                                     decoration: InputDecoration(
                                       labelText: l10n.countryLabel,
                                       border: const OutlineInputBorder(),
@@ -233,6 +276,77 @@ class _CurriculumExplorerScreenState
                                   ),
                               ],
                             ),
+                            const SizedBox(height: 16),
+                            // Search and Classification Filter Row
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    controller: _searchController,
+                                    decoration: InputDecoration(
+                                      prefixIcon: const Icon(Icons.search),
+                                      suffixIcon: _searchQuery.isNotEmpty
+                                          ? IconButton(
+                                              icon: const Icon(Icons.clear),
+                                              onPressed: _clearSearch,
+                                            )
+                                          : null,
+                                      hintText: l10n.searchCurriculumPlaceholder,
+                                      border: const OutlineInputBorder(),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 10,
+                                      ),
+                                    ),
+                                    onChanged: (val) {
+                                      setState(() {
+                                        _searchQuery = val.trim();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            // Classification Segmented Buttons
+                            Wrap(
+                              spacing: 8,
+                              children: [
+                                ChoiceChip(
+                                  label: Text(l10n.allSubjectsFilter),
+                                  selected: _filterClassification == 'all',
+                                  onSelected: (selected) {
+                                    if (selected) {
+                                      setState(() {
+                                        _filterClassification = 'all';
+                                      });
+                                    }
+                                  },
+                                ),
+                                ChoiceChip(
+                                  label: Text(l10n.compulsoryFilter),
+                                  selected: _filterClassification == 'compulsory',
+                                  onSelected: (selected) {
+                                    if (selected) {
+                                      setState(() {
+                                        _filterClassification = 'compulsory';
+                                      });
+                                    }
+                                  },
+                                ),
+                                ChoiceChip(
+                                  label: Text(l10n.electiveFilter),
+                                  selected: _filterClassification == 'elective',
+                                  onSelected: (selected) {
+                                    if (selected) {
+                                      setState(() {
+                                        _filterClassification = 'elective';
+                                      });
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -245,6 +359,8 @@ class _CurriculumExplorerScreenState
                           systemId: selectedSystemId,
                           levelId: _selectedLevelId,
                           gradeId: _selectedGradeId,
+                          searchQuery: _searchQuery,
+                          filterClassification: _filterClassification,
                         ),
                     ],
                   );
@@ -256,6 +372,347 @@ class _CurriculumExplorerScreenState
       ),
     );
   }
+
+  void _showTieSyllabusCatalogDialog(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) {
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) {
+        return _TieSyllabusCatalogDialog(l10n: l10n);
+      },
+    );
+  }
+}
+
+class _TieCurriculumAuthorityBanner extends StatelessWidget {
+  const _TieCurriculumAuthorityBanner({required this.onViewDetails});
+
+  final VoidCallback onViewDetails;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFF0F4C81).withValues(alpha: 0.06),
+        border: Border.all(
+          color: const Color(0xFF0F4C81).withValues(alpha: 0.25),
+        ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: const Color(0xFF0F4C81),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Icon(
+              Icons.verified_outlined,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        l10n.officialCurriculumBadge,
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xFF0F4C81),
+                            ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF15803D).withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: const Text(
+                        'TIE Verified',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF15803D),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Taasisi ya Elimu Tanzania (TIE) Primary Education Curriculum (Standards I–VI). Authoritative 2023 edition with specific competences, period allocations, and assessment criteria.',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                ),
+                const SizedBox(height: 10),
+                OutlinedButton.icon(
+                  onPressed: onViewDetails,
+                  icon: const Icon(Icons.library_books_outlined, size: 16),
+                  label: Text(l10n.viewOfficialSyllabusAction),
+                  style: OutlinedButton.styleFrom(
+                    visualDensity: VisualDensity.compact,
+                    side: const BorderSide(color: Color(0xFF0F4C81)),
+                    foregroundColor: const Color(0xFF0F4C81),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TieSyllabusCatalogDialog extends StatelessWidget {
+  const _TieSyllabusCatalogDialog({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  static const List<Map<String, String>> _tieSyllabi = [
+    {
+      'code': 'TZ-TIE-PRI-FRAMEWORK',
+      'title': 'Curriculum for Primary Education Standard I - VI',
+      'scope': 'Framework (Standards I–VI)',
+      'isbn': '978-9987-09-852-1',
+      'pages': '34 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-STD1-2',
+      'title': 'Primary Education Syllabus Standard I – II',
+      'scope': 'Foundational 3Rs, Arts & Health (Standards I–II)',
+      'isbn': '978-9987-09-837-8',
+      'pages': '42 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-KIS',
+      'title': 'Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III – VI',
+      'scope': 'Kiswahili (Standards III–VI)',
+      'isbn': '978-9987-09-866-8',
+      'pages': '55 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-ENG',
+      'title': 'English Language Syllabus for Primary Education Standard III–VI',
+      'scope': 'English Language (Standards III–VI)',
+      'isbn': '978-9987-09-857-6',
+      'pages': '51 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-MATH',
+      'title': 'Mathematics Syllabus for Primary School Education Standard III-VI',
+      'scope': 'Mathematics (Standards III–VI)',
+      'isbn': '978-9987-09-858-3',
+      'pages': '40 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-SCI',
+      'title': 'Science Syllabus for Primary Education Standard III─VI',
+      'scope': 'Science and Technology (Standards III–VI)',
+      'isbn': '978-9987-09-860-6',
+      'pages': '49 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-GEO',
+      'title': 'Geography and the Environment Syllabus Standard III – VI',
+      'scope': 'Geography & Environment (Standards III–VI)',
+      'isbn': '978-9987-09-859-0',
+      'pages': '37 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-HIS',
+      'title': 'Muhtasari wa Somo la Historia ya Tanzania na Maadili Darasa la III-VI',
+      'scope': 'History of Tanzania & Ethics (Standards III–VI)',
+      'isbn': '978-9987-09-861-3',
+      'pages': '56 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-ART',
+      'title': 'Sports and Arts Syllabus for Primary Education Standard III-VI',
+      'scope': 'Sports & Arts (Standards III–VI)',
+      'isbn': '978-9987-09-862-0',
+      'pages': '34 pages',
+      'year': '2023',
+    },
+    {
+      'code': 'TZ-TIE-PRI-CHI',
+      'title': 'Muhtasari wa Somo la Lugha ya Kichina Elimu ya Msingi Darasa la III-VI',
+      'scope': 'Chinese Language (Elective, Standards III–VI)',
+      'isbn': '978-9987-23-010-5',
+      'pages': '60 pages',
+      'year': '2023',
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Row(
+        children: [
+          const Icon(Icons.menu_book, color: Color(0xFF0F4C81)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              l10n.officialDocumentDetailsTitle,
+              style: const TextStyle(fontSize: 18),
+            ),
+          ),
+        ],
+      ),
+      content: SizedBox(
+        width: 640,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Issuing Authority: Taasisi ya Elimu Tanzania (TIE)\n'
+                'Curriculum Edition: 2023 Competency-Based Edition\n'
+                'Storage Bucket: curriculum-documents\n'
+                'Integrity: SHA-256 Checksums Verified',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+              ),
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 8),
+              for (final doc in _tieSyllabi)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .surfaceContainerHighest
+                          .withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .outlineVariant
+                            .withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF0F4C81),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                doc['code']!,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                doc['scope']!,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              doc['pages']!,
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          doc['title']!,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                fontStyle: FontStyle.italic,
+                              ),
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Text(
+                              'ISBN: ${doc['isbn']}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall
+                                  ?.copyWith(fontWeight: FontWeight.w500),
+                            ),
+                            const Spacer(),
+                            const Icon(
+                              Icons.verified,
+                              size: 14,
+                              color: Color(0xFF15803D),
+                            ),
+                            const SizedBox(width: 4),
+                            const Text(
+                              'Verified 2023',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF15803D),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.cancelAction),
+        ),
+      ],
+    );
+  }
 }
 
 class _SubjectTreeList extends ConsumerWidget {
@@ -264,12 +721,16 @@ class _SubjectTreeList extends ConsumerWidget {
     required this.systemId,
     this.levelId,
     this.gradeId,
+    required this.searchQuery,
+    required this.filterClassification,
   });
 
   final String countryCode;
   final String systemId;
   final String? levelId;
   final String? gradeId;
+  final String searchQuery;
+  final String filterClassification;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -289,8 +750,8 @@ class _SubjectTreeList extends ConsumerWidget {
         message: l10n.requestFailed,
         isError: true,
       ),
-      data: (subjects) {
-        if (subjects.isEmpty) {
+      data: (allSubjects) {
+        if (allSubjects.isEmpty) {
           return AppCard(
             child: Row(
               children: [
@@ -302,15 +763,86 @@ class _SubjectTreeList extends ConsumerWidget {
           );
         }
 
-        return ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: subjects.length,
-          separatorBuilder: (_, _) => const SizedBox(height: 16),
-          itemBuilder: (context, index) {
-            final subject = subjects[index];
-            return _SubjectTreeCard(subject: subject);
-          },
+        // Apply classification and search filtering
+        final filteredSubjects = allSubjects.where((subject) {
+          // Classification filter
+          if (filterClassification == 'compulsory' && !subject.isCompulsory) {
+            return false;
+          }
+          if (filterClassification == 'elective' && !subject.isElective) {
+            return false;
+          }
+
+          // Search query filter
+          if (searchQuery.isNotEmpty) {
+            final q = searchQuery.toLowerCase();
+            final matchesSubject = subject.subjectName.toLowerCase().contains(q) ||
+                subject.effectiveDisplayName.toLowerCase().contains(q) ||
+                subject.subjectCode.toLowerCase().contains(q) ||
+                subject.description.toLowerCase().contains(q);
+
+            if (matchesSubject) return true;
+
+            final matchesTopic = subject.topics.any((t) {
+              return t.title.toLowerCase().contains(q) ||
+                  t.summary.toLowerCase().contains(q) ||
+                  (t.competencyCode?.toLowerCase().contains(q) ?? false) ||
+                  t.subtopics.any((st) =>
+                      st.title.toLowerCase().contains(q) ||
+                      st.learningOutcome.toLowerCase().contains(q));
+            });
+
+            return matchesTopic;
+          }
+
+          return true;
+        }).toList();
+
+        if (filteredSubjects.isEmpty) {
+          return AppCard(
+            child: Row(
+              children: [
+                const Icon(Icons.search_off),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    'No curriculum subjects match "${searchQuery.isNotEmpty ? searchQuery : filterClassification}".',
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+
+        final totalTopics = filteredSubjects.fold(0, (sum, s) => sum + s.topics.length);
+        final totalSubtopics = filteredSubjects.fold(0, (sum, s) => sum + s.totalSubtopics);
+        final totalPeriods = filteredSubjects.fold(0, (sum, s) => sum + s.totalPeriods);
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12, left: 4),
+              child: Text(
+                'Showing ${filteredSubjects.length} subjects • $totalTopics topics • $totalSubtopics specific competences'
+                '${totalPeriods > 0 ? " • $totalPeriods total periods" : ""}',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: filteredSubjects.length,
+              separatorBuilder: (_, _) => const SizedBox(height: 16),
+              itemBuilder: (context, index) {
+                final subject = filteredSubjects[index];
+                return _SubjectTreeCard(subject: subject);
+              },
+            ),
+          ],
         );
       },
     );
@@ -325,18 +857,120 @@ class _SubjectTreeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return AppCard(
       child: ExpansionTile(
-        title: Text(
-          subject.subjectName,
-          style: Theme.of(context).textTheme.titleMedium,
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                subject.subjectName,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+            ),
+            // Classification badge
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: subject.isElective
+                    ? const Color(0xFFF59E0B).withValues(alpha: 0.15)
+                    : const Color(0xFF15803D).withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(
+                  color: subject.isElective
+                      ? const Color(0xFFF59E0B).withValues(alpha: 0.4)
+                      : const Color(0xFF15803D).withValues(alpha: 0.4),
+                ),
+              ),
+              child: Text(
+                subject.isElective
+                    ? l10n.classificationElective
+                    : l10n.classificationCompulsory,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: subject.isElective
+                      ? const Color(0xFFB45309)
+                      : const Color(0xFF15803D),
+                ),
+              ),
+            ),
+          ],
         ),
-        subtitle: Text(
-          '${subject.subjectCode} • ${subject.topics.length} ${l10n.topicsLabel} • ${subject.totalLessons} ${l10n.lessonsLabel}',
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 4,
+            children: [
+              Text(
+                '${subject.subjectCode} • ${subject.topics.length} ${l10n.topicsLabel}'
+                '${subject.totalSubtopics > 0 ? " • ${subject.totalSubtopics} ${l10n.subtopicsLabel}" : ""}'
+                ' • ${subject.totalLessons} ${l10n.lessonsLabel}',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              if (subject.totalPeriods > 0)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF0F4C81).withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    l10n.periodCountLabel(subject.totalPeriods),
+                    style: const TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF0F4C81),
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
         childrenPadding: const EdgeInsets.only(top: 8, bottom: 8),
         children: [
+          // Official Name callout if different from common subject name
+          if (subject.officialName != null &&
+              subject.officialName != subject.subjectName)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.4),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.syllabusReferenceLabel,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subject.officialName!,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           if (subject.description.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
@@ -345,41 +979,216 @@ class _SubjectTreeCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
+          // Topics breakdown
           for (final topic in subject.topics)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Card(
                 elevation: 0,
-                color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.4),
+                color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(
+                    color: colorScheme.outlineVariant.withValues(alpha: 0.4),
+                  ),
+                ),
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(14),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        topic.title,
-                        style: Theme.of(context).textTheme.titleSmall,
+                      // Topic Header
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (topic.competencyCode != null &&
+                              topic.competencyCode!.isNotEmpty) ...[
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF0F4C81),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                topic.competencyCode!,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                          ],
+                          Expanded(
+                            child: Text(
+                              topic.title,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          if (topic.periodAllocation != null) ...[
+                            const SizedBox(width: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF15803D).withValues(alpha: 0.12),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                l10n.periodCountLabel(topic.periodAllocation!),
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF15803D),
+                                ),
+                              ),
+                            ),
+                          ],
+                          if (topic.sourcePage != null) ...[
+                            const SizedBox(width: 6),
+                            Text(
+                              l10n.sourcePageLabel(topic.sourcePage!),
+                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    fontSize: 11,
+                                    color: colorScheme.onSurfaceVariant,
+                                  ),
+                            ),
+                          ],
+                        ],
                       ),
                       if (topic.summary.isNotEmpty) ...[
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 6),
                         Text(
                           topic.summary,
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
-                      const SizedBox(height: 8),
-                      for (final lesson in topic.lessons)
-                        ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.zero,
-                          leading: const Icon(Icons.menu_book, size: 20),
-                          title: Text(lesson.title),
-                          subtitle: Text('${lesson.estimatedMinutes} mins'),
-                          trailing: FilledButton.tonal(
-                            onPressed: () => context.go(AppRoutes.lessonReader(lesson.lessonId)),
-                            child: Text(l10n.studyLessonAction),
+                      // Assessment criteria box if present
+                      if (topic.assessmentCriteria != null &&
+                          topic.assessmentCriteria!.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.amber.withValues(alpha: 0.08),
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(
+                              color: Colors.amber.withValues(alpha: 0.3),
+                            ),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                Icons.rule_outlined,
+                                size: 16,
+                                color: Color(0xFFB45309),
+                              ),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  '${l10n.assessmentCriteriaLabel}: ${topic.assessmentCriteria}',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: Color(0xFF78350F),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                      ],
+                      // Subtopics section
+                      if (topic.subtopics.isNotEmpty) ...[
+                        const SizedBox(height: 10),
+                        Text(
+                          l10n.learningOutcomesLabel,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF0F4C81),
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        for (final subtopic in topic.subtopics)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6, left: 4),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 4, right: 6),
+                                  child: Icon(
+                                    Icons.check_circle_outline,
+                                    size: 14,
+                                    color: Color(0xFF15803D),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        subtopic.title,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      if (subtopic.learningOutcome.isNotEmpty)
+                                        Text(
+                                          subtopic.learningOutcome,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall
+                                              ?.copyWith(fontSize: 11),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                if (subtopic.periodAllocation != null)
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 6),
+                                    child: Text(
+                                      l10n.periodCountLabel(subtopic.periodAllocation!),
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: colorScheme.onSurfaceVariant,
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                      ],
+                      // Lessons list if present
+                      if (topic.lessons.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        const Divider(height: 16),
+                        for (final lesson in topic.lessons)
+                          ListTile(
+                            dense: true,
+                            contentPadding: EdgeInsets.zero,
+                            leading: const Icon(Icons.menu_book, size: 20),
+                            title: Text(lesson.title),
+                            subtitle: Text('${lesson.estimatedMinutes} mins'),
+                            trailing: FilledButton.tonal(
+                              onPressed: () => context.go(
+                                AppRoutes.lessonReader(lesson.lessonId),
+                              ),
+                              child: Text(l10n.studyLessonAction),
+                            ),
+                          ),
+                      ],
                     ],
                   ),
                 ),

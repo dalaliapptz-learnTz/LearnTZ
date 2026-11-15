@@ -1,0 +1,570 @@
+{
+  "filename": "en-1724244732-Curriculum for Primary Education.pdf",
+  "title": "Curriculum for Primary Education Standard I - VI",
+  "swahili_title": "Mtaala wa Elimu ya Msingi Darasa la I - VI",
+  "subject_name": "General Curriculum Framework",
+  "subject_code": "TZ-TIE-PRI-FRAMEWORK",
+  "classification": "compulsory",
+  "language": "en",
+  "isbn": "978-9987-09-852-1",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard I",
+    "Standard II",
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "b5298c4153dbe9f9d22fb21740a7a666405cb2a2c875db1a506379aac834a447",
+  "file_size_bytes": 1171410,
+  "page_count": 34,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "CURRICULUM FOR PRIMARY EDUCATION\nSTANDARD I - VI\nTHE UNITED REPUBLIC OF TANZANIA\nMINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY\n",
+      "char_count": 127
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Tanzania Institute of Education 2023\nPublished 2023\nISBN 978-9987-09-852-1\nTanzania Institute of Education \nMikocheni Area\n132 Ali Hassan Mwinyi Road\nP. O. Box 35094 \n14112 Dar es Salaam\nMobile numbers:  +255 735 041 168 / 735 041 170 \nE-mail: director.general@tie.go.tz \nWebsite:   www.tie.go.tz \nThis document should be cited as Ministry of Education, Science and Technology. \n(2023). Curriculum for Primary Education, Standard I-VI . Tanzania Institute of \nEducation.\nAll rights reserved. No part of this curriculum may be reproduced, stored in any retrieval \nsystem or transmitted in any form or by any means, be it electronic, mechanical, \nphotocopying, recording or otherwise, without the prior written permission of the \nCommissioner for Education, Ministry of Education, Science and Technology.",
+      "char_count": 807
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nTable of Contents\nList of Tables ..........................................................................................................................iv\nAbbreviations and Acronyms ................................................................................................v\nAcknowledgements ............................................................................................................... vi\nPreface ......  ..........................................................................................................................viii\nSection One  .............................................................................................................................1\nIntroduction ............................................................................................................................1\n 1.1 Background  ......................................................................................................... 1\n 1.2 The Structure of the Primary Education ..............................................................1\nSection Two  .............................................................................................................................2\nVision, Objectives and General Competences .....................................................................2\n 2.1 Vision of Education in Tanzania  ........................................................................ 2 \n 2.2 Main Objectives of Education in Tanzania .........................................................2\n 2.3 Objectives of Primary Education Standard I and II ............................................3\n 2.4 Objectives of Primary Education Standard III to VI ...........................................3 \n 2.5 General Competences for Primary Education ..................................................... 4\n 2.5.1 General competences of Primary Education Standard I and II ...........................4\n 2.5.2 General competences of Primary Education Standard III to VI ..........................4\nSection Three ..........................................................................................................................5\nCurriculum Content .............................................................................................................. 5\n 3.1 Learning Areas and Main Competences for Standard I and II ............................ 5\n 3.2 Learning Areas and Subjects for Standard III to Standard VI .............................5\n\t 3.3\t Main\tand\tSpecific\tCompetences  .........................................................................6\n 3.3.1 Standard I and II ..................................................................................................6\n 3.3.2 Standard III to VI ................................................................................................ 7\nSection Four ..........................................................................................................................17\nTeaching and Learning ........................................................................................................17\n 4.1 Integration of Cross-cutting Issues ....................................................................17\n 4.2 Teaching and Learning Techniques ...................................................................17\n 4.3 Teaching and Learning Time .............................................................................17\n 4.4 Language of Instruction .................................................................................... 19\nSection Five ...........................................................................................................................20\nAssessment and Evaluation of Teaching and Learning ....................................................20\n 5.1 Types of Assessment ......................................................................................... 20\n 5.1.1 Placement assessment ....................................................................................... 20 \n 5.1.2 Diagnostic assessment .......................................................................................20\n 5.1.3 Formative assessment  .......................................................................................21\n 5.1.4 Continuous assessment ...................................................................................... 21 \n 5.1.5 Summative assessment  .....................................................................................21\n 5.2 Assessment Tools ..............................................................................................22\nSection Six  ...........................................................................................................................23\nCurriculum Implementation Resources............................................................................. 23\n 6.1 Human Resources .............................................................................................. 23\n 6.2 Material Resources ............................................................................................23\n 6.3 Furniture and Buildings .....................................................................................23\n 6.4 Time Resources .................................................................................................24\n 6.5 Financial Resources .......................................................................................... 24\n 6.6 Stakeholders Participation  ................................................................................24\n 6.7 Management, Monitoring and Evaluation of the Curriculum ...........................24\nBibliography .........................................................................................................................25",
+      "char_count": 5851
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nList of Tables\nTable 1: Learning Areas and Main Competences for Standard I and II ...................................5\nTable 2: Learning Areas and Subjects for Primary Education Standard III to VI ................... 6 \nTable\t3:\t\tMain\tand\tSpecific\tCompetences\tfor\tStandard\tI\tand\tII ............................................. 6\nTable\t4:\tSubjects,\tMain\tCompetences\tand\tSpecific\tCompetences\tfor\tStandard\tIII\tto\tVI ....... 7 \nTable 5: Allocation of Time and Periods for Standard I and II per Week ..............................18\nTable 6: Allocation of Time and Periods for Standard III to VI per Week ............................ 18",
+      "char_count": 635
+    },
+    {
+      "page_number": 5,
+      "text": "v\nAbbreviations and Acronyms\n3Rs  Reading, Writing and Arithmetic\nMoEST Ministry of Education, Science and Technology\nSADC Southern Africa Development Community\nTIE  Tanzania Institute of Education\nTSL  Tanzanian Sign Language",
+      "char_count": 226
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nAcknowledgements\nThe preparation of this Curriculum involved various stakeholders from both public and \nprivate sectors. The Tanzania Institute of Education (TIE) acknowledges and appreciates \nthe contributions of all participants who facilitated the development of the Primary \nEducation\tCurriculum\tStandard\tI\tto\tVI.\tTherefore,\tTIE\textends\tsincere\tthanks,\tfirst,\t\nto the National Technical Curriculum Review Committee, appointed by the Minister \nfor Education, Science, and Technology, Hon. Prof. Adolf Faustine Mkenda (MP). The \ncommittee comprised ten (10) members, led by Prof. Makenya Abraham Maboko as \nits chairman. The committee discharged its duties professionally to ensure that this \ncurriculum is timely prepared and meets expectations of the stakeholders on the quality \nof primary education.\nSecondly, thanks go to institutions, ministries, and various education stakeholders who \nprovided input on curriculum improvement. Some of these institutions, ministries, and \nstakeholders include the Parliament of the United Republic of Tanzania, the House of \nRepresentatives of Zanzibar, members of the Education Policy Review Committee, \nmembers of the Committee for Major Educational Reforms in Zanzibar, religious \nleaders,\t the\t Office\t of\t the\t Vice\tPresident-Union\t and\t Environment,\t the\t Office\t of\t the\t\nPresident-Regional Administration and Local Government, the Ministry of Education \nand V ocational Training of Zanzibar, the Ministry of Finance and Planning, the \nMinistry of Community Development, Gender, Children, and People with Disabilities, \nthe Zanzibar Education Authority, the Boards and Managements of the V ocational \nEducation and Training Authority in Tanzania, the management and trainers of the \nKarume Institute of Science and Technology, V ocational Training Authority-Zanzibar, \nthe Council for Technical Education and V ocational Training, the National Examination \nCouncil of Tanzania, the Tanzania Teachers’ Union, and the Council for Children and \nYouth Welfare in Tanzania. Additionally, other stakeholders include school committee \nmembers, primary and secondary school pupils, college and university pupils, primary \nand secondary school teachers, tutors, university lecturers, employers, graduates of \nvarious education levels, the Cooperative Societies Commission, the Tanzania Revenue \nAuthority, the Prevention and Combating of Corruption Bureau, the Tanzania Academy \nof Sciences, the Central Bank of Tanzania, and the International Food and Agriculture \nOrganization.\nThirdly, TIE is thankful to different organisations for sponsoring the preparation of \nthis Curriculum at different stages. These include the United Nations International \nChildren’s\tFund,\tthe\tUnited\tNations\tEducational,\tScientific\tand\tCultural\tOrganization,\t",
+      "char_count": 2783
+    },
+    {
+      "page_number": 7,
+      "text": "vii\nRoom to Read, Right to Play, Data Vision, Plan International, the Norwegian Refugee \nCouncil, the Christian Social Services Commission, Global Education Link, UWEZO, \nHill Packaging Ltd., the Teacher Education Support Project, the Madrasa Early \nChildhood Programme - Zanzibar, the Morale Foundation for Education and Training, \nand Educate! \nFourthly, TIE extends its sincere gratitude to all primary education experts from TIE \nand other institutions who participated in the preparation of this Curriculum. Last but \nnot least, TIE greatly appreciates the Ministry of Education, Science, and Technology \n(MoEST) for facilitating the writing, printing, and distribution of this Curriculum.\nDr Aneth A. Komba\nDirector General\nTanzania Institute of Education",
+      "char_count": 761
+    },
+    {
+      "page_number": 8,
+      "text": "viii\nPreface\nThe Primary Education Curriculum for Standard I  to VI has been developed in accordance \nwith the Education and Training Policy of 2014, the 2023 Edition, stakeholders’ \nfeedback collected and processed from 2021 to 2022, and the analysis of documents \nregarding experiences from other countries. Furthermore, this Curriculum adheres to \nthe educational vision, which aims to prepare an educated Tanzanian with knowledge, \nskills, and positive attitudes, valuing equality, justice, and lifelong education for \nsustainable national and international development. Also, this Curriculum observes the \nmain\tobjectives\tof\teducation,\tas\twell\tas\tthe\tspecific\tobjectives\tof\tprimary\teducation\tin\t\nTanzania. Based on these considerations, the Curriculum sets standards for the delivery \nof education at the level of Primary Education, prescribing the competences, knowledge, \nskills, and attitudes that pupils will develop, general competences, key learning areas, \nmain\tand\tspecific\tcompetences,\tas\twell\tas\tteaching\tand\tlearning\tmethods.\tAdditionally,\t\nthe\tCurriculum\thas\tspecified\tthe\tduration\tfor\timplementation,\tthe\tlanguage\tof\tteaching\t\nand learning, teaching and learning materials, and assessment approaches that will be \nused to develop the intended competences to the learners. Moreover, the Curriculum \nstates\tthe\tprofessional\tand\tacademic\tqualifications\texpected\tof\tteachers,\twho\tare\tthe\t\nmain implementers of the Curriculum at the school level.\nIn addition, to various policy statements and national, regional, and international \nguidelines, this Curriculum observes theories of human development and learning \nand the philosophy of Education for Self-Reliance which emphasises the provision \nof education that enables a Tanzanian who will be self-reliant in his or her daily life.  \nTherefore, its implementation will enable the physical, intellectual, emotional, and \nsocial development of the pupil. It is my expectation that through this Curriculum, \nteachers will empower pupils to acquire the intended competences. Furthermore, all \ncurriculum implementers and other stakeholders involved in primary education in the \ncountry will ensure that the education provided meets the accepted national, regional, \nand international quality standards.\nDr Lyabwene M. Mtahabwa\nCommissioner for Education",
+      "char_count": 2314
+    },
+    {
+      "page_number": 9,
+      "text": "1\nSection One\nIntroduction\n1.1 Background\nMany countries, including Tanzania, recognise that education is the right of every child, \nand thus have been making various efforts to ensure that quality education is provided \nfairly and equitably. These efforts are driven by understanding that education is a vital \ntool in the academic, moral, and talent development of every child. In line with the \nnation’s commitment to build a competitive economy country, the government aims \nto prepare a knowledge-based society with skills and positive attitude that can fully \nparticipate in developmental activities. In line with this commitment, Tanzania has \nagreed on the Protocol on Education and Training of the Southern Africa Development \nCommunity (SADC, 1997), which requires member states to provide compulsory \neducation for a minimum period of nine years.\nWith these statements in mind, Tanzania is committed to providing quality and inclusive \neducation that aligns with the Philosophy of Education for Self-Reliance, initiated in \n1967 by the Father of the Nation, Mwalimu Julius Kambarage Nyerere. Furthermore, the \nPrimary Education Curriculum is focused on developing the 21st Century skills, which \ninclude communication, collaboration, creativity, critical thinking, problem solving \nand digital literacy. Thus, this Curriculum has been developed to prepare Tanzanians \nwith knowledge, skills, ethics, patriotism and positive attitudes to contribute to national \ndevelopment, taking into account advancements in science and technology and the \ndemands of the 21st Century. The development of this Curriculum has involved various \nstages, including stakeholder consultations, review of relevant documents, and learning \nfrom the experiences of other countries in order to learn from best practices that can be \nimplemented in the Tanzanian context.\n1.2 The Structure of Primary Education\nAs stated by the Education and Training Policy of 2014, the 2023 Edition, Primary \nEducation\tis\tprovided\tfor\ta\tduration\tof\tsix\tyears\tand\twill\tconsist\tof\ttwo\tstages.\tThe\tfirst\t\nstage will be offered for a period of two years and will include Standard I and Standard \nII. The main objective of this stage is to develop competences in Reading, Writing, and \nArithmetic (3Rs). The second stage will span from Standard III to Standard VI and will \naim to enhance 3Rs skills along with other life skills. A pupil will begin Standard I at \nthe age of six and complete Standard VI at the age of eleven. ",
+      "char_count": 2491
+    },
+    {
+      "page_number": 10,
+      "text": "2\nSection Two\nVision, Objectives and General Competences\nThis Curriculum considers the vision, objectives, and competences that need to be \ndeveloped at each stage of primary education. \n2.1 Vision of Education in Tanzania  \nTo have an educated and knowledgeable Tanzanian with skills and positive attitudes, \nwho values equality, justice, and lifelong education in bringing about sustainable \nnational and international development.\n2.2 Main Objectives of Education in Tanzania\nThe main objectives of providing education in Tanzania are to enable every Tanzanian \nto:\n(a) Develop and improve his or her personality so that he or she values himself or \nherself\tand\tdevelops\tself-confidence;\n(b) Respect the culture, traditions and customs of Tanzania, cultural differences, \ndignity,\thuman\trights,\tattitudes\tand\tinclusive\tactions;\n(c) Advance knowledge and apply science and technology, creativity, critical \nthinking, innovation, cooperation, communication and positive attitudes for his \nor her development and for the sustainable development of the nation and the \nworld\tat\tlarge;\n(d) Understand and protect national virtues, including dignity, patriotism, integrity, \nunity,\ttransparency,\thonesty,\taccountability\tand\tthe\tnational\tlanguage;\n(e) Develop\tlife\tand\twork-related\tskills\tto\tincrease\tefficiency\tin\teveryday\tlife;\n(f) Develop\ta\thabit\tof\tloving\tand\tvaluing\twork\tto\tincrease\tproductivity\tand\tefficiency\t\nin\tproduction\tand\tservice\tprovision;\n(g) Identify and consider cross-cutting issues, including the health and well-being \nof the society, gender equality, as well as the management and sustainable \nconservation\tof\tthe\tenvironment;\tand\n(h) Develop national and international cooperation, peace and justice in accordance \nwith the Constitution of the United Republic of Tanzania and international \nconventions.",
+      "char_count": 1822
+    },
+    {
+      "page_number": 11,
+      "text": "3\n2.3 Objectives of Primary Education Standard I and II\nThe main objectives of Primary Education Standard I and  II are to enable the pupil to: \n(a) Develop Reading, Writing, and Arithmetic skills (3Rs), including the use of \nBraille,\tTanzanian\tSign\tLanguage\t(TSL),\tand\ttactile\tcommunication;\t\n(b) Enhance the ability to communicate appropriately, including using ICT and \nassistive\ttechnologies;\t\n(c) Improve\t physical\t fitness,\t develop\t talents,\t collaborate\t with\t peers,\t and\t have\t a\t\npositive\tattitude\ttowards\tlearning;\t\n(d) Develop metacognition and aesthetics as well as love and take care of health, \nenvironment,\tand\tthe\tavailable\tresources;\t\n(e) Promote ethics and the ability to appreciate and uphold National Virtues and the \nculture\tof\this\tor\ther\tcommunity,\tas\twell\tas\trecognise\tcultural\tdifferences;\tand\n(f) Develop the ability to interact in inclusive environments.\n2.4 Objectives of Primary Education Standard III to VI \nThe objectives of Primary Education, Standard III to VI are to enable the pupil to: \n(a) Develop\treading,\twriting,\tand\tarithmetic\tskills\tand\tcommunicate\tfluently\tusing\t\nTanzanian\tSign\tLanguage\t(TSL)\tand\ttactile\tcommunication;\n(b) Understand, use and appreciate Kiswahili and English Language. Also, a pupil \nshould be encouraged to develop competence in at least one other foreign \nlanguage\tdepending\ton\tthe\tschool\tsituation;\n(c) Appreciate and maintain Tanzanian culture and national unity and acknowledge \nother\tpeople’s\tcultures;\n(d) Develop knowledge, inquisitive mind, critical thinking, creativity and problem-\nsolving\tskills;\n(e) Promote\tethics,\tintegrity,\tand\trespect\tfor\tdifferences\tin\tfaith;\n(f) Identify\tand\tdevelop\ttalents,\tgifts,\twork\tskills,\tsports\tand\tarts;\n(g) Develop\tthe\thabit\tof\tvaluing\tand\tloving\twork;\n(h) Recognise\tand\tuse\tscience\tand\ttechnology\tin\tlearning\tand\tdaily\tlife;\n(i) Develop knowledge, skills and attitude towards taking care of the environment \nand\trespect\tgender\tequality,\tas\twell\tas\tother\tcross-cutting\tissues;\tand\n(j) Develop the ability to interact in an inclusive environment.",
+      "char_count": 2054
+    },
+    {
+      "page_number": 12,
+      "text": "4\n2.5 General Competences for Primary Education\n2.5.1 General competences of Primary Education Standard I and II\nThe general competences to be developed by the Standard I and II pupil are to:\n(a) Use the skills of Reading, Writing, and Arithmetic (3Rs), including the use of \nBraille,\tTanzanian\tSign\tLanguage\t(TSL),\tand\ttactile\tcommunication;\n(b) Communicate effectively, using Information and Communication Technology \n(ICT)\tand\tother\tassistive\ttechnologies;\n(c) Engage in physical activities, nurturing talents, collaborating with peers, and \nhaving\ta\tpositive\tattitude\ttowards\tlearning;\n(d) Demonstrate reasoning and creativity, promoting health and environmental care, \nas\twell\tas\tutilising\tavailable\tresources;\n(e) Exhibit ethical behaviour, valuing and preserving national virtues and the culture \nof\ttheir\tcommunity,\twhile\trecognising\tcultural\tdifferences;\tand\n(f) Interact in inclusive environments.\n2.5.2 General competences of Primary Education Standard III to VI\nThe general competences that will be developed by the pupil of Standard III to VI are to:\n(a) Use reading, writing, and arithmetic skills as well as communicate through \nstandard\tlanguage,\tTanzanian\tSign\tLanguage\t(TSL)\tand\ttactile\tcommunication;\n(b) Use and appreciate the value of Kiswahili and English Language. However, a \npupil should be encouraged to learn at least one other foreign language depending \non\tthe\tschool\tenvironment;\n(c) Demonstrate value and respect for Tanzanian culture, and national unity and \nappreciate\tother\tpeople’s\tcultures;\n(d) Inquire,\tthink\tcritically,\tcreate,\tand\tsolve\tproblems;\n(e) Demonstrate\tintegrity\tand\trespect\tfor\tother\tpeople;\n(f) Use\ttalents,\taptitudes,\twork\tskills,\tsports\tand\tarts\tin\tvarious\tcontexts;\n(g) Develop\tthe\thabit\tof\tappreciating/valuing\tand\tloving\twork;\n(h) Apply\tscience\tand\ttechnology\tin\tlearning\tand\tdaily\tlife;\n(i) Conserve\tthe\tenvironment,\trespect\tgender\tequality\tand\tother\tcross-cutting\tissues;\t\nand\n(j) Interact in inclusive environments.",
+      "char_count": 1974
+    },
+    {
+      "page_number": 13,
+      "text": "5\nSection Three\nCurriculum Content\nThe content of this Curriculum consists of competences, learning areas and subjects \nthat will be taught in primary schools. \n3.1 Learning Areas and Main Competences for Standard I and II\nThe learning areas and main competences for Standard I and II have focused on language \ndevelopment, communication and arithmetic skills, culture, arts and sports, as well as \nhealth and environment. Table 1 illustrates the learning areas and main competences \nfor Standard I and II.\nTable 1: Learning Areas and Main Competences for Standard I and II\nSN  Learning areas Main competences\n1. Language, communication and \nmathematical skills\n(a) Listening and speaking\n(b) Reading\n(c) Writing\n(d) Arithmetic\n(e) Kumudu stadi za awali za Kiswahili\n2. Culture, beliefs, arts and sports Appreciate culture, beliefs, arts and sports\n3. Health and environment Care for health and environment\n3.2 Learning Areas and Subjects for Standard III to VI\nThe learning areas and subjects for Standard III to VI focus on developing pupils’ \nproficiency\tin\tlanguage\tand\tcommunication,\tmathematics,\tsocial\tscience,\tscience\tand\t\ntechnology, and arts and sports. Table 2 shows learning areas and subjects for Standard \nIII to VI.",
+      "char_count": 1230
+    },
+    {
+      "page_number": 14,
+      "text": "6\nTable 2: Learning Areas and Subjects for Primary Education Standard III to VI \nSN Learning areas  Subjects\n1.  Language and Communication (a) Kiswahili\n(b) English\n(c) Chinese\n(d) Arabic\n(e) French\n2.  Mathematics              Mathematics\n3.  Social Science (a) Historia ya Tanzania na Maadili\n(b) Geography and Environment\n(c) Religious Education\n4.  Science and Technology              Science\n5. Arts and Sports              Arts and Sports\n3.3\t Main\tand\tSpecific\tCompetences\nThis\tpart\tpresents\tthe\tmain\tand\tspecific\tcompetences\tfor\tevery\tstage\tof\tthe\tPrimary\t\nEducation.\n3.3.1 Standard I and II\nThe\tmain\tand\tspecific\tcompetences\tfor\tStandard\tI\tand\tII\tare\tspecified\tin\tTable\t3.\nTable 3:  Main and Specific Competences for Standard I and II\nSN Main competences Specific\tcompetences\n1. Listening and speaking Develop listening and speaking skills in different \ncontexts\n2. Reading 2.1 Recognise letter sounds\n2.2 Recognise the relationship between sounds and \nletters \n2.3\t Read\tfluently\n2.4 Read and listen for comprehension",
+      "char_count": 1028
+    },
+    {
+      "page_number": 15,
+      "text": "7\nSN Main competences Specific\tcompetences\n3. Writing 3.1 Demonstrate mastery of the fundamentals of \nwriting\n3.2 Demonstrate mastery of writing skills \n3.3 Apply writing principles\n4. Arithmetic 4.1 Recognise the concept of numbers\n4.2 Use mathematical operations\n4.3 Apply mathematical concepts\n5. Kumudu stadi za awali za \nKiswahili\n5.1  Kumudu stadi za awali za kusikiliza na     \nkuzungumza katika miktadha mbalimbali \n5.2  Kumudu stadi za awali za kusoma \n6. Appreciate culture, arts, \nand sports\n6.1 Appreciate one’s own culture and the culture of \nothers \n6.2 Respect faith differences\n6.3 Demonstrate ethical behaviour \n6.4 Create works of art\n6.5 Participate in various sports\n7. Care for health and \nenvironment\n7.1 Care for one’s health and that of immediate \ncommunity\n7.2 Observe objects found in the environment\n7.3 Protect oneself from hazardous environment/\nsituations/substances \n7.4 Demonstrate positive attitude towards the \nenvironment.\n3.3.2 Standard III to VI\nThe\tmain\tand\tspecific\tcompetences\tof\teach\tsubject\tfor\tStandard\tIII\tto\tVI\tare\tspecified\tin\t\nTable 4.",
+      "char_count": 1082
+    },
+    {
+      "page_number": 16,
+      "text": "8\nTable 4: Subjects, Main Competences and Specific Competences for Standard III to VI \nSN Subject Main competences Specific\tcompetences\n1. Kiswahili 1.1 Kuwasiliana \nkatika miktadha \nmbalimbali\n1.1.1  Kutambua matamshi ya sauti \nmbalimbali katika silabi, maneno, \nsentensi na habari \n1.1.2  Kuendeleza mazungumzo katika \nmiktadha mbalimbali \n1.1.3  Kutumia maandishi katika \nmawasiliano kulingana na miktadha \nmbalimbali\n1.2 Kuonesha \nuelewa wa jambo \nalilosikiliza au \nkulisoma\n1.2.1  Kuonesha stadi za kusikiliza na \nkuelewa\n1.2.2  Kusoma matini kwa ufasaha na \nufahamu\n1.3 Kuwasilisha \nhoja kwa \nmazungumzo na \nkwa maandishi \nkulingana na \nmuktadha  \n1.3.1  Kuwasilisha hoja kwa njia ya \nmazungumzo katika miktadha \nmbalimbali\n1.3.2 Kuandika matini mbalimbali\n1.3.3  Kuchanganua mawazo \nyaliyowasilishwa katika matini \nmbalimbali \n1.3.4  Kuonesha stadi za awali za ubunifu \nwa kazi mbalimbali za Kiswahili\n2. English 2.1 Demonstrate \nmastery of basic \nEnglish language \nskills \n2.1.1 Develop listening and speaking skills\n2.1.2  Develop phonemic awareness and \npronunciation of English letters\n2.1.3  Develop vocabulary by relating words \nwith objects in the environment \n2.1.4  Use appropriate grammar and \nvocabulary both orally and in writing\n2.2 Comprehend \noral and written \ninformation\n2.2.1  Comprehend information presented \norally\n2.2.2 Construct meaning from simple texts\n2.2.3  Respond appropriately in a familiar \ncommunicative context \n2.2.4  Read appropriately a variety of simple \ntexts ",
+      "char_count": 1505
+    },
+    {
+      "page_number": 17,
+      "text": "9\nSN Subject Main competences Specific\tcompetences\n2.3 Communicate \neffectively in \ndifferent contexts\n2.3.1  Demonstrate knowledge of the basic \nfeatures of spoken language\n2.3.2  Produce short and basic oral messages \nwith a logical structure and intelligible \npronunciation \n2.3.3  Produce short written messages using \nappropriate grammar and vocabulary\n2.3.4  Demonstrate basic skills in creative \nwriting\n3. French 3.1 Maîtriser les \ncompétences \nlangagières de \nbase du Français \n      Demonstrate \nmastery of basic \nskills in the \nFrench Language\n3.1.1  Démontrer la conscience phonémique \net  la prononciation des lettres \nfrancaises \n             Demonstrate an understanding of \nphonemes and pronunciation of \nFrench letters\n3.1.2      Rélier des mots aux objets dans   \n             l’environnement \n             Relate words with objects in the \nenvironment\n3.1.3      Matriser la grammaire et le \n             vocabulaire  simples \n             Demonstrate mastery of grammar and \nbasic vocabulary\n3.2 Comprendre des \ninformations \norales et écrites\nDemonstrate an \nunderstanding \nof information \nin conversations \nand written texts\n3.2.1  Écouter et comprendre des \ninformations simples présentées \noralement  \n             Listen and understand orally presented \ninformation\n3.2.2  Lire et comprendre des textes simples             \n Read and understand simple texts\n3.2.3  Réagir de manière appropriée à un \ncontexte  familièr de communication \n             Demonstrate appropriate response \nin a familiar communication \ncontext\n3.2.4  Lire correctement des textes simples \nRead various types of simple texts \ncorrectly",
+      "char_count": 1636
+    },
+    {
+      "page_number": 18,
+      "text": "10\nSN Subject Main competences Specific\tcompetences\n3.3 Communiquer \nefficacement\t\ndans des divers \ncontextes\nCommunicate \nefficiently\tin\t\nvarious contexts\n \n3.3.1  Démontrer une connaissance des \ncaractéristiques de base de la langue \nparlée et écrite \n             Demonstrate an understanding of the \nbasic principles of oral and written \ninformation \n3.3.2  Converser dans des contextes variés \nen utilisant la grammaire et le \nvocabulaire appropriés\n             Speak in various contexts using \nappropriate grammar and vocabulary\n3.3.3  Communiquer à l’ecrit dans \ndes contextes variés en utilisant \nla grammaire et le vocabulaire \nappropriés\n             Communicate in writing in various \ncontexts using appropriate grammar \nand vocabulary\n4. Chinese 4.1\t 掌握基本汉语技\n能\nDemonstrate \nmastery of the \nbasic skills of the \nChinese language\n4.1.1\t \t培养汉语声母、韵母和声调的音素\n意识并掌握发音\n             Demonstrate an understanding of \nphonemes and the pronunciation of \ninitials,\tfinals,\ttones,\tand\tcharacters.\n4.1.2\t 能够联系单词与环境中的对象\n             Relate words and elements in the \nenvironment\n4.1.3\t 掌握简单的语法和词汇\n             Demonstrate mastery of grammar and \nbasic vocabulary",
+      "char_count": 1158
+    },
+    {
+      "page_number": 19,
+      "text": "11\nSN Subject Main competences Specific\tcompetences\n4.2\t 在对话和写作中\n展示对信息的理\n解\nDemonstrate an \nunderstanding \nof information \nin conversations \nand written texts\n4.2.1\t 听懂口语表达的内容\n             Listen and understand information\n4.2.2\t 阅读和理解简单的文本\nRead and understand simple texts\n4.2.3\t 在熟悉的对话环境中做出正确回应\nDemonstrate correct responses in \ndifferent familiar communication \ncontexts\n4.2.4\t 正确阅读各种简单的文本\nRead simple texts \n4.3\t 在不同的语境下\n进行有效交流\nCommunicate \nefficiently\tin\t\ndifferent contexts\n4.3.1\t \t展现对口语和书面语言基本特征的\n理解\nDemonstrate an understanding of the \nbasic features of spoken and written \nlanguage\n4.3.2\t \t使用适当的语法和词汇在各种环境\n中说话\n             Speak in various contexts using \nappropriate grammar and vocabulary\n4.3.3\t \t在不同的语境中，使用适当的语法\n和词汇进行书面交流\n              Communicate in writing using \nappropriate grammar and vocabulary",
+      "char_count": 811
+    },
+    {
+      "page_number": 20,
+      "text": "12\nSN Subject Main competences Specific\tcompetences\n5. Arabic \tإظهار\tفهم\tالمهارات\nالأساسية\tفي\tاللغة\t\nالعربية\n5.1 Kumudu stadi za \nmsingi za lugha ya \nKiarabu\n\tاكتساب\tالمهارات\tالأساسية\tللأصوات\tونطق\nالحروف\tالعربية\tوكتابتها\n5.1.1   Kumudu ufahamu wa fonimu na \nmatamshi\tya\therufi\tza\tKiarabu\tna\t\nuandishi wake\n\tربط\tالكلمات\tبالأشياء\tفي\tالبيئة\n5.1.2    Kuhusianisha maneno na vitu katika \nmazingira\n\tاستخدام\tالقواعد\tوالمفردات\tالمناسبة\tشفهيا\nوكتابة\n5.1.3\tKumudu\tsarufi\tna\tmsamiati\tsahili\n\tإظهار\tفهم\tالمعلومات\nالشفوية\tوالمكتوبة\n5.2    Kuonesha \nuelewa wa \ntaarifa katika \nmazungumzo \nna maandishi\n\tاستماع\tوفهم\tالمعلومات\tالمقدمة\tشفويا\n 5.2.1 Kusikiliza na kuelewa taarifa\n\tقراءة\tوفهم\tمعنى\tالنصوص\tالسهلة\n5.2.2 Kusoma na kuelewa matini sahili\n\tإظهار\tالاستجابة\tالصحيحة\tفي\tسياق\tتواصلي\nمألوف\n 5.2.3 Kuonesha mwitiko sahihi katika\nmuktadha wa kimawasiliano unaofahamika\nالقراءة\tبشكل\tصحيح\tأنواع\tمتنوعة\tللنصوص\tالسهلة\n 5.2.4 Kusoma kwa usahihi aina mbalimbali za\nmatini sahili\n\tالتواصل\tالفعال\tفي\nالسياقات\tالمختلفة\n5.3   Kuwasiliana \nkwa ufanisi \nkatika miktadha \nmbalimbali\n\t\tفهم\tالملامح\tالأساسية\tللغة\tالمحادثة\nوالنصوص\tالمكتوبة\n5.3.1   Kuonesha uelewa wa sifa za msingi za \nlugha ya mazungumzo na maandishi",
+      "char_count": 1188
+    },
+    {
+      "page_number": 21,
+      "text": "13\nSN Subject Main competences Specific\tcompetences\n6. Mathematics 6.1 Demonstrate \nmastery of the \nmathematical \nlanguage in \nvarious contexts\n6.1.1  Use the concept of numbers to \ncommunicate in various contexts\n6.1.2  Use numerical operations in everyday \nlife\n6.1.3 Use measurement skills in everyday life\n6.1.4 Use geometric skills in everyday life\n6.1.5  Use statistical skills to present various \ninformation\n6.2 Think logically \nin interpreting \nand solving \nproblems\n6.2.1   Use ordering skills to solve puzzles in \neveryday life\n6.2.2 Use algebraic skills in everyday life\n6.3 Use \nmathematical \nknowledge and \nskills in other \ndisciplines\n6.3.1  Use number and time relationship \nskills in various contexts\n6.3.2  Use number and money relationship \nskills in everyday life\n7. Historia ya \nTanzania na \nMaadili\n7.1 Kulinda historia \nya Tanzania, \nurithi na maadili \nya Taifa \n7.1.1  Kumudu dhana ya historia ya \nTanzania, urithi na maadili \n7.1.2 Kumudu maarifa ya jamii \ninayomzunguka \n7.1.3 Kutumia maarifa na ujuzi wa jamii \ninayomzunguka kusimulia asili, urithi \nna maadili ya jamii husika\n7.1.4 Kutathmini ushirikiano baina ya jamii \nza Kitanzania katika kujenga uhusiano \nwa kijamii na kiuchumi\n7.2 Kumudu historia \nya Tanzania na \nmaadili kabla ya \nukoloni\n7.2.1 Kuelezea mifumo mbalimbali ya \nutunzaji na ukuzaji wa maadili ya \njamii za Kitanzania kabla ya ukoloni \n7.2.2 Kuelezea maendeleo ya jamii za \nKitanzania na   maadili yake kabla ya \nukoloni \n7.3 Kumudu Historia \nya Tanzania na \nMaadili wakati \nwa ukoloni  \n1890- 1960\n7.3.1 Kuelezea ukoloni kama sehemu ya \nhistoria na urithi wa Tanzania \n7.3.2 Kulinganisha mabadiliko na \nmwendelezo wa maadili kabla na \nwakati wa ukoloni\n7.3.3 Kuelezea jitihada za kulinda maadili \nya Kitanzania dhidi ya maadili ya \nkigeni yaliyoletwa wakati wa ukoloni",
+      "char_count": 1817
+    },
+    {
+      "page_number": 22,
+      "text": "14\nSN Subject Main competences Specific\tcompetences\n7.4 Kumudu Historia \nya ujenzi wa \nTaifa la Tanzania  \nna maadili  \nkatika kipindi \ncha 1961-1966\n7.4.1 Kumudu historia ya ujenzi wa Taifa na \nmaadili baada ya uhuru\n7.4.2 Kuelezea mchango wa tunu na alama \nza Taifa katika kujenga umoja wa \nkitaifa na uzalendo\n7.4.3 Kutumia alama za Taifa kama \nutambulisho wa Tanzania\n7.5 Kutathmini \nUjenzi wa Taifa \nna maadili  \nwakati wa \nAzimio la \nArusha, 1967-\n1985\n7.5.1 Kuelezea misingi na maadili ya \nAzimio la Arusha na Siasa ya Ujamaa \nna Kujitegemea \n7.5.2 Kuelezea mchango wa Tanzania katika  \nmapambano dhidi ya ukoloni na \nukandamizaji\n7.6 Kutathmini \nHistoria ya \nTanzania na \nmaadili wakati \nwa uliberali, \n1986 hadi sasa\n7.6.1 Kufafanua dhana ya uliberali kwa \nkuhusianisha na maadili ya Kitanzania \n7.6.2 Kutumia maarifa na ujuzi wa historia \nya Tanzania na maadili ya Taifa \nkufanya uamuzi sahihi katika nyakati \nza uliberali\n8. Religious \nEducation\nIt will be provided by \nthe relevant religious \nexperts in accordance \nto the guidelines \nprovided by ministry \nresponsible for \noverseeing education \nIt will be provided by the relevant \nreligious experts in accordance to the \nguidelines provided by the ministry \nresponsible for overseeing education\n9. Arts and \nSports\n9.1 Create works of \nart\n9.1.1  Demonstrate mastery in the basics of \nsinging and acting\n9.1.2 Create images\n9.1.3 Sculpt various shapes\n9.1.4 Craft objects using various materials\n9.2 Improve health, \nskills, and \ncompetitiveness \n9.2.1 Demonstrate mastery of work skills \nthrough sports\n9.2.2 Demonstrate mastery of physical \nexercises\n9.2.3 Play traditional sports\n9.2.4 Play major sports",
+      "char_count": 1670
+    },
+    {
+      "page_number": 23,
+      "text": "15\nSN Subject Main competences Specific\tcompetences\n9.3 Use arts and \nsports for \npersonal \nand societal \nbenefits.\n9.3.1 Participate in exhibitions of arts and \nsports at the community and national \nlevels.\n10. Science 10.1 Demonstrate \nmastery  of \nscientific\t\ntheories\n10.1.1 Demonstrate an elementary \nunderstanding\tof\tscientific\t\ntheories\n10.1.2 Make\tsimple\tscientific\t\nobservations\n10.1.3 Demonstrate a basic \nunderstanding of types of energy \nand their uses\n10.2  Demonstrate \nmastery of \nelementary  \nscientific\tskills\n10.2.1 Conduct\telementary\tscientific\t\nexperiments\n10.3  Demonstrate \nmastery of \nICT skills\n10.3.1 Use ICT for learning\n10.4  Design simple \ncomputer \nprogrammes\n10.4.1 Design simple computer \nprogrammes\n11. Geography \nand \nEnvironment\n11.1  Demonstrate \nmastery of an \nelementary \nknowledge of \nmaps and the \nsolar system\n11.1.1 Use maps in daily life\n11.1.2  Demonstrate an elementary \nunderstanding of the solar system",
+      "char_count": 948
+    },
+    {
+      "page_number": 24,
+      "text": "16\nSN Subject Main competences Specific\tcompetences\n11.2  Demonstrate \nmastery of an \nelementary \nknowledge \nof the earth’s \nrelief and \nthe available \nresources\n11.2.1 Demonstrate an elementary \nunderstanding of the earth’s relief\n11.2.2 Demonstrate an elementary \nunderstanding of the major natural \nresources of Tanzania \n11.2.3 Demonstrate an elementary \nunderstanding of the relationship \nbetween the resources and \ndevelopment\n11.3  Demonstrate \nmastery of an \nelementary \nknowledge \nof human \ngeography\n11.3.1 Demonstrate an elementary \nunderstanding of the sources of \npopulation and settlements data\n11.3.2 Demonstrate an elementary \nunderstanding of the relationship \nbetween population distribution and \nresource utilisation\n11.4  Demonstrate \nmastery of an \nelementary \nknowledge of \nenvironmental \nconservation\n11.4.1 Demonstrate an elementary \nunderstanding of environmental \nconservation\n11.4.2  Demonstrate an elementary \nunderstanding of the concept of \nclimate and its relationship with \neconomic activities",
+      "char_count": 1025
+    },
+    {
+      "page_number": 25,
+      "text": "17\nSection Four\nTeaching and Learning\nThe implementation of this Curriculum will involve various things including \nintegration of cross-cutting issues, teaching and learning techniques, time and language \nof instruction. \n4.1 Integration of Cross-cutting Issues\nCross-cutting issues are among the important aspects observed in this Curriculum. \nPupils will learn cross-cutting issues such as the environment, health, and inclusive \neducation, gender, peace education, ethics, child’s rights and responsibilities, human \nrights,\tsafety\tand\tsecurity,\troad\tsafety,\tfinancial\tliteracy,\tanti-corruption,\tcooperation,\t\nand union matters. These issues will be integrated into carrier subjects during teaching \nand learning practices of various subjects, taking into account the relevance of the \ncross-cutting\ttheme\tand\tthe\tspecific\tsubject.\n4.2 Teaching and Learning Techniques\nThe implementation of this Curriculum will require the use of teaching and learning \ntechniques that place the pupil at the centre of learning and with the teacher serving as \na facilitator. The teacher will employ techniques that engage the pupil in the learning \nprocess, taking into account their age, diverse needs, and abilities. The techniques to be \nused\tinclude\tthe\tuse\tof\tsports\tand\tarts,\tICT\tand\tother\tassistive\ttechnologies,\tscientific\t\nexperiments, study tours, discussions, gallery walks, and other inclusive techniques that \npromote\tlearning.\tThe\tCurriculum\tput\temphasis\ton\tteacher’s\tcreativity\tand\tflexibility\t\nin utilising realia available in their environment and creating a conducive learning \nenvironment for pupils to utilize these tools in various learning contexts.\n4.3 Teaching and Learning Time\nThe academic year will have 194 days, equivalent to 39 weeks, which are divided into \ntwo equal terms. In each term, two weeks will be allocated for continuous assessment \nand\t final\t examinations.\t The\t periods\t and\t time\t for\t teaching\t and\t learning\t in\t Primary\t\nEducation will be 30 minutes for each period for Standard I and II, and 40 minutes for \neach period for Standard III to VI. The allocation of periods and time for each subject \nat each stage of Primary Education is indicated in Table 5 and 6. ",
+      "char_count": 2201
+    },
+    {
+      "page_number": 26,
+      "text": "18\nTable 5: Allocation of Time and Periods for Standard I and II per Week\nSN Competence\nStandard I and II\nNumber of hours per week Number of periods\n1. Listening and speaking 1 hour 30 minutes 3\n2. Reading 3 hours 30 minutes 7\n3. Writing 2 hours 30 minutes 5\n4. Arithmetic 3 hours  30 minutes 7\n5. Kumudu stadi za awali za Kiswahili 2 4\n6. Appreciating Culture, Arts, and Sports. 1 2\n7. Care for Health and Environment 1 2\nTotal hours and number of periods \nper week 15 30\nTable 6: Allocation of Time and Periods for Standard III to VI per Week\nSN Subject\nStandard III - IV Standard V - VI\nTime Number of periods Time Number of periods\n1. Kiswahili 3 Hours 20 Minutes 5 3 Hours 20 Minutes 5\n2. English 4 Hours 40 Minutes 7 4 Hours 6\n3. Mathematics 4 Hours 6 4 Hours 6\n4. Science 3 Hours 20 Minutes 5 3 Hours 20 Minutes 5\n5. Geography and Environment 2 Hours 40 Minutes 4 2 Hours 40 Minutes 4\n6. Historia ya Tanzania na Maadili 3 Hours 20 Minutes 5 3 Hours 20 Minutes 5\n7. Arts and Sports 2 Hours 40 Minutes 4 3 Hours 20 Minutes 5\n8. Religious Education 40 Minutes 1  40 Minutes 1\n9. Arabic/French/Chinese 1 Hour 20 Minutes 2 1 Hour 20 Minutes 2\n10. Self-Study/Library 40 Minutes 1  40 Minutes 1",
+      "char_count": 1194
+    },
+    {
+      "page_number": 27,
+      "text": "19\n4.4 Language of Instruction\nThe Education and Training Policy of 2014, 2023 Edition, directs the use of Kiswahili, \nEnglish, Tanzanian Sign Language (TSL), and other foreign languages in education \nand training. The policy states that Kiswahili will be used as the language of instruction \nin schools that use Kiswahili, while English will be used in schools that use English \nas the language of instruction. Moreover, subjects such as Kiswahili, English, French, \nChinese, and Arabic will be taught in their respective languages.",
+      "char_count": 533
+    },
+    {
+      "page_number": 28,
+      "text": "20\nSection Five\nAssessment and Evaluation of Teaching and Learning\nAssessment in education is conducted with the aim of understanding the progress of \nthe learner in terms of their knowledge, skills, behavioural changes, and attitudes, \nas\twell\tas\tidentifying\tthe\tchallenges\tthey\tface\tin\tlearning\tin\torder\tto\tfind\tsolutions.\t \t\nWhen assessment is done properly, it motivates a pupil to learn more and at the same \ntime improves teaching practices. As stated in the Education and Training Policy of \n2014, 2023 Edition, this Curriculum aims to enhance the assessment and evaluation \nof the pupil’s academic progress. This Curriculum emphasises a system of assessment \nthat\temploys\trecognised\tcriteria\tfor\tdaily\tmonitoring\tof\tthe\tpupil’s\tprogress\tand\tfinal\t\nevaluation to complete the respective level. Moreover, the assessment should take into \naccount the competence-based curriculum approaches and development of 21st-century \nskills including fostering creativity, critical thinking, and problem-solving abilities in \npupils.\n5.1 Types of Assessment\n5.1.1 Placement assessment \nThis is an assessment that is conducted as soon as a pupil enters school, before the start \nof learning and teaching in Standard I, in order to assess his or her level of understanding \nand competence. The purpose of this assessment is to enable the teacher to identify the \nindividual needs of the pupil so that he/she can provide appropriate support in learning \nand teaching. The teacher will use these needs to prepare plans that enable pupils to \nachieve the intended competences. Placement assessment  can also be used to group \npupils\taccording\tto\ttheir\tspecific\tneeds.\tFurthermore,\tthe\tteacher\tcan\tuse\tthe\tresults\tof\t\nthe placement assessment  to track the progress of the pupil by comparing them with \nthe results of subsequent assessments of the same type after a certain period of learning \nand teaching. Schools are required to have a system in place to assess pupils before \nteaching and learning starts.\n5.1.2 Diagnostic assessment  \nDiagnostic assessment is part of continuous assessment which enables the teacher to \nidentify\tthe\tspecific\tneeds\tof\tthe\tpupil\tin\torder\tto\tprovide\tappropriate\tintervention.\tThis\t\nassessment will be conducted to enable the teacher gather information about the pupil’s \nability to master various skills. The assessment information will be used to provide \nguidance\tand\tappropriate\tintervention\tto\tpupils\tfacing\tspecific\tlearning\tchallenges.\tIn\t",
+      "char_count": 2469
+    },
+    {
+      "page_number": 29,
+      "text": "21\norder to be effective, the involvement of a healthcare professional may be required, \nespecially for pupils with special needs.\n5.1.3  Formative assessment \nThis Curriculum insists the use of formative assessment in the process of teaching \nand learning. This type of assessment is similar to the continuous assessment because \nis performed during the classroom sessions just before the summative assessment. \nThough it is different in terms of tools used and their results it does not included in the \npupil's\tfinal\tacademic\tperformance.\tThe\tmain\tobjective\tof\tformative\tassessment\tis\tto\t\nenable a pupil to master knowledge and skills taught in classroom. Tools that are used \nin formative assessment include pupil to participate in classroom monitoring, provide \nconstructive feedback, sharing learning  criteria,  conduct peer-assessment and self-\nassessment in classroom. Also question and answer such as classroom discussion may \nbe used to promote effective feedback during teaching and learning process. \n5.1.4 Continuous assessment \nContinuous assessment will involve internal assessment (classroom assessment) \nand will be done and coordinated within the school alongside teaching and learning. \nThe feedback from this assessment will enable the teacher to understand the areas \nof teaching and learning with challenges that require extra effort. The teacher will \nuse\t continuous\t assessment\t to\t identify\t a\t pupil\t who\t experience\t learning\t difficulties\t\nand provide him or her with appropriate help. In order to measure the achievement of \nintended competence, the teacher will use various assessment techniques and tools. \nThe use of assessment techniques and tools will align with the assessment goals, \nsubject requirements, individual pupil needs, and the competences to be developed \nin primary education. This assessment will also enable the teacher to identify various \ntalents of pupil, such as creativity, drawing, arts, and sports. Continuous assessment \nwill\tcontribute\t30%\tto\tfinal\tassessment\tof\tStandard\tVI.\n5.1.5 Summative assessment \nThe summative assessment will be conducted at the end of each term. Also, summative \nassessment will include the national examinations that will take place at the end of \nStandard II, IV , and VI, with the aim of determining if the pupil has attained the \nexpected competences to progress to the next level. The national examinations will be \nconducted to ensure the validity and reliability of internal assessments. Furthermore, \nthis assessment will not be used for selection purposes but rather to identify learning \ngaps in a pupil so that he or she can be supported before being promoted to the next ",
+      "char_count": 2670
+    },
+    {
+      "page_number": 30,
+      "text": "22\nclass. This assessment will be prepared and coordinated by the National Examinations \nCouncil of Tanzania and will contribute 70% to the national assessment of Standard VI. \n5.2 Assessment Tools\nThis\tCurriculum\temphasises\tcontinuous\tand\tfinal\tassessment\tusing\ttools\tand\ttechniques\t\nthat assess both theoretical knowledge and practical skills. The recommended techniques \ninclude brainstorming, observations, tests, face-to-face questions, exercises, individual \nwork, group work, and project work. Other techniques include practical sessions, \npresentations,\t midterm\t examinations,\t and\t final\t exams.\t Moreover,\t the\t Curriculum\t\nemphasises the use of assessment tools such as checklists, questionnaires, and portfolios. \nThe selection of these methods and tools will vary depending on the purpose of the \nassessment, the type and requirements of the subject, the diverse needs of pupils, and \nthe intended competences to be developed.",
+      "char_count": 940
+    },
+    {
+      "page_number": 31,
+      "text": "23\nSection Six\nCurriculum Implementation Resources\nResources for implementing this Curriculum will include human resources, materials, \nfurniture\tand\tbuildings,\ttime,\tand\tfinances.\tThe\tstandards\tand\tspecifications\tof\tthese\t\nresources will be provided by the responsible ministry through various guidelines. \n6.1 Human Resources\nThe human resources required for curriculum implementation include competent \nteachers and non-teaching staff (supporting staff). Besides, the teacher who will be \nteaching in primary schools should have at least a Diploma in Primary Education \nfrom a government-recognised institution. The teacher should be able to teach, assess, \nand\t evaluate\t the\t teaching\t and\t learning\t processes.\t The\t qualifications\t of\t teachers\t are\t\noutlined in the Teacher Professional Competence Framework prepared by the Ministry \nresponsible for overseeing education.\nMoreover, curriculam implementation will be supported by supporting staff who are \nnot teachers by profession. These staff members play a crucial role in the successful \nimplementation of the Curriculum. This group of personnel includes professionals \nsuch as librarians, laboratory technicians, medical doctors and nurses, secretaries, and \noffice\tassistants.\tThese\temployees\tshould\thave\treceived\ttraining\tfrom\ta\tgovernment-\nrecognised\tinstitution\tand\tobtained\tqualifications\tin\ttheir\trespective\tfields.\n6.2 Material Resources\nMaterial resources involve various equipment that will support the implementation of \nthe Curriculum. These resources are teaching and learning materials, which include \nsyllabi, guidelines, textbooks and supplementary books as well as teaching and learning \ntools. Other materials include science and ICT equipment such as microscopes, audio \nrecorders,\tand\tcomputers.\tAlso,\tmaterial\tresources\tinclude\tsports\tfields,\tequipment\tfor\t\nsports,\t arts\t and\t various\t fields.\t Furthermore,\t other\t essential\t resources\t for\t curriculum\t\nimplementation are assistive devices for pupils with special needs. These devices include \nvisual,\tauditory,\tand\ttactile\taids\tsuch\tas\tBraille\tmachines,\taudio\tbooks,\tamplifiers,\tand\t\nmagnifiers\tfor\tpupils\twith\tvisual\timpairments.\tTo\tensure\tquality,\tthe\tmaterials\tused\tin\t\nschools, they should be approved by the Ministry responsible for overseeing education.\n6.3 Furniture and Buildings\nFurniture and buildings are among the important resources in curriculum implementation. \nBuildings\t include\t classrooms,\t laboratories,\t workshops,\t libraries,\t teacher\t offices,\t\ndormitories, halls, health service facilities, and a kitchen. The furniture and buildings ",
+      "char_count": 2595
+    },
+    {
+      "page_number": 32,
+      "text": "24\nshould be built in consideration to all types of pupils, including those with special \nneeds. Therefore, the furniture and buildings will adhere to the guidelines set by the \nministry responsible for overseeing education.\n6.4 Time Resources\nThe duration of implementing this Curriculum is six (6) years, with two terms per \nacademic year. The total number of instructional days in a year is 194, which is equivalent \nto 39 weeks as described in Tables 5 and 6. Moreover, the academic calendar will be \nprovided by the ministry responsible for education. Therefore, parents, guardians, the \ncommunity, the government, and various education stakeholders are required to ensure \nthat the allocated time is effectively utilised in implementing this Curriculum.\n6.5 Financial Resources\nThe implementation of this Curriculum will depend on the availability of adequate \nfinancial\tresource\tthat\twill\tbe\tobtained\tthrough\tvarious\tstakeholders.\tThe\tgovernment\t\nwill collaborate with the private sector and development partners in education to ensure \nthat\tthere\tis\tsufficient\tfinancial\tresource\tto\tfacilitate\tthe\tsuccessful\timplementation\tof\t\nthis Curriculum.\n6.6 Stakeholders Participation \nThe involvement of parents/guardians and other education stakeholders is important \nin the successful implementation of this Curriculum. Primary school teachers will \ncollaborate with these stakeholders to achieve the intended goals in the delivery of \nprimary education.\n6.7 Management, Monitoring and Evaluation of the Curriculum\nThe management of the implementation of the primary education curriculum is a \ncrucial process to ensure that its objectives are effectively achieved as intended. This \nCurriculum will be managed by the ministry responsible for education. At the school \nlevel, the management of the Curriculum will be carried out by the school headteachers \nin collaboration with the school committee, regional, district and ward education \nofficers,\t as\t well\t as\t quality\t assurance\t officers\t at\t the\t regional\t and\t district\t levels.\t\nMoreover, the monitoring of the implementation of the Primary Education Curriculum \naims to observe or gather feedback on the way the teaching and learning process takes \nplace, including achievements, challenges, and strategies for addressing them, in order \nto attain the intended goals.",
+      "char_count": 2329
+    },
+    {
+      "page_number": 33,
+      "text": "25\nBibliography\nCharter, A. (1990). African charter on the rights and welfare of the child. AU.\nHalinen, I., & Järvinen, R. (2008). Towards inclusive education: the case of \nFinland. Prospects, 38(1), 77-97.\nJamhuri ya Muungano wa Tanzania. (1982). Mfumo wa elimu Tanzania 1981-2000. \nRipoti na maendeleo ya tume ya Rais ya Elimu. Juzuu ya Pili. \nKICD. (2017). Basic Education curriculum framework. Kenya Institute of Curriculum \nDevelopment. \nKopweh, P. S. (2014). Curriculum development in Tanzania: an investigation of the \nformulation, management and implementation of the 2005 curriculum reform \nin selected disadvantaged districts (Doctoral dissertation, University of \nGlasgow). \nLakkala, S., Uusiautti, S., & Määttä, K. (2016). How to make the neighbourhood \nschool a school for all? Finnish teachers’ perceptions of educational reform \naiming towards inclusion. Journal of Research in Special Educational \nNeeds, 16(1), 46-56.\nMauritius Institute of Education. (2015). National curriculum framework nine year \ncontinuous. Mauritius Institute of Education.\nMinistry of Education and V ocational Training. (2014). Education and training \npolicy. Ministry of Education and V ocational Training. \nMinistry of Education, Science and Technology. (2019). National curriculum \nframework for basic and teacher education. Tanzania Institute of Education. \nMinistry of Education, Science and Technology. (2022). National strategy for \ninclusive education in Tanzania 2021/22 -2025/26. Ministry of Education \nScience and Technology.\nMinistry of Education and V ocational Training. (2014). Education and training policy \n(2023 Ed.). Ministry of Education, Science and Technology.\nMinistry of Education and V ocational Training. (2009).  National strategy on inclusive \neducation 2009 – 2017. Ministry of Education Science and Technology.\nNational Institute for Educational Development. (2016). National curriculum for \nbasic education. Ministry of Education, Arts and Culture. ",
+      "char_count": 1973
+    },
+    {
+      "page_number": 34,
+      "text": "26\nNyerere J. K. (1967). Education for self-reliance. Government printer.\nPersekutuan, P. P. K. (2013). Malaysia education blueprint 2013-2025 (Preschool to \nPost-Secondary Education). Kementerian Pendidikan Malaysia.\nTanzania Institute of Education. (2007). Curriculum for ordinary level Secondary \neducation in Tanzania. Tanzania Institute of Education.  \nTaasisi ya Elimu Tanzania. (2022). Ripoti ya maoni ya wadau kuhusu uboreshaji wa \nmitaala ya elimu ya awali, msingi, sekondari na ualimu. Tanzania Institute of \nEducation. \nUnited Republic of Tanzania. (2019). National curriculum framework for basic and \nteacher education. Ministry of Education, Science and Technology. \nUNESCO. (1990). Joemtien World Conference on EFA. UNESCO.\nUnited Republic of Tanzania. (1999). The Tanzania development vision 2025. United \nRepublic of Tanzania. \nWizara ya Elimu Sayansi na Teknolojia. (2019). Mtaala wa elimu ya msingi darasa la \nI–VII. Tanzania Institute of Education. \n ",
+      "char_count": 970
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 3,
+        "main_competences": [],
+        "specific_competences": [
+          "1.1 Background  ......................................................................................................... 1",
+          "1.2 The Structure of the Primary Education ..............................................................1",
+          "2.1 Vision of Education in Tanzania  ........................................................................ 2 ",
+          "2.2 Main Objectives of Education in Tanzania .........................................................2",
+          "2.3 Objectives of Primary Education Standard I and II ............................................3",
+          "2.4 Objectives of Primary Education Standard III to VI ...........................................3 ",
+          "2.5 General Competences for Primary Education ..................................................... 4",
+          "5.1 General competences of Primary Education Standard I and II ...........................4",
+          "5.2 General competences of Primary Education Standard III to VI ..........................4",
+          "3.1 Learning Areas and Main Competences for Standard I and II ............................ 5",
+          "3.2 Learning Areas and Subjects for Standard III to Standard VI .............................5",
+          "3.3\t Main\tand\tSpecific\tCompetences  .........................................................................6",
+          "3.1 Standard I and II ..................................................................................................6",
+          "3.2 Standard III to VI ................................................................................................ 7",
+          "4.1 Integration of Cross-cutting Issues ....................................................................17",
+          "4.2 Teaching and Learning Techniques ...................................................................17",
+          "4.3 Teaching and Learning Time .............................................................................17",
+          "4.4 Language of Instruction .................................................................................... 19",
+          "5.1 Types of Assessment ......................................................................................... 20",
+          "1.1 Placement assessment ....................................................................................... 20 ",
+          "1.2 Diagnostic assessment .......................................................................................20",
+          "1.3 Formative assessment  .......................................................................................21",
+          "1.4 Continuous assessment ...................................................................................... 21 ",
+          "1.5 Summative assessment  .....................................................................................21",
+          "5.2 Assessment Tools ..............................................................................................22",
+          "6.1 Human Resources .............................................................................................. 23",
+          "6.2 Material Resources ............................................................................................23",
+          "6.3 Furniture and Buildings .....................................................................................23",
+          "6.4 Time Resources .................................................................................................24",
+          "6.5 Financial Resources .......................................................................................... 24",
+          "6.6 Stakeholders Participation  ................................................................................24",
+          "6.7 Management, Monitoring and Evaluation of the Curriculum ...........................24"
+        ],
+        "periods": []
+      },
+      {
+        "page": 11,
+        "main_competences": [],
+        "specific_competences": [
+          "2.3 Objectives of Primary Education Standard I and II",
+          "2.4 Objectives of Primary Education Standard III to VI "
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [],
+        "specific_competences": [
+          "2.5 General Competences for Primary Education",
+          "5.1 General competences of Primary Education Standard I and II",
+          "5.2 General competences of Primary Education Standard III to VI"
+        ],
+        "periods": []
+      },
+      {
+        "page": 14,
+        "main_competences": [],
+        "specific_competences": [
+          "3.3\t Main\tand\tSpecific\tCompetences",
+          "3.1 Standard I and II",
+          "2.1 Recognise letter sounds",
+          "2.2 Recognise the relationship between sounds and ",
+          "2.3\t Read\tfluently",
+          "2.4 Read and listen for comprehension"
+        ],
+        "periods": []
+      },
+      {
+        "page": 16,
+        "main_competences": [],
+        "specific_competences": [
+          "1.1 Kuwasiliana ",
+          "1.1  Kutambua matamshi ya sauti ",
+          "1.2  Kuendeleza mazungumzo katika ",
+          "1.3  Kutumia maandishi katika ",
+          "2.1  Kuonesha stadi za kusikiliza na ",
+          "2.2  Kusoma matini kwa ufasaha na ",
+          "1.3 Kuwasilisha ",
+          "3.1  Kuwasilisha hoja kwa njia ya ",
+          "3.2 Kuandika matini mbalimbali",
+          "3.3  Kuchanganua mawazo ",
+          "3.4  Kuonesha stadi za awali za ubunifu ",
+          "2.1 Demonstrate ",
+          "1.1 Develop listening and speaking skills",
+          "1.2  Develop phonemic awareness and ",
+          "1.3  Develop vocabulary by relating words ",
+          "1.4  Use appropriate grammar and ",
+          "2.2 Comprehend ",
+          "2.1  Comprehend information presented ",
+          "2.2 Construct meaning from simple texts",
+          "2.3  Respond appropriately in a familiar ",
+          "2.4  Read appropriately a variety of simple "
+        ],
+        "periods": []
+      },
+      {
+        "page": 17,
+        "main_competences": [],
+        "specific_competences": [
+          "2.3 Communicate ",
+          "3.1  Demonstrate knowledge of the basic ",
+          "3.2  Produce short and basic oral messages ",
+          "3.3  Produce short written messages using ",
+          "3.4  Demonstrate basic skills in creative ",
+          "3.1 Maîtriser les ",
+          "1.1  Démontrer la conscience phonémique ",
+          "1.2      Rélier des mots aux objets dans   ",
+          "1.3      Matriser la grammaire et le ",
+          "3.2 Comprendre des ",
+          "2.2  Lire et comprendre des textes simples             ",
+          "2.3  Réagir de manière appropriée à un ",
+          "2.4  Lire correctement des textes simples "
+        ],
+        "periods": []
+      },
+      {
+        "page": 18,
+        "main_competences": [],
+        "specific_competences": [
+          "3.3 Communiquer ",
+          "3.1  Démontrer une connaissance des ",
+          "3.2  Converser dans des contextes variés ",
+          "3.3  Communiquer à l’ecrit dans "
+        ],
+        "periods": []
+      },
+      {
+        "page": 20,
+        "main_competences": [],
+        "specific_competences": [
+          "5.1 Kumudu stadi za ",
+          "1.1   Kumudu ufahamu wa fonimu na ",
+          "1.2    Kuhusianisha maneno na vitu katika ",
+          "1.3\tKumudu\tsarufi\tna\tmsamiati\tsahili",
+          "2.1 Kusikiliza na kuelewa taarifa",
+          "2.2 Kusoma na kuelewa matini sahili",
+          "2.3 Kuonesha mwitiko sahihi katika",
+          "2.4 Kusoma kwa usahihi aina mbalimbali za",
+          "5.3   Kuwasiliana ",
+          "3.1   Kuonesha uelewa wa sifa za msingi za "
+        ],
+        "periods": []
+      },
+      {
+        "page": 21,
+        "main_competences": [],
+        "specific_competences": [
+          "6.1 Demonstrate ",
+          "1.1  Use the concept of numbers to ",
+          "1.2  Use numerical operations in everyday ",
+          "1.3 Use measurement skills in everyday life",
+          "1.4 Use geometric skills in everyday life",
+          "1.5  Use statistical skills to present various ",
+          "6.2 Think logically ",
+          "2.1   Use ordering skills to solve puzzles in ",
+          "2.2 Use algebraic skills in everyday life",
+          "3.1  Use number and time relationship ",
+          "3.2  Use number and money relationship ",
+          "7.1 Kulinda historia ",
+          "1.1  Kumudu dhana ya historia ya ",
+          "1.2 Kumudu maarifa ya jamii ",
+          "1.3 Kutumia maarifa na ujuzi wa jamii ",
+          "1.4 Kutathmini ushirikiano baina ya jamii ",
+          "7.2 Kumudu historia ",
+          "2.1 Kuelezea mifumo mbalimbali ya ",
+          "2.2 Kuelezea maendeleo ya jamii za ",
+          "7.3 Kumudu Historia ",
+          "3.1 Kuelezea ukoloni kama sehemu ya ",
+          "3.2 Kulinganisha mabadiliko na ",
+          "3.3 Kuelezea jitihada za kulinda maadili "
+        ],
+        "periods": []
+      },
+      {
+        "page": 22,
+        "main_competences": [],
+        "specific_competences": [
+          "7.4 Kumudu Historia ",
+          "4.1 Kumudu historia ya ujenzi wa Taifa na ",
+          "4.2 Kuelezea mchango wa tunu na alama ",
+          "4.3 Kutumia alama za Taifa kama ",
+          "7.5 Kutathmini ",
+          "5.1 Kuelezea misingi na maadili ya ",
+          "5.2 Kuelezea mchango wa Tanzania katika  ",
+          "7.6 Kutathmini ",
+          "6.1 Kufafanua dhana ya uliberali kwa ",
+          "6.2 Kutumia maarifa na ujuzi wa historia ",
+          "9.1 Create works of ",
+          "1.1  Demonstrate mastery in the basics of ",
+          "1.2 Create images",
+          "1.3 Sculpt various shapes",
+          "1.4 Craft objects using various materials",
+          "9.2 Improve health, ",
+          "2.1 Demonstrate mastery of work skills ",
+          "2.2 Demonstrate mastery of physical ",
+          "2.3 Play traditional sports",
+          "2.4 Play major sports"
+        ],
+        "periods": []
+      },
+      {
+        "page": 23,
+        "main_competences": [],
+        "specific_competences": [
+          "9.3 Use arts and ",
+          "3.1 Participate in exhibitions of arts and ",
+          "10.1 Demonstrate ",
+          "1.1 Demonstrate an elementary ",
+          "1.2 Make\tsimple\tscientific\t",
+          "1.3 Demonstrate a basic ",
+          "10.2  Demonstrate ",
+          "2.1 Conduct\telementary\tscientific\t",
+          "10.3  Demonstrate ",
+          "3.1 Use ICT for learning",
+          "10.4  Design simple ",
+          "4.1 Design simple computer ",
+          "11.1  Demonstrate ",
+          "1.1 Use maps in daily life",
+          "1.2  Demonstrate an elementary "
+        ],
+        "periods": []
+      },
+      {
+        "page": 24,
+        "main_competences": [],
+        "specific_competences": [
+          "11.2  Demonstrate ",
+          "2.1 Demonstrate an elementary ",
+          "2.2 Demonstrate an elementary ",
+          "2.3 Demonstrate an elementary ",
+          "11.3  Demonstrate ",
+          "3.1 Demonstrate an elementary ",
+          "3.2 Demonstrate an elementary ",
+          "11.4  Demonstrate ",
+          "4.1 Demonstrate an elementary ",
+          "4.2  Demonstrate an elementary "
+        ],
+        "periods": []
+      },
+      {
+        "page": 25,
+        "main_competences": [],
+        "specific_competences": [
+          "4.1 Integration of Cross-cutting Issues",
+          "4.2 Teaching and Learning Techniques",
+          "4.3 Teaching and Learning Time"
+        ],
+        "periods": []
+      },
+      {
+        "page": 28,
+        "main_competences": [],
+        "specific_competences": [
+          "5.1 Types of Assessment",
+          "1.1 Placement assessment ",
+          "1.2 Diagnostic assessment  "
+        ],
+        "periods": []
+      },
+      {
+        "page": 29,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3  Formative assessment ",
+          "1.4 Continuous assessment ",
+          "1.5 Summative assessment "
+        ],
+        "periods": []
+      }
+    ],
+    "Standard V": [
+      {
+        "page": 9,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 The Structure of Primary Education"
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [],
+        "specific_competences": [
+          "2.1 Vision of Education in Tanzania  ",
+          "2.2 Main Objectives of Education in Tanzania"
+        ],
+        "periods": []
+      },
+      {
+        "page": 27,
+        "main_competences": [],
+        "specific_competences": [
+          "4.4 Language of Instruction"
+        ],
+        "periods": []
+      },
+      {
+        "page": 30,
+        "main_competences": [],
+        "specific_competences": [
+          "5.2 Assessment Tools"
+        ],
+        "periods": []
+      },
+      {
+        "page": 31,
+        "main_competences": [],
+        "specific_competences": [
+          "6.1 Human Resources",
+          "6.2 Material Resources",
+          "6.3 Furniture and Buildings"
+        ],
+        "periods": []
+      },
+      {
+        "page": 32,
+        "main_competences": [],
+        "specific_competences": [
+          "6.4 Time Resources",
+          "6.5 Financial Resources",
+          "6.6 Stakeholders Participation ",
+          "6.7 Management, Monitoring and Evaluation of the Curriculum"
+        ],
+        "periods": []
+      }
+    ],
+    "Standard\tI": [
+      {
+        "page": 15,
+        "main_competences": [],
+        "specific_competences": [
+          "3.1 Demonstrate mastery of the fundamentals of ",
+          "3.2 Demonstrate mastery of writing skills ",
+          "3.3 Apply writing principles",
+          "4.1 Recognise the concept of numbers",
+          "4.2 Use mathematical operations",
+          "4.3 Apply mathematical concepts",
+          "5.1  Kumudu stadi za awali za kusikiliza na     ",
+          "5.2  Kumudu stadi za awali za kusoma ",
+          "6.1 Appreciate one’s own culture and the culture of ",
+          "6.2 Respect faith differences",
+          "6.3 Demonstrate ethical behaviour ",
+          "6.4 Create works of art",
+          "6.5 Participate in various sports",
+          "7.1 Care for one’s health and that of immediate ",
+          "7.2 Observe objects found in the environment",
+          "7.3 Protect oneself from hazardous environment/",
+          "7.4 Demonstrate positive attitude towards the ",
+          "3.2 Standard III to VI"
+        ],
+        "periods": []
+      }
+    ],
+    "Standard \nI": [
+      {
+        "page": 13,
+        "main_competences": [],
+        "specific_competences": [
+          "3.1 Learning Areas and Main Competences for Standard I and II",
+          "3.2 Learning Areas and Subjects for Standard III to VI"
+        ],
+        "periods": []
+      }
+    ],
+    "Standard\tV": []
+  }
+}

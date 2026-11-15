@@ -1,0 +1,694 @@
+{
+  "filename": "sw-1727168466-ENGLISH Syllabus III-VI FINAL.pdf",
+  "title": "English Language Syllabus for Primary Education Standard III─VI",
+  "swahili_title": "Muhtasari wa Lugha ya Kiingereza Elimu ya Msingi Darasa la III─VI",
+  "subject_name": "English Language",
+  "subject_code": "TZ-TIE-PRI-ENG",
+  "classification": "compulsory",
+  "language": "en",
+  "isbn": "978-9987-09-726-5",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "ae6b2f5d28b60bb77bd3bb2d7816535bacb671934cca4660705cfa937f9aacd2",
+  "file_size_bytes": 1113809,
+  "page_count": 64,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "THE UNITED REPUBLIC OF TANZANIA\nMINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY\nENGLISH LANGUAGE SYLLABUS FOR PRIMARY EDUCATION\nSTANDARD III─VI\n2023\n",
+      "char_count": 147
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Tanzania Institute of Education 2023\nPublished 2023\nISBN 978-9987-09-726-5\nTanzania Institute of Education \nMikocheni Area\n132 Ali Hassan Mwinyi Road\nP. O. Box 35094 \n14112 Dar es Salaam\nMobile numbers:  +255 735 041 168 / 735 041 170 \nE-mail: director.general@tie.go.tz \nWebsite:  www.tie.go.tz\nThis document should be cited as The Ministry of Education, Science and Technology. (2023). English Language Syllabus for \nPrimary Education Standard III─VI. Tanzania Institute of Education.\nAll rights reserved. No part of this syllabus may be reproduced, stored in any retrieval system, or transmitted in any form or by any \nmeans electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the Tanzania Institute of \nEducation.",
+      "char_count": 769
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nTable of Contents\nList of Tables ..................................................................................................................................................................................  iv\nAbbreviations and Acronyms .........................................................................................................................................................  v\nAcknowledgments..........................................................................................................................................................................   vi\n1.0  Introduction............................................................................................................................................................................ 1\n2.0  Main Objectives of Education in Tanzania............................................................................................................................ 1\n3.0  Objectives of Primary Education........................................................................................................................................... 2\n4.0  General Competences for Primary Education....................................................................................................................... 2\n5.0  Main and Specific Competences .......................................................................................................................................... 3\n6.0  Roles of Teacher, Pupil and Parent in the Teaching and Learning ....................................................................................... 4\n 6.1  The teacher..................................................................................................................................................................... 4\n 6.2  The pupil ........................................................................................................................................................................ 5\n 6.3  The parent ...................................................................................................................................................................... 5\n7.0  Teaching and Learning Methods .......................................................................................................................................... 5\n8.0  Teaching and Learning Resources ........................................................................................................................................ 6\n9.0  Assessment ........................................................................................................................................................................... 6\n10.0  Number of Periods ................................................................................................................................................................ 7\n11.0  Teaching and Learning Contents .......................................................................................................................................... 7\nStandard III .................................................................................................................................................................................... 8\nStandard IV .....................................................................................................................................................................................  16\nStandard V ......................................................................................................................................................................................  26\nStandard VI .....................................................................................................................................................................................  42\nBibliography ...................................................................................................................................................................................  54",
+      "char_count": 4091
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nList of Tables\nTable 1: Main and Specific Competences for Standard III─VI .................................................................................................... 3\nTable 2:  Detailed Contents for Standard III ................................................................................................................................. 8\nTable 3: Detailed Contents for Standard IV ..................................................................................................................................   16\nTable 4: Detailed Contents for Standard V ...................................................................................................................................   26\nTable 5: Detailed Contents for Standard VI ..................................................................................................................................   42",
+      "char_count": 893
+    },
+    {
+      "page_number": 5,
+      "text": "v\nAbbreviations and Acronyms\nICT Information and Communication Technology\nTIE Tanzania Institute of Education",
+      "char_count": 109
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nAcknowledgments\nThe writing of the English Language Syllabus for Primary Education Standard III–VI involved various experts from both public \nand non-governmental institutions. Therefore, the Tanzania Institute of Education (TIE) would like to thank all the experts who \nparticipated in the writing of this syllabus, namely curriculum developers from TIE, lecturers, tutors, school quality assurance \nofficers, teachers and experts from civil society organisations. The Institute is also grateful to the National Technical Committee \nthat was formed by the Minister for Education, Science and Technology for coordinating the curriculum review process for pre- \nprimary, primary, secondary and teacher education. The Committee discharged its responsibilities professionally by ensuring that \nthe contents of this syllabus are in line with the main objective of the 2023 curricular review, which is to ensure that the graduates \nacquire skills, knowledge and attitude that will enable them to create self-employment, employ others, be employed and able to \nsustain themselves.\nFinally, TIE thanks the Ministry of Education, Science and Technology in a special way for facilitating the preparation and \ndistribution of this syllabus.  \nDr Aneth A. Komba\nDirector General \nTanzania Institute of Education\n",
+      "char_count": 1304
+    },
+    {
+      "page_number": 7,
+      "text": "1\n1.0 Introduction\nThe English language subject is compulsory for all pupils in Standard III-VI.  The significance of teaching and learning English \nlanguage is to promote the mastery of the four language skills (listening, reading, speaking and writing) in Primary Education. \nTherefore, in learning English pupils will build their confidence academically and enable them to communicate with other people \nlocally and globally.\nThe English Language Standard III─VI Syllabus for Primary Education, therefore, is designed to guide teaching and learning \nEnglish for standards III─VI in Mainland Tanzanian. It has been prepared in alignment with the 2023 Basic Education Curriculum. \nThis syllabus provides information that will enable teachers to plan their teaching process effectively. In addition, the syllabus \nwill enable the teacher to plan teaching and learning activities to develop the pupil’s 21 st century skills of curiosity, creativity, \ncollaboration, communication and problem solving.\n2.0 Main Objectives of Education in Tanzania\nThe main objectives of providing education in Tanzania are to enable every Tanzanian to:\n(a) Develop and improve his or her personality so that he or she values himself or herself and develops self-confidence;\n(b) Respect the culture, traditions and customs of Tanzania; cultural differences; dignity; human rights; attitudes and inclusive \nactions;\n(c) Apply science and technology, creativity, critical thinking, innovation, cooperation, communication and positive attitudes \nfor his or her development and the sustainable development of the nation and the world at large;\n(d) Understand and protect national values, including dignity, patriotism, integrity, unity, transparency, honesty, accountability \nand the national language;\n(e) Develop life and work-related skills to increase efficiency in everyday life;\n(f) Develop a habit of loving and valuing work to increase productivity and efficiency in production and service provision;\n(g) Identify and consider cross-cutting issues, including the health and well-being of the society, gender equality, as well as the \nmanagement and sustainable conservation of the environment; and\n(h) Develop national and international cooperation, peace and justice in accordance with the Constitution of the United Republic \nof Tanzania and international conventions.",
+      "char_count": 2354
+    },
+    {
+      "page_number": 8,
+      "text": "2\n3.0 Objectives of Primary Education \nThe objectives of Primary Education Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills, communicate fluently, using Tanzanian Sign Language (TSL) and tactile \ncommunication;\n(b) Master, appreciate and  use Kiswahili and English Language and at least one other foreign language;\n(c) Appreciate and maintain Tanzanian culture, and national unity and recognising other people’s cultures;\n(d) Develop knowledge, the ability to inquire, think critically, design and solve problems;\n(e) Promote moral values, integrity, and respect for differences of /in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of appreciating/valuing and loving work;\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and inclination to take care of the environment, respect gender equality and other cross-cutting \nissues; and\n(j) Develop the ability to socialise in an inclusive environment.\n4.0 General Competences for Primary Education \nThe general competences for Primary Education, Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills and communicate fluently using Tanzanian Sign Language (TSL) and tactile \ncommunication;\n(b) Use and appreciate Kiswahili and English Language. Also, a pupil should be encouraged to develop competence in at least \none other foreign language depending on the school situation;\n(c) Appreciate and maintain Tanzanian culture and national unity and acknowledge other people’s cultures;\n(d) Develop knowledge, inquisitive mind, critical thinking, creativity and problem-solving skills;\n(e) Promote ethics, integrity, and respect for differences in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of valuing and loving work;",
+      "char_count": 1875
+    },
+    {
+      "page_number": 9,
+      "text": "3\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and attitude towards taking care of the environment and respect gender equality, as well as other \ncross-cutting issues; and\n(j) Develop the ability to interact in an inclusive environment.\n5.0 Main and Specific Competences \nThe main and specific competences to be developed are presented in Table 1.\nTable 1: Main and Specific Competences for Standard III─VI\nMain competences Specific competences\n1.0 Demonstrate mastery of basic \nEnglish Language skills\n1.1 Develop listening and speaking skills\n1.2 Develop phonemic awareness and pronunciation of English letters\n1.3 Develop vocabulary by relating words with objects in the environment\n1.4 Use appropriate grammar and vocabulary both orally and in writing\n2.0 Comprehend oral and written \ninformation\n2.1 Comprehend information presented orally \n2.2 Construct meaning from simple texts \n2.3 Respond appropriately in a familiar communicative context\n2.4 Read appropriately a variety of simple texts\n3.0 Communicate effectively in\n       different contexts\n3.1 Demonstrate knowledge of the basic features of spoken language\n3.2 Produce short and basic oral messages with a logical structure and intelligible \npronunciation\n3.3 Produce short written messages using appropriate grammar and vocabulary\n3.4 Demonstrate basic skills in creative writing",
+      "char_count": 1403
+    },
+    {
+      "page_number": 10,
+      "text": "4\n6.0 Roles of Teacher, Pupil and Parent in the Teaching and Learning \nA good relationship between a teacher, pupil and parent or guardian is fundamental to ensuring successful learning. This section \noutlines the roles of each participant in facilitating effective teaching and learning English language. \n6.1  The teacher\nThe teacher is expected to:\n(a) Help the pupil to learn and acquire the intended competences in English Language;\n(b) Use teaching  and learning approaches that will allow the pupil with different needs and abilities to;\n(i)  develop the competences needed in the 21st century; \n(ii) actively participate in the teaching and learning process;\n(c) Use pupils centred instructional strategies that make the pupils a centre of learning which allow them to think, reflect and \nsearch for information from various sources;\n(d) Create a friendly teaching and learning environment;\n(e) Prepare and improvise teaching and learning resources;\n(f) Conduct formative assessment regularly by using tools and methods which assess theory and practice; \n(g) Treat all pupils equally irrespective of their differences; \n(h) Protect the pupil while at school;\n(i)  Keep track of the pupil’s daily progress;\n(j)  Identify individual pupil’s needs and provide the right intervention;\n(k) Involve parents/guardians and the society at large in the pupil’s learning process; and\n(l)  Integrate cross-cutting issues and ICT in the teaching and learning process.",
+      "char_count": 1462
+    },
+    {
+      "page_number": 11,
+      "text": "5\n6.2  The pupil\nThe pupil is expected to:\n(a)  Develop the intended competences by participating in various learning activities inside and outside the classroom;\n(b)  Actively engage in the teaching and learning process; and\n(c)  Participate in the search for knowledge from various sources, including textbooks, reference books and other publications \nin online libraries.\n6.3 The parent \nThe parent/guardian is expected to do the following:\n(a) Monitor the child’s academic progress in school;\n(b) Where possible, provide the child with the needed academic support;\n(c) Provide the child with a safe and friendly home environment that is conducive for learning;\n(d) Keep track of the child progress in behaviour;\n(e) Provide the child with any materials required in the learning process; and\n(f) Instil in the child a sense of commitment and positive value towards education. \n7.0 Teaching and Learning Methods\nThe teaching and learning methods are instrumental in developing pupil’s intended competences. This syllabus suggests teaching \nand learning methods for each activity. They are aimed at enabling pupils to interact with content, which includes listening to and/\nor watching live or recorded materials, engaging with a written or visual text, and engaging with multimedia. All these aim to help \npupils develop listening, speaking, reading, and writing skills as well as develop vocabulary and grammar. However, a teacher is \nadvised to use other appropriate methods based on the environment or context.",
+      "char_count": 1515
+    },
+    {
+      "page_number": 12,
+      "text": "6\n8.0 Teaching and Learning Resources\nThe process of teaching and learning requires different resources. In that regard, both a teacher and pupil should work together to \ncollect or improvise alternative resources available in the school and home environment when needed. The teacher and pupil are \nexpected to constantly seek for information from various sources to effectively facilitate teaching and learning process. The list of \napproved textbooks and references books shall be provided by the TIE.\n9.0 Assessment \nAssessment is an important process in the learning and teaching process to facilitate the development of intended competences. \nThe assessment of the English language will involve continuous and summative assessment. The continuous assessment will \ntake into account the criteria in each learning activity and will enable the teacher to determine the pupil’s learning ability and \nneeds. It will also help the teacher to assess pupils knowledge, skills and attitudes and the ability to use the four language skills in \nvarious contexts. Furthermore, the assessment information will enable the teacher to improve teaching and learning to facilitate the \npupil’s achievement of the intended outcomes. The assessment tools that will be used during teaching and learning are, checklists, \nclassroom exercises, home works, questionnaires, face-to-face questions, practical works (individual and group works), project \nworks and portfolios and other similar tools.  \nThe final assessment will include weekly, monthly, terminal and annual examinations which will be used to assess pupil’s learning \nprogress and provide feedback to facilitate teaching and learning process. In addition, there will be a standard six national assessment \nthat will contribute 7.5% marks to the Form Four National Examination.",
+      "char_count": 1820
+    },
+    {
+      "page_number": 13,
+      "text": "7\n10.0   Number of Periods\nThe English Language Syllabus for Primary Education Standard III─VI provides estimates of the time that will be spent in teaching \nand learning, in consideration of the complexity of the specific competences and the learning activities.  Therefore, seven periods \nof 40 minutes each have been allocated for this subject per week for Standard III and IV and six periods of 40 minutes each have \nbeen allocated for this subject per week for Standard V and VI respectively.\n11.0  Teaching and Learning Contents\nThe contents of this subject are presented in matrix form with seven columns which include main competences, specific \ncompetences, learning activities, suggested teaching and learning methods, assessment criteria, resources and the number of \nperiods as presented in Tables 2–5.",
+      "char_count": 814
+    },
+    {
+      "page_number": 14,
+      "text": "8\nStandard III\nTable 2:  Detailed Contents for Standard III\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery of \nbasic English \nlanguage \nskills\n1.1 Develop \n      listening and \n      speaking  \n      skills\n(a) Write \ndictated \nwords\nDictation: Guide the pupils \nthrough writing words (use \nonly words that the pupil has \nalready learned to spell)\nDictated \nwords are \nwritten \ncorrectly\nTexts and \naudio/ \naudiovisual \nmaterials for \nlistening and \nspeaking\n30\n(b) Listen and \nrespond to \nquestions \nbased on \nsimple stories \nfrom familiar \ncontexts \n(home, \nschool) \nPrediction: Show the pupils \na cover of a book to predict \nwhat the story is about\nStorytelling: Tell the pupils a \nstory using facial expressions, \nvoices and gestures to support \nunderstanding \nQuestions \non simple \nstories in \na familiar \nenvironment \nare \nresponded \nto correctly",
+      "char_count": 1018
+    },
+    {
+      "page_number": 15,
+      "text": "9\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.2 Develop \nphonemic \nawareness \nand \npronunciation \nof English \nletters\n(a) Read aloud \nsimple short \nstories\nDiscussion: Give the pupils \na list of words and guide \nthem through pronouncing \nfamiliar words \nSongs: Guide the pupils \nthrough singing songs with \ntargeted words\nSimple and \nshort texts are \nread aloud \nfluently\nManila paper, \ncards, texts \nand audio/ \naudiovisual \nmaterials with \nphonemes\n64\n(b) Read short, \nsimple texts for \ncomprehension\nDemonstration:\nDemonstrate by reading \na text and asking \ncomprehension questions\nScanning: Guide the \npupils through picking and \ncombining specific words \nfrom a text to generate the \ngeneral idea\nShort texts \nare read for \ncomprehension",
+      "char_count": 888
+    },
+    {
+      "page_number": 16,
+      "text": "10\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n1.3 Use  \n      appropriate\n      grammar and\n      vocabulary  \n      both orally \n      and in writing\n(a) Use personal \npronouns\nMatching: Use pictures to \nguide the pupils through \npronouncing the words him, \nher, it, them, you, etc\nSongs: Guide the pupils \nthrough singing songs with \npronouns and ask them some \nquestions about the pronouns\nPersonal \npronouns \nare used \ncorrectly\nTexts and \naudio/ \naudiovisual \nmaterials \nwith \ngrammar and \nvocabulary\n38\n(b) Express \npossession \nusing the \nverbs have \nand has\nDescribing: Guide the \npupils through expressing \npossessions using have and \nhas\nDraw and Describe: Ask the \npupils to draw pictures and \ndescribe them using have and \nhas\nPossessions \nare well \nexpressed \nusing the \nverbs have \nand has",
+      "char_count": 948
+    },
+    {
+      "page_number": 17,
+      "text": "11\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Express \nroutines and \nongoing \nactivities \nin school \nand home \ncontexts \n(target: \nsimple \npresent tense, \npresent \ncontinuous \ntense)\nDemonstration: Demonstrate \nthe use and structure of simple \npresent tense, and present \ncontinuous tense\nChart: Use a chart with \ncolumns for the simple present \nand present continuous process \nto show the pupils how - s, -es \nand ies are added to the verb\nPictures: Show the pupils \na series of pictures with \nsentences underneath \nnarrating what is happening in \nthe images\nRoutines \nand ongoing \nactivities \nin school \nand home \ncontexts are \nexpressed \ncorrectly\n(d) Use \nconjunctions \nin oral and \nwritten \ncontexts \n(target: and, \nbut)\nSongs: Play recorded songs \nabout conjunctions and ask \nthe pupils to identify the \nconjunctions\nExplanation: Compose pairs \nof simple sentences for pupils \nto see how and and but are \nused \nConjunctions \nare used \nin oral and \nwritten \ncontexts",
+      "char_count": 1121
+    },
+    {
+      "page_number": 18,
+      "text": "12\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n2.0 Comprehend \noral and \nwritten \ninformation\n2.1 Read a variety \nof simple texts \nappropriately\n(a) Read two-\nsyllable \nand grade-\nappropriate \nwords\nExplain and demonstrate:\nDemonstrate and explain the \nstructure of syllables \nSyllable Match-Ups: Give the  \npupils cards with single syllables \nto match up and make new two-\nsyllable words\nTwo \nsyllables \nand grade-\nappropriate \nwords \nare read \ncorrectly\nVarious \nreading texts\n56\n(b) Read multi-\nsyllable \nand grade-\nappropriate \nwords\nClapping Games: Guide the \npupils through identifying \nsyllables in spoken words by \nclapping for each syllable \nJumping syllables: Lead the \npupils to separate words into \nsyllables and create new words \nSongs: Use fun songs such as \nThe Wheels on the Bus, Old  \nMcDonald, The Itsy Bitsy Spider, \nBingo, and Row Row Row Your \nBoat to learn to pronounce words \ninto syllables\nMulti-\nsyllable \nand grade-\nappropriate \nwords \nare read \ncorrectly",
+      "char_count": 1126
+    },
+    {
+      "page_number": 19,
+      "text": "13\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\nUsing pictures: Guide the \npupils through identifying and \nsaying multi syllabic words from \nmagazines or online sources\n(c) Read aloud \na variety of \ngrade-level \ntexts\nModelling: Read a text aloud \nthen ask the pupils to read the \ntexts after you have read \nQuestion and Answer: Ask \nquestions before, during and \nafter reading a text \nA variety of \ngrade-level \ntexts are \nread aloud",
+      "char_count": 578
+    },
+    {
+      "page_number": 20,
+      "text": "14\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n3.0 Communicate \neffectively \nin different \ncontexts\n3.1 Demonstrate \nknowledge \nof the basic \nfeatures \nof spoken \nlanguage\n(a) Identify \nwords with \nshort and \nlong vowels \n(e.g., ship/\nsheep, full/\nfool, to/too)\nRead and write: Guide the \npupils through pronouncing \nand writing words with long \nvowels\nSort the words: Guide pupils \nthrough sorting the words \nbased on how long vowel \nsounds are spelled\nWords \nwith short \nand long \nvowels are \nidentified\nWallcharts, \ntexts  and \naudio/ \naudiovisual \nmaterials \nwith \nfeatures \nof spoken \nlanguage\n56\n(b) Pronounce \nwords with \nlong vowel \nsounds with \nspeed and \nfluency\nDiscussion: Ask the pupils to \ndiscuss and circle the correct \nspelling of words with long \nvowel sounds \nWords \nwith long \nvowels are \npronounced \nwith speed \nand fluency",
+      "char_count": 989
+    },
+    {
+      "page_number": 21,
+      "text": "15\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Read short \nphrases \nand simple \nsentences \nwith short \nand long \nvowels\nInstructional routines: \nGuide the pupils through \nusing “touch and say” to \nread phrases containing long \nvowels \nShort \nphrases \nand simple \nsentences \nwith short \nand long \nvowels \nare read \ncorrectly",
+      "char_count": 472
+    },
+    {
+      "page_number": 22,
+      "text": "16\nStandard IV\nTable 3: Detailed Contents for Standard IV\nMain \ncompetences\nSpecific \ncompetences\nLearning activities Suggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery \nof basic \nEnglish \nlanguage \nskills\n1.1 Develop \nvocabulary \nby relating \nwords with \nobjects in the \nenvironment\n(a) Associate \nwords with \nobjects found \nin different \ncontexts (e.g., \nhome, hospital, \nmarket, bus \nstation)\nDirect/explicit\ninstruction: Guide the \npupils through learning \nwords in their immediate \nsurroundings\nRepetition and multiple \nexposures: Expose the \npupils to new words \nWords are \nassociated with \nobjects found \nin different \ncontexts\nRealia, word \nlists, charts \nand audio/ \naudiovisual \nmaterials \nwith \nenvironmental \nvocabulary\n22\n(b) Match objects \nwith their \nrespective \ncharacteristics\nVocabulary 7-up game: \nGuide the pupils through \nmatching vocabulary with \nobjects in a simple game  \nWords are \nmatched with \ntheir respective \ncharacteristics",
+      "char_count": 1055
+    },
+    {
+      "page_number": 23,
+      "text": "17\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Construct \nshort sentences \nusing \nvocabulary \nreferring to \nobjects found \nin different \nsettings\nWord walls: Ask the \npupils to construct \nsentences with words on \nthe word wall  \nShort sentences \nare constructed \nby using \nvocabulary \nreferring to \nobjects found in \ndifferent settings\n1.2 Use \nappropriate \ngrammar and \nvocabulary \nboth orally \nand in \nwriting\n(a) Talk about \nquantity using \nappropriate \nwords (e.g., \nsome, many, \nany, much)\nExplanation: Guide the \npupils through talking \nabout quantities of things \nusing some, many, any, \nmuch\nRole play: Guide the \npupils through playing \nthe roles of sellers and \nbuyers in shopping using \nthe expressions ‘ How \nmuch is it and ‘How many \ndo we want/need\nQuantities are \nexpressed using \nappropriate \nwords\nCharts, texts \nand audio/ \naudiovisual \nmaterials \nwith \ngrammar \nand \nvocabulary\n40",
+      "char_count": 1048
+    },
+    {
+      "page_number": 24,
+      "text": "18\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Express \nlocation using \nappropriate \nprepositions of \nplace and time \n(target: in, \nat, on, under, \ninside, outside, \nover, near)\nGames: Use games \nlike ‘Simon Says’ to \nguide the pupils through \nresponding to commands \nwith prepositions\nPreposition race: Ask \nthe pupils to follow \ninstructions that include \nprepositions of place and \ntime \nLocation is \nexpressed using \nappropriate \nprepositions of \nplace and time\n(c) Express past \nevents (target: \nsimple past \ntense, past \ncontinuous \ntense) \nGame: Ask the pupils to \nchange irregular verbs \nin present tense into past \ntense\nPast events \nare expressed \ncorrectly",
+      "char_count": 816
+    },
+    {
+      "page_number": 25,
+      "text": "19\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof periods\n(d) Use \nconjunctions \nin oral and \nwritten \ncontexts \n(target: so, \nbecause)\nLink-Up Game: Guide \nthe pupils in pairs through \nwriting a sentence at the \nsame time using so and \nbecause\n“SLAP-IT” Game: Guide \nthe pupils through getting \nthe correct word and \ngaining a point for their \ngroup in the game \nConjunctions \nare well \nused in oral \nand written \ncontexts\n2.0 Comprehend \noral and \nwritten \ninformation\n2.1 Respond \nappropriately \nin a familiar \ncommunicative \ncontext\nParticipate in \nsimple dialogues \nabout school, \nmarket and home \ncontexts\nDialogue: Use a dialogue \nwith the appropriate \nvocabulary for market and \nhome\nRoleplay: Guide the pupils \nthrough role-playing a \nteacher-pupil conversation \non a particular topic\nSimple \ndialogues \nare produced \non school, \nmarket \nand home \ncontexts\nWallcharts, \ntexts  and \naudio/ \naudiovisual \nmaterials with \ncommunicative \ncontexts\n42",
+      "char_count": 1086
+    },
+    {
+      "page_number": 26,
+      "text": "20\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n2.2 Read \nappropriately \na variety of \nsimple texts\n(a) Read aloud \ngrade-level \nsimple \ntexts with \nappropriate \nintonation\nDemonstration: Read \naloud, model, and \nverbalize the words in \nthe text\nReader’s Theatre: \nAssign the pupils in \ngroups to take turns in \nreading their scripts with \nappropriate intonation\nGrade-level \nsimple texts \nare read aloud \nwith appropriate \nintonation\nSimple \ntexts with \na variety of \nissues\n30\n(b) Read grade-\nlevel simple \ntexts of \ndifferent \nnatures \nfluently\nModelling: Reading \nsimple texts and ask the \npupils to read in groups\nGrade-level \nsimple texts of \ndifferent natures \nare read fluently",
+      "char_count": 829
+    },
+    {
+      "page_number": 27,
+      "text": "21\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n3.0 Communicate \neffectively \nin different \ncontexts\n3.1 Demonstrate \nknowledge \nof the basic \nfeatures \nof spoken \nlanguage\n(a) Pronounce \nwords with \nsimilar sounds \n(e.g., see/sea, \nby/bye/buy, \nright/write)\nListen and Repeat: \nPronounce a word and ask \nyour pupils to pronounce \nit after you \nTongue twisters: Guide \nthe pupils through reciting \ntongue twisters with the \ncorrect pronunciation\nWords with the \nsame sound are \npronounced \ncorrectly\nWallcharts, \ntexts  and \naudio/ \naudiovisual \nmaterials \nwith \nfeatures \nof spoken \nlanguage\n35\n(b) Convey simple \nideas using \nwords with \nsimilar sounds\nModelling: Construct \ncomplete and correct \nsentences with two words \nwith the same sound\nDiscussion: Guide the \npupils through discussing \na particular topic\nSimple ideas are \nconveyed using \nwords with the \nsame sound",
+      "char_count": 1018
+    },
+    {
+      "page_number": 28,
+      "text": "22\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Use words \nwith opposite \nmeanings \nin spoken \ncontexts\nBrainstorming: Lead the \npupils in groups to compose \nsentences using the \nantonyms of given words \nMatching: Guide the pupils \nthrough matching words \nwith their antonyms\nComplete the list: Assign \nthe pupils to complete the \ncolumn of antonyms for \neach word provided in \nanother column\nMemory games: Mix words \nand their antonyms and ask \nthe pupils to match them\nWords with \nopposite \nmeanings are \nused in spoken \ncontexts",
+      "char_count": 679
+    },
+    {
+      "page_number": 29,
+      "text": "23\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n3.2 Produce \nshort written \nmessages \nusing \nappropriate \ngrammar and \nvocabulary\n(a) Identify the \nform and \ncontent of \nwishes and \nmessages\nTask-based learning: \nGuide the pupils through \nidentifying the form \nand content of written \nmessages from a sample \nof cards \nThe form and \ncontent of \nwishes and \nmessages are \nidentified\nRealia, \nword lists, \ncharts, \ncalendars, \ncards and \naudio/ \naudiovisual \nmaterials \nwith \nappropriate \nvocabulary\n30\n(b) Write wishes \nand messages \nto parents, \nteachers and \nfriends\nGuided writing: Guide \nthe pupils through writing \ntheir wishes in groups\nGames: Guide the \npupils through using the \n‘Association game’ to \nwrite messages to parents, \nteachers and friends\n Wishes and \nmessages are \nwritten to \nparents, teachers \nand friends \ncorrectly",
+      "char_count": 982
+    },
+    {
+      "page_number": 30,
+      "text": "24\nMain \ncompetences\nSpecific \ncompetences\nLearning activities Suggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c)  Prepare a \nschedule of daily \nroutines\nMatch up: Guide the \npupils through matching \ndifferent times of the day \nwith their daily routine \nComposing: Guide the \npupils through composing \ntheir schedules for daily \nroutines\nSchedules of \ndaily routines \nare prepared \ncorrectly\n3.3 Demonstrate \nbasic skills \nin creative \nwriting\n(a) Write simple \nsentences \nusing visual/ \naudiovisual \nstimuli (e.g., \npictures, charts, \ndiagrams)\nPictures:  Use pictures to \nguide the pupils through \ndescribing and writing \nsentences\nMix and fix sentences: \nGuide the pupils through \nconstructing sentences by \nre-arranging mixed parts \nof sentences\nWhat’s missing? Guide \nthe pupils through \nidentifying the skipped \nparts or sentences \nSimple \nsentences \nare written \nusing visual/\naudiovisual \nstimuli\nPicture, \ncharts, \ndiagrams \nand simple \ntexts with \na variety of \nissues\n35",
+      "char_count": 1062
+    },
+    {
+      "page_number": 31,
+      "text": "25\nMain \ncompetences\nSpecific \ncompetences\nLearning activities Suggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Write simple \nguided \nparagraphs using \nappropriate and \npunctuation \nmarks (target:  \nand, but, \ncomma, full stop, \nquestion marks)\nBrainstorming: Ask the \npupils to brainstorm on a \nchosen topic \nHook-On Sentences:\nGuide the pupils to write \nsimple guided paragraphs \nby hooking one sentence \nto another\nSimple guided \nparagraphs are \nwritten using \nappropriate \nconjunctions \nand punctuation \nmarks",
+      "char_count": 596
+    },
+    {
+      "page_number": 32,
+      "text": "26\nStandard V\nTable 4: Detailed Contents for Standard V\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery \nof basic \nEnglish \nlanguage \nskills\n1.1 Develop \nvocabulary by \nrelating words \nwith objects in \nthe environment\n(a) Find \nsynonyms \nand \nantonyms \nof targeted \nwords in \ndifferent \ntexts\nMatching: Mix the sticky \nnotes with pairs of synonyms \nand antonyms for pupils to \nmatch \nWord Pairs Game: Give the \npupils pairs of words and let \nthem say whether they are \nsynonyms or antonyms \nRewriting History: Guide \nthe pupils through picking \na paragraph on social issues \nand rewriting sentences using \nsynonyms \nSynonyms \nand antonyms \nof the \ntargeted \nwords are \nfound in \ndifferent texts\nRealia, word \nlists, charts \nand audio/ \naudiovisual \nmaterials with \nenvironmental \nvocabulary\n22\n(b) Solve word \npuzzles \nfrom \nvarious \nmedia\nModelling: Select a simple \nword puzzle and demonstrate \nto the pupils how to do the \npuzzle\nCollaborative: Select a \nsimple word puzzle and solve \nit with the pupils\nWord puzzles \nfrom various \nmedia are \nsolved",
+      "char_count": 1217
+    },
+    {
+      "page_number": 33,
+      "text": "27\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Construct \nshort \npassages \nusing \nvocabulary \nreferring to \nobjects found \nin different \nsettings\nSing or rhyme it: Guide the \npupils through creating a short \nsong or poem that includes \nchosen words \nUse song/poem to write:  \nGuide the pupils through \nwriting a short passage based \non a song or poem\nShort passages \nare constructed \nusing \nvocabulary \nreferring to \nobjects found \nin different \nsettings\n1.2 Use appropriate \ngrammar and \nvocabulary \nboth orally and \nin writing\n(a) Compare \nthings based \non size, \nquality and \nquantity \n(e.g., big-\nbigger-\nbiggest, \nmuch-more-\nmost)\nDefining concept:  Define an \nadjective and ask the pupils to \ngive examples\nBrainstorming: Ask the pupils \nabout different things they see in \nterms of size, quality and quantity\nWord chart:  Provide the pupils \nwith an adjective chart\nGame: Fill in the blanks: Guide \nthe pupils through guessing \nmissing comparative adjectives in \nsentences \nObservation: Guide the pupils \nthrough describing objects they \nsee in terms of  sizes, quality and \nquantity \nThings are \ncompared \nbased on size, \nquality and \nquantity\nCharts, \ntexts and \naudio/ \naudiovisual \nmaterials \nwith \ngrammar \nand \nvocabulary\n24",
+      "char_count": 1386
+    },
+    {
+      "page_number": 34,
+      "text": "28\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Express \nlocation using \nappropriate \nprepositions \nof direction \n(target: \ntowards, \nbetween, \nbeside, from, \ninto, onto, \nthrough, \nacross)\nDescriptive passage: Guide \nthe pupils through circling the \nprepositions in the passage\n “Do As I Say” Game: Guide \nthe pupils through using \ncommands with prepositions to \nmove into different positions\nThe List Challenger: Guide \nthe pupils through creating \nsentences using the given \nprepositions\nLocation is \nexpressed \nusing \nappropriate \nprepositions \nof direction\n(c)  Express \npossession \nusing\n      adjectives \nand pronouns \n(target: my, \nmine, yours, \nhis, her, hers, \ntheir, theirs)\nSongs: Guide the pupils \nthrough singing relevant songs \nwith adjectives and pronouns\nGames: Use Stop me drills  \nand Hot-chair games to guide \nthe pupils through expressing \nadjectives and pronouns\nPossessions \nare expressed \nusing \nadjectives \nand pronouns",
+      "char_count": 1092
+    },
+    {
+      "page_number": 35,
+      "text": "29\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(d) Express \ncompleted and \nunfinished \nactions \n(structure: \npresent perfect, \npast perfect \ntense)\nDialogue: Prepare a dialogue \nusing present perfect and past \nperfect tenses and let the pupils \npractice it\nI know What You Will Say \nGame: Lead the pupils in groups, \nto complete questions using the \npresent perfect or past simple \nCompleted \nand \nunfinished \nactions are \nexpressed \ncorrectly\n(e) Use \nconjunctions \nin oral and \nwritten \ncontexts \n(target: too…\nto, either …or,  \nneither…nor)\nSongs: Play a song on conjunction \n(e.g., “Conjunction Junction” by \nSchool House Rock) and guide \nthe pupils through using the song \nto discuss conjunctions\nDescribing: Write too… to, \neither… or and neither… nor on \nthe board and guide the pupils \nthrough describing the usage of \neach of these pairs \nDiscussion: Guide the pupils \nthrough discussing the targeted \nconjunction and create pairs of \nsimple sentences \nConjunctions \nare used \nin oral and \nwritten \ncontexts",
+      "char_count": 1161
+    },
+    {
+      "page_number": 36,
+      "text": "30\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(f) Use active \nand passive \nvoices to \ncommunicate \nin different \ncontexts\nActive Approach: Guide \nthe pupils through saying the \nactions after you show the \naction \nBrainstorming: Guide the \npupils through brainstorming \nabout things that the \ngovernment does for the people \nConstruction:  Guide the \npupils through using passive \nvoice to report about things \ndone in their communities\nTransformation: Guide the \npupils through reporting the \nsame events in active voice and \nlater changing them to passive \nvoice\nActive and \npassive \nvoices \nare used \nappropriately \nto \ncommunicate \nin different \ncontexts",
+      "char_count": 803
+    },
+    {
+      "page_number": 37,
+      "text": "31\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n2.0 Comprehend \noral and \nwritten \ninformation\n2.1 Comprehend \ninformation \npresented orally\n(a) Follow oral \ninstructions \nto \naccomplish \na task (e.g., \noperating \nequipment \nand making \nobjects)\nDemonstration: Show the \npupils a pre-built structure \nmade from blocks and explain \nhow it was built\nBuilding Blocks: Give a list \nof clearly written instructions \non recreating structures using \nblocks of their own\nScavenger Hunt Game: \nProvide the pupils with a set of \nclues to follow progressively \nuntil the treasure is found\nOral \ninstructions \nare \nfollowed to \naccomplish \ntasks\nRealia, \naudio/ \naudiovisual \nmaterials, \nspecial \npencils, \nstickers, \ntexts with \nvarious \ninformation\n30\n(b) Listen to \ngrade-\nappropriate \nmyths, \nfairy tales \nand fables \npresented \nthrough \naudio/\naudiovisual \nchannels \nand respond \naccordingly\nBrainstorming: Guide the pupils \nthrough brainstorming about \nmyths, fairy tales and fables they \nknow  \nStorytelling: Guide the pupils \nthrough narrating myths/fairy \ntales/fables of their choice to the \nclass \nDramatising: Screen a short fairy \ntale and tell the pupils in groups \nto discuss and dramatise it \nGrade-\nappropriate \nmyths, fairy \ntales, and \nfables are \nlistened \nto and \nunderstood \nwell",
+      "char_count": 1433
+    },
+    {
+      "page_number": 38,
+      "text": "32\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Identify major \nand minor \nideas in a \nstory\nPlay a Game: Guide the pupils \nthrough thinking about facts and the \nteam that comes up with the most \nfacts wins\nMajor and minor \nideas are identified \nfrom a story\n(d) Summarise \nissues found \nin the texts \nheard\nSummarisation: Guide the pupils \nthrough identifying and connecting \nthe central idea\nIssues found in \nthe text heard are \nsummarised\n(e) Retell oral \ntexts \nModelling: Guide the pupils \nthrough guided instructions about \nhow to retell a short text \nUsing pictures/props to retell: Ask \nthe pupils to use printed pictures \nfrom the text, puppets, or other \nrelated props to retell\nSequence retelling:  Guide the \npupils through retelling a story \nOral texts are \nretold correctly\n2.2 Construct \nmeaning \nfrom simple \ntexts\n(a)  Read grade-\nappropriate \ntexts to identify \ntheir basic \ncomponents \nand contents\nSentence completion: Read phrases \nto the pupils, stop and give a signal \nfor a pupil to complete a sentence \nDiscussion: Guide the pupils in \nmanageable groups to read a text \nand identify its content. Ask them \nquestions after reading\nGrade-appropriate \ntexts are read \nproperly and their \nbasic components \nand contents are \nidentified correctly\nPicture, \ncharts, \ndiagrams \nand simple \ntexts with \na variety \nof issues\n22",
+      "char_count": 1491
+    },
+    {
+      "page_number": 39,
+      "text": "33\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Deduce \nthe general \nmeaning of a \ntext\nPrediction: Allow the pupils \nto read a paragraph from a \nselected text, discuss and \npredict what will happen in the \nnext paragraph\nGeneral \nmeaning is \ndeduced from \na text\n(c) Summarise \nissues found \nin the texts \nread\nDirect explanation: Explain \nhow to summarise issues found \nin the text  \nModelling: Demonstrate how \nto summarise by “thinking \naloud” while reading the text \nUsing Wh-Questions: Guide \nthe pupils through creating a \nsummary by answering Who, \nWhat, When, Where, and Why \nquestions\nIssues are \nsummarized \nfrom the texts \nread\n2.3 Respond \nappropriately \nin a familiar \ncommunicative \ncontext\n(a) Identify main \npoints in \nconversations \nOpen-ended questions: Ask \nthe pupils to give details as \nthey express ideas by asking \nthem, ‘Why do you think that \nhappened?’\nMain \npoints are \nidentified in \nconversations\nWall charts, \ntexts  and \naudio/ \naudiovisual \nmaterials with \ncommunicative \ncontexts\n24",
+      "char_count": 1163
+    },
+    {
+      "page_number": 40,
+      "text": "34\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Respond to \ncompliments, \napologies, \nwishes and \nsympathy \nmessages\nExplanation: Explain to pupils \nthe meaning of compliments, \napologies, wishes and \nsympathetic messages\nBrainstorming: Ask the pupils \nto identify different things that \nthey praise people for (clothing, \nhair, job performance, talent, \ndesign, hard work) \nRoleplay: Guide the pupils \nthrough role playing  a setting \non the board \nCompliments, \napologies, \nwishes and \nsympathetic \nmessages are \nresponded to \nappropriately\n2.4 Read \nappropriately \na variety of \nsimple texts\n(a)  Read aloud \ngrade-level \nsimple texts \nwith the \ncorrect rhythm\nDiscussion: Lead the pupils \nin groups to communicate and \nexplore the text before reading\nK-W-L: Use the steps to guide \nthe pupils through reading texts\nGrade-level \nsimple texts \nare read aloud \nwith the \ncorrect rhythm\nSimple \ntexts with \na variety of \nissues\n24",
+      "char_count": 1078
+    },
+    {
+      "page_number": 41,
+      "text": "35\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Reading \ngrade-level \nprose and \npoetry with \naccuracy and \nappropriate \nspeed\nOrdering: Cut the poem into \nverses, mix them and ask the \npupils to put them in the correct \norder \nWatch Poetry Videos: Play a \npoem video for the pupils to \nwatch and answer questions \nafter it\nPlant a poetree: Instruct the \npupils to go outside gather the \ninformation and  compose a \npoem \nGrade-level \nprose and \npoetry are \nread with \naccuracy and \nappropriate \nspeed",
+      "char_count": 649
+    },
+    {
+      "page_number": 42,
+      "text": "36\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n3.0 Communicate \neffectively \nin a different \ncontext\n3.1 Demonstrate \nknowledge \nof the basic \nfeatures \nof spoken \nlanguage\n(a) Practise \nconnected \nspeech by \nlinking \nwords(e.g. \nthey’ll, \nwon’t, \nthere’ s)\nTongue Twisters: Pronounce a \ntongue twister and ask the pupils \nto do the same \nCatenation or linking: Guide \nthe pupils through attaching  a \nconsonant sound at the end of one \nword e.g “an apple” = “anapple”, \n“trip over” = “tripover”, “clean \nup” = “cleanup”\nIntrusion: Guide the pupils \nthrough inserting a sound \nbetween two words often with \nsounds /i/, /w/ and /r/ e.g , He \nasked” = “heyasked”\n“do it” = “dewit”\nAssimilation: Guide the pupils \nthrough segmenting words  \nmaking them behave like \nanother segment that is adjacent \nto it. Eg., in-pure>impure\n Using podcasts: Lead the pupils \nto listen and practise what they \nhear from an age-appropriate \npodcast of a native speaker \nWords are \nlinked in \nconnected \nspeech\nWallcharts, \ntexts  and \naudio/ \naudiovisual \nmaterials \nwith features \nof spoken \nlanguage\n34",
+      "char_count": 1229
+    },
+    {
+      "page_number": 43,
+      "text": "37\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Practise \nconnected \nspeech by \ndeleting \nsome \nsounds (e.g. \nnext door \n–> nexdoor\ndad take –> \ndatake\nmost \ncommon –> \nmoscommon\n used to –> \nuseto\nElision: Guide the pupils through \ndeleting sounds from words \norally\nUtterances are \nproduced in \na connected \nspeech by \ndeleting some \nsounds\n(c) Use question \ntags\nHow much can you remember \ngame: In groups, the pupils \ntake turns to ask and answer the \nquestions on their cards\nQuestion \ntags are used \ncorrectly\n3.2 Produce short \nand basic oral \nmessages with a \nlogical structure \nand intelligible \npronunciation\n(a) Make \nstatements \nabout objects \nand ideas \nthat can be \njudged as \ntrue or false\nBrainstorming: Lead the pupils \nto brainstorm on statements that \nare true or false\nDescribing objects: Lead the \npupils to describe objects by \nmaking statements about them \nStatements \nabout objects \nand ideas that \ncan be judged \ntrue or false \nare made\nRealia, word \nlists, charts, \ncalendars, \ncards and \naudio/\naudiovisual \nmaterials with \nappropriate \nvocabulary\n10",
+      "char_count": 1224
+    },
+    {
+      "page_number": 44,
+      "text": "38\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Present \nsimple \nspeeches \nabout self \nand family \nmembers \non familiar \ntopics (e.g. \nmy pet, my \nbrother, \nbirthday \nparty, \nwedding)\nModelling or demonstration:\nGuide the pupils through \nworking in pairs to prepare a \nspeech and present it to the \nclass\nFamily Photos: Tell the pupils \nto bring photos of their families \nand talk about each of the \npeople in the photos \nSimple \nspeeches \nabout self \nand family \nmembers are \npresented\n3.3 Produce \nshort written \nmessages using \nappropriate \ngrammar and \nvocabulary\n(a) Identify the \nform and \ncontent of \nappreciation, \nthanks and \napology \nnotes\nExplanation: Use sentences \nto distinguish between \nappreciation, thanks and \napology\nDramatising: Provide short \nscripts with appreciation, \nthanks and apology content\nThe form and \ncontent of \nappreciation, \nthanks and \napology notes \nare identified\nRealia, word \nlists, charts, \ncalendars, \ncards and \naudio/ \naudiovisual \nmaterials with \nappropriate \nvocabulary\n20",
+      "char_count": 1165
+    },
+    {
+      "page_number": 45,
+      "text": "39\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Write  \nappreciation, \nthanks and \napology notes \nto teachers, \nfriends and \nparents\nBrainstorming: Guide the pupils \nthrough identifying and writing \nappreciation or thanks notes on  \nvarious things \nDialogue: Lead the pupils \ninto pairs to practise dialogues \nwith appreciation, thanks and \napology themes\nRecite a poem: Provide a poem \nwith five magic words (e.g., \nplease, thank you, excuse me ) \nfor the pupils to recite \nAppreciation, \nthanks and \napology notes \nare written \nto teachers, \nfriends and \nparents",
+      "char_count": 711
+    },
+    {
+      "page_number": 46,
+      "text": "40\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n3.4 Demonstrate \nbasic skills \nin creative \nwriting\n(a) Create a \njournal \nto record \ninspiring \nthings (at \nhome, at \nschool, from \nTV and radio \nprogrammes, \netc.)\nPersonalised journal entry:  \nLead the pupils to write a \nletter of introduction about \nthemselves \nReflective learning:  Dictate \nsentence stems and let the \npupils compare their sentences \nwith their partners\nCharacter writing:  Pupils \nread/listen to a story then use \nthe story ideas to write their \nown in the journal\nHappiness diary : Pupils chat \nabout their happiness (or lack \nof it) and write about their \nfeelings\nVocabulary stories : Pupils \nconstruct a story and write it in \ntheir journals before reading it \nto other pupils\nA journal \nis created \nto record \ninspiring \nthings\nPicture, \ncharts, \ndiagrams and \nsimple texts \nwith a variety \nof issues  \n14",
+      "char_count": 1025
+    },
+    {
+      "page_number": 47,
+      "text": "41\nMain \ncompetences\nSpecific \ncompetences\nLearning activities Suggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Devise a topic \nfor a poem \nfrom the ideas \nrecorded in a \njournal\nGallery Walk: Lead the pupils \nin groups to read and come up \nwith one-word titles for each \npoem\nA topic for \na poem is \ndeveloped \nfrom ideas \nrecorded in a \njournal\n(c) Use basic \nfigures of \nspeech (simile, \nmetaphor, \npersonification) \nto write a four-\nline stanza\nExplanation: Use similes, \nmetaphors and personification \nto distinguish these figures of \nspeech in sentences  \nPaper Bag Poetry Activity: \nTell the pupils to pull out a \npiece of paper from the box and \nread it out aloud and make their \nown\nCollaborative Poetry: Provide \nthe pupils with strips of paper \nand ask them to write their best \nideas on the strips to make a \nstanza\nBasic figures \nof speech \nare used \ncorrectly to \nwrite a four-\nline stanza",
+      "char_count": 985
+    },
+    {
+      "page_number": 48,
+      "text": "42\nStandard VI\nTable 5: Detailed Contents for Standard VI\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery of \nbasic English \nlanguage skills\n1.1 Develop \nvocabulary \nby relating \nwords with \nobjects in the \nenvironment\n(a) Compose \na dialogue \nusing \nvocabulary \nreferring \nto objects \nfound in \ndifferent \nsettings\nBrainstorming: Use \npictures to guide the \npupils to brainstorm \ndifferent objects in \ndifferent settings \nDialogue: Guide the \npupils through reading a \ndialogue with vocabulary \non objects found in \ndifferent settings\nComposing: Guide the \npupils through composing \ndialogues on objects in \ndifferent settings \nActing: Guide the pupils \nthrough ac ting out the \ncomposed dialogue \nDialogue is \ncomposed using \nvocabulary \nreferring to \nobjects found \nin different \nsettings\nRealia, word \nlists, charts \nand audio/ \naudiovisual \nmaterials with \nenvironmental \nvocabulary  \n20",
+      "char_count": 1056
+    },
+    {
+      "page_number": 49,
+      "text": "43\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Compose a \nstory using  \nvocabulary \nreferring \nto objects \nfound in \ndifferent \nsettings\nFinding target a \nword: Guide the pupils \nthrough circling/noting \ndown words referring \nto objects found in \ndifferent contexts \nGuided composition:  \nGuide the pupils \nthrough writing a \nguided composition \nComposing: Guide \nthe pupils through \ncomposing a story with \nspecified vocabulary\nA story is \ncomposed using \nvocabulary \nreferring to \nobjects found \nin different \nsettings",
+      "char_count": 668
+    },
+    {
+      "page_number": 50,
+      "text": "44\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n1.2 Use appropriate \ngrammar and \nvocabulary both \norally and in \nwriting\n(a) Express \nnationalities \nusing \nappropriate \nadjectives (e.g. \nTanzanian, \nJapanese, \nNorwegian)\nBrainstorming: Use pictures \nof people from different \ncountries to guide the pupils \nthrough brainstorming their \nnationalities \nSpot the word:  Guide the \npupils through identifying \nthe adjectives that describe \nnationalities in a text and \nread them aloud\nDialogue: Guide the pupils \nthrough preparing and acting \nout dialogue on nationalities \nRole play: Guide the \npupils through introducing \nthemselves as members of \ndifferent nations\nSelf-introduction: Guide the \npupils though introducing \nthemselves by including their \nnationalities \nRole play:  Guide the pupils \nin pairs to a role introducing \neach other to other people\nNationalities \nare expressed \nusing \nappropriate \nadjectives\nCharts, texts \nand audio/ \naudiovisual \nmaterials with \ngrammar and \nvocabulary\n24",
+      "char_count": 1143
+    },
+    {
+      "page_number": 51,
+      "text": "45\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(b) Use relative \npronouns in \nappropriate \ncontexts \n(e.g., who, \nwhose, \nwhom)\nReading: Guide the pupils \nthrough reading passages \nusing target relative \npronouns \nSentence construction: \nGuide the pupils through \nconstructing sentences for \neach of the relative pronouns \nStorytelling: Guide the \npupils through telling a story \nusing relative pronouns \nRelative \npronouns \nare used in \nappropriate \ncontexts\n(c) Express \nfuture \nactions \n(structure: \nwill, shall, \ngoing to)\nBrainstorming: Guide the \npupils through brainstorming \nvarious actions \nDescription: Guide the \npupils through describing \nactions presented through \npictures orally and in writing\nSentence construction:   \nGuide the pupils to construct \noral and written sentences \nto express future actions/\nactivities\nFuture actions \nare expressed \ncorrectly",
+      "char_count": 1016
+    },
+    {
+      "page_number": 52,
+      "text": "46\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(d)  Use \nconjunctions \nin oral and \nwritten \ncontexts \n(target: yet, \ndespite, in \nspite of, so…\nthat)\nFinding target \ngrammar:  Ask the \npupils to circle the \ntarget grammar in a \npassage or dialogue\nSentence \nre-construction:  Guide \nthe pupils through \nreconstructing different \nsentences using the \ncircled conjunctions\nSentence construction: \nGuide the pupils to \nconstruct oral/written \nsentences using the \ntarget conjunctions \nConjunctions \nare used in oral \nand written \ncontexts",
+      "char_count": 680
+    },
+    {
+      "page_number": 53,
+      "text": "47\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(e) Express \nconcession  \n(target: \nalthough, \nthough)\nFinding target grammar:  \nAsk the pupils to circle \nthe target grammar in a \npassage or dialogue\nSentence re-construction:  \nGuide the pupils through \nconstructing different \nsentences using the circled \nwords\nGrammar Challenge: \nGuide the pupils through \nconstructing sentences \nwith the target grammar \nConcessions \nare expressed \ncorrectly\n2.0  Comprehend \noral and written \ninformation\n2.1 Comprehend \ninformation \npresented \norally\n(a) Report \ninformation \nheard from \na speech\nPresentation: Guide the \npupils through listening to \nan oral speech and report \nthe main ideas orally  \nSummary: Guide \nthe pupils through \nsummarising information \nfrom a speech \nInformation \nheard from \na speech \nis reported \ncorrectly\nRealia, audio/ \naudiovisual \nmaterials, \nspecial pencils, \nstickers, texts \nwith various \ninformation\n18",
+      "char_count": 1071
+    },
+    {
+      "page_number": 54,
+      "text": "48\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(b) Participate \nin dialogues \non grade \nappropriate \ntopical issues\nDialogue: Guide the \npupils through reading a \ntopical issue and acting \nit out\nDialogues are \nmade on grade-\nappropriate \ntopical issues\n(c) Engage in oral \ndiscussions \non topical \nissues (e.g.  \nenvironment, \ngender, \ncorruption)\nBrainstorming:  Use \npictures to guide the pupils \nthrough brainstorming \nvocabulary related to \nselected topics\nDebate: Guide the \npupils in teams through \nconducting debates on \nselected issues \nChain discussion: \nGuide the pupils in a \ncircle through discussing \ngiven topics\nTopical issues \nare discussed \norally",
+      "char_count": 810
+    },
+    {
+      "page_number": 55,
+      "text": "45\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n2.2 Construct \nmeaning from \nsimple texts\n(a) Interpret \nfigurative \nand \nidiomatic \nlanguage \nfrom a \ntext (e.g. \nidioms, \nriddles, \nproverbs)\nFinding target words: \nGuide the pupils through \ncircling riddles, proverbs \nor idioms in a dialogue or \npassage\nSentence \nre-construction:  Guide \nthe pupils through \ncreating sentences using \nthe circled words\nQuestions and answers:   \nAsk the pupils to give \nthe meaning of idiomatic \nexpressions and figurative \nFigurative \nand idiomatic \nlanguage \nis properly \ninterpreted \ncorrectly from \na text\nPicture, charts, \ndiagrams and \nsimple texts \nwith a variety \nof issues\n20\n(b) Infer \nmeaning \nfrom a text\nThink aloud:  Guide \nthe pupils to verbalise \ntheir thoughts from the \ntexts they read \nBrainstorming: Guide \nthe pupils through \nbrainstorming what \nthey know about the \nideas presented in the \ngiven texts \nMeaning \nis inferred \nfrom a text \nmeaningfully",
+      "char_count": 1098
+    },
+    {
+      "page_number": 56,
+      "text": "46\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Relate the \ncontent of \na text with \nreal life\nBrainstorming: Guide\nthe pupils through \nbrainstorming age-\nappropriate real-life \nexperiences\nReading: Guide the \npupils through reading \na passage with age-\nappropriate content\nQuestions and answers: \nGuide the pupils \nthrough relating the \ncontent of the text with \nreal life experience\nThe content of \na text is related \nto real life",
+      "char_count": 579
+    },
+    {
+      "page_number": 57,
+      "text": "47\nMain \ncompetences\nSpecific \ncompetences\nLearning activities Suggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n2.3  Respond \nappropriately \nin a familiar \ncommunicative \ncontext\n(a) Give an \nappropriate \nand logical \nconclusion to a \nconversation\nSpot the conclusion: \nGuide the pupils through \nidentifying  and reading \na conclusion in the text \nDialogue: Guide the \npupils through concluding  \na conversation on a \ndialogue (e.g., road \nsafety, corruption, \ngender, e.t.c)\nConversation: Guide the \npupils through preparing \nconversations about \nenvironmental pollution \nand making conclusions\nThe \nconclusion to \nconversion \nis given \nappropriately \nand logically\nWallcharts, \ntexts  and \naudio/ \naudiovisual \nmaterials with \ncommunicative \ncontexts\n20\n(b) Debate on \ntopical issues \n(e.g. gender, \nentrepreneurship, \ncorruption, \neducation)\nDebate: Guide the \npupils in teams through \nconducting debates on \nselected issues\nTopical \nissues are \ndebated ",
+      "char_count": 1035
+    },
+    {
+      "page_number": 58,
+      "text": "48\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n(c) Give \nappropriate \nresponses \nto riddles\nBrainstorming: Guide \nthe pupils through \nbrainstorming the \nprocedures of playing a \nriddle game\nRiddle list: Ask the \npupils to write down all \nsentences they think are \nriddles \nRiddle game: Guide \nthe pupils in teams \nthrough playing a \nriddle game\nCode break: Provide \na set of riddles for the \npupils to solve within \none minute wins a \npoint\nAppropriate \nresponses are \nmade to riddles",
+      "char_count": 628
+    },
+    {
+      "page_number": 59,
+      "text": "49\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n3.0 Communicate \neffectively \nin different \ncontexts\n3.1 Demonstrate \nknowledge \nof the basic \nfeatures \nof spoken \nlanguage\n(a) Express \nfeelings using \nappropriate \nintonation \npatterns (e.g., \nsurprise, \nshock, \nhappiness, \nsadness)\nSpot it: Guide \nthe pupils through \nidentifying the words \nthat express feelings \nfrom a text\nDescription: Guide \nthe pupils through \ndescribing feelings \nexpressed by emojis \nRole play: Guide the \npupils through role \nplaying and expressing \nfeelings orally\nFeelings are \nexpressed \nusing \nappropriate \nintonation \npatterns\nPicture, \ncharts, \ndiagrams \nand simple \ntexts with \na variety of \nissues\n30\n(b) Use \nappropriate \nbackchannels \nin \nconversations \n(e.g. so, well, \nright, uh-huh, \nwow, yeah, \nreally)\nDialogue: Guide \nthe pupils through \nreading a dialogue \nwith appropriate \nbackchannels\nConversation: Guide \nthe pupils through \nmaking reservations \nand bookings \nBackchannels \nare used in \nconversations",
+      "char_count": 1141
+    },
+    {
+      "page_number": 60,
+      "text": "50\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n(c) Report \nmessages \nreceived \norally \n(virtually \nand face to \nface)\nWhispering/\nTelephone exercise:  \nWhisper a phrase or \nshort sentence to the \npupil to pass it on \nAnnouncement: \nGuide the pupils \nthrough making   \nannouncements  orally \nMessages \nreceived orally \nare reported \ncorrectly",
+      "char_count": 484
+    },
+    {
+      "page_number": 61,
+      "text": "51\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand \nlearning \nresources\nNumber \nof \nperiods\n3.2 Produce short \nand basic oral \nmessages \nwith a logical \nstructure and \nintelligible \npronunciation\nEngage in \ndiscussions \non a variety of \ntopical issues \nand defend \narguments\nModelling: Demonstrate \nhow to discuss an issue \nand defend an argument\nBrainstorming: Guide \nthe pupils through \nthinking, writing and \nsharing various issues \nthey would like to discuss\nDiscussion: Guide the \npupils through selecting \none issue and discussing \nit\nLibrary search: Guide \nthe pupils through \nreading the selected topic\nRound table:  Guide the \npupils through stating \ntheir ideas topic loudly\nDiscussion Le ader: \nGuide the pupils through \ndiscussing one pupil’s \npresentation\nDiscussions \nand defences \nare made on \na variety of \ntopical issues\nRealia, word \nlists, charts, \ncalendars, \ncards and \naudio/ \naudiovisual \nmaterials \nwith \nappropriate \nvocabulary\n20",
+      "char_count": 1054
+    },
+    {
+      "page_number": 62,
+      "text": "52\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching and \nlearning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n3.3 Produce \nshort written \nmessages \nusing \nappropriate \ngrammar and \nvocabulary\n(a) Develop \nskills for \ntaking notes \nfrom oral \npresentations \nModelling: Use\naudio/audiovisual materials \nfor  pupils to see how to take \nnotes \nDiscussion: Guide the \npupils through discussing \nnote-taking skills  \nSkills for taking \nnotes from oral \npresentations \nare developed\nRealia, word \nlists, charts, \ncalendars, \ncards and \naudio/ \naudiovisual \nmaterials with \nappropriate \nvocabulary  \n28\n(b) Taking \nnotes from \nvarious oral  \npresentations \n(e.g. speech, \nlecture, \ndiscussion \nand audio/\naudiovisual \nmaterials)\nNote taking:  Guide the \npupils through taking \nnotes from oral speech \npresentations or audio/\naudiovisual materials\nNotes are \ntaken from \nvarious oral \npresentations",
+      "char_count": 970
+    },
+    {
+      "page_number": 63,
+      "text": "53\nMain competences Specific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning methods\nAssessment \ncriteria\nSuggested \nteaching \nand learning \nresources\nNumber \nof \nperiods\n3.4 Demonstrate \nbasic skills \nin creative \nwriting\nDevelop a \nplan for a \nstory (target: \nsetting & plot)\nBrainstorming: Guide \nthe pupils through \nbrainstorming different \nsettings \nDiscussion: Guide \nthe pupils through \ndiscussing an issue or \nstory they would like to \nwrite about\nStory map: Guide the \npupils through mapping \nout key parts of the \nstory\nA plan for \na story is \ndeveloped \ncorrectly\nPicture, \ncharts, \ndiagrams and \nsimple texts \nwith a variety \nof issues\n30",
+      "char_count": 669
+    },
+    {
+      "page_number": 64,
+      "text": "54\nBibliography\nBudgell, G & Ruttle, K. (2015). Cambridge primary English. Cambridge University Press.\nCollins, H. (2011). Easy learning English vocabulary. Harper Collins.\nCrichton, J & Koster, P. (2006). English made easy. Tuttle Publishing. \nHallwell, S. (1992). Teaching English in the primary classrooms. Longman.\nHerring, P. (2016). Complete English grammar rules. FARLEX International.\nMauritius Institute of Education (2005). National curriculum framework, grades 1 to 6. The Republic of Mauritius. \nMinistry of Education, Science and Technology. (2019). English language syllabus for primary education. Ministry of Education \nScience and Technology.\nMinistry of Education. (2003). Zambia basic syllabi grades 1-7. Ministry of Education.\nMurphy, R. (2007). Essential grammar in use (3rd ed). Cambridge University Press.\nMurphy, R. (2019). English grammar in use (5th ed.). Vivar Printing.\nRandom, P. (2016). English for everyone. Penguin Random House.\nSeaton, A. & Mew, Y .H. (2007). Basic English grammar for English language pupils. Saddleback Educ. Retrieved from; \n https://topnotchteaching.com/literacy/teach.",
+      "char_count": 1122
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 7,
+        "main_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "specific_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "periods": []
+      },
+      {
+        "page": 8,
+        "main_competences": [
+          "3.0 Objectives of Primary Education ",
+          "4.0 General Competences for Primary Education "
+        ],
+        "specific_competences": [
+          "3.0 Objectives of Primary Education ",
+          "4.0 General Competences for Primary Education "
+        ],
+        "periods": []
+      },
+      {
+        "page": 9,
+        "main_competences": [
+          "5.0 Main and Specific Competences ",
+          "1.0 Demonstrate mastery of basic ",
+          "2.0 Comprehend oral and written ",
+          "3.0 Communicate effectively in"
+        ],
+        "specific_competences": [
+          "5.0 Main and Specific Competences ",
+          "1.0 Demonstrate mastery of basic ",
+          "1.1 Develop listening and speaking skills",
+          "1.2 Develop phonemic awareness and pronunciation of English letters",
+          "1.3 Develop vocabulary by relating words with objects in the environment",
+          "1.4 Use appropriate grammar and vocabulary both orally and in writing",
+          "2.0 Comprehend oral and written ",
+          "2.1 Comprehend information presented orally ",
+          "2.2 Construct meaning from simple texts ",
+          "2.3 Respond appropriately in a familiar communicative context",
+          "2.4 Read appropriately a variety of simple texts",
+          "3.0 Communicate effectively in",
+          "3.1 Demonstrate knowledge of the basic features of spoken language",
+          "3.2 Produce short and basic oral messages with a logical structure and intelligible ",
+          "3.3 Produce short written messages using appropriate grammar and vocabulary",
+          "3.4 Demonstrate basic skills in creative writing"
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [
+          "6.0 Roles of Teacher, Pupil and Parent in the Teaching and Learning "
+        ],
+        "specific_competences": [
+          "6.0 Roles of Teacher, Pupil and Parent in the Teaching and Learning ",
+          "6.1  The teacher"
+        ],
+        "periods": []
+      },
+      {
+        "page": 11,
+        "main_competences": [
+          "7.0 Teaching and Learning Methods"
+        ],
+        "specific_competences": [
+          "6.3 The parent ",
+          "7.0 Teaching and Learning Methods"
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [
+          "8.0 Teaching and Learning Resources",
+          "9.0 Assessment "
+        ],
+        "specific_competences": [
+          "8.0 Teaching and Learning Resources",
+          "9.0 Assessment "
+        ],
+        "periods": []
+      },
+      {
+        "page": 14,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 18,
+        "main_competences": [
+          "2.0 Comprehend "
+        ],
+        "specific_competences": [
+          "2.0 Comprehend ",
+          "2.1 Read a variety "
+        ],
+        "periods": [
+          "2"
+        ]
+      },
+      {
+        "page": 20,
+        "main_competences": [
+          "3.0 Communicate "
+        ],
+        "specific_competences": [
+          "3.0 Communicate ",
+          "3.1 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 22,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 25,
+        "main_competences": [
+          "2.0 Comprehend "
+        ],
+        "specific_competences": [
+          "2.0 Comprehend "
+        ],
+        "periods": []
+      },
+      {
+        "page": 27,
+        "main_competences": [
+          "3.0 Communicate "
+        ],
+        "specific_competences": [
+          "3.0 Communicate ",
+          "3.1 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 30,
+        "main_competences": [],
+        "specific_competences": [
+          "3.3 Demonstrate "
+        ],
+        "periods": []
+      }
+    ],
+    "Standard V": [
+      {
+        "page": 3,
+        "main_competences": [
+          "1.0  Introduction.............................................................................................................",
+          "2.0  Main Objectives of Education in Tanzania.................................................................................",
+          "3.0  Objectives of Primary Education..........................................................................................",
+          "4.0  General Competences for Primary Education................................................................................",
+          "5.0  Main and Specific Competences ...........................................................................................",
+          "6.0  Roles of Teacher, Pupil and Parent in the Teaching and Learning .........................................................",
+          "7.0  Teaching and Learning Methods ...........................................................................................",
+          "8.0  Teaching and Learning Resources .........................................................................................",
+          "9.0  Assessment ..............................................................................................................",
+          "10.0  Number of Periods .......................................................................................................",
+          "11.0  Teaching and Learning Contents .........................................................................................."
+        ],
+        "specific_competences": [
+          "1.0  Introduction.............................................................................................................",
+          "2.0  Main Objectives of Education in Tanzania.................................................................................",
+          "3.0  Objectives of Primary Education..........................................................................................",
+          "4.0  General Competences for Primary Education................................................................................",
+          "5.0  Main and Specific Competences ...........................................................................................",
+          "6.0  Roles of Teacher, Pupil and Parent in the Teaching and Learning .........................................................",
+          "6.1  The teacher..............................................................................................................",
+          "6.2  The pupil ...............................................................................................................",
+          "6.3  The parent ..............................................................................................................",
+          "7.0  Teaching and Learning Methods ...........................................................................................",
+          "8.0  Teaching and Learning Resources .........................................................................................",
+          "9.0  Assessment ..............................................................................................................",
+          "10.0  Number of Periods .......................................................................................................",
+          "11.0  Teaching and Learning Contents .........................................................................................."
+        ],
+        "periods": []
+      },
+      {
+        "page": 13,
+        "main_competences": [
+          "10.0   Number of Periods",
+          "11.0  Teaching and Learning Contents"
+        ],
+        "specific_competences": [
+          "10.0   Number of Periods",
+          "11.0  Teaching and Learning Contents"
+        ],
+        "periods": []
+      },
+      {
+        "page": 32,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 33,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Use appropriate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 37,
+        "main_competences": [
+          "2.0 Comprehend "
+        ],
+        "specific_competences": [
+          "2.0 Comprehend ",
+          "2.1 Comprehend "
+        ],
+        "periods": [
+          "2"
+        ]
+      },
+      {
+        "page": 42,
+        "main_competences": [
+          "3.0 Communicate "
+        ],
+        "specific_competences": [
+          "3.0 Communicate ",
+          "3.1 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 43,
+        "main_competences": [],
+        "specific_competences": [
+          "3.2 Produce short "
+        ],
+        "periods": []
+      },
+      {
+        "page": 46,
+        "main_competences": [],
+        "specific_competences": [
+          "3.4 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 48,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 50,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Use appropriate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 53,
+        "main_competences": [
+          "2.0  Comprehend "
+        ],
+        "specific_competences": [
+          "2.0  Comprehend ",
+          "2.1 Comprehend "
+        ],
+        "periods": []
+      },
+      {
+        "page": 59,
+        "main_competences": [
+          "3.0 Communicate "
+        ],
+        "specific_competences": [
+          "3.0 Communicate ",
+          "3.1 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 61,
+        "main_competences": [],
+        "specific_competences": [
+          "3.2 Produce short "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 63,
+        "main_competences": [],
+        "specific_competences": [
+          "3.4 Demonstrate "
+        ],
+        "periods": [
+          "3"
+        ]
+      }
+    ]
+  }
+}

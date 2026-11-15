@@ -1,0 +1,695 @@
+{
+  "filename": "sw-1727177907-MUHTASARI SOMO KISWAHILI DRS III - VI.pdf",
+  "title": "Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI",
+  "swahili_title": "Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI",
+  "subject_name": "Kiswahili",
+  "subject_code": "TZ-TIE-PRI-KISW",
+  "classification": "compulsory",
+  "language": "sw",
+  "isbn": "978-9987-09-782-1",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b",
+  "file_size_bytes": 944426,
+  "page_count": 76,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "JAMHURI YA MUUNGANO WA TANZANIA\nWIZARA YA ELIMU, SAYANSI NA TEKNOLOJIA\nMUHTASARI WA SOMO LA KISWAHILI \nELIMU YA MSINGI DARASA LA III–VI\n2023\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   1MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   1 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 290
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Taasisi ya Elimu Tanzania, 2023\nToleo la Kwanza, 2023\nISBN: 978-9987-09-782-1 \nTaasisi ya Elimu Tanzania\nS.L.P. 35094\nDar es Salaam, Tanzania\nSimu:        +255 735 041 168 / +255 735 041 170\nBaruapepe:       director.general@tie.go.tz\nTovuti:                   www.tie.go.tz \nMuhtasari huu urejelewe kama:  Wizara ya Elimu, Sayansi na Teknolojia. (2023). Muhtasari wa Somo la Kiswahili Elimu \n         ya  Msingi Darasa la III–VI. Taasisi ya Elimu Tanzania.\nHaki zote zimehifadhiwa. Hairuhusiwi kunakili, kurudufu, kuchapisha, kutafsiri wala kutoa muhtasari huu au sehemu yake \nkwa namna yoyote ile bila idhini ya maandishi kutoka Taasisi ya Elimu Tanzania. \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   2MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   2 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 813
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nYaliyomo\nOrodha ya Majedwali .....................................................................................................................................................iv\nVifupisho   ......................................................................................................................................................................v\nShukurani  .....................................................................................................................................................................vi\n1.0 Utangulizi ..................................................................................................................................................... 1\n2.0 Malengo Makuu ya Elimu Tanzania .............................................................................................................1\n3.0 Malengo ya Elimu ya Msingi Darasa la III–VI ............................................................................................2\n4.0 Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI ............................................................................ 3\n5.0 Umahiri Mkuu na Umahiri Mahususi ........................................................................................................... 3\n6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji ..........................4\n6.1  Mwalimu  ...............................................................................................................................................5\n6.2  Mwanafunzi ...........................................................................................................................................6\n6.3  Mzazi/ Mlezi ..........................................................................................................................................6\n7.0 Mbinu za Ufundishaji na Ujifunzaji Zinazopendekezwa ............................................................................. 7\n8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji Vinavyopendekezwa ..................................................................7\n9.0 Upimaji .........................................................................................................................................................7\n10.0 Idadi ya Vipindi ............................................................................................................................................8\n11.0 Maudhui ya Ufundishaji na Ujifunzaji .........................................................................................................8\nBibliografia ..................................................................................................................................................................  70\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   3MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   3 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 2945
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nOrodha ya Majedwali\nJedwali Na. 1: Umahiri Mkuu na Umahiri Mahususi ........................................................................................................4\nJedwali Na. 2: Maudhui ya Darasa la III ...........................................................................................................................9\nJedwali Na. 3: Maudhui ya Darasa la IV .........................................................................................................................26\nJedwali Na. 4: Maudhui ya Darasa la V ...........................................................................................................................42\nJedwali Na. 5: Maudhui ya Darasa la VI .........................................................................................................................58\n \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   4MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   4 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 983
+    },
+    {
+      "page_number": 5,
+      "text": "v\nVifupisho\nTEHAMA Teknolojia ya Habari na Mawasiliano\nTET  Taasisi ya Elimu Tanzania\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   5MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   5 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 235
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nShukurani\nMaandalizi ya Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI yamehusisha wataalamu mbalimbali kutoka \ntaasisi za serikali na zisizo za serikali. Taasisi ya Elimu Tanzania (TET) inatambua na kuthamini michango ya washiriki wote \nwaliofanikisha uandaaji wa muhtasari huu. Aidha, TET inatoa shukurani za pekee kwa wahadhiri, wakufunzi, wathibiti ubora \nwa shule, walimu, pamoja na wakuza mitaala wa TET. Vilevile, TET inaishukuru kwa dhati Kamati ya Kitaifa ya Wataalamu \nya Kusimamia Kazi ya Maboresho ya Mitaala ya Elimu ya Awali, Msingi, Sekondari na Ualimu  iliyoteuliwa na Waziri wa \nElimu, Sayansi na Teknolojia.  Kamati hii ilifanya kazi kwa weledi na kuhakikisha kuwa maudhui ya muhtasari huu yanalenga \nkuwaandaa wahitimu wenye maarifa, ujuzi na mwelekeo utakaowawezesha kujiajiri, kuajiriwa na kumudu maisha yao ya kila \nsiku, ambalo ndilo lengo kuu la uboreshaji wa Mitaala ya Mwaka 2023. \nMwisho, TET inatoa shukurani za pekee kwa Wizara ya Elimu, Sayansi na Teknolojia kwa kuwezesha uandaaji na usambazaji \nwa muhtasari huu.\nDkt. Aneth A. Komba\nMkurugenzi Mkuu\nTaasisi ya Elimu Tanzania\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   6MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   6 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1276
+    },
+    {
+      "page_number": 7,
+      "text": "1\n1.0      Utangulizi\nSomo la Kiswahili ni somo la lazima katika ngazi ya Elimu ya Msingi kuanzia Darasa la III–VI ambapo ni mwendelezo \nwa hatua ya kwanza ya elimu ya msingi Darasa la I na la II. Lengo la kufundisha somo hili ni kukuza stadi za kusikiliza, \nkuzungumza, kusoma na kuandika kwa Kiswahili. Mwanafunzi ataweza kutamka sauti mbalimbali katika silabi, maneno, \nsentensi na habari. Vilevile, mwanafunzi ataweza kujenga hoja kwa kuzungumza na kwa kuandika pamoja na kujibu \nhoja katika miktadha mbalimbali.\nMuhtasari huu umeandaliwa kwa lengo la kumwongoza mwalimu katika ufundishaji na ujifunzaji wa somo la Kiswahili, \nDarasa la III–VI Tanzania Bara. Muhtasari huu umetafsiri Mtaala wa Elimu ya Msingi wa Mwaka 2023. Aidha, muhtasari \nutamwezesha mwalimu kupanga shughuli za ufundishaji na ujifunzaji kwa kumjengea mwanafunzi stadi za udadisi, \nubunifu, ushirikiano, mawasiliano na utatuzi wa changamoto katika mazingira yake.  \n2.0     Malengo Makuu ya Elimu Tanzania\n          Malengo makuu ya elimu nchini Tanzania ni kumwezesha kila Mtanzania:\n(a) Kukuza na kuboresha haiba yake ili aweze kujithamini na kujiamini;\n(b) Kuheshimu utamaduni, mila na desturi za Kitanzania, tofauti za kitamaduni, utu, haki za binadamu, mitazamo \nna matendo jumuishi; \n(c) Kukuza maarifa na kutumia sayansi na teknolojia, ubunifu, fikra tunduizi, uvumbuzi, ushirikiano, mawasiliano \nna mtazamo chanya katika maendeleo yake binafsi na maendeleo endelevu ya taifa na dunia kwa ujumla;\n(d) Kuelewa na kulinda tunu za taifa ikiwa ni pamoja na utu, uzalendo, uadilifu, umoja, uwazi, uaminifu, \nuwajibikaji na lugha ya taifa;\n(e) Kujenga stadi za maisha na stadi za kazi ili kuongeza ufanisi katika maisha ya kila siku;\n(f) Kukuza tabia ya kupenda na kuheshimu kazi ili kuongeza tija na ufanisi katika uzalishaji na utoaji wa huduma; \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   1MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   1 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1974
+    },
+    {
+      "page_number": 8,
+      "text": "2\n(g) Kutambua na kuzingatia masuala mtambuka ambayo ni pamoja na afya na ustawi wa watu (jamii), usawa wa \nkijinsia, usimamizi na utunzaji endelevu wa mazingira; na\n(h) Kukuza ushirikiano wa kitaifa na kimataifa, amani na haki kwa kuzingatia katiba ya nchi na mikataba ya \nkimataifa.\n3.0     Malengo ya Elimu ya Msingi Darasa la III–VI\n     Malengo ya Elimu ya Msingi Darasa III–VI ni kumwezesha mwanafunzi: \n(a) Kukuza stadi za kusoma, kuandika, kuhesabu na kuwasiliana kwa lugha fasaha, Lugha ya Alama ya Tanzania \n(LAT) na lugha mguso;\n(b) Kuifahamu, kuitumia na kuithamini lugha ya Kiswahili, Kiingereza na angalau lugha nyingine moja ya kigeni;\n(c) Kuthamini na kudumisha utamaduni wa Mtanzania, umoja wa kitaifa na kutambua tamaduni nyingine;\n(d) Kukuza maarifa, uwezo wa kudadisi, kufikiri kiyakinifu, kubuni na kutatua matatizo;\n(e) Kukuza maadili, uadilifu na kuheshimu tofauti za imani;\n(f) Kubaini na kukuza vipaji, vipawa, stadi za kazi, michezo na sanaa;\n(g) Kukuza tabia ya kuthamini na kupenda kufanya kazi;\n(h) Kutambua na kutumia sayansi na teknolojia katika kujifunza na maisha ya kila siku;\n(i) Kukuza maarifa, ujuzi na mwelekeo wa kutunza mazingira, kuheshimu usawa wa kijinsia na masuala mengine \nmtambuka; na\n(j) Kukuza uwezo wa kuchangamana katika mazingira jumuishi.\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   2MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   2 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1441
+    },
+    {
+      "page_number": 9,
+      "text": "3\n4.0      Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI\n          Umahiri wa jumla wa  Elimu ya Msingi Darasa la III–VI ni:\n(a) Kutumia stadi za kusoma, kuandika, kuhesabu na kuwasiliana kwa lugha fasaha, Lugha ya Alama ya Tanzania \n(LAT) na lugha mguso;\n(b) Kutumia na kuithamini lugha ya Kiswahili, Kiingereza na angalau lugha nyingine moja ya kigeni;\n(c) Kuonesha, kuthamini na kuheshimu utamaduni wa Mtanzania, umoja wa kitaifa na kutambua tamaduni \nnyingine;\n(d) Kudadisi, kufikiri kiyakinifu, kubuni na kutatua matatizo; \n(e) Kuonesha uadilifu na kuheshimu tofauti za imani;\n(f) Kutumia vipaji, vipawa, stadi za kazi, michezo na sanaa katika miktadha mbalimbali;\n(g) Kuthamini na kupenda kufanya kazi;\n(h) Kutumia sayansi na teknolojia katika kujifunza na maisha ya kila siku;\n(i) Kutunza mazingira, kuheshimu usawa wa kijinsia na masuala mengine mtambuka; na \n(j) Kuchangamana katika mazingira jumuishi.\n5.0     Umahiri Mkuu na Umahiri Mahususi \nUmahiri mkuu na umahiri mahususi unaotarajiwa kujengwa kwa Darasa la III–VI umebainishwa katika Jedwali Na. 1.\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   3MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   3 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1221
+    },
+    {
+      "page_number": 10,
+      "text": "4\nJedwali Na. 1: Umahiri Mkuu na Umahiri Mahususi wa Darasa la III–VI \nUmahiri  mkuu Umahiri mahususi\n1.0 Kuwasiliana katika miktadha mbalimbali 1.1 Kutambua matamshi ya sauti mbalimbali katika silabi, \nmaneno, sentensi na habari\n1.2 Kuendeleza mazungumzo katika miktadha mbalimbali\n1.3 Kutumia maandishi katika mawasiliano kulingana na miktadha \nmbalimbali\n2.0   Kuonesha uelewa wa jambo alilolisikiliza au \nkulisoma\n2.1 Kuonesha stadi za kusikiliza na kuelewa\n2.2 Kusoma matini kwa ufasaha na ufahamu\n3.0   Kuwasilisha hoja kwa mazungumzo na kwa \nmaandishi kulingana na muktadha\n3.1 Kuwasilisha hoja kwa njia ya mazungumzo  katika miktadha \nmbalimbali\n3.2 Kuandika matini mbalimbali\n3.3 Kuchanganua mawazo yaliyowasilishwa katika matini \nmbalimbali\n3.4 Kuonesha stadi za awali za ubunifu wa kazi mbalimbali za \nKiswahili\n6.0      Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji\nUfundishaji na ujifunzaji unategemea ushirikiano madhubuti baina ya mwalimu, mwanafunzi na mzazi/mlezi katika \nkutekeleza majukumu mbalimbali. Majukumu hayo ni kama yafuatayo:\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   4MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   4 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1237
+    },
+    {
+      "page_number": 11,
+      "text": "5\n   6.1   Mwalimu\n        Mwalimu anatarajiwa:\n(a)     Kumwezesha mwanafunzi kujifunza na kupata umahiri uliokusudiwa katika somo la Kiswahili;\n(b)     Kutumia mbinu za kufundishia na kujifunzia kwa kuzingatia umri, mahitaji anuai  na uwezo wa mwanafunzi \nili kumwezesha:\n(i)    Kujenga umahiri unaohitajika katika Karne ya  21; na\n(ii)  Kushiriki kikamilifu  katika mchakato wa ufundishaji na ujifunzaji.     \n(c)  Kutumia mbinu shirikishi zinazomfanya mwanafunzi kuwa kitovu cha ujifunzaji zikiwemo zile zinazomwezesha  \nmwanafunzi kufikiri, kutafakari na kutafuta maarifa kutoka katika vyanzo  mbalimbali.  Mbinu za kufundishia \nna kujifunzia zinazopendekezwa ni pamoja  na kazi za vitendo, utafiti, majaribio ya kisayansi, majadiliano na       \nkazimradi zinazolenga kutatua matatizo halisi katika mazingira ya mwanafunzi. Aidha, mwalimu anahimizwa \nkutumia njia nyingine kama hizo kulingana na muktadha ili kufanikisha ujenzi   wa  umahiri uliokusudiwa;\n(d)  Kuandaa darasa salama lenye mazingira rafiki ya kufundishia na kujifunzia;\n(e)  Kutengeneza au kufaragua zana za kufundishia na kujifunzia;\n(f)  Kufanya upimaji endelevu mara kwa mara kwa kutumia zana na mbinu za upimaji na tathmini zinazopima \nnadharia na vitendo zikiwemo bunguabongo, orodhahakiki, majaribio, dodoso, maswali ya ana kwa ana, mazoezi, \nkazi kwa vitendo (kazi binafsi na kazi za vikundi), kazimradi na mkoba wa kazi. Zana na mbinu nyingine ni \nmajaribio kwa vitendo, uwasilishaji, mitihani ya muhula na mtihani wa mwisho;\n(g)  Kuhakikisha kuwa ufundishaji na ujifunzaji unafanyika kwa haki na usawa kwa kila mwanafunzi bila kujali \ntofauti zao; \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   5MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   5 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1777
+    },
+    {
+      "page_number": 12,
+      "text": "6\n(h)  Kumlinda mwanafunzi awapo shuleni;\n(i)  Kufuatilia maendeleo ya mwanafunzi ya kila siku;\n(j)  Kubaini mahitaji ya mwanafunzi na kutoa afua stahiki; \n(k) Kushirikisha wazazi/walezi na jamii katika hatua mbalimbali za ujifunzaji wa mwanafunzi; na\n(l)  Kuchopeka masuala mtambuka na TEHAMA katika ufundishaji na ujifunzaji.\n  6.2 Mwanafunzi\nMwanafunzi anatarajiwa:\n(a) Kuwa mtendaji mkuu katika mchakato wote wa ujifunzaji;\n(b) Kushiriki katika shughuli mbalimbali za ujifunzaji ndani na nje ya darasa ili kupata umahiri unaokusudiwa; na\n(c) Kushiriki katika kutafuta maarifa kutoka katika vyanzo mbalimbali ikiwemo vitabu vya kiada, ziada na \nmachapisho mengine kutoka katika maktaba mtandao.\n    6.3    Mzazi/Mlezi\nMzazi/ Mlezi anatarajiwa:\n(a) Kusimamia na kufuatilia maendeleo ya mtoto katika ujifunzaji;\n(b) Kumsimamia mtoto kutekeleza  kazi zake za kitaaluma pale inapowezekana; \n(c) Kuhakikisha kuwa mazingira ya nyumbani ni rafiki na salama yanayowezesha ujifunzaji;\n(d) Kufuatilia mwenendo wa tabia ya mtoto;\n(e) Kumpatia mtoto vifaa vyote vinavyohitajika katika ujifunzaji; \n(f) Kuhakikisha mtoto anapata mahitaji muhimu; na \n(g) Kumfundisha mtoto umuhimu na thamani ya elimu  na kazi pamoja na kumuhimiza kujifunza kwa bidii.\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   6MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   6 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1390
+    },
+    {
+      "page_number": 13,
+      "text": "7\n7.0    Mbinu za Ufundishaji na Ujifunzaji \n Mbinu za ufundishaji na ujifunzaji ni msingi katika kujenga umahiri kwa mwanafunzi. Muhtasari huu unapendekeza \nmbinu za ufundishaji na ujifunzaji kwa kila shughuli. Miongoni mwa mbinu hizo ni ziara za kimasomo, kazimradi na \nkazi za vitendo. Hata hivyo, mwalimu anashauriwa kutumia mbinu nyingine kama hizo kulingana na muktadha wa \nufundishaji na ujifunzaji. \n8.0    Zana/Vifaa vya Ufundishaji na Ujifunzaji \n Mchakato wa ufundishaji na ujifunzaji unahitaji zana/vifaa mbalimbali ili kujenga umahiri uliokusudiwa. Hivyo, \nmwalimu na mwanafunzi wanapaswa kushirikiana katika kuandaa au kufaragua zana/vifaa mbadala vinavyopatikana \nkatika mazingira ya shuleni na nyumbani pindi vinapohitajika. Mwalimu na mwanafunzi wanapaswa kutafuta taarifa \nkutoka katika vyanzo mbalimbali ili kuleta ufanisi katika mchakato wa ufundishaji na ujifunzaji. Mwalimu anapaswa \nkuhakikisha kuwa mwanafunzi anapata nafasi ya kuona, kunusa, kuonja, kusikia na kushika zana bila kuhatarisha afya \nna hali ya mwanafunzi. Orodha ya vifaa vilivyoidhinishwa kutumika kwa ajili ya rejea vitatolewa na TET.\n9.0    Upimaji \n Upimaji ni suala muhimu katika mchakato wa ujifunzaji na ufundishaji ili kuwezesha ujenzi wa umahiri unaokusudiwa. \nUpimaji wa Somo la Kiswahili utajumuisha upimaji endelevu na upimaji tamati.  Upimaji endelevu utazingatia vigezo \nvya upimaji vilivyoainishwa katika kila shughuli ya ujifunzaji na utamwezesha mwalimu kubaini uwezo na uhitaji wa \nmwanafunzi katika ujifunzaji. Vilevile, utalenga kupima mabadiliko katika maarifa, stadi na mwelekeo wa kutenda, \nkuthamini, kusimulia na kutumia stadi anazojifunza katika mazingira yanayomzunguka. Aidha, mwalimu atatumia taarifa \nza upimaji kuboresha ufundishaji na kuwezesha wanafunzi kufikia lengo la ujifunzaji. Zana za upimaji zinazoweza \nkutumika wakati wa ufundishaji na ujifunzaji ni bunguabongo, orodhahakiki, mazoezi ya darasani, majaribio, majaribio \nkwa vitendo, dodoso, maswali ya ana kwa ana, mazoezi, kazi kwa vitendo (kazi binafsi na kazi za vikundi), kazimradi, \nmkoba wa kazi na zana nyingine kama hizo. \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   7MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   7 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 2261
+    },
+    {
+      "page_number": 14,
+      "text": "8\n Upimaji tamati utahusisha mitihani ya wiki, mwezi, muhula na mtihani wa mwisho wa mwaka ambayo itatumika \nkupima maendeleo ya ujifunzaji wa mwanafunzi. Taarifa za upimaji huu pamoja na kutumika kutathimini maendeleo \nya mwanafunzi, zitatumika kutoa mrejesho wa kuwezesha ufundishaji na ujifunzaji. Aidha, kutakuwa na Upimaji wa \nKitaifa wa Darasa la Sita ambao utachangia alama 7.5% katika mtihani wa Kidato cha Nne. \n10.0 Idadi ya Vipindi \n Muhtasari wa Somo la Kiswahili Elimu ya Msingi Darasa la III–VI unatoa makadirio ya muda utakaotumika katika \nufundishaji na ujifunzaji kwa kuzingatia uzito wa umahiri mahususi na shughuli za kutendwa na mwanafunzi. Makadirio \nhaya ya muda yamewekwa kwa mfumo wa vipindi, ambapo kila kipindi ni dakika 40. Idadi ya vipindi kwa somo hili \nni vitano (5) kwa wiki kwa Darasa la III–VI. \n11.0 Maudhui ya Ufundishaji na Ujifunzaji \n Maudhui ya ufundishaji na ujifunzaji yamepangiliwa katika jedwali lenye vipengele saba ambavyo ni; umahiri mkuu, \numahiri mahususi, shughuli za ujifunzaji, mbinu za ufundishaji na ujifunzaji zinazopendekezwa, vigezo vya upimaji, \nzana/vifaa vya ufundishaji na ujifunzaji vinavyopendekezwa pamoja na idadi ya vipindi. Maudhui hayo yameoneshwa \nkatika Jedwali Na. 2–5.\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   8MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   8 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1389
+    },
+    {
+      "page_number": 15,
+      "text": "9\nDarasa la III\nJedwali Na. 2: Maudhui ya Darasa la III\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n1.0 Kuwasiliana \nkatika \nmiktadha \nmbalimbali\n1.1 Kutambua \nmatamshi \nya sauti \nmbalimbali \nkatika \nsilabi, \nmaneno, \nsentensi na \nhabari\n(a) Kutamka \nsauti za \nherufi \nmwambatano \nngw, ndw, \nnjw, mbw na \nnzw\nOneshombinu: \nWaongoze wanafunzi \nkutamka herufi za sauti \nmwambatano ngw, ndw, \nnjw, mbw na nzw kwa \nkufuatisha unavyotamka \nau waoneshe wanafunzi \nvideo ya utamkaji \nwa sauti za herufi \nmwambatano tajwa kisha \nwaongoze kutamka sauti \nza herufi hizo\nMaswali na majibu: \nWaongoze wanafunzi \nkujibu maswali ambayo \nyana majibu yenye sauti \nza herufi mwambatano \nngw, ndw, njw, mbw na \nnzw\nSauti za \nherufi \nmwambatano \nngw, ndw, \nnjw, mbw \nna nzw \nzimetamkwa \nkwa usahihi\nKadi za herufi \nmwambatano, \nmatini zenye \nvifungu vya habari \nvyenye sauti za \nherufi mwambatano \nngw, ndw, njw, mbw \nna nzw, manila, \nkalamu rashasha, \nchatipindu, video na \ntableti\n21\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   9MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   9 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1285
+    },
+    {
+      "page_number": 16,
+      "text": "10\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji na ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nUchambuzi wa matini: \nWaongoze wanafunzi \nkusoma matini zenye sauti \nza herufi mwambatano ngw, \nndw, njw, mbw na nzw, kisha \nwazibainishe herufi hizo\nMchezo: Tumia kadi \nza maneno/vyumba vya \nkuchora chini kuwaongoza \nwanafunzi kutamka sauti za \nherufi mwambatano ngw, \nndw, njw, mbw na nzw. Kwa \nkila chumba, andika herufi \nmwambatano moja\n(b) Kutamka \nsauti \nmwambatano \nkatika silabi, \nmaneno, \nsentensi na \nhabari\nIgizodhima: \nWaongoze wanafunzi \nkuigiza utendaji wa shughuli \nmbalimbali, ambapo ndani \nyake watatumia sauti za \nherufi mwambatano\nSauti za herufi \nmwambatano \nkatika silabi, \nmaneno, \nsentensi \nna habari \nzimetamkwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   10MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   10 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1016
+    },
+    {
+      "page_number": 17,
+      "text": "11\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nKitanza ndimi: \nWaongoze wanafunzi \nkusoma sentensi zenye \nmaneno yenye sauti za \nherufi mwambatano \nzinazofuatana\n1.2 Kuendeleza \nmazungumzo \nkatika \nmiktadha \nmbalimbali\n(a) Kutumia \nmsamiati \nunaohusiana \nna maisha \nya kila \nsiku katika \nkuanzisha na \nkuendeleza \nmazungumzo \nkwa \nkujiamini \nkatika \nmiktadha \nmbalimbali\nIgizodhima: \nWaongoze wanafunzi \nkuigiza shughuli za kila \nsiku katika miktadha \ntofautitofauti kwa kutumia \nmsamiati mwafaka na kwa \nkujiamini \nMchezo wa maneno: \nWaongoze wanafunzi \nkuunda maneno kwa \nkuanza na kila herufi ya \nneno linalohusiana na \nmaisha ya kila siku\nMsamiati \nunaohusiana \nna maisha \nya kila siku \numetumika \nkatika \nkuanzisha na \nkuendeleza \nmazungumzo \nkatika \nmiktadha \nmbalimbali \nkwa kujiamini\nPicha, michoro, \nvitu halisi, sidii, \nkinasasauti na \nkompyuta\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   11MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   11 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1179
+    },
+    {
+      "page_number": 18,
+      "text": "12\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kubaini \nmaneno \nyenye maana \nsawa na \nkinyume \nkatika \nmazungumzo\nHadithi:  Waongoze \nwanafunzi kubainisha \nmaneno yenye maana \nsawa na vinyume kutoka \nkwenye mazungumzo  \nZiara: Waongoze \nwanafunzi kufanya \nziara ili kubaini majina \nya vitu vyenye maana \nsawa na vinyume \nvya maneno, kisha \nkuwasilisha\nManeno yenye \nmaana sawa \nna kinyume \nyamebainishwa \nkwa usahihi \nkatika \nmazungumzo \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   12MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   12 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 763
+    },
+    {
+      "page_number": 19,
+      "text": "13\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(c) Kuelezea vitu \nvilivyomo \nkwenye \nmazingira \nkatika umoja \nna wingi \nUchunguzi: Waongoze \nwanafunzi kuchunguza \nvitu vilivyomo kwenye \nmazingira yao, kisha \nwabainishe umoja na wingi \nwa vitu hivyo \nOneshombinu: \nWaongoze wanafunzi \nkubainisha umoja na \nwingi  wa vitu mbalimbali \nutakavyowaonesha\nVitu \nvilivyomo \nkwenye \nmazingira \nvimeelezewa \nkwa usahihi \nkatika umoja \nna wingi\n(d) Kuuliza \nna kujibu \nmaswali \nMajadiliano: Waongoze \nwanafunzi kujadiliana \nmada yoyote fulani, kisha \nwaulizane  maswali\nMkufu: \nWaongoze wanafunzi \nkuulizana maswali na \nkujibu kwa mfuatano wa \nkimkufu \nMaswali \nyameulizwa na \nkujibiwa kwa \nufasaha\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   13MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   13 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1009
+    },
+    {
+      "page_number": 20,
+      "text": "14\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(e) Kubadili \nkiimbo \nkulingana \nna hisia au \nmuktadha wa \nmazungumzo\nMasimulizi: \nWaongoze wanafunzi \nkusimulia matukio \nmbalimbali ili kubadili \nkiimbo na kuonesha hisia \ntofautitofauti\nKiimbo \nkimebadilishwa \nkulingana na hisia \nau muktadha wa \nmazungumzo \nkwa usahihi\n(f) Kuanzisha \nna kumalizia \nvitendawili, \nmethali na \nnahau katika \nmazungumzo\nUchunguzi:\nWaongoze wanafunzi \nkwa kutumia picha/vitu \nhalisi kutega na kutegua \nvitendawili, kuanzisha \nna kumalizia methali na \nkueleza maana ya nahau \nna methali\nVitendawili, \nmethali \nna nahau \nvimeanzishwa \nna kumaliziwa \nkwa usahihi \nkatika \nmazungumzo\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   14MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   14 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 979
+    },
+    {
+      "page_number": 21,
+      "text": "15\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMchezo: Waongoze \nwanafunzi katika \ntimu mbili kutega na \nkutegua vitendawili, \nkuanzisha  na \nkumalizia methali na \nkueleza maana  ya \nnahau\n1.3 Kutumia \nmaandishi \nkatika \nmawasiliano \nkulingana \nna miktadha \nmbalimbali\n(a) Kuandika \nkifungu cha \nhabari kwa \nkutumia alama \nza uakifishaji: \nnukta (.), \nmshangao (!), \nkiulizo (?) na \nmkato (,)\nImla:  \nWasomee wanafunzi \nkifungu cha habari \nulichokiandaa na \nwakiandike kwa \nkutumia alama za \nuakifishaji: nukta (.), \nmshangao (!), kiulizo \n(?) na mkato (,)\nKifungu \ncha habari \nkimeandikwa \nkwa kutumia \nalama za \nuakifishaji \nkwa usahihi: \nnukta (.), \nmshangao (!), \nkiulizo (?) na \nmkato (,) \nKompyuta, tableti, \nkadi za alama za \nuakifishaji, picha, \nkifungu cha habari \nna vitu halisi\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   15MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   15 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1113
+    },
+    {
+      "page_number": 22,
+      "text": "16\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kuandika \nkifungu cha \nhabari kwa \nkutumia \nviunganishi \nvya \nushikamani\nMajadiliano:\nWaongoze wanafunzi \nkusoma matini, kisha \nwabainishe na kujadili \nmaneno yanayofanya \nkazi ya kuonesha \nuhusiano au muungano \nbaina ya sentensi na \nsentensi au vifungu vya \nmaneno (kifungu cha \nmaneno na kifungu cha \nmaneno) \nKifungu \ncha habari \nkimeandikwa \nkwa kutumia \nviunganishi vya \nushikamani\n(c) Kutumia \nalama za \nuakifishaji \nkwa usahihi \nwakati wa \nkuandika imla \nMajadiliano: \nWaongoze wanafunzi \nkujadiliana umuhimu \nna matumizi sahihi ya \nalama za uakifishaji, \nkisha waandike imla \nkwa kuzingatia alama \nhizo\nAlama za \nuakifishaji \nzimetumika kwa \nusahihi wakati wa \nkuandika imla \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   16MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   16 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1056
+    },
+    {
+      "page_number": 23,
+      "text": "17\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMasimulizi: \nWaongoze wanafunzi \nkusikiliza masimulizi \nyaliyorekodiwa, kisha \nwaandike walichokisikia \nkwa kuzingatia alama za \nuakifishaji\n(d)  Kutumia \nvihusishi \n(nyuma ya, \nmbele ya, juu \nya, kando \nya, chini ya, \nkatikati ya na \npembeni ya) \nkatika uandishi\nOneshombinu: Waoneshe \nwanafunzi vitu halisi au \npicha ulizoziandaa, kisha \nwaongoze kubainisha \nmahali vitu vilipo kwa \nkuzingatia vihusishi \nvilivyobainishwa\nVihusishi \n(nyuma ya, \nmbele ya, juu \nya, kando \nya, chini ya, \nkatikati ya na \npembeni ya) \nvimetumika \nkatika uandishi \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   17MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   17 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 926
+    },
+    {
+      "page_number": 24,
+      "text": "18\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n2.0 Kuonesha \nuelewa \nwa jambo \nalilolisikiliza \nau kulisoma\n2.1 Kuonesha \nstadi za \nkusikiliza \nna \nkuelewa\n(a) Kusikiliza \nmazungumzo \nkwa kuzingatia \nmambo ya \nmsingi katika \nmiktadha \nmbalimbali  \nMasimulizi: \nWaongoze \nwanafunzi \nkusimuliana \nhadithi au \nhabari, kisha \nwajibu maswali \nkwa kuzingatia \nmambo ya msingi \nkatika miktadha \nmbalimbali  \nMazungumzo \nkwa \nkuzingatia \nmambo ya \nmsingi katika \nmiktadha \nmbalimbali \nyamesikilizwa \nSidii, kompyuta, \nredio, tableti na \nkamusi\n22\n(b) Kutumia \nmaneno \naliyoyasikia \nkatika \nmiktadha \nmingine ya \nmazungumzo\nOneshombinu: \nWaoneshe \nwanafunzi picha \nau vitu halisi, \nkisha waongoze \nkutumia  maneno \nyanayoendana \nna vitu hivyo \nkulingana na \nmuktadha\nManeno  \naliyoyasikia \nkatika \nmiktadha \nmingine ya \nmazungumzo \nyametumika \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   18MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   18 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1167
+    },
+    {
+      "page_number": 25,
+      "text": "19\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(c) Kutumia kamusi \nkupata maana ya \nmsamiati mpya \nuliojitokeza \nkatika matini \nfupi sahili\nHadithi: Andaa hadithi \ninayoonesha kazi ya \nkamusi\nKazimradi: Wape \nwanafunzi   maneno \nkadhaa kutokana na \nmatini fupi sahili, kisha \nwatafute fasili kwenye \nkamusi\nKamusi \nimetumika \nkupata maana \nya msamiati \nmpya \nuliojitokeza \nkatika matini \nfupi sahili \n(d) Kujibu kwa \nusahihi maswali \nyanayotokana na \nmatini \nMidia:\nWaongoze wanafunzi \nkusikiliza habari \niliyopo katika matini, \nkisha waulize maswali \nkuhusiana na matini hiyo\nMajadiliano: Waongoze \nwanafunzi  kujadiliana \nkwa kutumia matini \numuhimu wa elimu, kisha \nwaulize maswali \nMaswali \nyanayotokana \nna matini \nyamejibiwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   19MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   19 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1065
+    },
+    {
+      "page_number": 26,
+      "text": "20\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n2.2 Kusoma \nmatini \nkwa \nufasaha na \nufahamu\n(a)  Kusoma \nmatini fupi \nna sahili kwa \nkasi mwafaka \nna matamshi \nsahihi\nOneshombinu: Soma \nmatini fupi na rahisi kwa \nkasi mwafaka kulingana \nna umri wa wanafunzi \nwako, matamshi sahihi, \nkiimbo na alama za \nuakifishaji kama mfano, \nkisha waongoze wao \nkusoma \nMatini fupi \nna sahili \nzimesomwa \nkwa kasi \nmwafaka na \nmatamshi sahihi\nMatini fupi sahili, \nsaa, kinasasauti, \nsimujanja, redio, \nkompyuta, tableti \nna kinyonyi\n22\n(b) Kusoma \nsentensi kwa \nkuzingatia \nkupanda na \nkushuka kwa \nmawimbi ya \nsauti \nUchunguzi: Waongoze \nwanafunzi kubaini  \nsentensi  zenye mipando \ntofauti ya sauti kwa \nkutumia vifaa vya \nTEHAMA, kisha \nwaongoze kurudia \nkutamka sentensi hizo ili \nkuonesha  viimbo  tofauti \nSentensi \nzimesomwa \nkwa kuzingatia \nkupanda na \nkushuka kwa \nmawimbi ya \nsauti kwa \nufasaha\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   20MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   20 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1212
+    },
+    {
+      "page_number": 27,
+      "text": "21\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMaswali na Majibu: \nWaongoze wanafunzi \nkutunga sentensi, \nkisha wazisome kwa \nsauti kwa kuzingatia \nkupanda na kushuka \nkwa mawimbi ya sauti\n(c) Kueleza \nujumbe mkuu \nuliomo katika \nmatini fupi \naliyoisoma\nMaswali na majibu: \nWaongoze wanafunzi \nkusoma matini fupi, \nkisha waulize maswali \nkuhusu ujumbe mkuu \nkutokana na matini \nUjumbe mkuu \nuliomo katika \nmatini fupi \niliyosomwa \numeelezwa kwa \nufasaha\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   21MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   21 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 775
+    },
+    {
+      "page_number": 28,
+      "text": "22\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n3.0 Kuwasilisha \nhoja kwa \nmazungumzo \nna kwa \nmaandishi \nkulingana na \nmuktadha\n3.1 Kuandika \nmatini \nmbalimbali\n(a) Kuandika sentensi \nmbalimbali kwa \nusahihi\nMchezo:\nAndaa sentensi, \nkisha kata sentensi \nhizo katika \nmaneno na kadi \nhizo za maneno  \nzichanganye. \nWaongoze \nwanafunzi kuunda \nsentensi na \nkuziandika kwa \nkutumia maneno \nhayo yaliyoandikwa \nkwenye kadi\nSentensi \nmbalimbali \nzimeandikwa \nkwa usahihi\nKadi za sentensi na \npicha za matukio\n22\n(b) Kupanga \nkatika mtiririko \nsahihi sentensi \nzilizochanganywa\nMaswali na \nmajibu:\nAndaa sentensi \nzenye mpangilio wa \nmaneno usio sahihi,  \nkisha waongoze \nwanafunzi kuandika \nsentensi hizo kwa \nusahihi\nSentensi \nzilizochanganywa \nzimepangwa \nkatika mtiririko \nsahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   22MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   22 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1098
+    },
+    {
+      "page_number": 29,
+      "text": "23\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n3.0 Kuwasilisha \nhoja kwa \nmazungumzo \nna kwa \nmaandishi \nkulingana na \nmuktadha\n3.1 Kuandika \nmatini \nmbalimbali\n(a) Kuandika sentensi \nmbalimbali kwa \nusahihi\nMchezo:\nAndaa sentensi, \nkisha kata sentensi \nhizo katika \nmaneno na kadi \nhizo za maneno  \nzichanganye. \nWaongoze \nwanafunzi kuunda \nsentensi na \nkuziandika kwa \nkutumia maneno \nhayo yaliyoandikwa \nkwenye kadi\nSentensi \nmbalimbali \nzimeandikwa \nkwa usahihi\nKadi za sentensi na \npicha za matukio\n22\n(b) Kupanga \nkatika mtiririko \nsahihi sentensi \nzilizochanganywa\nMaswali na \nmajibu:\nAndaa sentensi \nzenye mpangilio wa \nmaneno usio sahihi,  \nkisha waongoze \nwanafunzi kuandika \nsentensi hizo kwa \nusahihi\nSentensi \nzilizochanganywa \nzimepangwa \nkatika mtiririko \nsahihi\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n Ziara: \nWaongoze wanafunzi \nkutembelea shule ya jirani, \nkisha wasimulie ziara yao \nhatua kwa hatua. Ziandike \nhatua hizo kwa kutumia \nsentensi kamili, kisha \nzichanganye sentensi hizo \nna kuwataka wanafunzi \nkuzipanga kwa mfuatano \nwa kimantiki\n(c) Kuandika \nmatini fupi \nkwa kuzingatia \nmpangilio sahihi \nwa maneno \nna alama za \nuakifishaji\nMajadiliano: Waongoze \nwanafunzi kujadili kuhusu \nmpangilio sahihi wa \nmaneno na umuhimu wa \nalama za uakifishaji katika \nuandishi wa matini fupi, \nkisha waandike matini fupi \nkwa kuzingatia mambo \nhayo\nMatini fupi \nimeandikwa \nkwa usahihi \nkwa kuzingatia \nmpangilio sahihi \nwa maneno \nna alama za \nuakifishaji\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   23MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   23 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1967
+    },
+    {
+      "page_number": 30,
+      "text": "24\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n3.2 Kuchanganua \nmawazo \nyaliyowasilishwa \nkatika matini \nmbalimbali\n(a) Kubainisha \nmsamiati  \nuliojitokeza \nkatika matini \nfupi sahili \nKazimradi: \nWaongoze wanafunzi \nkusoma matini fupi \nsahili na kusikiliza \nhabari kwenye \ntelevisheni, redio \nau simu, kisha \nwabainishe msamiati \nuliomo pamoja na \nfasili zake \nHadithi:\nWaongoze \nwanafunzi kusoma \nau kusikiliza hadithi, \nkisha wataje maneno \nmapya na watafute \nmaana zake  katika \nkamusi\nMsamiati \nuliojitokeza \nkatika matini \nfupi sahili \numebainishwa \nMatini fupi sahili, \nredio, kamusi na \ntelevisheni\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   24MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   24 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 930
+    },
+    {
+      "page_number": 31,
+      "text": "25\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kuchambua \nmawazo \nmakuu \nyanayojitokeza \nkatika matini \nfupi sahili\nChanganyakete: \nGawa matini tofauti \nkatika vikundi, \nwaongoze wanafunzi \nkusoma na kuandika \nujumbe wa matini \nhizo, kisha kila kikundi \nkihakikishe kinasoma \nkazi zote na kueleza \nmasuala muhimu \nyaliyomo kwenye \nmatini husika\nMawazo makuu \nyaliyojitokeza \nkatika matini \nfupi sahili \nyamechambuliwa \nkwa ufanisi\n3.3 Kuonesha \nstadi za \nawali za \nubunifu \nwa kazi \nmbalimbali \nza Kiswahili\n(a) Kusimulia \nhadithi fupi \nsahili\nMasimulizi: Waongoze \nwanafunzi kusimuliana \nhadithi, kisha chagua \nwanafunzi wachache \nwasimulie hadithi zao \nmbele ya darasa \nHadithi \nfupi sahili \nzimesimuliwa \nkwa usahihi\nMichoro, hadithi \nfupi sahili, \nvielelezo na picha\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   25MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   25 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1099
+    },
+    {
+      "page_number": 32,
+      "text": "26\nDarasa la 1V\nJedwali Na. 3: Maudhui ya Darasa la IV\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n1.0 Kuwasiliana \nkatika \nmiktadha \nmbalimbali\n1.1 Kuendeleza \nmazungumzo \nkatika \nmiktadha \nmbalimbali\n(a) Kulinganisha \nvitu kwa \nkutumia \nmaneno \n(kuliko, zaidi \nya, kama, \nmithili ya \nna mfano \nwa) katika \nmiktadha \nmbalimbali\nOneshombinu:\nOnesha vitu \nviwiliviwili, kisha \nwaongoze wanafunzi \nkueleza dhana ya \nulinganishi\n Maswali na majibu: \nAndaa jedwali \nlenye maneno ya \nkulinganisha, kisha \nwaongoze wanafunzi \nkutunga sentensi kwa \nkutumia jedwali  \nVitu \nvimelinganishwa \nkwa kutumia \nmaneno (kuliko, \nzaidi ya, kama, \nmithili ya na \nmfano wa) \nkatika miktadha \nmbalimbali kwa \nufasaha\nOrodha ya nahau \nna methali, vitu \nhalisi, michoro na \npicha\n38\n(b) Kusimulia \nmatukio kwa \nkuzingatia \nnjeo za \nRamani ya dhana:  \nWaongoze wanafunzi \nkupitia mchoro \nkueleza aina za \nnyakati na hali\nMatukio \nyamesimuliwa \nkwa usahihi \nkatika nyakati \nna hali \nmbalimbali\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   26MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   26 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1290
+    },
+    {
+      "page_number": 33,
+      "text": "27\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nwakati: uliopo \n(-na-), uliopita \n(-li-), ujao (-ta-); \nna  hali timilifu \n(-me-) na mazoea \n(hu-)\nMaswali na majibu:\nWaongoze wanafunzi \nkutunga sentensi kwa \nkuzingatia viambishi \nvya nyakati na hali\n(c) Kujieleza kwa \nkujiamini\nMdahalo: Wape mada \nwanafunzi na wagawe \nkatika vikundi viwili, \nkisha waongoze \nkufanya majibizano \nkwa kujiamini \nIgizo: Waongoze \nwanafunzi kuigiza kwa \nkujiamini\nKujieleza \nkwa \nkujiamini \nkumefanyika \nkwa ufasaha\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   27MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   27 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 816
+    },
+    {
+      "page_number": 34,
+      "text": "28\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(d) Kuunga mkono \nau kupinga wazo \nkwa hoja na \nmifano rahisi\nNgonjera: Wape \nwanafunzi mada na \nuhusika kisha ongoza \nmajibizano yao na \nwafanye majumuisho \nya hoja zilizoibuliwa\nWazo \nlimeungwa \nmkono na \nkupingwa \nkwa hoja na \nmifano rahisi \n(e) Kutumia nahau \nna methali katika \nmazungumzo\nPicha na maelezo: \nChora picha na uweke  \nnahau na methali \nkwa kila picha halafu  \nwaongoze wanafunzi \nkutambua uhusiano \nwa nahau, methali \nna picha zake, kisha \nwatumie nahau na \nmethali hizo kwa \nkuzingatia maana zake\nNahau na \nmethali \nzimetumiwa \nvizuri katika \nmazungumzo\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   28MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   28 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 940
+    },
+    {
+      "page_number": 35,
+      "text": "29\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nHadithi: Waongoze \nwanafunzi kutunga \nhadithi kwa kutumia \nnahau na methali\n1.2 Kutumia \nmaandishi \nkatika \nmawasiliano \nkulingana \nna miktadha \nmbalimbali\n(a) Kutunga matini \nsahili kwa \nkutumia alama \nza uakifishaji: \nkistari kifupi \n(-), mkwaju (/), \nmabano ( ) na \nfunga na fungua \nsemi (“ ”) \nMajadiliano: \nWaongoze wanafunzi \nkutunga matini \nsahili kwa kutumia \nvielelezo vya alama \nza uakifishaji kwa \nusahihi\nMatini sahili \nzimetungwa kwa \nkutumia alama \nza uakifishaji: \nkistari kifupi \n(-), mkwaju (/), \nmabano ( ) na \nfunga na fungua \nsemi (“ ”) kwa \nusahihi\nBarua za kirafiki, \nbahasha, stempu, \nkompyuta, tableti \nna kadi za alama za \nuakifishaji \n30\n(b) Kutumia \nnyakati na hali \nkwa usahihi \nkatika uandishi \nwa kifungu cha \nhabari\nKusoma matini:\nAndaa matini \nzilizotumia nyakati \nna hali mbalimbali, \nkisha waongoze \nwanafunzi kubaini \nnyakati na hali hizo\nNyakati na hali \nvimetumika \nkwa usahihi \nkatika uandishi \nwa kifungu cha \nhabari\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   29MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   29 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1324
+    },
+    {
+      "page_number": 36,
+      "text": "30\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nkwa kupigia mstari, \nhalafu watunge \nsentensi kwa kutumia \nnyakati na hali hizo\n(c) Kuandika \nmatini sahili \nkwa kuzingatia \nmtiririko sahihi \nwa mawazo\nMasimulizi: Andaa \npicha zenye kujenga \nhabari, zichanganye, \nkisha waongoze \nwanafunzi kuandika \nhabari kwa kuzingatia \nmfuatano sahihi wa \npicha walizopewa\nMatini sahili \nimeandikwa \nkwa \nkuzingatia \nmtiririko \nsahihi wa \nmawazo\n(d) Kuandika barua \nya kirafiki kwa \nkuzingatia \nmuundo sahihi \nMajadiliano: Gawa \nbarua za kirafiki  \nkatika vikundi, kisha \nwaongoze wanafunzi  \nkujadili vipengele \nvyake\nBarua ya \nkirafiki \nimeandikwa \nkwa \nkuzingatia \nmuundo \nsahihi \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   30MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   30 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 990
+    },
+    {
+      "page_number": 37,
+      "text": "31\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMajigambo: Wape \nwanafunzi uhusika \nwa vipengele vya \nbarua ya kirafiki, \nkisha waongoze \nkujigamba mbele \nya darasa kulingana \nna sifa za vipengele \nhivyo\n2.0 Kuonesha \nuelewa \nwa jambo \nalilolisikiliza \nau kulisoma\n2.1 Kuonesha \nstadi za \nkusikiliza \nna kuelewa\n(a) Kusikiliza \nhadithi\nHadithi: Waongoze \nwanafunzi kusikiliza \nhadithi kwenye \nredio/televisheni/\nkinasasauti, kisha \nwaulize maswali \nkutokana na hadithi \nwaliyoisikiliza\nMasimulizi: \nWaongoze wanafunzi \nkusimulia hadithi \nwaliyoisikiliza\nHadithi \nimesikilizwa \nkwa umakini\nHadithi, \nkinasasauti, sidii, \nkompyuta, tableti \nna redio\n30\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   31MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   31 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 970
+    },
+    {
+      "page_number": 38,
+      "text": "32\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kubaini hisia \nza msimuliaji \nkutokana na \nkupanda na \nkushuka kwa \nmawimbi ya \nsauti\nHadithi:  Simulia \nhadithi kwa kuuvaa \nuhusika wa kila \nmhusika kwa \nkuzingatia kupanda \nna kushuka kwa \nmawimbi ya sauti, \nkisha waongoze \nwanafunzi kutaja sifa \nza kila mhusika kwa \nkuzingatia uhusika \nwake\nHisia za \nmsimuliaji \nzimebainishwa \nkwa usahihi \nkutokana na \nkupanda na \nkushuka kwa \nmawimbi ya \nsauti\n(c) Kubaini \nujumbe \nmkuu \nkutokana \nna hadithi \naliyoisikiliza\nMajadiliano:  \nWaongoze wanafunzi \nkatika vikundi \nkujadili ujumbe mkuu \nkutokana na hadithi \nwaliyoisikiliza\nUjumbe mkuu \nkatika hadithi \niliyosikilizwa \numebainishwa\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   32MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   32 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1005
+    },
+    {
+      "page_number": 39,
+      "text": "33\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n2.2 Kusoma \nmatini kwa \nufasaha na \nufahamu\n(a) Kusoma matini \nfupi sahili kwa \nufasaha \nZiara: Waelekeze \nwanafunzi kwenda \nmaktaba kusoma \nmatini fupi sahili, \nkisha warudi darasani \nna wasimuliane \nmatini hizo \nKusoma kwa sauti: \nWaongoze wanafunzi \nkusoma matini fupi \nsahili kwa sauti \nkwa kuzingatia kasi \nstahiki, matamshi \nsahihi na alama za \nuakifishaji\nMatini \nfupi sahili  \nimesomwa kwa \nufasaha\nMatini fupi sahili \nna kamusi\n22\n(b) Kujibu maswali \nkutokana na \nmatini fupi \naliyoisoma\nMaswali na majibu: \nWaongoze wanafunzi \nkujibu maswali \nyanayohusiana na \nmatini walizozisoma\nMaswali \nkutokana na \nmatini fupi \niliyosomwa \nyamejibiwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   33MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   33 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1030
+    },
+    {
+      "page_number": 40,
+      "text": "34\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nKaratasi tembezi: \nGawa maswali \ntofautitofauti \nyanayohusu matini, \nkisha kila kikundi \nkiandike majibu \nkwenye karatasi \nna kigawe karatasi \nyenye majibu kwenye \nvikundi vingine \nkwa ajili ya kusoma \nmajibu ya vikundi \nhivyo\n(c) Kutumia \nmsamiati \nna semi \nmpya \nzilizomo \nkwenye \nmatini fupi \naliyoisoma\nKusoma matini: \nWaongoze wanafunzi \nkusoma matini fupi \nna kubaini msamiati \nna semi mpya \nkwenye kazi bunifu\nMsamiati na \nsemi mpya \nzilizomo \nkwenye matini \nfupi aliyoisoma \nvimetumiwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   34MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   34 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 875
+    },
+    {
+      "page_number": 41,
+      "text": "35\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMaswali na \nmajibu: Waongoze \nwanafunzi kutunga \nhabari kwa kutumia \nmsamiati na semi \nmpya kutoka \nkwenye matini fupi \nwalizozisoma\n3.0 Kuwasilisha \nhoja kwa \nmazungumzo \nna kwa \nmaandishi \nkulingana na \nmuktadha\n3.1 Kuwasilisha \nhoja kwa \nnjia ya \nmazungumzo \nkatika \nmiktadha \nmbalimbali\n(a) Kubaini \nmsamiati \nau vifungu \nvya maneno \nvinavyotumika \nkujenga au \nkupinga hoja \n(mf. hoja yako \nni nzuri lakini \n..., ingawa \nunasema hivi, \nkuna ...)\nMajadiliano: \nWaongoze \nwanafunzi \nkusikiliza  mada \nkatika vyombo vya \nhabari au vifaa vya \nTEHAMA, kisha \nwabaini msamiati \nau vifungu \nvya maneno \nvinavyotumika \nkujenga au \nkupinga hoja\nMsamiati \nau vifungu \nvya maneno \nvinavyotumika \nkujenga au \nkupinga hoja \nvimebainishwa \nkwa usahihi\nKamusi na matini \nmbalimbali\n20\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   35MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   35 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1141
+    },
+    {
+      "page_number": 42,
+      "text": "36\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nMdahalo: Waongoze \nwanafunzi kujenga \nau kupinga hoja kwa \nkutumia msamiati \nmwafaka na vifungu \nvya maneno \nvinavyotumika kujenga \nau kupinga hoja\n(b)  Kutoa maoni \nau mawazo \nkwa kutumia \nmsamiati \nna vifungu \nvya maneno \nvinavyotumika \nkujenga au \nkupinga hoja \nMdahalo:  Waongoze \nwanafunzi kujenga \nhoja au kupinga  hoja \nkwa kutumia msamiati \nmwafaka na vifungu \nvya maneno kwa \nusahihi\nMchezo:  Waongoze \nwanafunzi kuigiza \nwapo kwenye kikao cha \ndarasa kinachojadili \nnamna ya kufanya usafi \nwa darasa kwa kutumia \nlugha mwafaka\nMaoni au \nmawazo \nkwa kutumia \nmsamiati \nna vifungu \nvya maneno \nvinavyotumika \nkujenga au \nkupinga hoja \nyametolewa \nkwa staha\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   36MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   36 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1031
+    },
+    {
+      "page_number": 43,
+      "text": "37\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(c) Kujenga hoja \nkwa mfuatano \nna ushikamani \nwa kimantiki\nMchezo: Andika sentensi \nkadhaa zinazojenga wazo \nmoja (kila sentensi iwe \nkwenye karatasi yake),  \nwape wanafunzi sentensi \nmojamoja na hakikisha \nwamechanganyika, kisha \nwajipange kwa mfuatano \nkulingana na mantiki ya \nsentensi\nMaswali na majibu: \nWaongoze wanafunzi \nkuoanisha sentensi \nkwenye safu mbili  \n Hoja \nzimejengwa \nkwa \nmfuatano na \nushikamani \nwa kimantiki\n \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   37MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   37 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 802
+    },
+    {
+      "page_number": 44,
+      "text": "38\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n3.2 Kuchanganua \nmawazo \nyaliyowasilishwa \nkatika matini \nmbalimbali\n(a) Kusoma \nmatini fupi \nsahili\nUsomaji wa matini: \nWaongoze wanafunzi \nkusoma matini fupi \nsahili kwa sauti na \nkimya, kisha waulize \nmaswali kuhusu \nmatini waliyoisoma\nZiara: Waongoze \nwanafunzi \nkutembelea maktaba  \nya karibu ili kusoma \nmatini mbalimbali \nkwa kuzingatia \nmwongozo uliowapa, \nkisha waandike \nwaliyoyasoma na \nkuwasilisha darasani\nMatini \nfupi sahili \nzimesomwa \nMatini fupi sahili \nna kamusi\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   38MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   38 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 850
+    },
+    {
+      "page_number": 45,
+      "text": "39\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kueleza maana \nya semi mpya \nzilizojitokeza \nkatika matini \nfupi sahili\nUsomaji wa matini: \nWaongoze wanafunzi \nkusoma matini na \nkubaini msamiati na \nsemi mpya kwenye \nmatini\nKazimradi: \nWaongoze wanafunzi \nkwa kutumia kamusi \nkutafuta maana za \nmsamiati na semi \nmpya zilizojitokeza \nkwenye matini\nMaswali na majibu: \nWaongoze wanafunzi \nkutunga sentensi kwa \nkutumia msamiati na \nsemi mpya kutoka \nkwenye matini\nMaana ya \nsemi mpya \nzilizojitokeza \nkatika matini \nzimeelezwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   39MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   39 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 863
+    },
+    {
+      "page_number": 46,
+      "text": "40\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(c) Kuwasilisha \nmawazo makuu \nyaliyomo katika \nmatini fupi \nsahili\nUsomaji wa matini: \nWaongoze wanafunzi \nkusoma matini \nfupi sahili, kisha \nwazifupishe kwa \nkuzingatia mawazo \nmakuu yaliyomo katika \nmatini hizo\nMchezo: Waongoze \nwanafunzi,  katika safu \nmbili,  kwa kushindana, \nkuwasilisha mawazo \nyaliyomo kwenye \nmatini walizosoma, \nkisha toa alama kwa \nkila wazo. Safu yenye \nalama nyingi ndiyo \nitakayoshinda\nMawazo makuu \nyaliyomo \nkatika matini \nfupi sahili \nyamewasilishwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   40MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   40 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 865
+    },
+    {
+      "page_number": 47,
+      "text": "41\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n3.3 Kuonesha \nstadi za \nawali za \nubunifu \nwa kazi \nmbalimbali \nza Kiswahili\n(a) Kutunga \nhadithi \nfupi sahili\nMajadiliano: \nWaongoze wanafunzi \nkusoma hadithi fupi \nsahili, wajadiliane \nmambo ya kuzingatia \nkatika utunzi wa \nhadithi, kisha \nwatunge hadithi fupi \nsahili \nMasimulizi: \nWaongoze wanafunzi \nkusimulia maisha yao \nwawapo shuleni \nIgizo: Waongoze \nwanafunzi \nkuigiza hadithi \nwaliyoisimulia \nkuhusu maisha yao \nwawapo shuleni \nHadithi \nfupi sahili \nzimetungwa \nvizuri\nPicha, vielelezo, \nmichoro na hadithi \nfupi sahili\n15\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   41MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   41 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 902
+    },
+    {
+      "page_number": 48,
+      "text": "42\nDarasa la V\nJedwali Na. 4: Maudhui ya Darasa la V\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n1.0 Kuwasiliana \nkatika \nmiktadha \nmbalimbali\n1.1 Kuendeleza \nmazungumzo \nkatika \nmiktadha \nmbalimbali\n(a) Kutumia \nmsamiati \nkatika \nkusimulia \nmatukio, \nhabari na vitu \nmbalimbali \nkwa kujiamini\nOneshombinu: \nWaoneshe \nwanafunzi picha \nzilizo katika \nmfuatano kusimulia \nmatukio, habari na \nmasuala mbalimbali \nkwa kujiamini  \nMsamiati \numetumika \nkatika \nkusimulia \nmatukio, \nhabari na vitu \nmbalimbali \nkwa kujiamini\nKamusi, orodha ya \nmethali na nahau\n21\n(b) Kubainisha \nnafsi (umoja \nna wingi) \nkatika \nmazungumzo \nPicha na maelezo: \nOnesha picha \nzinazobainisha nafsi \n(umoja na wingi) \nyaani \nNafsi tatu \n(umoja na \nwingi) katika \nmazungumzo \nzimebainishwa\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   42MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   42 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1081
+    },
+    {
+      "page_number": 49,
+      "text": "43\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nwatu wakiwa \nkwenye shughuli \nmbalimbali, kisha \neleza nafsi tatu \nkatika umoja na \nwingi wake\nMchezo: Ongoza \nmchezo wa kutunga \nsentensi kwa \nkuzingatia nafsi. \nSafu ya kwanza iwe \nnafsi ya kwanza \numoja na wingi. \nFanya hivyo kwa \nsafu ya pili na \nya tatu. Zingatia \nkuwa sentensi moja \nitabadilishwa katika \nnafsi zote\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   43MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   43 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 690
+    },
+    {
+      "page_number": 50,
+      "text": "44\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(c) Kutumia nahau \nna methali katika \nmazungumzo\nMasimulizi: \nWaongoze \nwanafunzi kusimulia \nhadithi kwa kutumia \nnahau na methali \nkwa usahihi\nNahau na \nmethali \nzimetumika \nkwa usahihi \nkatika \nmazungumzo\n1.2 Kutumia \nmaandishi \nkatika \nmawasiliano \nkulingana \nna miktadha \nmbalimbali\n(a) Kuandika kifungu \ncha habari kwa \nkuzingatia alama \nza uakifishaji: \nnuktapacha (:), \nnuktamkato (;), \nritifaa (‘) na \nnuktakatishi (…)\nMajadiliano: \nWaongoze \nwanafunzi kujadili \nmatumizi ya alama \nza uakifishaji: \nnuktapacha (:), \nnuktamkato (;), \nritifaa (‘) na \nnuktakatishi (…) \nkatika uandishi\nImla:  Wasomee  \nwanafunzi habari \nkwa vituo ili \nwaandike kwa \nKifungu \ncha habari \nkimeandikwa \nkwa usahihi \nkwa \nkuzingatia \nalama za \nuakifishaji \nnuktapacha \n(:), \nnuktamkato \n(;), ritifaa \n(‘) na \nnuktakatishi \n(…)\nBarua za kiofisi, \nkompyuta, kamusi \nna kadi za alama za \nuakifishaji\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   44MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   44 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1252
+    },
+    {
+      "page_number": 51,
+      "text": "45\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nkuzingatia alama \nza uakifishaji: \nnuktapacha (:), \nnuktamkato (;), \nritifaa (‘) na \nnuktakatishi (…)\n(b) Kutumia \nmsamiati \nsahihi katika \nuandishi wa \ninsha kwa \nkuzingatia \nmada\nMajadiliano: \nWaongoze \nwanafunzi kujadili \nna kuandika wazo \nla kila aya, kisha \nwakamilishe insha \nkwa kutumia \nmsamiati mwafaka\nMsamiati sahihi \numetumiwa \nvizuri katika \nuandishi wa insha \nkwa kuzingatia \nmada\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   45MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   45 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 762
+    },
+    {
+      "page_number": 52,
+      "text": "46\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(c) Kuandika \nbarua ya \nkiofisi kwa \nkuzingatia \nmuundo \nsahihi\nMajigambo: \nWape wanafunzi \nuhusika kwa \nvikundi kulingana \nna vipengele vya \nbarua ya kiofisi,  \nkisha waongoze \nkujigamba\nMaswali na \nMajibu: Waongoze \nwanafunzi kuandika \nbarua za kiofisi \nkwa kuzingatia \nvipengele vyake\nBarua ya \nkiofisi \nimeandikwa \nkwa usahihi \nkwa \nkuzingatia \nmuundo wake \n2.0 Kuonesha \nuelewa \nwa jambo \nalilolisikiliza \nau kulisoma\n2.1 Kuonesha \nstadi za \nkusikiliza \nna \nkuelewa\n(a) Kusimulia \nhadithi \naliyoisikiliza \nkwa usahihi\nMajadiliano:\nWaongoze \nwanafunzi \nkujadili  mambo ya \nmsingi  wakati wa \nkusimulia hadithi\nHadithi \niliyosikilizwa \nimesimuliwa \nkwa usahihi\nHadithi, redio, \nkamusi, tableti, \nsidii na kompyuta\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   46MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   46 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1086
+    },
+    {
+      "page_number": 53,
+      "text": "47\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\nMasimulizi: \nWaongoze \nwanafunzi \nkuhadithia maisha \nyao wakati wa \nlikizo\n(b) Kutafsiri \nujumbe \nmkuu uliomo \nkwenye \nhadithi na \nmazingira \nhalisi\n Maswali na \nmajibu: Waongoze \nwanafunzi \nkueleza mafunzo  \nwanayoyapata \nkutokana na hadithi \nkwa kuwauliza \nmaswali \nBakuli la samaki:\nWaongoze \nwanafunzi kukaa \nkatika maduara \nmawili (duara ndani \nna duara nje),  \nUjumbe \nmkuu uliomo \nkwenye \nhadithi \numetafsiriwa \nkwa usahihi \nkwa \nkuzingatia \nmazingira \nhalisi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   47MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   47 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 834
+    },
+    {
+      "page_number": 54,
+      "text": "48\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za ujifunzaji Mbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nkisha wale wa ndani \nwaeleze mafunzo \nwanayopata kwenye \nhadithi na wale wa \nnje waongeze kile \nkinachopungua\n(c) Kuhusianisha \nmienendo ya \nwahusika waliomo \nkatika hadithi na  \nmazingira halisi \nMajadiliano:  \nWaongoze wanafunzi \nkatika vikundi \nkujadili  mienendo \nya  wahusika \ninavyoshabihiana na  \nmazingira halisi\nUchunguzi: Wape \nwanafunzi wasifu \nwa kila mhusika, \nkisha waongoze \nkuchunguza kwa \nkulinganisha na watu \nkatika jamii yao\nMienendo \nya wahusika \nwaliomo \nkatika hadithi \nimehusianishwa \nna  mazingira \nhalisi kwa \nusahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   48MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   48 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 910
+    },
+    {
+      "page_number": 55,
+      "text": "49\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za ujifunzaji Mbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(d) Kufafanua maana \nya nahau na methali \nzilizomo katika \nhadithi kwa usahihi \nMchezo: Andaa \nkadi mbili kubwa, \nmoja iandikwe \nneno “nahau”  na \nnyingine iandikwe \nneno “methali”, \nkisha andika nahau \nna methali nyingi \nkatika karatasi \ntofautitofauti, halafu \nwaongoze wanafunzi \nwenye kadi\nzilizoandikwa nahau \nkusimama mbele \nya kadi kubwa \niliyoandikwa ‘nahau’ \nhuku wakizinyanyua, \nna wale wenye \nkadi zilizoandikwa \nmethali wafanye \nhivyohivyo\nMaana ya \nnahau na \nmethali \nzilizomo \nkatika hadithi \nzimefafanuliwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   49MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   49 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 901
+    },
+    {
+      "page_number": 56,
+      "text": "50\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nMchezo: Unda timu  mbili, \nkisha timu moja iwe inataja \nnahau na timu ya pili \niseme maana yake. Pia, \nifanyike  kwa methali kwa \nkubadilishana utendaji\n2.2 Kusoma \nmatini \nkwa \nufasaha \nna \nufahamu\n(a) Kusoma \nmatini \nndefu \nsahili \nMaswali na majibu: \nWaongoze wanafunzi \nkusoma matini ndefu sahili, \nkisha waulize wanafunzi \nmaswali kuhusu matini hizo \nKazimradi: Waongoze \nwanafunzi kutembelea \nmaktaba kusoma matini \nndefu sahili,  kisha \nwabainishe mawazo \nyaliyomo katika matini hizo \nna kuwasilisha darasani\nMatini  \nndefu sahili  \nzimesomwa \nkwa ufahamu\nMatini bunifu na \nzisizo bunifu ndefu \nsahili\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   50MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   50 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 979
+    },
+    {
+      "page_number": 57,
+      "text": "51\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kuwasilisha \nmawazo \nmakuu \naliyoyasoma \nkatika \nmatini ndefu\nMaswali na \nmajibu: Waongoze \nwanafunzi kusoma \nmatini, kisha \nwaeleze mawazo \nmakuu waliyojifunza\nMajadiliano: \nWaongoze \nwanafunzi kujadili \nmawazo makuu \nkatika matini ndefu \nwaliyoisoma\nMawazo \nyaliyosomwa \nkatika \nmatini ndefu \nyamewasilishwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   51MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   51 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 694
+    },
+    {
+      "page_number": 58,
+      "text": "52\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n3.0 Kuwasilisha \nhoja kwa \nmazungumzo \nna kwa \nmaandishi \nkulingana na \nmuktadha\n3.1 Kuwasilisha \nhoja kwa \nnjia ya \nmazungumzo \nkatika \nmiktadha \nmbalimbali \n(a) Kutoa hoja \nkwa kutumia \nmsamiati \nunaoendana \nna muktadha \nmahususi wa \nmazungumzo\nIgizo: Waongoze \nwanafunzi kuigiza \nkuwasilisha hoja \nkatika kikao \ncha serikali ya \nwanafunzi\nKualika mgeni: \nMwalike Afisa \nMaendeleo ya \nJamii kutoa mada \nkuhusu afya \nau mahusiano \nsahihi ya kijinsia, \nkisha waongoze \nwanafunzi \nkuchangia hoja \nkutokana na mada \niliyowasilishwa \nHoja  \nzimetolewa \nkwa kutumia \nmsamiati \nunaoendana \nna muktadha \nmahususi wa \nmazungumzo \nkwa usahihi\nVitu halisi, tableti, \nkompyuta, sidii, \npicha na redio\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   52MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   52 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1061
+    },
+    {
+      "page_number": 59,
+      "text": "53\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n3.2 Kuandika \nmatini \nmbalimbali\n(a) Kuandika \ninsha \nfupi kwa \nkuzingatia \nvipengele vya \ninsha \nRamani ya dhana:  \nWaongoze wanafunzi \nkutaja na kufafanua \nvipengele vya insha \nkwa kuanza na mduara \nwa kwanza wenye \nneno insha, kisha wao \nwaendelee\nOneshombinu: \nOnesha insha \nya mfano, kisha \nwaongoze   \nwanafunzi kutunga \ninsha kwa kuzingatia \nmfano huo\nInsha fupi \nimeandikwa \nkwa \nkuzingatia \nvipengele \nvya insha\nInsha mbalimbali, \nbarua za kiofisi, \nkompyuta, tableti, \nbahasha na stempu\n22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   53MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   53 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 867
+    },
+    {
+      "page_number": 60,
+      "text": "54\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kujibu barua \nya kirafiki\nMaswali na \nMajibu:\nWaongoze \nwanafunzi kujibu \nbarua ya kirafiki\nBarua ya \nkirafiki \nimejibiwa \nkwa \nusahihi\n3.3 Kuchanganua \nmawazo \nyaliyowasilishwa \nkatika matini \nmbalimbali\n(a) Kuchambua \nmawazo \nmbalimbali \nyaliyojitokeza \nkatika matini \nfupi sahili \naliyoisoma\nKazimradi: \nWaongoze wanafunzi \nkutembelea maktaba \nkusoma matini, kisha \nwachambue mawazo \nyaliyomo katika \nmatini walizozisoma\nMawazo \nmbalimbali \nyaliyojitokeza \nkatika matini \nfupi sahili \niliyosomwa \nyamechambuliwa \nkwa ufasaha\nMatini fupi sahili 22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   54MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   54 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 920
+    },
+    {
+      "page_number": 61,
+      "text": "55\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kujibu barua \nya kirafiki\nMaswali na \nMajibu:\nWaongoze \nwanafunzi kujibu \nbarua ya kirafiki\nBarua ya \nkirafiki \nimejibiwa \nkwa \nusahihi\n3.3 Kuchanganua \nmawazo \nyaliyowasilishwa \nkatika matini \nmbalimbali\n(a) Kuchambua \nmawazo \nmbalimbali \nyaliyojitokeza \nkatika matini \nfupi sahili \naliyoisoma\nKazimradi: \nWaongoze wanafunzi \nkutembelea maktaba \nkusoma matini, kisha \nwachambue mawazo \nyaliyomo katika \nmatini walizozisoma\nMawazo \nmbalimbali \nyaliyojitokeza \nkatika matini \nfupi sahili \niliyosomwa \nyamechambuliwa \nkwa ufasaha\nMatini fupi sahili 22\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za ujifunzaji Mbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kueleza mawazo \nyaliyojitokeza \nkatika matini \nfupi sahili kwa \nkuzungumza \nKusoma matini: \nAndaa matini, \nzigawe kwenye \nvikundi, kisha \nwaongoze wanafunzi \nkusoma, kujadili \nna kueleza mawazo \nyanayojitokeza \nkatika matini hizo\nMawazo \nyaliyojitokeza \nkatika matini \nfupi sahili \nyameelezwa \nkwa usahihi \nkwa \nkuzungumza\n(c) Kufupisha habari \nalizozisoma katika \nmatini fupi sahili \nkwa kuandika \nMaswali na majibu:  \nWaongoze wanafunzi \nkwa kutumia \nmaswali kubaini \nmawazo makuu \nkatika matini fupi \nsahili walizozisoma \nna kuzifupisha \nHabari \nzilizosomwa \nkatika matini \nfupi sahili \nzimefupishwa \nkwa usahihi \nkwa kuandika\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   55MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   55 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1766
+    },
+    {
+      "page_number": 62,
+      "text": "56\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n3.4 Kuonesha \nstadi za \nawali za \nubunifu \nwa kazi \nmbalimbali \nza Kiswahili\n(a) Kutunga \nmaigizo \nrahisi na \nmafupi kwa \nkuzingatia \nkanuni \nUchunguzi: \nWaongoze \nwanafunzi kuangalia \nigizo kwenye \ntelevisheni au redio \nna kuchunguza \nnamna wahusika \nwanavyovaa uhusika \nkatika uigizaji, kisha \nwatunge maigizo \nrahisi kwa kufuata \nkanuni \nMchezo: Waongoze \nwanafunzi kuigiza \nigizo walilolitunga\nMaigizo rahisi \nna mafupi \nyametungwa \nkwa kuzingatia \nkanuni kwa \nusahihi\nVitu halisi 22\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   56MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   56 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 855
+    },
+    {
+      "page_number": 63,
+      "text": "57\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za ujifunzaji Mbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b)  Kuigiza michezo \nsahili\nUchunguzi: \nWaongoze \nwanafunzi kuangalia \nmichezo  kwenye \ntelevisheni au \nkusikiliza redioni, \nkisha wachunguze \nmbinu za kifani \nna kuziwasilisha \ndarasani\nMchezo: Waongoze \nwanafunzi kuigiza \nmaigizo rahisi  \nMichezo \nsahili \nimeigizwa \nkwa ufanisi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   57MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   57 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 648
+    },
+    {
+      "page_number": 64,
+      "text": "58\nDarasa la VI\nJedwali Na. 5: Maudhui ya Darasa la VI\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n1.0 Kuwasiliana \nkatika \nmiktadha \nmbalimbali\n1.1 Kuendeleza \nmazungumzo \nkatika \nmiktadha \nmbalimbali\n(a) Kutumia \nmsamiati \nkatika \nmijadala \nmbalimbali \nkwa \nkujiamini \nMdahalo: \nWaongoze \nwanafunzi kutumia \nmsamiati sahihi \nkatika mdahalo \nMsamiati \numetumika \nkatika mijadala \nmbalimbali \nkwa kujiamini\nTelevisheni, sidii \nna redio \n30\n1.2 Kutumia \nmaandishi \nkatika \nmawasiliano \nkulingana \nna miktadha \nmbalimbali\n(a) Kubaini \nmakosa ya \nkiuandishi \nkatika \nmatini \nUchunguzi: \nWaongoze \nwanafunzi kusoma \nmatini kwa umakini \nna kubainisha \nmakosa ya \nkiuandishi \nMakosa ya \nkiuandishi \nkatika matini \nyamebainishwa \nRisala, hotuba, \nkompyuta, \ntableti na matini \nmbalimbali \n30\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   58MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   58 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1105
+    },
+    {
+      "page_number": 65,
+      "text": "59\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kusahihisha \nmakosa ya \nkiuandishi \nkatika matini \nMajadiliano: \nWaongoze \nwanafunzi kujadili \nna kusahihisha \nmakosa kwa \nkuandika \nkilichosahihi mahali \npenye kosa la \nkiuandishi\nMakosa ya \nkiuandishi \nkatika matini \nyamesahihishwa \n(c) Kuandika \nrisala na \nhotuba kwa \nkuzingatia \nmuundo na \nmuktadha\nKusoma matini: \nWaongoze \nwanafunzi kusoma \nrisala na hotuba \nmbalimbali, kisha \nwajadili muundo wa \nhotuba na risala\nRisala na hotuba \nzimeandikwa \nkwa kuzingatia \nmuundo na \nmuktadha kwa \nusahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   59MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   59 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 873
+    },
+    {
+      "page_number": 66,
+      "text": "60\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nMajigambo: \nWaongoze \nwanafunzi katika \ntimu mbili \nkujigamba kuhusu \nrisala na hotuba \nwakibainisha sifa, \nmuundo, matumizi \nna wahusika wake. \nTimu moja iitwe \nrisala na timu ya \npili iitwe hotuba\nMajadiliano: \nWaongoze \nwanafunzi \nkujadiliana katika \nvikundi, mambo ya \nkuzingatia katika \nuandishi wa risala \nna hotuba, kisha \nwaandike risala na \nhotuba\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   60MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   60 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 723
+    },
+    {
+      "page_number": 67,
+      "text": "61\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n2.0 Kuonesha \nuelewa \nwa jambo \nalilolisikiliza \nau kulisoma\n2.1 Kuonesha \nstadi za \nkusikiliza \nna \nkuelewa\n(a) Kusikiliza \nhabari \nmbalimbali \nna kunukuu \nmawazo \nmakuu\nMasimulizi: \nWaongoze \nwanafunzi \nkusikiliza habari \nulizoziandaa, kisha \nwaandike mawazo \nmakuu yaliyomo \nkwenye habari hizo\nUchunguzi: \nWaongoze \nwanafunzi \nkusikiliza taarifa \nya habari kwenye \nredio/televisheni/\nkompyuta, \nkisha waandike \nmawazo makuu \nwaliyoyapata\nHabari \nmbalimbali \nzimesikilizwa  \nna mawazo \nmakuu \nyamenukuliwa \nkwa usahihi\nKinasasauti, redio \nna televisheni\n25\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   61MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   61 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 925
+    },
+    {
+      "page_number": 68,
+      "text": "62\nUmahiri mkuu Umahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kufupisha \nhabari \nalizozisikiliza \nkwa \nkuzingatia \nmawazo \nmakuu \nMaswali na \nmajibu: Waongoze \nwanafunzi \nkubainisha na \nkuandika wazo \nkuu kwa kila aya \nkatika habari \nwaliyoisikiliza, \nkisha waunganishe \nmawazo na kupata \nufupisho\nHabari \nzilizosikilizwa \nzimefupishwa \nkwa kuzingatia \nmawazo \nmakuu \n3.0 Kuwasilisha \nhoja kwa \nmazungumzo \nna kwa \nmaandishi \nkulingana na \nmuktadha\n3.1 Kuwasilisha \nhoja kwa \nnjia ya \nmazungumzo \nkatika \nmiktadha \nmbalimbali \n(a) Kutumia \nmsamiati \nmwafaka \nkatika \nkupinga au \nkutetea hoja \nkwa kutoa \nmifano thabiti \nkulingana na \nmuktadha \nMdahalo: \nWaongoze \nwanafunzi kwa \nkuwapa kichwa cha \nmdahalo, upande \nmmoja upinge na \nmwingine utetee \nhoja kwa mifano \nthabiti kulingana na \nmuktadha\nMsamiati \nmwafaka \numetumika \nkwa ufasaha \nkatika kupinga \nau kutetea hoja \nkwa kutoa \nmifano thabiti \nkulingana na \nmuktadha\nKamusi, \ntelevisheni, \nsidii, redio na \nkinasasauti \n30\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   62MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   62 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1288
+    },
+    {
+      "page_number": 69,
+      "text": "63\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi \nya \nvipindi\n(b) Kutumia \nlugha ya \nmvuto katika \nkuwasilisha \nhoja \nUwasilishaji: \nWaongoze \nwanafunzi \nkuwasilisha hoja \nkwa kutumia lugha \nya mvuto, yaani \nyenye tamathali \nza semi, nahau, \nmethali na misemo \nLugha ya \nmvuto \nimetumika \nkwa usahihi \nkatika \nkuwasilisha \nhoja\n(c) Kuhutubia \nkwa lugha \nfasaha katika \nmiktadha ya \nshuleni \nMajadiliano: \nWaongoze \nwanafunzi kujadili \nmambo ya msingi \nya kuzingatia \nwakati wa \nkuhutubia\nKuhutubia \nkwa lugha \nfasaha katika \nmuktadha \nwa shuleni \nkumefanyika\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   63MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   63 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 865
+    },
+    {
+      "page_number": 70,
+      "text": "64\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nIgizo: \nWaongoze \nwanafunzi \nkuigiza namna ya \nkuhutubia kuonesha \nvipaumbele vyao \nwakati wa kampeni \nza kugombea nafasi \nza uongozi shuleni\n3.2 Kuchanganua \nmawazo \nyaliyowasilishwa \nkatika matini \nmbalimbali\n(a) Kusoma  \nmashairi na \nngonjera \nmbalimbali\nKusoma matini: \nWaongoze \nwanafunzi \nkusoma matini \nzenye mashairi na \nngonjera\nMashairi \nna ngonjera \nmbalimbali \nzimesomwa \nkwa ufasaha\nMashairi na \nngonjera\n30\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   64MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   64 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 787
+    },
+    {
+      "page_number": 71,
+      "text": "65\nUmahiri \nmkuu\nUmahiri mahususi Shughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\nUchunguzi: \nWaongoze \nwanafunzi \nkusikiliza mashairi \nna ngonjera \nzilizorekodiwa, \nkisha wachunguze \nnamna \nzinavyotambwa na \nkughaniwa\nMaswali na \nmajibu: \nWaongoze \nwanafunzi \nkubainisha mambo \nya kuzingatia \nwakati wa kughani \nshairi na kutamba \nngonjera\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   65MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   65 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 625
+    },
+    {
+      "page_number": 72,
+      "text": "66\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kuchambua \nmawazo yanayo \njitokeza katika \nngonjera \nna mashairi \naliyoyasoma \nKazimradi: \nWaongoze \nwanafunzi \nkutembelea maktaba \nkusoma ngonjera \nna mashairi, kisha \nkuchambua ujumbe \nuliomo\nMajadiliano: \nWaongoze \nwanafunzi \nkufafanua mawazo \nyaliyojitokeza katika \nngonjera na mashairi\nMawazo \nyanayojitokeza \nkatika ngonjera \nna mashairi \nyaliyosomwa \nyamechambuliwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   66MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   66 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 757
+    },
+    {
+      "page_number": 73,
+      "text": "67\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(c) Kusimulia \nmawazo \nyaliyomo \nkatika ngonjera \nna mashairi \naliyoyasoma \nMajadiliano: \nWaongoze \nwanafunzi kutamba \nngonjera  na \nkughani  mashairi, \nkisha wajadili \nujumbe uliomo\nMaswali na \nmajibu: \nWaongoze \nwanafunzi \nkufafanua mawazo \nyaliyojitokeza \nkatika ngonjera \nna mashairi kwa \nkuwauliza maswali\nMawazo \nyaliyomo \nkatika ngonjera \nna mashairi \nyaliyosomwa \nyamesimuliwa \nkwa ufasaha \nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   67MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   67 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 766
+    },
+    {
+      "page_number": 74,
+      "text": "68\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji \nna ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n3.3 Kuonesha \nstadi za awali \nza ubunifu \nwa kazi \nmbalimbali za \nKiswahili\n(a) Kutunga shairi \nna ngonjera\nMajadiliano: \nWaongoze \nwanafunzi \nkujadiliana na \nkuandika maneno \nyenye miishio \ninayofanana, \nkisha waandike \nmaneno yenye \nmizani nne, \nhalafu waongeze \nmaneno mengine \nyenye mizani \nnne (jumla ziwe \nmizani nane), kisha \nwatunge ngonjera \nna mashairi kwa \nkutumia maneno \nhayo \nNgonjera \nna mashairi \nvimetungwa \nkwa usahihi\nNgonjera, mashairi \nna vitu halisi \n30\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   68MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   68 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 843
+    },
+    {
+      "page_number": 75,
+      "text": "69\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu \nza ufundishaji na ujifunzaji \nzinazopendekezwa\nVigezo vya \nupimaji\nZana/Vifaa vya \nufundishaji \nna ujifunzaji   \nvinavyopendekezwa\nIdadi ya \nvipindi\n(b) Kutamba \nngonjera \nna kughani \nmashairi\nUchunguzi: Waongoze \nwanafunzi kuangalia \nngonjera na mashairi  kwenye \ntelevisheni na redio na \nkuchunguza mbinu za kifani \nzilizotumika \nMchezo: Waongoze \nwanafunzi kutamba ngonjera \nna kughani mashairi  \nNgonjera \nzimetambwa \nna  mashairi \nyameghaniwa \nkwa usahihi\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   69MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   69 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 678
+    },
+    {
+      "page_number": 76,
+      "text": "70\nBibliografia\nBAKITA. (2013). Mwongozo kwa waandishi wa Kiswahili sanifu. BAKITA.\nHabwe, J. & Karanja, P. (2004). Misingi ya sarufi ya Kiswahili. Phoenix Publishers Ltd.\nKing’ei, K. (2014). Taaluma ya uandishi. The Jomo Kenyatta Foundation.\nMassamba, D.P.B., Kihore, Y . M na Hokororo, J. I. (2001). Sarufi miundo ya Lugha ya Kiswahili sanifu: Sekondari na vyuo. \n(SAMIKISA). TUKI.\nMauritius Institute of Education. (2015). National curriculum framework grades 1 to 6.\nMauritius Institute of Education. (2015). National curriculum framework nine - year continuos basic education.\nMgullu, R.  (2001). Mtalaa wa isimu: Fonetiki, fonolojia na mofolojia ya Kiswahili. Longhorn Publishers Ltd. \nMsokile, M. (1993). Misingi ya uhakiki. EAEP.\nNkwera, F. (1978). Sarufi na fasihi, sekondari na vyuo. Tanzania Publishing House.\nSenkoro, F. (1987).  Fasihi na jamii. Press and Publicity Centre.\nMUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   70MUHTASARI SOMO KISWAHILI DRS III - VI landscape.indd   70 12/07/2023   20:4212/07/2023   20:42",
+      "char_count": 1038
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 3,
+        "main_competences": [
+          "1.0 Utangulizi ..............................................................................................................",
+          "2.0 Malengo Makuu ya Elimu Tanzania .........................................................................................",
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III–VI .............................................................................",
+          "4.0 Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI ....................................................................",
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ........................................................................................",
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji ..........................4",
+          "7.0 Mbinu za Ufundishaji na Ujifunzaji Zinazopendekezwa .....................................................................",
+          "8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji Vinavyopendekezwa ..............................................................",
+          "9.0 Upimaji .................................................................................................................",
+          "10.0 Idadi ya Vipindi ........................................................................................................",
+          "11.0 Maudhui ya Ufundishaji na Ujifunzaji ...................................................................................."
+        ],
+        "specific_competences": [
+          "1.0 Utangulizi ..............................................................................................................",
+          "2.0 Malengo Makuu ya Elimu Tanzania .........................................................................................",
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III–VI .............................................................................",
+          "4.0 Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI ....................................................................",
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ........................................................................................",
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji ..........................4",
+          "6.1  Mwalimu  ................................................................................................................",
+          "6.2  Mwanafunzi ..............................................................................................................",
+          "6.3  Mzazi/ Mlezi ............................................................................................................",
+          "7.0 Mbinu za Ufundishaji na Ujifunzaji Zinazopendekezwa .....................................................................",
+          "8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji Vinavyopendekezwa ..............................................................",
+          "9.0 Upimaji .................................................................................................................",
+          "10.0 Idadi ya Vipindi ........................................................................................................",
+          "11.0 Maudhui ya Ufundishaji na Ujifunzaji ...................................................................................."
+        ],
+        "periods": []
+      },
+      {
+        "page": 7,
+        "main_competences": [
+          "2.0     Malengo Makuu ya Elimu Tanzania"
+        ],
+        "specific_competences": [
+          "2.0     Malengo Makuu ya Elimu Tanzania"
+        ],
+        "periods": []
+      },
+      {
+        "page": 8,
+        "main_competences": [
+          "3.0     Malengo ya Elimu ya Msingi Darasa la III–VI"
+        ],
+        "specific_competences": [
+          "3.0     Malengo ya Elimu ya Msingi Darasa la III–VI"
+        ],
+        "periods": []
+      },
+      {
+        "page": 9,
+        "main_competences": [
+          "4.0      Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI",
+          "5.0     Umahiri Mkuu na Umahiri Mahususi "
+        ],
+        "specific_competences": [
+          "4.0      Umahiri wa Jumla wa Elimu ya Msingi Darasa la III–VI",
+          "5.0     Umahiri Mkuu na Umahiri Mahususi "
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [
+          "1.0 Kuwasiliana katika miktadha mbalimbali 1.1 Kutambua matamshi ya sauti mbalimbali katika silabi, ",
+          "2.0   Kuonesha uelewa wa jambo alilolisikiliza au ",
+          "3.0   Kuwasilisha hoja kwa mazungumzo na kwa ",
+          "6.0      Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji"
+        ],
+        "specific_competences": [
+          "1.0 Kuwasiliana katika miktadha mbalimbali 1.1 Kutambua matamshi ya sauti mbalimbali katika silabi, ",
+          "1.2 Kuendeleza mazungumzo katika miktadha mbalimbali",
+          "1.3 Kutumia maandishi katika mawasiliano kulingana na miktadha ",
+          "2.0   Kuonesha uelewa wa jambo alilolisikiliza au ",
+          "2.1 Kuonesha stadi za kusikiliza na kuelewa",
+          "2.2 Kusoma matini kwa ufasaha na ufahamu",
+          "3.0   Kuwasilisha hoja kwa mazungumzo na kwa ",
+          "3.1 Kuwasilisha hoja kwa njia ya mazungumzo  katika miktadha ",
+          "3.2 Kuandika matini mbalimbali",
+          "3.3 Kuchanganua mawazo yaliyowasilishwa katika matini ",
+          "3.4 Kuonesha stadi za awali za ubunifu wa kazi mbalimbali za ",
+          "6.0      Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji"
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [],
+        "specific_competences": [
+          "6.3    Mzazi/Mlezi"
+        ],
+        "periods": []
+      },
+      {
+        "page": 13,
+        "main_competences": [
+          "7.0    Mbinu za Ufundishaji na Ujifunzaji ",
+          "8.0    Zana/Vifaa vya Ufundishaji na Ujifunzaji "
+        ],
+        "specific_competences": [
+          "7.0    Mbinu za Ufundishaji na Ujifunzaji ",
+          "8.0    Zana/Vifaa vya Ufundishaji na Ujifunzaji "
+        ],
+        "periods": []
+      },
+      {
+        "page": 14,
+        "main_competences": [
+          "10.0 Idadi ya Vipindi ",
+          "11.0 Maudhui ya Ufundishaji na Ujifunzaji "
+        ],
+        "specific_competences": [
+          "10.0 Idadi ya Vipindi ",
+          "11.0 Maudhui ya Ufundishaji na Ujifunzaji "
+        ],
+        "periods": []
+      },
+      {
+        "page": 15,
+        "main_competences": [
+          "1.0 Kuwasiliana "
+        ],
+        "specific_competences": [
+          "1.0 Kuwasiliana "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 17,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Kuendeleza "
+        ],
+        "periods": []
+      },
+      {
+        "page": 28,
+        "main_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "specific_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 29,
+        "main_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "specific_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 30,
+        "main_competences": [],
+        "specific_competences": [
+          "3.2 Kuchanganua "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 32,
+        "main_competences": [
+          "1.0 Kuwasiliana "
+        ],
+        "specific_competences": [
+          "1.0 Kuwasiliana ",
+          "1.1 Kuendeleza "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 41,
+        "main_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "specific_competences": [
+          "3.0 Kuwasilisha ",
+          "3.1 Kuwasilisha "
+        ],
+        "periods": []
+      },
+      {
+        "page": 44,
+        "main_competences": [],
+        "specific_competences": [
+          "3.2 Kuchanganua "
+        ],
+        "periods": [
+          "3"
+        ]
+      }
+    ],
+    "Standard V": [
+      {
+        "page": 48,
+        "main_competences": [
+          "1.0 Kuwasiliana "
+        ],
+        "specific_competences": [
+          "1.0 Kuwasiliana ",
+          "1.1 Kuendeleza "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 58,
+        "main_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "specific_competences": [
+          "3.0 Kuwasilisha ",
+          "3.1 Kuwasilisha "
+        ],
+        "periods": [
+          "3"
+        ]
+      },
+      {
+        "page": 60,
+        "main_competences": [],
+        "specific_competences": [
+          "3.3 Kuchanganua "
+        ],
+        "periods": []
+      },
+      {
+        "page": 61,
+        "main_competences": [],
+        "specific_competences": [
+          "3.3 Kuchanganua "
+        ],
+        "periods": []
+      },
+      {
+        "page": 64,
+        "main_competences": [
+          "1.0 Kuwasiliana "
+        ],
+        "specific_competences": [
+          "1.0 Kuwasiliana ",
+          "1.1 Kuendeleza "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 68,
+        "main_competences": [
+          "3.0 Kuwasilisha "
+        ],
+        "specific_competences": [
+          "3.0 Kuwasilisha ",
+          "3.1 Kuwasilisha "
+        ],
+        "periods": []
+      },
+      {
+        "page": 70,
+        "main_competences": [],
+        "specific_competences": [
+          "3.2 Kuchanganua "
+        ],
+        "periods": []
+      }
+    ]
+  }
+}

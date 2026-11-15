@@ -1,0 +1,596 @@
+{
+  "filename": "en-1727175605-Science Syllabus For Primary Education Standard III - VI.pdf",
+  "title": "Science Syllabus for Primary Education Standard III─VI",
+  "swahili_title": "Muhtasari wa Sayansi na Teknolojia Elimu ya Msingi Darasa la III─VI",
+  "subject_name": "Science and Technology",
+  "subject_code": "TZ-TIE-PRI-SCI",
+  "classification": "compulsory",
+  "language": "en",
+  "isbn": "978-9987-09-860-6",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "f83ea3623f244c0505b6df390a797db9b014d0449ea99172d5622d1ab95f6157",
+  "file_size_bytes": 398091,
+  "page_count": 49,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "i\nTHE UNITED REPUBLIC OF TANZANIA\nMINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY\nSCIENCE SYLLABUS FOR PRIMARY EDUCATION\nSTANDARD III─VI\n2023",
+      "char_count": 139
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Tanzania Institute of Education 2023\nPublished 2023\nISBN: 978-9987-09-860-6\nTanzania Institute of Education\nMikocheni Area\n132 Ali Hassan Mwinyi Road\nP. O. Box 35094 \n14112 Dar es Salaam\nTel:   +255 735 041 170/ 735 041 168\nE-mail:  director .general@tie.go.tz\nWebsite:  www.tie.go.tz\nThis document should be cited as The Ministry of Education, Science and Technology. (2023). Science Syllabus for Primary \nEducation Standard III─VI. Tanzania Institute of Education.\nAll rights reserved. No part of this syllabus may be reproduced, stored in any retrieval system, or transmitted in any form or by any \nmeans electronic, mechanical, photocopying, recording, or otherwise, without prior written permission of the Tanzania Institute of \nEducation.",
+      "char_count": 749
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nTable of Contents\nList of Tables ...............................................................................................................................................................  v\nAbbreviations and Acronyms......................................................................................................................................... vi\nAcknowledgements....................................................................................................................................................... vii\n1.0 Introduction.......................................................................................................................................................... 1\n2.0 Main Objectives of Education in Tanzania.......................................................................................................... 1\n3.0 Objectives of Primary Education Standard III - VI.............................................................................................. 2\n4.0 General Competences for Primary Education Standard III - VI.......................................................................... 2\n5.0 Main and Specific Competences.......................................................................................................................... 3\n6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning....................................................... 4\n6.1 The teacher................................................................................................................................................. 4\n6.2 The pupil ................................................................................................................................................... 5\n6.3 The Parent/Guardian.................................................................................................................................. 5\n7.0 Teaching and Learning Methods.......................................................................................................................... 6\n8.0 Teaching and Learning Resources........................................................................................................................ 6\n9.0 Assessment........................................................................................................................................................... 6\n10.0 Number of Periods................................................................................................................................................ 7\n11.0 Contents of the syllabus ........................................................................................................................................  7",
+      "char_count": 2756
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nStandard III  ..............................................................................................................................................................  8 \nStandard IV ................................................................................................................................................................  16\nStandard  V ...............................................................................................................................................................  26 \nStandard VI ...............................................................................................................................................................  33 \nBibliography ................................................................................................................................................................  42 \n ",
+      "char_count": 891
+    },
+    {
+      "page_number": 5,
+      "text": "v\nList of Tables\nTable 1: Main and Specific Competences for Standard III─VI..................................................................................... 3\nTable 2:  Detailed Contents for Standard II................................................................................................................... 8\nTable 3: Detailed Contents for Standard IV ................................................................................................................... 16\nTable 4: Detailed Contents for Standard V ..................................................................................................................... 26\nTable 5: Detailed Contents for Standard VI................................................................................................................... 33",
+      "char_count": 809
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nAbbreviations and Acronyms\nICT Information and Communication Technology\nTIE T anzania Institute of Education",
+      "char_count": 111
+    },
+    {
+      "page_number": 7,
+      "text": "vii\nAcknowledgements\nThe writing of the Science Syllabus for Primary Education Standard III–VI involved various experts from both Government \nand non-government institutions. Therefore, the Tanzania Institute of Education (TIE) would like to thank all the experts who \nparticipated in the writing of this syllabus, namely lecturers, tutors, school quality assurance officers, teachers and curriculum \ndevelopers from TIE. The Institute is also grateful to the National Technical Committee that was formed by the Minister for \nEducation, Science and Technology for coordinating the curriculum review process for pre-primary, primary, secondary and teacher \neducation. The Committee discharged its responsibilities professionally by ensuring that the contents of this syllabus are in line \nwith the main objective of the 2023 curricula reviews, which is to ensure that the pupils acquire skills, knowledge and attitudes that \nwill enable them to create self-mployment, employ others, be employed and able to sustain themselves.\nFinally, TIE thanks the Ministry of Education, Science and Technology in a special way for facilitating the preparation and \ndistribution of this syllabus.\nDr Aneth A. Komba\nDirector General \nTanzania Institute of Education",
+      "char_count": 1249
+    },
+    {
+      "page_number": 8,
+      "text": "1\n1.0 Introduction\nScience is a compulsory subject for all pupils in Primary Education from Standard III-VI.  The significance of teaching and \nlearning Science is to enable the pupils to develop the science competences that are useful in day to day activities. The subject \nfurther enables pupils to build confidence, develop communication, critical thinking, problem solving and logical thinking \nskills. Through learning science, the pupils will demonstrate mastery of scientific theories, elementary scientific and ICT \nskills. Furthermore, it is expected that the pupil will be able to design simple computer programmes.\nThe Science syllabus, is designed to guide teaching and learning of Science subject for standards III─VI in Tanzania Mainland. \nThe syllabus interprets the competences indicated in the 2023 Primary Education Curriculum.. It provides information that \nwill enable teachers to plan their teaching processes effectively and help learner to develop the intended competences. In \naddition, the teaching and learning activities are designed in a manner that helps the pupil to develop 21 st century skills \nincluding creativity, collaboration, communication, critical thinking and problem solving.\n2.0 Main Objectives of Education in Tanzania\nThe main objectives of providing education in Tanzania are to enable Tanzanians to:\n(a) Develop and improve his or her personality so that he or she values himself or herself and develops self-confidence;\n(b) Respect the culture, traditions and customs of Tanzania; cultural differences; dignity; human rights; attitudes and \ninclusive actions;\n(c) Apply science and technology, creativity, critical thinking, innovation, cooperation, communication and positive \nattitudes for his or her development and the sustainable development of the nation and the world at large;\n(d) Understand and protect national values, including dignity, patriotism, integrity, unity, transparency, honesty, \naccountability and the national language;\n(e) Develop life and work-related skills to increase efficiency in everyday life;\n(f) Develop a habit of loving and valuing work to increase productivity and efficiency in production and service provision;",
+      "char_count": 2197
+    },
+    {
+      "page_number": 9,
+      "text": "2\n(g) Identify and consider cross-cutting issues, including the health and well-being of the society, gender equality, as well \nas the management and sustainable conservation of the environment; and\n(h) Develop national and international cooperation, peace and justice in accordance with the Constitution of the United \nRepublic of Tanzania and international conventions.\n3.0 Objectives of Primary Education Standard III - VI\nThe objectives of Primary Education Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills, communicate fluently, using Tanzanian Sign Language (TSL) and \ntactile communication;\n(b) Master, appreciate and  use Kiswahili and English Language and at least one other foreign language;\n(c) Appreciate and maintain Tanzanian culture, and national unity and recognising other people’s cultures;\n(d) Develop knowledge, the ability to inquire, think critically, design and solve problems.\n(e) Promote moral values, integrity, and respect for differences of /in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of appreciating/valuing and loving work;\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and inclination to take care of the environment, respect gender equality and other cross-\ncutting issues; and\n(j) Develop the ability to socialise in an inclusive environment.\n4.0 General Competences for Primary Education Standard III - VI\nThe general competences for Primary Education, Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills and communicate fluently using Tanzanian Sign Language (TSL) and ",
+      "char_count": 1674
+    },
+    {
+      "page_number": 10,
+      "text": "3\ntactile communication;\n(b) Use and appreciate Kiswahili and English Language. Also, the pupil should be encouraged to develop competence in \nat least one other foreign language depending on the school situation;\n(c) Appreciate and maintain Tanzanian culture and national unity and acknowledge other people’s cultures;\n(d) Develop knowledge, inquisitive mind, critical thinking, creativity and problem-solving skills;\n(e) Promote ethics, integrity, and respect for differences in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of valuing and loving work;\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and attitude towards taking care of the environment and respect gender equality, as well as \nother cross-cutting issues; and\n(j) Develop the ability to interact in an inclusive environment.\n5.0 Main and Specific Competences \nThe main and specific competences to be developed are presented in T able 1.\nTable 1: Main and Specific Competences for Standard III─VI\nMain competence Specific competence\n1.0  Demonstrate mastery  of scientific theories 1.1 Demonstrate an elementary understanding of scientific theories\n1.2 Make simple scientific observations\n1.3 Demonstrate a basic understanding of types of energy and their \nuses",
+      "char_count": 1337
+    },
+    {
+      "page_number": 11,
+      "text": "4\nMain competence Specific competence\n2.0  Demonstrate mastery of elementary  scientific skills 2.1 Conduct elementary scientific experiments\n3.0 Demonstrate mastery of ICT skills 3.1 Use ICT for learning\n4.0  Design simple computer programmes 4.1 Design simple computer programmes\n6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning \nGood relationships between a teacher, pupil and parent or guardian are fundamental to ensuring successful teaching and \nlearning. This section outlines the roles of each participant in facilitating effective teaching and learning science. \n6.1 The teacher\nThe teacher is expected to:\n(a) Help the pupil to learn and acquire the intended competences in science;\n(b) Use teaching  and learning approaches that will allow the pupil to:\ni. develop the competencies needed in the 21st century; \nii. actively participate in the teaching and learning process; \n(c) Use learner centred instructional strategies that make the student a centre of learning including those which allow \npupils to think, reflect and search information from various sources.  Other strategies include practical work, \nresearch, scientific experiments, group discussion and project works.  Projects should be those which are geared \ntoward proposing solutions to real life problems;\n(d) Create a friendly teaching and learning environment;",
+      "char_count": 1368
+    },
+    {
+      "page_number": 12,
+      "text": "5\n(e) Prepare and improvise teaching and learning resources;\n(f) Conduct formative assessment regularly by using tools that assess theory and practice including brainstorming, \nchecklist, experiments, questionnaires, face to face questions, classroom exercises, individual and group \npracticals, projects and portifolios. Other tools include tests, classroom presentations, mid-term, term and annual \nexaminations; \n(g) Treat all pupils equally irrespective of their differences; \n(h) Protect the pupil while at school;\n(i) Keep track of the pupil’s daily progress;\n(j) Identify individual pupil’s needs and provide the right intervention;\n(k) Involve parents/guardians and the society at large in the pupil’s learning process; and\n(l) Integrate cross-cutting issues and ICT in the teaching and learning process.\n6.2 The pupil\nThe pupil is expected to:\n(a) Develop the intended competences by participating in various learning activities inside and outside the classroom;\n(b) Actively engage in the teaching and learning process; and\n(c) Participate in the search for knowledge from various sources, including textbooks, reference books and other \npublications in online resources such as electronic libraries.\n6.3 The Parent/Guardian \nThe parent/guardian is expected to do the following:\n(a) Monitor the child’s academic progress;",
+      "char_count": 1331
+    },
+    {
+      "page_number": 13,
+      "text": "6\n(b) Where possible, provide the child with the needed academic support;\n(c) Provide the child with a safe and friendly home environment that is conducive for learning;\n(d) Keep track of the child progress in behaviour;\n(e) Provide the child with any materials required in the learning process; and\n(f) Instil in the child a sense of commitment and positive value towards education. \n7.0 Teaching and Learning Methods\nThe teaching and learning methods are instrumental in developing pupil’s intended competences. This syllabus suggests \nteaching and learning methods for each activity. They are aimed at enabling pupils to interact with content, which includes \nlistening to and/or watching live or recorded materials, engaging with written or visual texts, and engaging with multimedia. \nAll these aim to help pupils develop listening, speaking, reading, and writing skills as well as develop vocabulary and \ngrammar. However, a teacher is advised to use other appropriate methods based on the environment or context.\n8.0 Teaching and Learning Resources\nThe process of teaching and learning requires different resources. In that regard, both the teacher and pupil should work \ntogether to collect or improvise alternative resources available in the school and home environment when needed. The \nteacher and pupil are expected to constantly seek for information from various sources to effectively facilitate teaching and \nlearning process. The list of approved teaching and learning resources for references should be provided by the Tanzania \nInstitute Education.\n9.0 Assessment \nAssessment is an important process in the learning and teaching process to facilitate the development of intended competences. \nThe assessment of the Science subject will involve continuous and summative assessment. The continuous assessment will \ntake into account the criteria in each learning activity and will enable the teacher to determine the pupil’s learning ability ",
+      "char_count": 1958
+    },
+    {
+      "page_number": 14,
+      "text": "7\nand needs. It will also help the teacher to assess pupil’s knowledge, skills and attitudes, and the ability to appreciate, narrate \nand apply skills to manage their surroundings. Furthermore, the assessment information will enable the teacher to improve \nteaching and learning to facilitate the pupil’s achievement of the intended outcomes. The assessment tools that will be \nused during teaching and learning are checklists, classroom exercises, home works, questionnaires, face-to-face questions, \npractical works (individual and group works), project works and portfolios and other similar tools.  \nThe final assessment will include weekly, monthly, terminal and annual examinations which will be used to assess pupil’s \nlearning progress. This assessment information will also be used to assess pupil’s progress, but it will also provide feedback \nto facilitate teaching and learning process. In addition, there will be a standard six national assessment that will contribute \n7.5% marks to the Form Four National Examination.\n10.0 Number of Periods\nThe Science Syllabus for Primary Education Standard III─VI provides estimates of the time that will be spent in teaching and \nlearning, in consideration of the complexity of the specific competences and the learning activities.  Therefore, seven periods \nof 40 minutes each have been allocated for this subject per week for Standard III and IV and six periods of 40 minutes each \nhave been allocated for this subject per week for Standard V and VI.\n11.0 Contents of the syllabus\nThe contents of this syllabus are presented in matrix form with seven columns which include main competences, specific \ncompetences, learning activities, suggested teaching and learning methods, assessment criteria, resources and the number of \nperiods as presented in Tables 2–5.",
+      "char_count": 1815
+    },
+    {
+      "page_number": 15,
+      "text": "8\nStandard III\nTable 2: Detailed Contents for Standard III\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery  of \nscientific \ntheories\n1.1 Demonstrate \nan elementary \nunderstanding of \nscientific theories\n(a) Explain the \nconcept of \nscience (meaning \nand branches of \nscience)\nBrainstorming: \nGuide the pupils in \ngroups through \nbrainstorming ideas \non the concept of \nscience\nGroup discussion: \nFacilitate group \ndiscussions for \npupils to share \ntheir experiences on \nthe concept of science\nQuestions and \nanswers: \nGuide the pupils through \nquestions and answers \nto explain the concept of \nscience\nThe concept of \nscience is clearly \nexplained \nScience kit \nand videos/ \nanimations \nshowing \nbranches of \nscience \n44",
+      "char_count": 862
+    },
+    {
+      "page_number": 16,
+      "text": "9\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nRole-play: \nGuide the pupils through \nrole-play that includes \nthe meaning of science \nand its branches to \nexplain the concept of \nscience\nScenario: \nProvide scenarios to \nassist the pupils to \ndiscuss the concept of \nscience\n(b) Describe the \nhuman sensory \norgans\nBrainstorming:\nGuide the pupils in \ngroups through \nbrainstorming ideas \non the human sensory \norgans\nHuman sensory \norgans are clearly \nexplained \nDiagrams, \npictures, \ncharts showing \nhuman sensory \norgans and \nmodels of the \nhuman sensory \norgans ",
+      "char_count": 684
+    },
+    {
+      "page_number": 17,
+      "text": "10\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nGroup discussion: \nGuide the pupils in \ngroups through sharing \ntheir experiences on \nhuman sensory organs\n1.2 Make simple \nscientific \nobservations\n(a) Identify  \ndifferent \nobjects in the \nenvironment\nInvestigation: \nGuide the pupils \nin groups through \ninvestigation to identify \ndifferent objects in the \nenvironment \nDifferent \nobjects in the \nenvironment \nare correctly \nidentified \nScience kit, \nsource of \nheat, source \nof sound, \nstones, plants, \nanimals and \nnon-living \nthings \nfound in the \nenvironment\n44\n(b) Identify living \nand non-living \nthings\nScientific investigation: \nGuide the pupils \nto identify the \ncharacteristics of living \nand non-living things \nthrough scientific \ninvestigations\nLiving and non-\nliving things are \ncorrectly identified \nPlants, animals \nand non-living \nthings such as \nstones, videos, \nanimations, \nsimulations, \npictures \nshowing",
+      "char_count": 1044
+    },
+    {
+      "page_number": 18,
+      "text": "11\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nGroup discussion: \nGuide the pupils \nthrough sharing their \nunderstanding and \nexperiences on the \ncharacteristics of living \nand non-living things\nQuestions and \nanswers:\nAsk the pupils to \nidentify living and non-\nliving things through \nguiding questions\nanimals \nand non-\nliving things \nfound in the \nenvironment\n(c) Identify the main \ngroups of living \nthings (plants \nand animals)\nInquiry-based \nlearning:\n Ask the pupils through \ninquiry-based learning \nto identify main groups \nof  living things found in \ntheir environment\nQuestions and \nanswers:\nGuide the pupils to\nMain groups of \nliving things are \nclearly identified \nPlants, \nanimals, \ndiagrams, \npictures and \ncharts showing \nplants, animals ",
+      "char_count": 874
+    },
+    {
+      "page_number": 19,
+      "text": "12\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nidentify groups of living \nthings through guiding \nquestions\n2.0 Demonstrate \nmastery of \nelementary \nscientific \nskills\n2.1 Conduct simple \nscientific \nexperiments\n(a) Describe \nbasic steps in \nconducting \na scientific \ninvestigations\nQuestions and \nanswers: \nGuide the pupils \nthrough questions and \nanswers to explain the \nmeaning of scientific \ninvestigations\nGroup discussion: \nGuide the pupils through \ndiscussing the basic \nsteps for conducting \nscientific investigations\nInquiry-based \nlearning:\nGuide pupils through \nconducting simple \ninvestigations in their \nenvironment\nStep for \nconducting \nscientific \ninvestigations are \nclearly described\nRuler, \nnotebook, \npencil, \nweighing \nbalances, \nstopwatch, \ntape measure, \nbeaker, \nmeasuring \ncylinder, \nbasin, tin, \nbasket, bucket \nand sack\n43",
+      "char_count": 969
+    },
+    {
+      "page_number": 20,
+      "text": "13\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(b) Conduct \nelementary \nexperiments  on \nvarious living \nand non-living \nthings \nHands-on activities: \nOrganise activities \nfor pupils to perform \nvarious elementary \nexperiments on \ncharacteritics and needs \nof living and non-\nliving things in their \nenvironment \nElementary \nexperiments  on \nvarious living and \nnon-living things \nare correctly \nconducted\nPlants, \nanimals, \nstones, \nfootball, books \nand some sand \n(c) Care for living \nthings in the \nenvironment \nBrainstorming:  \nGuide the pupils \nthrough brainstorming \non the proper ways of \ncaring living things in \nthe environment\nGroup discussion: \nGuide the pupils \nthrough discussing the \nimportance of living \nthings and ways of \ncaring them in the \nenvironment\nLiving things are \ncared correctly in \nthe environment \nGardern \nof flowers, \nvegetables, \ntrees and \nanimals ",
+      "char_count": 1003
+    },
+    {
+      "page_number": 21,
+      "text": "14\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nGallery walk: \nGuide the pupils \nthrough gallery walk \nto investigate the \nimportance of living \nthings and ways of \ncaring them in the \nenvironment\nProject work: \nGuide the pupils through \ncarrying out a project of \ncaring living thing\n3.0 Demonstrate \nmastery of  \nICT skills \n3.1 Use ICT for \nlearning\n(a) Use ICT to play \nsimple games \nthat promote \nability to explain \nscientific \nphenomena and \nconcepts \nDiscussion: \nGuide the pupils \nthrough discussing \nprocedures for playing \nsimple games using ICT \nICT is used \nproperly to play \nsimple games \nSmart phones, \ncomputer, \ntablet, \ntelevision, \ncamera, \nprinter and \nscanner \n44",
+      "char_count": 804
+    },
+    {
+      "page_number": 22,
+      "text": "15\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nDemonstration: \nGuide the pupils \nthrough interactive \ndemonstrations to play \nsimple games using ICT\n \nHands on activities: \nGuide the pupils \nthrough playing \ndifferent games using \nICT",
+      "char_count": 355
+    },
+    {
+      "page_number": 23,
+      "text": "16\nStandard IV\nTable 3: Detailed Contents for Standard IV\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n1.0 Demonstrate \nmastery  of \nscientific \ntheories\n1.1 Demonstrate \nan elementary \nunderstanding \nof scientific \ntheories\n(a) Explain the \nbasic principles \nof health \n(balanced \ndiet, physical  \nexercises,  \npersonal and \nenvironmental \nhygiene, safety \nsigns and \nsymbols)\nBrainstorming: \nGuide the pupils through \nbrainstorming ideas on \nbalanced diet, physical \nexercises, personal and \nenvironmental hygiene, \nsafety,sign and symbols \n \nGroup discussion: \nGuide pupils through\ndiscussion to explain \nthe concept of the basic \nprinciples of health\nGuest speaker:\nOrganise pupils for a \nsession and invite a \nhealth  expert to explain \nthe  basic principles of \nhealth\nThe basic \nprinciples \nof health \nare clearly \nexplained\nTools for personal \nand  environmental \nhygiene, charts and \ndiagrams, showing \nsafety, signs and \nsymbols, videos \nand animations \nillustrating  \nbalanced diet, \nphysical exercises, \npersonal hygiene \nand environmental \ncleanliness\n30",
+      "char_count": 1186
+    },
+    {
+      "page_number": 24,
+      "text": "17\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nQuestions and \nanswers: \nGuide the pupils through  \nasking questions to \nexplain the basic \nprinciples of health \nCase study/scenarios: \nGuide the pupils through \ncase studies/scenarios  to \nexplain the importance \nof personal and \nenvironmental  hygiene\n(b) Describe types \nof common \nhuman diseases \n(Modes of \ntransimission, \ncauses, control \nand preventions)\nGroup discussion:\nGuide the pupils \nthrough discussion to \ndescribe common types \nof human diseases  \nGuest speaker:\nOrganise the pupils for \na session and invite a \nhealth expert to describe\nTypes of \nhuman \ndiseases are \ncorrectly \ndescribed \nVideos, pictures, \nanimations which \ndemonstrate balance \ndiet, physical \nexercises, personal \nand environmental \nhygiene, brochures \nor pamphlets of \nvarious common \nhuman diseases",
+      "char_count": 956
+    },
+    {
+      "page_number": 25,
+      "text": "18\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nthe common types of \nhuman diseases \nCase study/scenario:\nGuide the pupils \nthrough case studies/\nscenarios to identify \nways of controling \nand preventing types \nof common human \ndiseases  \n(c) Explain \nthe concept \nof matter \n(types and \ncharacteristics) \nQuestions and \nanswers: \nGuide the pupils \nthrough questions and \nanswers to explain the \nconcept of matter\nGroup discussion: \nGuide the pupils \nthrough discussion \nto identify types and \ncharacteristics of matter\nThe concept \nof matter \nis clearly \nexplained \nVarious things \nin form of \nsolids, liquid \nand gas, pictures \nand  animations \nillustrating types of \nmatter ",
+      "char_count": 796
+    },
+    {
+      "page_number": 26,
+      "text": "19\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n(d) Explain the \nconcept of \ncombustion \n(meaning, \ncauses and  \neffects) \nQuestions and \nanswers: \nGuide the pupils \nthrough Questions and \nanswers to explain the \nconcept of combustion\nInquire based \nlearning:\nGuide the pupils \nthrough exploring to \nexplore combustible \nmaterials in their \nenvironment \nGroup discussion: \nGuide pupils through \ndiscussion to identify \nmaterials necessary for \ncombustion\nThe concept \nof combustion \nis clearly \nexplained\n \nMatches or lighter, \ncombustive \nmaterials, such \nas papers and \nwoods, animations \nthat shows the \nburning of different \ncombustible \nmaterials",
+      "char_count": 770
+    },
+    {
+      "page_number": 27,
+      "text": "20\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nPractical: \nGuide the pupils to burn \nvarious combustible \nmaterials and explain \nthe concept of \ncombustion\n1.2 Make simple \nscientific \nobservations\n(a) Investigate the \nlife cycle of \ninsect vectors \n(housefly, \ncockroach and \nmosquito)\nInvestigation: \nGuide the pupils \nthrough investigating \nthe life cycles of insect \nvectors found in the \nenvironment\nField trip: \nArrange a study trip to \na nearby site for   the \npupils to explore and \nidentify life cycles of \ninsect vectors found in \nthe environment \nLife cycles of \ninsect vectors \nare clearly \ninvestigated  \nScience kit,  insects \nsuch as houseflies, \ncockroaches, \nmosquitos and \ncharts, videos/\nanimations showing \nstages of growth \nand developments\n30",
+      "char_count": 884
+    },
+    {
+      "page_number": 28,
+      "text": "21\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nGroup discussion: \nGuide the pupils \nthrough discussion to \nidentify  life cycles of \ninsect vectors found \nin the environment \nidentified during the \nfield trip\n1.3 Demonstrate \na basic \nunderstanding \nof types of \nenergy and \ntheir uses\n(a) Describe types \nof energy (heat, \nlight and sound \nenergy) and \ntheir uses \nBrainstorming: \nGuide pupils through \nbrainstorming to explain \nthe concept of energy\nInquiry based \nlearning:\nGuide the pupils \nthrough exploring heat, \nlight and sound energy  \nand then ask them  \nquestions to explain the \nconcept of energy\nTypes of \nenergy and \ntheir uses \nare clearly \ndescribed\nThermometer, \nheater, batteries, \nelectric wires, bulb, \nguitar, bell, radio, \nmicrophones, , solar \ncells, speakers, \nvideos and \nanimations on heat, \nlight and sound \nenergy\n30",
+      "char_count": 964
+    },
+    {
+      "page_number": 29,
+      "text": "22\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nGroup discussion: \nGuide the pupils \nthrough discussion \nto describe sources, \ncharacteristics and uses \nof heat, light and sound \nenergy \nDemonstration: \nGuide the pupils \nthrough demonstration \nto explain different uses \nof heat, light and sound \nenergy   \n2.0 Demonstrate \nmastery of \nelementary \nscientific skills \n2.1 Conduct \nelementary \nscientific \nexperiments\n(a) Conduct simple \nexperiments to \ninvestigate the \nstates of matter\nCase study: \nGuide the pupils \nthrough a case study \nto identify the states of \nmatter \n \nSimple \nexperiments \non \ncharacteristics \nof matter are \nconducted \ncorrectly \nSource of heat, \nmaterials in liquid, \nsolid and gaseous \nforms \n30",
+      "char_count": 841
+    },
+    {
+      "page_number": 30,
+      "text": "23\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nHands-on activities:\nGuide the pupils through  \nperforming various \nactivities to  explain the \ncharacteristics of matter\n(b) Conduct simple \nexperiments \nto demostrate \nimportance \nof  air in \ncombustion \nGroup discussion: \nGuide the pupils \nthrough discussing the \nimportance of  air in \ncombustion \nHands-on activities: \nGuide the pupils \nthrough  performing \nvarious activities to \ndemonstrate importance \nof  air in combustion  \nSimple \nexperiments \non importance \nof air in \ncombustion \nare correctly \nconducted\nScience kit, \nsources of heat, \ncombustible \nmaterials and tin\n(c) Conduct simple \nexperiments on \nheat, light and \nsound energy \nGroup discussion:\nGuide the pupils \nthrough discussing \nprocedures for \nconducting experiments \non energy\nSimple \nexperiments \non heat, light \nand sound \nenergy are \ncorrectly \nconducted  \nSources of heat, \nlight and sound, \nand science kit ",
+      "char_count": 1056
+    },
+    {
+      "page_number": 31,
+      "text": "24\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nExperimentation: \nGuide the pupils \nthrough carrying out \nexperiments on heat, \nlight and sound energy\n3.0 Demonstrate \nmastery of \nelementary   \nICT skills  \n3.1 Use ICT for \nlearning\n(a) Use ICT to draw \nand arrange \nvarious shapes \nin a logical \nsequence\nGroup discussion: \nGuide the pupils \nthrough discussing \nprocedures for using \nICT to draw and arrange \nvarious shapes in a \nlogical sequence\nDemonstration: \nGuide the pupils \nthrough interactive \ndemonstration to draw \nand arrange various \nshapes in a logical \nsequence by using  ICT  \nICT  is used \nproperly \nto  draw \nand arrange \nvarious  \nshapes in \na logical \nsequence\nMobile phone, \ncomputer tablet, \nsimple programme \nsoftware for \ndrawing and \narranging various \nshapes \n25",
+      "char_count": 907
+    },
+    {
+      "page_number": 32,
+      "text": "25\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n4.0 Design simple \ncomputer \nprogramme\n4.1 Design simple \ncomputer \nprogramme\n(a) Develop simple \ngames that \nuse a single \nshape by using  \nblock-based \nprogramming \nlanguage \n \nProject work:\nGuide the pupils  \nthrough creating simple \ngames that use single \nshape by using  block-\nbased programming \nlanguage \nDemonstration: \nGuide the pupils \nthrough interactive \ndemonstrations to \nidentify how to design \nsimple games by \nusing  block-based \nprogramming languages  \nSimple games \nthat use a \nsingle shape \nare correctly \ndeveloped\nby using  \nblock-based \nprogramming \nlanguages\nComputer \nprogrammes, \ncomputer and \nprojector \n30",
+      "char_count": 800
+    },
+    {
+      "page_number": 33,
+      "text": "26\nStandard  V\nTable 4: Detailed Contents for Standard V\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n1.0 Demonstrate \nmastery  of \nscientific \ntheories\n1.1 Demonstrate \nan elementary \nunderstanding \nof scientific \ntheories\n(a) Explain \nthe human \ndigestive \nsystem  \n(meaning, \nparts and their \nfunctions)\nBrainstorming: \nGuide the \npupils through \nbrainstorming on the \nmeaning of digestive \nsystem\nDiscussion: \nGuide the pupils \nthrough discussing \nparts of the human \ndigestive system and \nits functions \nICT based learning: \nGuide the  pupils  \nthrough explaining \nthe human digestive \nsystem using \nsimulations\nHuman digestive \nsystem is correctly \nexplained \nModels, charts, \ndiagram and \nanimations that \nshows human \ndigestive system\n45",
+      "char_count": 864
+    },
+    {
+      "page_number": 34,
+      "text": "27\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n(b) Explain \nthe human \nreproductive \nsystems\nDiscussion: \nGuide the pupils \nthrough manageable \ngroups to discuss \nhuman reproductive \nsystems \nICT based \nlearning:  \nGuide the pupils \nthrough simulation \nto explain male and \nfemale reproductive \nsystems \nFemale and male \nreproductive \nsystems are \ncorrectly explained \nModels, pictures, \ndiagrams, video \nand animations \nshowing human \nreproductive \nsystem\n(c) Explain the \ngrowth in \nanimals and \nplants \nBrainstorming: \nGuide the  \npupils through   \nbrainstorming idea on \nthe concept of growth\nDiscussion: \nGuide the pupils \nthrough manageable\nGrowth in animals \nand plants is \nclearly explained \nScience kit, \nmodels, \nanimations, \nvideos, and \npictures that \nshows growth in \nanimals and plants",
+      "char_count": 919
+    },
+    {
+      "page_number": 35,
+      "text": "28\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\ngroups to discuss and \nexplain the concept of \ngrowth in animals and \nplants\n(d)  Explain the \nstages of \ndevelopment of \nthe human body\nDiscussion: \nGuide the pupils \nthrough manageable \ngroups to explain \nstages of development  \nof human body\nQuestions and \nanswers: \nGuide the  pupils \nthrough questions and \nanswers to explain \nstages of development  \nof human body\nStages of \ndevelopment  of \nhuman body are \ncorrectly explained \nAnimations, \nvideos, pictures, \ncharts and posters \nabout stages of \ndevelopment of \nhuman body",
+      "char_count": 697
+    },
+    {
+      "page_number": 36,
+      "text": "29\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n1.2 Demonstrate \na basic \nunderstanding \nof  types of \nenergy and \ntheir uses\n(a) Explain the \nconcept of \nmagnetism \n(meaning, \nproperties and \napplications)\nQuestions and \nanswers:\nThrough questions \nand answers guide \nthe pupils to explain \nmeaning, properties \nand uses of magnets \nICT based learning: \nGuide the pupils \nthrough videos to \nexplain the properties \nof magnet\nDiscussion: \nIn manageable \ngroups, guide the \npupils through   \ndiscussing different \nuses of magnets \nConcept of \nmagnetism is \ncorrectly explained \nMagnet, science \nkit, ferromagnetic \nmaterials \nincluding metals \nsuch as iron, \nanimations \nand videos \nshowing different \nproperties and \nuses of magnet \n45",
+      "char_count": 854
+    },
+    {
+      "page_number": 37,
+      "text": "30\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nGallery walk: \nGuide the  pupils \nthrough gallery walk \nto learn different uses \nof magnets\n2.0 Demonstrate \nmastery of \nelementary \nscientific \nskills \n2.1 Conduct \nelementary \nscientific \nexperiments\n(a) Conduct \nsimple \nscientific \nexperiments \non growth in \nanimals and \nplants \nQuestions and \nanswers:\nGuide the  pupils \nthrough questions \nand answers \nto describe the \nprocedures of \nconducting simple \nscientific experiments \nExperimentation: \nGuide  pupils \nthrough  conducting \nexperiments on \nanimals and plants \ngrowth \nSimple scientific \nexperiments \non growth in \nanimals and plants \nare correctly \nconducted \nScience kit, \nanimals, insects, \nplant seed, tape \nmeasure or ruler,  \nanimations, \nvideos, pictures \nshowing stages \nof animals and \nplants growth\n45",
+      "char_count": 940
+    },
+    {
+      "page_number": 38,
+      "text": "31\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\n(b) Conduct simple \nexperiments to \ndemonstrate \nmagnetic \nproperties \nExperimentation: \nIn manageable \ngroups, guide   \npupils to perform \nexperiments to \ndetermine  magnetic \nproperties \nSimple \nexperiments to \ndemonstrate \nmagnetic \nproperties \nare correctly \nconducted\nScience kit, \nmagnets, \nferromagnetic \nmaterials including \nmetals such \nas iron videos \nand animations \nshowing magnetic \nproperties\n3.0 Design simple \ncomputer \nprogramme\n3.1 Design simple \ncomputer \nprogramme\n(a) Develop \nsimple games \nthat use two \nshapes by using \nblock-based \nprogramming \nlanguage \nDiscussion: \nGuide the pupils \nthrough discussing \nthe way of developing \nsimple games of two \nshapes \nDemonstration:\nDemonstrate to \nthe pupils how to \nuse block-based \nprogramming \nlanguage to develop \nsimple games of two \nshapes\nBlock-based \nprogramming \nlanguage is used \ncorrectly to \ndevelop simple \ngames of two \nshapes\nComputer, \ncomputer program \nand  projector \n40",
+      "char_count": 1120
+    },
+    {
+      "page_number": 39,
+      "text": "32\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber of \nperiods\nHands on activities: \nGuide  the pupils \nthrough hands on \nactivities to develop \nsimple games of two \nshapes using block-\nbased programming \nlanguage",
+      "char_count": 317
+    },
+    {
+      "page_number": 40,
+      "text": "33\nStandard VI\nTable 5: Detailed Contents for Standard VI\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery  of \nscientific \ntheories\n1.1 Demonstrate \nelementary \nunderstanding \nof scientific \ntheories\n(a) Explain \nrespiratory \nsystems \nin animals \nand plants \n(meaning, \nparts and \nmechanisms)\nBrainstorming: \nGuide the pupils through \nbrainstorming the \nmeaning of respiratory \nsystem \nGroup discussion: \nGuide the pupils through \ndiscussing the parts \nand mechanisms of \nrespiratory systems of \nhuman and plants\nICT-based learning: \nGuide the pupils \nthrough explaining \nthe mechanisms of \nrespiration systems of \nhuman and plannts using \nsimulation\nRespiratory \nsystems in \nanimals  and \nplants are clearly \nexplained\nPictures, \ndiagrams and \nmodels of \nrespiratory \nsystems of \nhuman and \nplants, videos/\nanimations \nshowing \nmechanisms \nof respirations \nin human and \nplants\n45",
+      "char_count": 1023
+    },
+    {
+      "page_number": 41,
+      "text": "34\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(b) Explain the \nconcept of \nacids and bases \n(meaning, \nproperties, \nsource and \nuses)\nGroup discussion: \nGuide the pupils through \ndiscussing the meaning, \nproperties, sources and \nuses of acids and bases\nPracticals: \nGuide the pupils through \npracticals to explain the \nproperties of acids and \nbases \nThe concepts \nof acids and \nbases are clearly \nexplained\nReal objects \ncontaining acids \nand bases, and \nlitmus papers\n(c) Explain the \nconcept of \na machine \n(meaning, type \nand uses)\nQuestions and \nanswers: \nGuide pupils through \nquestions and answers to \nexplain the meaning of a \nmachine\nGroup discussion: \nGuide the pupils through \ndiscussing the types and \nuses of a machine \nThe concept of \na machine is \nclearly explained \nSimple and \ncomplex \nmachines, videos \nand animations \nshowing uses of \nmachines",
+      "char_count": 984
+    },
+    {
+      "page_number": 42,
+      "text": "35\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nField trip: \nGuide the pupils to visit \nplaces that use machines \nto produce products so \nthat they can explain the \nconcept of a machines \nHand on activities: \nGuide the pupils through \nusing simple machines \nso that they can explain \nthe uses of a machines\n(d)  Explain the \nconcepts of \nfloating and  \nsinking \nGroup discussion: \nGuide the pupils through \ndiscussing the concept \nof floating and sinking \nof the objects\nQuestions and \nanswers: \nGuide the pupils \nthrough questions and \nanswers to identify the \ncharacteristics of objects \nthat can float and sink\nThe concepts \nof floating \nand sinking \nof objects \nare explained  \nclearly \nReal objects,  \nsuch as water, \npiece of wood \nand coins ",
+      "char_count": 868
+    },
+    {
+      "page_number": 43,
+      "text": "36\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.2 Demostrarte \na basic \nunderstanding \nof   types of \nenergy and their \nuses\n(a) Explain the \nconcept of \nelectricity \n(meaning, \nsources and \nuses) \nGroup discussion: \nGuide the pupils through \ndiscussing the meaning, \nsources and uses of \nelectricity \n \nGallery walk: \nGuide the pupils through \nidentifying sources of \nelectricity using gallery \nwalk \nBrainstorming: \nGuide the pupils \nthrough brainstorming \non the applications of \nelectricity and its safety \nrules \nQuestions and \nanswers: \nGuide the pupils through\nThe concept of \nelectricity is \nclearly explained \nElectric cables, \nswitch, bulb, \nammeter, \nvoltmeter and \nbatteries\n45",
+      "char_count": 811
+    },
+    {
+      "page_number": 44,
+      "text": "37\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nquestions and answers to \nexplain the applications \nof electricity and its \nsafety rules\n(b) Describe simple \nelectric circuit   \n(parts, type, \nsymbols and \nconstructions)\nQuestions and \nanswers: \nGuide pupils through \nquestions and answers to \nexplain the meaning of \nsimple electric circuit\nGroup discussion: \nGuide the pupils \nthrough  discussing \nparts, type, symbols and \nconstructions of simple \nelectric circuit \nDemonstration: Guide \nthe pupils through \ndemonstration to explain \nparts and construction of \nsimple electric circuit \nThe concept \nof of simple \nelectric circuit is \nexplained clearly \nElectric cables, \nbulb, switch, \nammeter, \nvoltmeter and \nbatteries",
+      "char_count": 843
+    },
+    {
+      "page_number": 45,
+      "text": "38\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n2.0 Demonstrate \nmastery of \nelementary  \nscientific skills \n2.1 Conduct \nelementary \nscientific \nexperiments\nBrainstorming: \nGuide the pupils \nthrough brainstorming \non different sources of \nacids and bases in the \nenvironment \nPracticals:\nGuide the pupils through \nidentifying the presence \nof acids and bases in \ndifferent substances in \nthe environment\nExperiments \nto identifying \nacids and bases \nsubstances  in \nthe environment \nare correctly \nconducted \nReal objects that \ncontain acids and \nbases, and litmus \npapers \n45\n(b) Conduct simple \nexperiments \nabout machines \nPracticals:\nGuide the pupils through \nconducting different \nsimple experiments \nusing machines \nProject work:\nGuide the pupils through \nconstructing simple \nmachines \nSimple \nexperiments \nabout machines \nare correctly \nperformed \nReal objects, \nsimple and \ncomplex \nmachines",
+      "char_count": 1021
+    },
+    {
+      "page_number": 46,
+      "text": "39\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(c) Conduct simple \nexperiments \non floating or \nsinking \nPracticals: \nGuide the pupils through \nconducting experiments \nto identify objects that \nfloat or sink \nField trip: \nGuide the pupils to visit \na shore of a lake or sea \nand observe how water \ntransport vehicles float\nHands on activities:\nGuide pupils to \nconstruct models of \nobjects that floats or \nsinks\nExperiments \nto identifying \nobjects that \nfloat or sink \nare correctly \nconducted\nReal objects, \nsuch as water, a \npiece of wood, \ncoins, baloon \nfilled with air \nand pictures of \nobjects that float \nor sink \n(d) Conduct \nexperiments on \nsimple electric \ncircuits \nProject work: \nGuide the pupils to \nconduct experiments on \nsimple electric circuits\nExperiments \non construction \nof simple \nelectric circuits \nare correctly \nconducted \nBatteries, \nelectric cables, \nbulb and switch",
+      "char_count": 1015
+    },
+    {
+      "page_number": 47,
+      "text": "40\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nHands on activities: \nGuide pupils to conduct \nexperiment to identify \nstructures of simple \nelectric circuit\n3.0 Design simple \ncomputer \nprogramme \n3.1 Design simple \ncomputer \nprogramme\n \n(a) Develop  simple \ngames that use \nmore than two \nshapes using \na block-based \nprogramming \nlanguages \nGroup discussion: \nGuide the pupils \nthrough discussing the \nuses of block-based \nprogramming languages \nin playing simple games \nthat develop ability \nto explain scientific \nphenomena and concepts \nDemonstration: \nGuide the pupils through \ndemonstration to develop \nsimple games that \nconnect more than two \nshapes \nAppropriate \nblock-based \nprogramming \nlanguages is \nused correctly \nto create simple \ngames that \nconnect more \nthan two shapes \nComputer, \nprojector and \ncomputer \nprogrammes  \n40",
+      "char_count": 962
+    },
+    {
+      "page_number": 48,
+      "text": "41\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\nPracticals:\nGuide the pupils through \nusing block-based \nprogramming languages \nto develop simple games \nthat connect more than \ntwo shapes",
+      "char_count": 307
+    },
+    {
+      "page_number": 49,
+      "text": "42\nBibliography\nCambridge Assessment International Education. (2020). Curriculum Framework: Cambridge Primary Science 0097. Cambridge: \nCambridge Assessment International Education.\nCambridge University Press & Assessment. (2021), Cambridge primary. www.cambridgeinternational.org\nGovernment of Alberta.  (2022). Elementary science curriculum https://www.alberta.ca/curriculum-Science.aspx \nMauritius Institute of Education. (2015). National Curriculum Framework Grades 1 to 6. Ministry of Education and Human \nResources, Tertiary Education and Scientific Research.\nMauriutius Institute of Education. (2015). National Curriculum Framework Nine- Year Continuous Basic Education Grade 7, 8 \nand 9. Republic of Mauritius.\nNational Curriculum Development Center (NCDC). (2015). Science and elementary technology syllabus for Upper Primary \nEducation (P4, P5, P6). Ministry of Education.\nTaasisi ya Elimu Tanzania. (2016). Mwongozo wa Mwalimu wa Kufundishia Somo la Sayansi na Teknolojia.  Taasisi ya Elimu \nTanzania.\nTanzania Institute of Education. (2019). Science and Technology Pupils Book Standard Three. Ministry of Education, Science and \nTechnology.\nTanzania Institute of Education. (2019). Science and Technology Pupils Book Standard Five . Ministry of Education, Science and \nTechnology.\nTanzania Institute of Education. (2019). Science and Technology Syllabus for Primary Education Standard III – VII. Ministry of \nEducation, Science and Technology.\nTanzania Institute of Education. (2020). Science and Technology Pupils Book Standard Six.Tanzania Institute of Education.\nTanzania Institute of Education. (2021). Science and Technology Pupils Book Standard Seven.Tanzania Institute of Education.\nTanzania Institute of Education. (2019). Science and Technology Pupils Book Standard Four.Tanzania Institute of Education",
+      "char_count": 1823
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 3,
+        "main_competences": [
+          "1.0 Introduction.............................................................................................................",
+          "2.0 Main Objectives of Education in Tanzania.................................................................................",
+          "3.0 Objectives of Primary Education Standard III - VI........................................................................",
+          "4.0 General Competences for Primary Education Standard III - VI..............................................................",
+          "5.0 Main and Specific Competences............................................................................................",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning.................................................",
+          "7.0 Teaching and Learning Methods............................................................................................",
+          "8.0 Teaching and Learning Resources..........................................................................................",
+          "9.0 Assessment...............................................................................................................",
+          "10.0 Number of Periods........................................................................................................",
+          "11.0 Contents of the syllabus ................................................................................................"
+        ],
+        "specific_competences": [
+          "1.0 Introduction.............................................................................................................",
+          "2.0 Main Objectives of Education in Tanzania.................................................................................",
+          "3.0 Objectives of Primary Education Standard III - VI........................................................................",
+          "4.0 General Competences for Primary Education Standard III - VI..............................................................",
+          "5.0 Main and Specific Competences............................................................................................",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning.................................................",
+          "6.1 The teacher..............................................................................................................",
+          "6.2 The pupil ...............................................................................................................",
+          "6.3 The Parent/Guardian......................................................................................................",
+          "7.0 Teaching and Learning Methods............................................................................................",
+          "8.0 Teaching and Learning Resources..........................................................................................",
+          "9.0 Assessment...............................................................................................................",
+          "10.0 Number of Periods........................................................................................................",
+          "11.0 Contents of the syllabus ................................................................................................"
+        ],
+        "periods": []
+      },
+      {
+        "page": 8,
+        "main_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "specific_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "periods": []
+      },
+      {
+        "page": 9,
+        "main_competences": [
+          "3.0 Objectives of Primary Education Standard III - VI",
+          "4.0 General Competences for Primary Education Standard III - VI"
+        ],
+        "specific_competences": [
+          "3.0 Objectives of Primary Education Standard III - VI",
+          "4.0 General Competences for Primary Education Standard III - VI"
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [
+          "5.0 Main and Specific Competences ",
+          "1.0  Demonstrate mastery  of scientific theories 1.1 Demonstrate an elementary understanding of scientific theories"
+        ],
+        "specific_competences": [
+          "5.0 Main and Specific Competences ",
+          "1.0  Demonstrate mastery  of scientific theories 1.1 Demonstrate an elementary understanding of scientific theories",
+          "1.2 Make simple scientific observations",
+          "1.3 Demonstrate a basic understanding of types of energy and their "
+        ],
+        "periods": []
+      },
+      {
+        "page": 11,
+        "main_competences": [
+          "2.0  Demonstrate mastery of elementary  scientific skills 2.1 Conduct elementary scientific experiments",
+          "3.0 Demonstrate mastery of ICT skills 3.1 Use ICT for learning",
+          "4.0  Design simple computer programmes 4.1 Design simple computer programmes",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning "
+        ],
+        "specific_competences": [
+          "2.0  Demonstrate mastery of elementary  scientific skills 2.1 Conduct elementary scientific experiments",
+          "3.0 Demonstrate mastery of ICT skills 3.1 Use ICT for learning",
+          "4.0  Design simple computer programmes 4.1 Design simple computer programmes",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning ",
+          "6.1 The teacher"
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [],
+        "specific_competences": [
+          "6.3 The Parent/Guardian "
+        ],
+        "periods": []
+      },
+      {
+        "page": 13,
+        "main_competences": [
+          "7.0 Teaching and Learning Methods",
+          "8.0 Teaching and Learning Resources",
+          "9.0 Assessment "
+        ],
+        "specific_competences": [
+          "7.0 Teaching and Learning Methods",
+          "8.0 Teaching and Learning Resources",
+          "9.0 Assessment "
+        ],
+        "periods": []
+      },
+      {
+        "page": 15,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 17,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Make simple "
+        ],
+        "periods": []
+      },
+      {
+        "page": 19,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate ",
+          "2.1 Conduct simple "
+        ],
+        "periods": []
+      },
+      {
+        "page": 21,
+        "main_competences": [
+          "3.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "3.0 Demonstrate ",
+          "3.1 Use ICT for "
+        ],
+        "periods": []
+      },
+      {
+        "page": 23,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 27,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Make simple "
+        ],
+        "periods": []
+      },
+      {
+        "page": 28,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3 Demonstrate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 29,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 31,
+        "main_competences": [
+          "3.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "3.0 Demonstrate ",
+          "3.1 Use ICT for "
+        ],
+        "periods": []
+      },
+      {
+        "page": 32,
+        "main_competences": [
+          "4.0 Design simple "
+        ],
+        "specific_competences": [
+          "4.0 Design simple ",
+          "4.1 Design simple "
+        ],
+        "periods": [
+          "4"
+        ]
+      }
+    ],
+    "Standard  V": [],
+    "Standard V": [
+      {
+        "page": 14,
+        "main_competences": [
+          "10.0 Number of Periods",
+          "11.0 Contents of the syllabus"
+        ],
+        "specific_competences": [
+          "10.0 Number of Periods",
+          "11.0 Contents of the syllabus"
+        ],
+        "periods": []
+      },
+      {
+        "page": 33,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 36,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 37,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 38,
+        "main_competences": [
+          "3.0 Design simple "
+        ],
+        "specific_competences": [
+          "3.0 Design simple ",
+          "3.1 Design simple "
+        ],
+        "periods": []
+      },
+      {
+        "page": 40,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 43,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Demostrarte "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 45,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate "
+        ],
+        "periods": [
+          "2"
+        ]
+      },
+      {
+        "page": 47,
+        "main_competences": [
+          "3.0 Design simple "
+        ],
+        "specific_competences": [
+          "3.0 Design simple ",
+          "3.1 Design simple "
+        ],
+        "periods": []
+      }
+    ]
+  }
+}

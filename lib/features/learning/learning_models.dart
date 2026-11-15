@@ -657,12 +657,46 @@ class CurriculumExplorerLesson {
   }
 }
 
+class CurriculumExplorerSubtopic {
+  const CurriculumExplorerSubtopic({
+    required this.subtopicId,
+    required this.title,
+    required this.learningOutcome,
+    this.periodAllocation,
+    this.sourcePage,
+    required this.displayOrder,
+  });
+
+  final String subtopicId;
+  final String title;
+  final String learningOutcome;
+  final int? periodAllocation;
+  final int? sourcePage;
+  final int displayOrder;
+
+  factory CurriculumExplorerSubtopic.fromJson(Map<String, dynamic> json) {
+    return CurriculumExplorerSubtopic(
+      subtopicId: json['subtopic_id'] as String,
+      title: json['title'] as String,
+      learningOutcome: json['learning_outcome'] as String? ?? '',
+      periodAllocation: (json['period_allocation'] as num?)?.toInt(),
+      sourcePage: (json['source_page'] as num?)?.toInt(),
+      displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
+    );
+  }
+}
+
 class CurriculumExplorerTopic {
   const CurriculumExplorerTopic({
     required this.topicId,
     required this.title,
     required this.summary,
     required this.displayOrder,
+    this.competencyCode,
+    this.periodAllocation,
+    this.assessmentCriteria,
+    this.sourcePage,
+    this.subtopics = const [],
     required this.lessons,
   });
 
@@ -670,15 +704,28 @@ class CurriculumExplorerTopic {
   final String title;
   final String summary;
   final int displayOrder;
+  final String? competencyCode;
+  final int? periodAllocation;
+  final String? assessmentCriteria;
+  final int? sourcePage;
+  final List<CurriculumExplorerSubtopic> subtopics;
   final List<CurriculumExplorerLesson> lessons;
 
   factory CurriculumExplorerTopic.fromJson(Map<String, dynamic> json) {
     final rawLessons = json['lessons'] as List<dynamic>? ?? const [];
+    final rawSubtopics = json['subtopics'] as List<dynamic>? ?? const [];
     return CurriculumExplorerTopic(
       topicId: json['topic_id'] as String,
       title: json['title'] as String,
       summary: json['summary'] as String? ?? '',
       displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
+      competencyCode: json['competency_code'] as String?,
+      periodAllocation: (json['period_allocation'] as num?)?.toInt(),
+      assessmentCriteria: json['assessment_criteria'] as String?,
+      sourcePage: (json['source_page'] as num?)?.toInt(),
+      subtopics: rawSubtopics
+          .map((s) => CurriculumExplorerSubtopic.fromJson(s as Map<String, dynamic>))
+          .toList(growable: false),
       lessons: rawLessons
           .map((l) => CurriculumExplorerLesson.fromJson(l as Map<String, dynamic>))
           .toList(growable: false),
@@ -690,8 +737,11 @@ class CurriculumExplorerSubject {
   const CurriculumExplorerSubject({
     required this.subjectId,
     required this.subjectName,
+    this.officialName,
     required this.subjectCode,
     required this.description,
+    this.classification = 'compulsory',
+    this.language = 'en',
     this.gradeId,
     required this.displayOrder,
     required this.topics,
@@ -699,21 +749,39 @@ class CurriculumExplorerSubject {
 
   final String subjectId;
   final String subjectName;
+  final String? officialName;
   final String subjectCode;
   final String description;
+  final String classification;
+  final String language;
   final String? gradeId;
   final int displayOrder;
   final List<CurriculumExplorerTopic> topics;
 
   int get totalLessons => topics.fold(0, (sum, t) => sum + t.lessons.length);
+  int get totalSubtopics => topics.fold(0, (sum, t) => sum + t.subtopics.length);
+  int get totalPeriods => topics.fold(0, (sum, t) => sum + (t.periodAllocation ?? 0));
+
+  bool get isCompulsory => classification.toLowerCase() == 'compulsory';
+  bool get isElective => classification.toLowerCase() == 'elective';
+
+  String get effectiveDisplayName {
+    if (officialName != null && officialName!.trim().isNotEmpty) {
+      return officialName!;
+    }
+    return subjectName;
+  }
 
   factory CurriculumExplorerSubject.fromJson(Map<String, dynamic> json) {
     final rawTopics = json['topics'] as List<dynamic>? ?? const [];
     return CurriculumExplorerSubject(
       subjectId: json['subject_id'] as String,
       subjectName: json['subject_name'] as String,
+      officialName: json['official_name'] as String?,
       subjectCode: json['subject_code'] as String,
       description: json['description'] as String? ?? '',
+      classification: json['classification'] as String? ?? 'compulsory',
+      language: json['language'] as String? ?? 'en',
       gradeId: json['grade_id'] as String?,
       displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
       topics: rawTopics

@@ -1,0 +1,509 @@
+{
+  "filename": "sw-1788263951-KAMISHINA Muhtasari historia ya Tanzania na Maadili A.pdf",
+  "title": "Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi Darasa la III-VI",
+  "swahili_title": "Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi Darasa la III-VI",
+  "subject_name": "Historia ya Tanzania na Maadili",
+  "subject_code": "TZ-TIE-PRI-HIST",
+  "classification": "compulsory",
+  "language": "sw",
+  "isbn": "978-9987-09-795-1",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "4ea0df6a92752fbba00dbb9aa2f9cacd4f66733c8471d650bb3d99e4c83c70e3",
+  "file_size_bytes": 843958,
+  "page_count": 52,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "JAMHURI YA MUUNGANO WA TANZANIA \nWIZARA YA ELIMU, SAYANSI NA TEKNOLOJIA\nMUHTASARI WA SOMO LA HISTORIA YA TANZANIA NA MAADILI\nELIMU YA MSINGI \nDARASA LA III-VI\n2023\n",
+      "char_count": 164
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Taasisi ya Elimu Tanzania 2023\nToleo la Kwanza 2023\nISBN: 978-9987-09-795-1\nTaasisi ya Elimu Tanzania\nEneo la Mikocheni\n132 Barabara ya Ali Hassan Mwinyi \nS.L.P 35094 \n14112 Dar es Salaam. \nSimu:  +255 735 041 168 / 735 041 170 \nBaruapepe:  director.general@tie.go.tz \nTovuti:  www.tie.go.tz\nMuhtasari huu urejerelewe kama:  Wizara ya Elimu, Sayansi na Teknolojia. (2023). Muhtasari wa Somo la Historia ya Tanzania na \nMaadili Elimu ya Msingi Darasa la III-VI.Taasisi ya Elimu Tanzania.\nHaki zote zimehifadhiwa. Hairuhusiwi kunakili, kurudufu, kuchapisha, kutafsiri wala kutoa muhtasari huu kwa namna yoyote ile \nbila idhini ya maandishi kutoka Taasisi ya Elimu Tanzania. ",
+      "char_count": 677
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nYaliyomo\nOrodha ya Majedwali .........................................................................................................................................................................iv\nVifupisho ..........................................................................................................................................................................................v\nShukurani .........................................................................................................................................................................................vi\n1.0 Utangulizi ..................................................................................................................................................................................1\n2.0 Malengo ya Elimu Tanzania ......................................................................................................................................................1\n3.0 Malengo ya Elimu ya Msingi Darasa la III-VI .........................................................................................................................2\n4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI ...............................................................................................................3\n5.0 Umahiri Mkuu na Umahiri Mahususi .......................................................................................................................................4\n6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji .......................................................5\n 6.1  Mwalimu ..........................................................................................................................................................................5\n 6.2  Mwanafunzi .....................................................................................................................................................................6\n 6.3  Mzazi/Mlezi .....................................................................................................................................................................6\n7.0 Ufundishaji na Ujifunzaji ..........................................................................................................................................................7\n8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji ................................................................................................................................7\n9.0 Upimaji katika Ufundishaji na Ujifunzaji .................................................................................................................................8\n10 Idadi ya Vipindi .........................................................................................................................................................................8\n11 Maudhui ya Ufundishaji na Ujifunzaji wa Umahiri Husika .....................................................................................................9\nBibliografia .......................................................................................................................................................................................43",
+      "char_count": 3273
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nOrodha ya Majedwali\nJedwali Na. 1: Umahiri Mkuu na Umahiri Mahususi .........................................................................................................................4\nJedwali Na. 2: Maudhui kwa Darasa la III .......................................................................................................................................10\nJedwali Na. 3: Maudhui ya Darasa IV ..............................................................................................................................................21\nJedwali Na. 4: Maudhui ya Darasa la V ............................................................................................................................................28\nJedwali Na. 5: Maudhui ya Darasa la VI ..........................................................................................................................................34",
+      "char_count": 914
+    },
+    {
+      "page_number": 5,
+      "text": "v\nVifupisho\nLAT   Lugha ya Alama ya Tanzania  \nTEHAMA  Teknolojia ya Habari na Mawasiliano \nTET  Taasisi ya Elimu Tanzania",
+      "char_count": 122
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nShukurani\nMaandalizi ya muhtasari wa somo la Historia ya Tanzania na Maadili Elimu ya Msingi Darasa la III-VI yamehusisha wataalamu \nmbalimbali kutoka taasisi za serikali na zisizo za serikali. Taasisi ya Elimu Tanzania (TET) inatambua na kuthamini michango ya \nwashiriki wote waliofanikisha uandaaji wa muhtasari huu.  Aidha, TET inatoa shukurani za pekee kwa wakuza mitaala wa TET, \nwahadhiri, wakufunzi, wathibiti ubora wa shule, walimu pamoja na wataalamu kutoka asasi za kiraia. Vilevile, TET inaishukuru \nKamati ya Kitaifa ya Wataalamu ya Kusimamia Kazi ya Maboresho ya Mitaala ya Elimu ya Awali, Msingi, Sekondari na Ualimu \niliyoteuliwa na Waziri wa Elimu, Sayansi na Teknolojia. Kamati hii ilifanya kazi kwa weledi na kuhakikisha kuwa maudhui ya \nmuhtasari huu yanalenga kuwa na wahitimu wenye maarifa, ujuzi na stadi zitakazowawezesha kujiajiri, kuajiriwa na kumudu \nmaisha yao ya kila siku, ambalo ndilo lengo kuu la uboreshaji wa Mitaala ya Mwaka 2023. \nMwisho, TET inatoa shukurani za pekee kwa Wizara ya Elimu, Sayansi na Teknolojia kwa kuwezesha uandaaji na usambazaji wa \nmuhtasari huu.\nDkt. Aneth A. Komba\nMkurugenzi Mkuu\nTaasisi ya Elimu Tanzania\n",
+      "char_count": 1168
+    },
+    {
+      "page_number": 7,
+      "text": "1\n1.0 Utangulizi\n  Somo la Historia ya Tanzania na Maadili ni  la lazima katika ngazi ya Elimu ya Msingi Darasa la III-VI. Somo hili \nlitafundishwa kwa Kiswahili ili kujenga na kuendeleza mila, desturi na utamaduni wa Mtanzania. Lengo la kufundisha somo \nhili ni kumjenga Mtanzania kuwa mzalendo na muwajibikaji anayefahamu historia, desturi, mila na maadili ya Tanzania. Pia, \nlinalenga kumwezesha mwanafunzi kujenga maadili, kukuza Utaifa na uzalendo pamoja na kulinda rasilimali za nchi na za \nTaifa. Hivyo, kumwezesha mwanafunzi kuishi kwa kufuata misingi ya kuthamini kazi, uwajibikaji, utu, uadilifu, umoja, \nuzalendo, upendo na kuthamini rasilimali za Taifa.\n  Muhtasari huu umeandaliwa kwa lengo la kumwongoza mwalimu katika ufundishaji na ujifunzaji wa somo la Historia ya \nTanzania na Maadili Elimu ya Msingi Darasa la I–VI, Tanzania Bara. Aidha, muhtasari utamwezesha mwalimu kupanga \nshughuli za ufundishaji na ujifunzaji kwa kumjengea mwanafunzi stadi za udadisi, ubunifu, ushirikiano, mawasiliano na \nutatuzi wa changamoto. Muhtasari huu umetafsiri Mtaala wa Elimu ya Msingi wa Mwaka 2023 ambao msingi wake mkuu \numejikita kupata wahitimu wenye maarifa, ujuzi na stadi zitakazowawezesha kujiajiri, kuajiriwa na kumudu maisha yao ya \nkila siku katika mazingira yake.  \n2.0 Malengo ya Elimu Tanzania\n Malengo ya Elimu Tanzania ni kumwezesha kila Mtanzania:\n(a) Kukuza na kuboresha haiba yake ili aweze kujithamini na kujiamini;\n(b) Kuheshimu utamaduni, mila na desturi za Tanzania, tofauti za kitamaduni, utu, haki za binadamu, mitazamo na matendo \njumuishi; \n(c) Kukuza maarifa na kutumia sayansi na teknolojia, ubunifu, fikra tunduizi, uvumbuzi, ushirikiano, mawasiliano na \nmtazamo chanya katika maendeleo yake binafsi, maendeleo endelevu ya Taifa na dunia kwa ujumla;",
+      "char_count": 1783
+    },
+    {
+      "page_number": 8,
+      "text": "2\n(d) Kuelewa na kulinda Tunu za Taifa ikiwa ni pamoja na utu, uzalendo, uadilifu, umoja, uwazi, uwajibikaji na lugha ya \nTaifa;\n(e) Kujenga stadi za maisha na stadi za kazi ili kuongeza ufanisi katika maisha ya kila siku;\n(f) Kukuza tabia ya kupenda na kuheshimu kazi ili kuongeza tija na ufanisi katika uzalishaji na utoaji wa huduma; \n(g) Kutambua na kuzingatia masuala mtambuka ambayo ni pamoja na afya na ustawi wa watu (jamii), usawa wa kijinsia, \nusimamizi na utunzaji endelevu wa mazingira; na\n(h) Kukuza ushirikiano wa kitaifa na kimataifa, amani na haki kwa kuzingatia Katiba ya nchi na mikataba ya kimataifa.\n3.0 Malengo ya Elimu ya Msingi Darasa la III-VI\n Malengo ya Elimu ya Msingi Darasa la III-VI ni kumwezesha mwanafunzi: \n(a) Kukuza stadi za kusoma, kuandika, kuhesabu na kuwasiliana kwa lugha fasaha, Lugha ya Alama ya Tanzania (LAT) \nna lugha mguso;\n(b) Kufahamu, kutumia na kuthamini lugha ya Kiswahili na Kiingereza. Aidha, mwanafunzi ahamasishwe kumudu angalau \nlugha nyingine moja ya kigeni kulingana na hali halisi ya shule yake;\n(c) Kuthamini na kudumisha utamaduni wa Mtanzania, umoja wa kitaifa na kutambua tamaduni nyingine;\n(d) Kukuza maarifa, uwezo wa kudadisi, kufikiri kiyakinifu, kubuni na kutatua matatizo;\n(e) Kukuza maadili, uadilifu, na kuheshimu tofauti za imani;\n(f) Kubaini na kukuza vipaji, vipawa, stadi za kazi, michezo na sanaa;\n(g) Kukuza tabia ya kuthamini na kupenda kufanya kazi;",
+      "char_count": 1428
+    },
+    {
+      "page_number": 9,
+      "text": "3\n(h) Kutambua na kutumia sayansi na teknolojia katika kujifunza na katika maisha ya kila siku;\n(i) Kukuza maarifa, ujuzi na mwelekeo wa kutunza mazingira, kuheshimu usawa wa kijinsia na masuala mengine \nmtambuka; na\n(j) Kukuza uwezo wa kuchangamana katika mazingira jumuishi.\n4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI\n Umahiri wa jumla utakaojengwa na mwanafunzi wa Darasa la III-VI ni:\n(a) Kutumia stadi za kusoma, kuandika, kuhesabu na kuwasiliana kwa lugha fasaha, Lugha ya Alama ya Tanzania (LAT) \nna lugha mguso;\n(b) Kutumia na kuithamini lugha ya Kiswahili, Kiingereza, na angalau lugha nyingine moja ya kigeni;\n(c) Kuonesha, kuthamini na kuheshimu utamaduni wa Mtanzania, umoja wa kitaifa na kutambua tamaduni nyingine;\n(d) Kudadisi, kufikiri kiyakinifu, kubuni na kutatua matatizo; \n(e) Kuonesha uadilifu na kuheshimu tofauti za imani;\n(f) Kutumia vipaji, vipawa, stadi za kazi, michezo na sanaa katika miktadha mbalimbali;\n(g) Kuthamini na kupenda kufanya kazi;\n(h) Kutumia sayansi na teknolojia katika kujifunza na maisha ya kila siku;\n(i) Kutunza mazingira, kuheshimu usawa wa kijinsia na masuala mengine mtambuka; na\n(j) Kuchangamana katika mazingira jumuishi.",
+      "char_count": 1185
+    },
+    {
+      "page_number": 10,
+      "text": "4\n5.0 Umahiri Mkuu na Umahiri Mahususi \n  Muhtasari wa somo la Historia ya Tanzania na Maadili Elimu ya Msingi kwa Darasa la III-VI una umahiri mkuu na umahiri \nmahususi kama inavyooneshwa katika jedwali namba 1.\nJedwali Na 1: Umahiri Mkuu na Umahiri Mahususi \nUmahiri Mkuu Umahiri Mahususi\n1.0 Kulinda historia ya Tanzania, \nurithi na maadili ya Taifa\n1.1 Kumudu dhana ya historia ya Tanzania urithi na maadili\n1.2 Kumudu maarifa ya jamii inayomzunguka\n1.3 Kutumia maarifa na ujuzi wa jamii inayomzunguka kusimulia asili, urithi na maadili ya jamii \nhusika\n1.4 Kutathmini ushirikiano baina ya jamii za Kitanzania katika kujenga uhusiano wa kijamii na \nkiuchumi\n2.0 Kumudu historia ya Tanzania \nna Maadili kabla ya ukoloni\n2.1 Kuelezea mifumo mbalimbali ya utunzaji na ukuzaji wa maadili ya jamii za Kitanzania kabla ya \nukoloni \n2.2 Kueleza maendeleo ya jamii za Kitanzania na maadili yake kabla ya ukoloni.\n3.0 Kumudu historia ya Tanzania \nna maadili wakati wa ukoloni \n1890-1960\n3.1  Kuelezea historia ya Tanzania na urithi wakati wa ukoloni\n3.2  Kulinganisha mabadiliko na mwendelezo wa maadili kabla na wakati wa ukoloni \n3.3 Kuelezea jitihada za kulinda maadili ya Kitanzania dhidi ya maadili ya kigeni yaliyoletwa \nwakati wa ukoloni\n4.0 Kumudu historia ya ujenzi wa \nTaifa na maadili katika kipindi \ncha 1961-1966\n4.1 Kumudu historia ya ujenzi wa Taifa na maadili mara baada ya uhuru katika kipindi cha 1961-1966\n4.2 Kuelezea mchango wa Tunu na Alama za Taifa katika kujenga umoja wa kitaifa na uzalendo\n4.3  Kutumia Alama za Taifa kama utambulisho wa Tanzania\n5.0 Kutathmini ujenzi wa Taifa na \nmaadili wakati wa Azimio la \nArusha 1967-1985\n5.1 Kuelezea misingi na maadili ya Azimio la Arusha na Siasa ya Ujamaa na Kujitegemea\n5.2 Kuelezea mchango wa Tanzania katika mapambano dhidi ya ukoloni na ukandamizaji\n6.0 Kutathmini historia ya \nTanzania na maadili wakati wa \nuliberali 1986 hadi sasa\n6.1 Kufafanua dhana ya ulibelali kwa kuhusianisha na maadili ya Kitanzania\n6.2 Kutumia maarifa na ujuzi wa historia ya Tanzania na maadili kufanya uaamuzi sahihi katika \nnyakati za uliberali\n7.0   Kumudu Katiba ya Jamhuri ya \nMuungano wa Tanzania\n7.1 Kufafanua dhana ya Katiba ya Jamhuri ya Muungano wa Tanzania\n7.2 Kuelezea utekelezaji wa Katiba ya Jamhuri ya Muungano wa Tanzania  katika jamii",
+      "char_count": 2297
+    },
+    {
+      "page_number": 11,
+      "text": "5\n6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji\n  Ufundishaji na ujifunzaji unategemea ushirikiano baina ya mwalimu, mwanafunzi na mzazi/mlezi. Majukumu yao ni kama \nyafuatayo.\n6.1 Mwalimu\n Mwalimu anatarajiwa:\n(a) Kumwezesha mwanafunzi kujifunza na kupata umahiri uliokusudiwa katika somo la Historia ya Tanzania na Maadili;\n(b) Kutumia mbinu za kufundishia na kujifunzia kwa kuzingatia umri, mahitaji anuai,  na uwezo wa mwanafunzi ili \nkumwezesha:\n  (i) Kujenga umahiri unohitajika katika Karne ya 21; na\n  (ii) Kushiriki ipasavyo katika tendo zima la ujifunzaji.\n(c) Kutumia mbinu shirikishi zinazomfanya mwanafunzi kuwa kitovu cha ujifunzaji zikiwemo zile zitakazomwezesha \nmwanafunzi kufikiri, kutafakari na kutafuta maarifa kutoka katika vyanzo mbalimbali;\n(d) Kuandaa darasa salama lenye mazingira rafiki ya kufundishia na kujifunzia;\n(e) Kutengeneza au kufaragua zana za kufundishia na kujifunzia;\n(f) Kufanya upimaji endelevu mara kwa mara kwa kutumia zana na mbinu za upimaji na tathmini zinazopima nadharia na \nvitendo;\n(g) Kuhakikisha kuwa ufundishaji na ujifunzaji unafanyika kwa haki na usawa kwa kuzingatia mahitaji ya mwanafunzi; \n(h) Kumlinda mwanafunzi awapo shuleni.;",
+      "char_count": 1225
+    },
+    {
+      "page_number": 12,
+      "text": "6\n(i) Kufuatilia maendeleo ya mwanafunzi ya kila siku;\n(j) Kubaini mahitaji ya mwanafunzi na kutoa afua stahiki; \n(k) Kushirikisha wazazi/walezi na jamii katika hatua mbalimbali za ujifunzaji wa mwanafunzi; na\n(l) Kuchopeka masuala mtambuka na Teknolojia ya Habari na Mawasiliano (TEHAMA) katika ufundishaji na ujifunzaji.\n6.2 Mwanafunzi\n Mwanafunzi anatarajiwa:\n(a) Kuwa mtendaji mkuu katika mchakato wote wa ujifunzaji;\n(b) Kushiriki katika shughuli mbalimbali za ujifunzaji ndani na nje ya darasa ili kupata umahiri unaokusudiwa;\n(c) Kushirikiana na wenzake pamoja na mwalimu katika mchakato wa ujifunzaji; na\n(d) Kushiriki katika kutafuta maarifa kutoka katika vyanzo mbalimbali ikiwemo vitabu vya kiada, ziada na machapisho \nmengine kutoka katika maktaba mtandao.\n6.3 Mzazi/Mlezi\n Mzazi/ Mlezi anatarajiwa:\n(a) Kusimamia na kufuatilia maendeleo ya mtoto katika ujifunzaji;\n(b) Kumsimamia mtoto kutekeleza kazi zake za kitaaluma pale inapowezekana; \n(c) Kuhakikisha kuwa mazingira ya nyumbani ni rafiki na salama yanayowezesha ujifunzaji;\n(d) Kufuatilia mwenendo wa tabia ya mtoto;",
+      "char_count": 1085
+    },
+    {
+      "page_number": 13,
+      "text": "7\n(e) Kumpatia mtoto vifaa vinavyohitajika katika ujifunzaji;\n(f) Kuhakikisha mtoto anapata mahitaji muhimu; na \n(g) Kumfundisha mtoto juu ya umuhimu na thamani ya elimu pamoja na kumhimiza kujifunza kwa bidii.\n7.0 Ufundishaji na Ujifunzaji \n  Ufundishaji na ujifunzaji wa somo la Historia ya Tanzania na Maadili Elimu ya Msingi ulenge kutumia mbinu zitakazomfanya \nmwanafunzi kuwa kitovu cha ujifunzaji na mwalimu kuwa mwezeshaji. Mwalimu atumie mbinu zitakazomshirikisha \nmwanafunzi katika tendo zima la ufundishaji na ujifunzaji kwa kuzingatia umri, mahitaji anuai na uwezo wa mwanafunzi. \nPia, mbinu hizo zimwezeshe mwanafunzi kufikiri, kutafsiri, kutafuta maarifa, kujadili na kutumia maudhui ya somo Historia \nya Tanzania na Maadili. Matumizi ya TEHAMA katika ufundishaji na ujifunzaji yanasisitizwa kuwezesha wanafunzi kupata \nna kutumia taarifa mbalimbali katika ujifunzaji wao. \n  Baadhi ya mbinu za ufundishaji na ujifunzaji zinazopendekezwa kutumika ni ziara za kimasomo, midahalo/klabu za masomo, \ntafiti ndogo, majadiliano, kisamafunzo, igizodhima, kazi za vitendo na kazi nyingine kama hizo kulingana na muktadha \nili kufanikisha ujifunzaji. Pia, mwalimu atumie vyanzo na nyaraka za kihistoria kuwezesha ufundishaji na ufundishaji wa \nsomo hili. Aidha mnwalimu anahimizwa kutumia njia nyingine kama hizo kulingana na muktadha ili kufanikisha ujenzi   wa \numahiri uliokusudiwa.\n8.0 Zana za Ufundishaji na Ujifunzaji \n  Zana za ufundishaji na ujifunzaji zinapaswa kuwa shirikishi na zinazokidhi mahitaji, umri, na uwezo wa mwanafunzi. \nMwalimu anapaswa kuhakikisha mwanafunzi anapata nafasi ya ama kuona, kuhisi, kusikia na kushika zana wakati wa \nufundishaji na ujifunzaji. Zana za ufundishaji na ujifunzaji zinapaswa zimsaidie mwanafunzi kuelewa kile kinachofundishwa. \nAidha, mwalimu anashauriwa kutumia zana zinazopatikana katika mazingira yanayomzunguka, pamoja na vitabu vya kiada, ",
+      "char_count": 1900
+    },
+    {
+      "page_number": 14,
+      "text": "8\nziada na vifaa vingine vya ufundishaji na ujifunzaji vilivyopata ithibati ya Taasisi ya Elimu Tanzania (TET). Baadhi ya zana \nzitakazotumika kuwezesha ufundishaji na ujifunzaji zimependekezwa katika jedwali la maudhui katika safu ya zana.\n9.0 Upimaji katika Ufundishaji na Ujifunzaji\n  Upimaji ni muhimu katika mchakato wa ujifunzaji na ufundishaji ili kuwezesha ujenzi wa umahiri unaokusudiwa. Upimaji \nwa Somo la Historia ya Tanzania na Maadili utajumuisha upimaji endelevu na upimaji tamati. Upimaji endelevu utazingatia \nvigezo vilivyoainishwa katika kila shughuli ya ujifunzaji na utamwezesha mwalimu kubaini uwezo na uhitaji wa mwanafunzi \nkatika ujifunzaji. Vilevile, utalenga kupima mabadiliko katika maarifa, stadi na mwelekeo wa kutenda, kuthamini, kusimulia \nna kutumia stadi anazojifunza mwanafunzi katika mazingira yanayomzunguka. Aidha, mwalimu atatumia taarifa za upimaji \nkuboresha ufundishaji na kuwezesha wanafunzi kufikia lengo la ujifunzaji.  Zana za upimaji zinazoweza kutumika wakati \nwa ufundishaji na ujifunzaji ni bunguabongo, orodha hakiki, mazoezi ya darasani, majaribio, majaribio kwa vitendo, dodoso, \nmaswali ya ana kwa ana, mazoezi, kazi kwa vitendo (kazi binafsi na kazi za vikundi), kazimradi na mkoba wa kazi na zana \nnyingine kama hizo. \n  Upimaji tamati utahusisha mitihani ya wiki, mwezi, muhula na mtihani wa mwisho wa mwaka ambayo itatumika kupima \nmaendeleo ya ujifunzaji wa mwanafunzi. Taarifa za upimaji huu pamoja na kutumika kutathimini maendeleo ya mwanafunzi, \nzitatumika kutoa mrejesho wa kuwezesha ufundishaji na ujifunzaji. Aidha, kutakuwa na upimaji wa kitaifa wa Darasa la \nSita ambao utachangia alama 7.5 katika mtihani wa Kidato cha Nne. \n10.0  Idadi ya Vipindi \n  Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi unatoa makadirio ya muda utakaotumika katika \nufundishaji na ujifunzaji kwa kuzingatia uzito wa umahiri mahususi na shughuli za kutendwa na mwanafunzi. Makadirio \nhaya ya muda yamewekwa kwa mfumo wa vipindi ambapo kila kipindi ni dakika 40. Idadi ya vipindi kwa somo hili ni \nvipindi vitano (5) kwa wiki kwa Darasa la Tatu hadi la Sita. ",
+      "char_count": 2126
+    },
+    {
+      "page_number": 15,
+      "text": "9\n11.0   Maudhui ya Ufundishaji na Ujifunzaji wa Umahiri Husika\n  Muhtasari wa Somo la Historia ya Tanzania na Maadili Elimu ya Msingi umebeba maudhui ambayo yamepangiliwa katika \nvipengele sita ambavyo ni; umahiri mkuu, umahiri mahususi, shughuli za ujifunzaji, mbinu za ufundishaji na ujifunzaji \nzinazopendekezwa, vigezo vya upimaji, vifaa/zana za ufundishaji na ujifunzaji vinazopendekezwa pamoja na idadi ya \nvipindi kama Jedwali na. 2, 3, 4 na 5 linavyoonesha.",
+      "char_count": 466
+    },
+    {
+      "page_number": 16,
+      "text": "10\nDarasa la III\nJedwali Na 2: Maudhui kwa Darasa la III\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\n1.0 Kulinda \nHistoria \nya \nTanzania, \nurithi na \nmaadili \nya Taifa \n1.1 Kumudu dhana \nya Historia ya \nTanzania, urithi \nna maadili\n(a) Kueleza dhana \nya Historia \nya Tanzania, \nurithi na \nmaadili (maana, \numuhimu)\nBunguabongo: \nWanafunzi \nkubunguabongo maana \nya historia ya Tanzania, \nurithi na maadili\nChanganyakete: \nWanafunzi katika vikundi \nwajadiliane kuhusu \numuhimu wa historia \nya Tanzania, urithi na \nmaadili kisha washirikishe \nvikundi vingine ili \nkuboresha kazi zao\nKutumia TEHAMA: \nWezeshe wanafunzi \nkujadili na kubaini dhana \nya Historia ya Tanzania, \nurithi na maadili katika \nmakala za filamu \nDhana ya \nHistoria ya \nTanzania, urithi \nna maadili \nimeelezwa \n- Matini ya \nHistoria ya \nTanzania na \nMaadili \n- Picha \nzinazoonesha \nhistoria ya \nTanzania \nmaadili na \nurithi\n- Filamu \nzinazoonesha \nvitendo vya \nkimaadili\n10\n(b) Kubaini vitendo \nvya kimaadili na \numuhimu wake\nKisamafunzo: Wanafunzi \nwajadili kisamafunzo \nchenye matukio ya \nkimaadili ili kujifunza \nvitendo vya maadili na \numuhimu wake\nVitendo vya \nkimaadili na \numuhimu wake \nvimebainishwa\n- Matini ya \nHistoria ya \nTanzania na \nMaadili",
+      "char_count": 1377
+    },
+    {
+      "page_number": 17,
+      "text": "11\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nIgizodhima: Ongoza \nwanafunzi kuonesha \nmatendo ya maadili\nKutumia TEHAMA: \nWezesha wanafunzi \nkujadili na kubaini \nvitendo vya kimaadili na \numuhimu wake katika \nmakala ya filamu\n- Michoro/picha/\npicha mguso \nzinazoonesha \nvitendo vya \nkimaadili\n- Filamu \nzinazoonesha \nvitendo vya \nkimaadili\n1.2  Kumudu \nmaarifa ya jamii \ninayomzunguka\n(a) Kubaini wajibu \nna haki zake \nkatika familia na \nshuleni\nUtafiti mdogo: \nWanafunzi kuchunguza na \nkuandika kuhusu wajibu \nna haki zao katika familia \nna shuleni \nChanganyakete: \nWanafunzi katika vikundi \nwajadiliane kuhusu haki \nna wajibu wao katika \nfamilia na shuleni kisha \nwashirikishe vikundi \nvingine kuboresha\nAmebainisha \nwajibu na haki \nzake katika \nfamilia na \nshuleni \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Chati yenye \nkuonesha \nwajibu wa \nmtoto katika \nshule na \nfamilia\n50\n(b) Kuonesha \nmatendo ya \nkuheshimu \nwengine, kutii \nsheria, \nIgizo dhima: Wanafunzi \nwaigize matendo ya \nheshima, kutii sheria, \nkujali na kushirikiana\nMatendo ya \nkuheshimu \nwengine, \nkutii sheria, \nkujithamini, \n- Matini yenye \nsheria za shule",
+      "char_count": 1291
+    },
+    {
+      "page_number": 18,
+      "text": "12\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\n      kujithamini, kujali \nna kushirikiana \nna watu wengine \nnyumbani na \nshuleni\nMaswali na Majibu: \nTumia maswali kuongoza \nwanafunzi kubaini \nmatendo ya heshima, \nkutii sheria, kujali na \nkushirikiana\nMajadiliano: Ongoza \nmajadiliano kuwezeshwa \nwanafunzi kubaini \nmatendo ya heshima, \nkutii sheria, kujali na \nkushirikiana\nkujali na \nkushirikiana na \nwatu wengine \nnyumbani \nna shuleni \nyameoneshwa \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Picha zenye \nkuonesha \nmatendo ya \nkuheshimu, \nkuheshimiana \nna kushirikiana\n(c) Kueleza maarifa \nna ujuzi wa \nasili wa jamii \ninayomzunguka \n(katika kilimo, \nutunzaji wa \nmazingira, dawa \nna dini)\nUtafiti mdogo: \nWanafunzi wachunguze \nna kuandika taarifa \nzinazohusu maarifa na \nujuzi wa asili wa jamii \nkatika kilimo, utunzaji wa \nmazingira, dawa na dini\nMatembezi ya galari: \nWanafunzi wapitie kazi \nza vikundi vingine ili \nkujadili na kueleza\nMaarifa na ujuzi \nwa asili wa jamii \ninayomzunguka \nkatika kilimo, \nutunzaji wa \nmazingira, \ndawa na dini \nyameelezwa\n- Mazao \nmbalimbali\n- Picha zenye \nkuonesha \nmazao ya \nkilimo, dawa \nna utunzaji wa \nmazingira",
+      "char_count": 1316
+    },
+    {
+      "page_number": 19,
+      "text": "13\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nmaarifa na ujuzi wa asili \nwa jamii katika kilimo, \nutunzaji wa mazingira, \ndawa na dini\n- Filamu zenye \nkuonesha \nshughuli \nza kilimo, \nutunzaji wa \nmazingira\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n1.3 Kutumia maarifa \nna ujuzi wa \nasili wa jamii \ninayomzunguka \nkusimulia \nasili, urithi, na \nmaadili ya jamii \nhusika \n(a) Kubaini \nasili za jamii \nzinazomzunguka \n(tamaduni, \nmavazi, chakula, \nngoma, michezo \nna nyimbo)\nIgizo dhima: Ongoza \nwanafunzi kuigiza \ntamaduni za jamii \nzinazomzunguka.\nUtafiti mdogo: Ongoza \nwanafunzi kuchunguza \nasili za jamii zao kupitia \nkwa walezi/wazazi na \nwatu wengine\nKutumia TEHAMA: \nWanafunzi wabainishe \nasili za jamii \nzinazowazunguka (mf. \ntamaduni, mavazi, \nchakula, ngoma, michezo \nAsili za jamii \n(tamaduni, \nmavazi, chakula, \nngoma, michezo \nna nyimbo) \nzinazomzunguka \nzimebainishwa \n- Michoro/picha \nyenye ngoma \nza asili na \nmichezo ya \njamii \n- Mavazi ya \nmakabila ya \nKitanzania\n- Picha zenye \nkuonesha \nvyakula vya \njamii tofauti\n- Filamu zenye \nmakala \nzinazohusu\n55",
+      "char_count": 1231
+    },
+    {
+      "page_number": 20,
+      "text": "14\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nna nyimbo za jamii \nkatika makala za filamu \nwalizozitazama\n  asili za jamii\n(b) Kufafanua \numuhimu wa \nmaarifa, ujuzi \nwa asili na urithi \nwa kihistoria \nkwa maendeleo \nya kiuchumi na \nkijamii\nMtaalamu mwalikwa: \nAlika mtaalamu kusimulia \nkuhusu umuhimu wa \nmaarifa, ujuzi wa asili \nna urithi wa kihistoria \nunavyosaidia maendeleo \nya kiuchumi na kijamii\nMaswali na majibu: \nTumia maswali \nkuwezesha wanafunzi \nkufafanua umuhimu wa \nmaarifa, ujuzi wa asili na \nurithi wa kihistoria kwa \nmaendeleo ya kiuchumi \nna kijamii\nUmuhimu wa \nmaarifa, ujuzi \nwa asili na urithi \nwa kihistoria \nkwa maendeleo \nya kiuchumi \nna kijamii \numefafanuliwa \n- Picha/\nvideo zenye \nkuonesha urithi \nwa Historia na \nujuzi wa asili\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n(c) Kubaini mbinu \nza kutumia \nmaarifa na ujuzi \nwa asili (katika \nkilimo, utunzaji \nwa mazingira, \ndawa, dini) \nUtafiti mdogo: Wanafunzi \nkufanya uchunguzi ili \nkubaini mbinu za kutumia \nmaarifa na ujuzi wa asili \nkatika kuboresha   ustawi \nwa jamii katika maeneo \nyanayowazunguka\nMbinu za \nkutumia maarifa \nna ujuzi wa asili \n(katika kilimo, \nutunzaji wa \nmazingira, dawa, \ndini) katika \nkuboresha\n- Picha/picha \nmguso/\nmichoro yenye \nkuonesha \nshughuli za \nkilimo, ",
+      "char_count": 1429
+    },
+    {
+      "page_number": 21,
+      "text": "15\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\n katika kuboresha \nustawi wa jamii\nChanganyakete : \nWanafunzi katika vikundi \nwajadiliane kuhusu mbinu \nza kutumia maarifa na \nujuzi katika kuboresha \nustawi wa jamii kisha \nwashirikishe vikundi \nvingine ili kuboresha\nustawi wa jamii \nzimebainishwa\n     utunzaji wa \nmazingira na \ndawa za asili\n- Video zenye \nmakala \nzinazohusu \nutunzaji wa \nmazingira\n(d) Kusimulia \nmaarifa na \nujuzi wa asili, \nasili za jamii \nna urithi wa \nkihistoria katika \nmazingira yake \n(mf. nyumbani, \nshuleni)\nFikiri-Andika-Jozisha-\nShirikisha : Wanafunzi \nkatika jozi wafikiri, \nwaandike na kisha \nwashirikishane namna \nya kusimulia maarifa \nna ujuzi wa asili, asili \nza jamii na urithi \nwa kihistoria katika \nmazingira yao.\nMaswali na majibu : \nTumia maswali kuongoza \nwanafunzi kujadili \nnamna ya kusimulia \nmaarifa na ujuzi wa asili, \nasili za jamii na urithi \nwa kihistoria katika \nmazingira yao (mfano \nnyumbani na shuleni)\nAnasimulia \nmaarifa na ujuzi \nwa asili, asili za \njamii na urithi \nwa kihistoria \nkatika mazingira \nya shule na \nnyumbani \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Picha za vitu \nvya asili\n- Filamu au \nmichoro \nyenye \nmaudhui \nyanayohusu \nmaarifa na \nujuzi wa asili, \nasili za jamii \nna urithi wa \nkihistoria ",
+      "char_count": 1428
+    },
+    {
+      "page_number": 22,
+      "text": "16\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\n(e) Kueleza thamani \nya asili na urithi \nwa kihistoria \nkatika jamii \ninayomzunguka\nZiara za kimasomo: \nWanafunzi kutembelea \nmaeneo yenye vitu \nvya asili na urithi wa \nkihistoria katika jamii \ninayomzunguka na \nkuwasilisha taarifa\nMgeni mwalikwa: Alika \nmgeni kuelezea kuhusu \nthamani ya asili na urithi \nwa kihistoria katika jamii \ninayomzunguka  \nMaswali na majibu : \nTumia maswali kuongoza \nwanafunzi kujadili \nna kueleza thamani \nya asili na urithi wa \nkihistoria katika jamii \ninayomzunguka\nThamani ya asili \nna urithi wa \nkihistoria katika \njamii imeelezwa \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Vitu vya asili \nna urithi wa \nkihistoria\n- Picha/picha \nmguso zenye \nkuonesha \nmaeneo ya \nurithi wa \nkihistoria\n1.4 Kutathmini \nushirikiano \nbaina ya jamii \nza Kitanzania \nkatika kujenga \nuhusiano wa \nkijamii na \nkiuchumi\n(a) Kueleza \nuhusiano \nwake na jamii \ninayomzunguka \n(nyumbani na \nshuleni)\nUhalisishaji wa tukio: \nOngoza wanafunzi \nkwenye vikundi kuigiza \nuhusiano kati yao na baba, \nmama, dada, kaka, ndugu \nwa karibu na familia na \nwatu wengine shuleni na \nnyumbani\nUhusiano \nwake na jamii \ninayomzunguka \nnyumbani \nna shuleni \numeelezwa\n- Picha/picha \nmguso/\nmichoro \nyenye \nkuonesha \nmatendo ya \nkuhusiana\n30",
+      "char_count": 1438
+    },
+    {
+      "page_number": 23,
+      "text": "17\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nMaswali na majibu: \nTumia maswali kuongoza \nwanafunzi kueleza \nuhusiano wao na familia, \nndugu wa karibu na \nfamilia na watu wengine \nshuleni na nyumbani\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n(b) Kubaini \numuhimu wa \nuhusiano na \nushirikiano wa \nfamilia na rafiki \nzake\nKisamafunzo: Wanafunzi \nwajadili visa mafunzo \nili kubaini uhusiano na \nushirikiano wa familia na \nrafiki \nMaswali na majibu : \nTumia maswali kuongoza \nwanafunzi kueleza \numuhimu wa uhusiano na \nushirikiano wa familia na \nrafiki zake\nUmuhimu wa \nuhusiano na \nushirikiano \nwa familia \nna rafiki zake \numebainishwa \n- Picha/picha \nmguso/\nmichoro \nyenye \nkuonesha \nmatendo ya \nkuhusiana na \nushirikiano\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n(c) Kueleza \nmatendo ya \nkijamii na \nkiuchumi \nyanayojenga \nuhusiano na \nushirikiano \nkatika jamii\nUtafiti mdogo: \nWanafunzi kufanya \nutafiti mdogo maeneo ya \nsokoni, shuleni au kwenye \nshughuli za uzalishaji \nmali wakichunguza \nmatendo ya kijamii na \nkiuchumi yanayojenga \nuhusiano na ushirikiano \nkatika jamii\nMatendo ya \nkijamii na \nkiuchumi \nyanayojenga \nuhusiano na \nushirikiano \nkatika jamii \nyameelezwa\n- Picha/picha \nmguso/\nmichoro \nyenye \nkuonesha \nshughuli za \nkijamii na \nkiuchumi",
+      "char_count": 1421
+    },
+    {
+      "page_number": 24,
+      "text": "18\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nMtaalamu mwalikwa: \nAlika mgeni kuelezea \nkuhusu matendo ya \nkijamii na kiuchumi \nyanayojenga uhusiano na \nushirikiano katika jamii \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n2.0 Kumudu \nHistoria \nya \nTanzania \nna \nMaadili \nkabla ya \nukoloni\n2.1 Kuelezea \nmifumo \nmbalimbali \nya utunzaji \nna ukuzaji wa \nmaadili ya jamii \nza Kitanzania \nkabla ya ukoloni\n(a) Kueleza mifumo \nya uongozi \nkatika ngazi ya \nfamilia, ukoo na \nshule\nIgizo dhima: Wanafunzi \nwaandae na kuonesha \nigizo kuhusu mifumo ya \nuongozi katika ngazi ya \nfamilia, ukoo na shule\nUtafiti mdogo: \nWanafunzi wachunguze \nna kuandika kuhusu \nmifumo ya uongozi katika \nngazi za familia, ukoo na \nshule\nKutumia TEHAMA: \nWanafunzi wajadili \nna kueleza mifumo \nya utunzaji na ukuzaji \nwa maadili ya jamii \nza Kitanzania katika \nngazi ya familia, ukoo \nna shule katika filamu \nwalizozitazama\nMifumo ya \nuongozi katika \nngazi ya familia, \nukoo na shule \nimeelezwa \n- Chati yenye \nkuonesha \nmifumo ya \nuongozi katika \nngazi ya \nfamilia, ukoo \nna shule\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Makala \nzinazohusu \nmifumo ya \nutunzaji \nna ukuzaji \nwa maadili \nkatika ngazi \nya familia, \nukoo na shule \nzilizoifadhiwa \nkatika midia\n30",
+      "char_count": 1401
+    },
+    {
+      "page_number": 25,
+      "text": "19\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\n(b) Kueleza misingi \nya ukuzaji \nna utunzaji \nwa maadili \nkatika jamii \ninayomzunguka\nChanganyakete: \nWanafunzi katika \nvikundi wajadili misingi \nya ukuzaji na utunzaji \nwa maadili shuleni na \nnyumbani na kisha \nwashirikishe vikundi \nvingine\nMbinu za kutaja \n(snowball): Elekeza \nwanafunzi kila mmoja \nkueleza misingi ya \nukuzaji na utunzaji \nwa maadili shuleni na \nnyumbani\nNyimbo: Wanafunzi \nkuimba wimbo unaotaja \nmisingi ya maadili shuleni \nna nyumbani\nMisingi ya \nukuzaji na \nutunzaji \nwa maadili \nkatika jamii \ninayomzunguka \nshuleni na \nnyumbani \nimeelezwa\n- Picha/picha \nmguso \nmichoro yenye \nkuonesha \nmisingi ya \nmaadili\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Nyimbo za \nmisingi ya \nmaadili\n(c) Kueleza \nmchango wa \nuongozi wa \nukoo katika \nutunzaji na \nukuzaji wa \nmaadili ya jamii \nkabla ya ukoloni\nUtafiti mdogo: \nWanafunzi wachunguze \nna kuadika taarifa kuhusu \nmichango ya viongozi wa \nkoo zao katika utunzaji \nna ukuzaji wa maadili ya \njamii kabla ya ukoloni\nMichango ya \nuongozi wa ukoo \nkatika utunzaji \nna ukuzaji wa \nmaadili ya jamii \nkabla ya ukoloni \numeelezwa \n- Chati yenye \nkuonesha \nmifumo ya \nuongozi \nkatika ngazi \nya familia na \nukoo ",
+      "char_count": 1377
+    },
+    {
+      "page_number": 26,
+      "text": "20\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo- \npendekezwa\nIdadi \nya \nvipindi\nMtaalamu mwalikwa: \nAlika mgeni kuelezea \nkuhusu mchango wa \nviongozi wa ukoo katika \nutunzaji na ukuzaji wa \nmaadili ya jamii kabla ya \nukoloni\n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n(d) Kubaini wajibu \nwa jamii \nkatika ujenzi \nwa maadili ya \nfamilia\nBunguabongo: \nOngoza wanafunzi \nkubunguabongo kuhusu \nwajibu wa jamii katika \nujenzi wa maadili ya \nfamilia\nIgizodhima: Ongoza \nwanafunzi kuandaa \nna kuigiza matendo \nyanayohusu wajibu wa \njamii katika ujenzi wa \nmaadili ya familia\nMaswali na majibu: \nTumia maswali kuongoza \nwashiriki kujadili kuhusu \nwajibu wa jamii katika \nujenzi wa maadili ya \nfamilia\nWajibu wa jamiii \nkatika ujenzi \nwa maadili \nya familia \numebainishwa \n- Matini ya \nHistoria ya \nTanzania na \nMaadili\n- Chati zenye \nkuonesha \nwajibu wa \njamii katika \nujenzi wa \nmaadili",
+      "char_count": 1007
+    },
+    {
+      "page_number": 27,
+      "text": "21\nDarasa la IV\nJedwali Na 3: Maudhui ya Darasa IV\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n1.0 Kulinda \nHistoria \nya \nTanzania, \nurithi na \nmaadili \nya Taifa\n1.1 Kumudu \nmaarifa ya jamii \ninayomzunguka\n(a) Kutambua \nwajibu na \nhaki zake \nkatika jamii \nna Taifa\nUtafiti mdogo: Ongoza \nwanafunzi kuchunguza na \nkuandika kuhusu haki na \nwajibu wao katika jamii na \nTaifa\nKisamafunzo: Ongoza \nwanafunzi kujadili \nkisamafunzo ili kutambua \nhaki na wajibu wao katika \njamii na Taifa.\nMajadiliano: Tumia maswali \nkuwezesha wanafunzi \nkujadili na kutambua wajibu \nna haki zao wakati wa \nuwasilishaji \nKutumia TEHAMA: \nWanafunzi wajadili ili \nkutambua wajibu na haki za \nmtoto katika jamii na Taifa \nkatika filamu walizozitazama\nMwanafunzi \nametambua \nwajibu na haki \nzake katika \njamii na Taifa\n- Chatipindu na \nmanila zenye \nkuonesha haki \nna wajibu \nwa mtoto na \nwanafunzi\n- Filamu zenye \nmakala za haki \nna wajibu wa \nmtoto \n10",
+      "char_count": 1082
+    },
+    {
+      "page_number": 28,
+      "text": "22\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n2.0 Kumudu \nhistoria \nya \nTanzania \nna \nmaadili \nkabla ya \nukoloni\n2.1 Kuelezea \nmifumo \nmbalimbali \nya utunzaji \nna ukuzaji wa \nmaadili ya jamii \nza Kitanzania \nkabla ya \nukoloni\n(a) Kueleza \nmamlaka \nmbalimbali \nza kijadi \nkabla ya \nukoloni \n(uchifu, \nusultani, \nutemi nk)\nMtaalamu mwalikwa : \nAlika mtaalamu kuelezea \nkuhusu mamlaka za jadi na \nkisha wezesha wanafunzi \nkujadili na kueleza kuhusu \nmamlaka za kijadi kama vile \nuchifu, usultani, utemi kabla \nya ukoloni\nOneshombinu : Wanafunzi \nwaandae na kuigiza nafasi \nza viongozi wa jadi na \nmajukumu yao kabla ya \nukoloni\nMamlaka \nmbalimbali za \nkijadi kabla ya \nukoloni (uchifu, \nusultani, utemi \nnk) zimeelezwa \n- Matini zenye  \nkuonesha \nmatukio ya \nkihistoria\n- Picha na \nmichoro \ninayohusu \nmamlaka za \nkijadi\n56\n(b) Kueleza \nmichango \nya mamlaka \nmbalimbali \nza kijadi \nkatika \nutunzaji na \nukuzaji wa \nmaadili na \nmaendeleo \nya jamii \nkabla ya \nukoloni\nBunguabongo : Ongoza \nwanafunzi kubunguabongo \nkuhusu michango ya \nmamlaka za kijadi katika \nutunzaji na ukuzaji wa \nmaadili kabla ya ukoloni\nMajadiliano: Ongoza \nwanafunzi katika vikundi \nkujadili na kueleza michango \nya mamlaka za kijadi katika \nutunzaji na ukuzaji wa \nmaadili na maendeleo ya \njamii kabla ya ukoloni\nMichango \nya mamlaka \nmbalimbali za \nkijadi katika \nutunzaji na \nukuzaji wa \nmaadili na \nmaendeleo ya\njamii kabla \nya ukoloni \nimeelezwa\n- Chati zanye \nmichoro yenye \nkuonesha \nmamlaka \nmbalimbali za \nkijadi\n- Matini zenye \ntaarifa za \nviongozi wa \njadi na nafasi \nzao katika \nutunzaji na",
+      "char_count": 1728
+    },
+    {
+      "page_number": 29,
+      "text": "23\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nMatembezi ya galari : \nWanafunzi kuchambua \nkatika vikundi michango \nya viongozi wa jadi katika \nutunzaji na ukuzaji wa \nmaadili na maendeleo ya \njamii kabla ya ukoloni kwa \nkushirikisha vikundi vingine \nna kuboresha kazi zao\n     ukuzaji wa \nmaadili na \nmaendeleo ya \njamii kabla ya \nukoloni\n(c) Kufafanua \nwajibu \nwake katika \nutunzaji na \nukuzaji wa \nmaadili ya \njamii\nUtafiti mdogo : Wanafunzi \nkuchunguza na kufafanua \nwajibu wao katika utunzaji na \nukuzaji wa maadili ya jamii \nMaswali na majibu : \nTumia maswali kuwezesha \nwanafunzi kujadili na \nkufafanua kuhusu wajibu wao \nkatika utunzaji na ukuzaji wa \nmaadili ya jamii\nMwanafunzi \namefafanua \nwajibu wake \nkatika utunzaji \nna ukuzaji wa \nmaadili ya jamii \n- Matini au chati \npindu zenye \nmatendo ya \nwajibu wa \nmwanafunzi \nkatika utunzaji \nna ukuzaji wa \nmaadili\n2.2 Kueleza \nmaendeleo \nya jamii za \nKitanzania \nna maadili \nyake kabla ya \nukoloni\n(a) Kueleza \ndhana ya \nmaendeleo \nya jamii \n(maana, \nviashiria na \numuhimu)\nBunguabongo: Ongoza \nwanafunzi kubunguabongo \nwakieleza dhana ya \nmaendeleo ya jamii \nwakizingatia maana, viashiria \nna umuhimu\nDhana ya \nmaendeleo ya \njamii imeelezwa \nkwa kuzingatia \nmaana, viashiria\n- Matini \nzinazohusu \nmaendeleo ya \njamii\n99",
+      "char_count": 1433
+    },
+    {
+      "page_number": 30,
+      "text": "24\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nKutumia TEHAMA: \nWaongoze washiriki \nkujadili na kueleza dhana \nya maendeleo ya jamii \nkutokana na makala za filamu \nwalizozitazama\nvya maendeleo \nya jamii na \numuhimu\n- Filamu zenye \nmakala kuhusu \nmaendeleo \nna maadili \nya jamii za \nKitanzania \nkabla ya \nukoloni\n(b) Kueleza \nshughuli za \nmaendeleo \nya jamii \nna uchumi \n(mfano \nkilimo, \nufugaji, \nuhunzi, \nususi, \nufinyanzi, \nuvuvi na \nmakazi) na \nmaadili yake \nkabla ya \nukoloni\nZiara ya kimasomo: Elekeza \nwanafunzi kutembelea \nmaeneo yenye shughuli \nza maendeleo ya jamii na \nuchumi zilizofanyika kabla \nya ukoloni na kuwasilisha \ntaarifa fupi\nMtaalamu mwalikwa : Alika \nmtaalamu kusimulia kuhusu \nshughuli za maendeleo ya \njamii na uchumi na maadili \nya jamii kabla ya ukoloni\nMaswali na majibu : \nTumia maswali kuwezesha \nwanafunzi kujadili na kueleza \nkuhusu maendeleo ya jamii \nna uchumi (mfano kilimo, \nufugaji, uhunzi, ususi, \nufinyanzi, uvuvi na makazi) \nna maadili yake kabla ya \nukoloni\nShughuli za \nmaendeleo \nya jamii na \nuchumi (mfano \nkilimo, ufugaji, \nuhunzi, ususi, \nufinyanzi, uvuvi \nna makazi) \nna maadili \nyake kabla \nya ukoloni \nzimeelezwa \n- Picha zenye \nkuonesha \nshughuli \nza uchumi \nmfano kilimo, \nufugaji, \nuhunzi, ususi, \nufinyanzi, \nuvuvi na \nmakazi \n- Filamu zenye \nmakala \nzinazohusu \nshughuli \nza uchumi \nmfano kilimo, \nufugaji, \nuhunzi, ususi, \nufinyanzi, \nuvuvi na \nmakazi",
+      "char_count": 1562
+    },
+    {
+      "page_number": 31,
+      "text": "25\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(c) Kubaini \nmichango ya \nshughuli za \nuchumi kabla \nya ukoloni \nkatika \nmaendeleo \nya jamii \nkabla ya \nukoloni \n(mfano \nkilimo, \nufugaji, \nuhunzi, \nususi, \nufinyanzi na \nuvuvi) \nFikiri-Andika-Jozisha-\nShirikisha : Ongoza \nwanafunzi kufikiri, kuandika \nna kuwasilisha michango ya \nshughuli za uchumi zilizopo \nkatika maeneo yao katika \nmaendeleo ya jamii \nKutumia TEHAMA: \nWanafunzi kujadili ili kubaini \nmchango wa uchumi katika \nmaendeleo ya jamii kabla ya \nukoloni kwa kutumia makala \nza filamu\nMichango ya \nshughuli za \nuchumi kabla ya \nukoloni katika \nmaendeleo ya \njamii (mfano \nkilimo, ufugaji, \nuhunzi, ususi, \nufinyanzi \nna uvuvi) \nimebainishwa \n- Picha au chati \npindu zenye \nmakala kuhusu \nshughuli za \nuchumi kabla \nya ukoloni \n- Filamu yenye \nmakala kuhusu \nshughuli za \nuchumi kabla \nya ukoloni \n(d) Kubaini \nushirikiano \nna uhusiano \nwa kiuchumi \nna kijamii \nbaina ya \njamii kabla \nya ukoloni\nMgeni mtaalamu : Alika \nMgeni ili kusimulia kuhusu \nushirikiano na uhusiano wa \nkiuchumi na kijamii baina ya \njamii kabla ya ukoloni\nKutumia TEHAMA: \nWanafunzi wajadili makala za \nfilamu ili kubaini ushirikiano \nna uhusiano wa kiuchumi na \nkijamii baina ya jamii kabla \nya ukoloni\nUshirikiano na \nuhusiano wa \nkiuchumi na \nkijamii baina \nya jamii kabla \nya ukoloni \numebainishwa \n- Makala za \nfilamu yenye \nmaudhui \nkuhusu \nushirikiano na \nuhusiano wa \nkiuchumi na \nkijamii baina \nya jamii kabla \nya ukoloni ",
+      "char_count": 1619
+    },
+    {
+      "page_number": 32,
+      "text": "26\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(e) Kubaini \nmchango wa \nmaendeleo \nya sayansi na \nteknolojia ya \nasili katika \nkuendeleza \nshughuli za \nuchumi na \nmaadili kabla \nya ukoloni \n(mfano \nkilimo, \nufugaji, \nuhunzi, \nususi, \nufinyanzi na \nuvuvi)\nZiara mafunzo: Ongoza \nwanafunzi kutembelea \nsehemu za kihistoria katika \nmaeneo yao kuchunguza na \nkuandika kuhusu teknologia \nzilizotumika kabla ya \nukoloni.\nKutumia TEHAMA: \nWaongoze wanafunzi kujadili \nmakala za filamu ili kubaini \nmaendeleo ya sayansi na \nteknolojia ya asili katika \nkuendeleza shughuli za \nuchumi kabla ya ukoloni \n(mfano kilimo, ufugaji, \nuhunzi, ususi, ufinyanzi na \nuvuvi) na maadili\nMwanafunzi \namebaini \nmchango wa \nmaendeleo \nya sayansi na \nteknolojia ya \nasili katika \nkuendeleza \nshughuli za \nuchumi na \nmaadili kabla ya \nukoloni (mfano \nkilimo, ufugaji, \nuhunzi, ususi, \nufinyanzi na \nuvuvi)\n- Picha au \nchatipindu \nzenye \nkuonesha \nmaendeleo \nya sayansi \nna teknolojia \nkatika kilimo, \nufugaji, \nuhunzi, ususi, \nufinyanzi na \nuvuvi\n- Makala za \nfilamu kuhusu \nmaendeleo \nya sayansi na \nteknolojia ya \nasili \n(f) Kubaini \nwajibu wa \njamii katika \nkuendeleza \nshughuli za \nuchumi na \nmaadili yake \nkwa sasa \n(mfano \nIgizo dhima : Ongoza \nwanafunzi kuandaa na \nkuonesha igizo kuhusu \nwajibu wa jamii katika \nkuendeleza shughuli za \nuchumi na maadili yake\nMaswali na majibu : \nTumia maswali kuwezesha \nwanafunzi kujadili na kubaini\nMwanafunzi \namebaini wajibu \nwa jamii katika \nkuendeleza \nshughuli za \nuchumi (mfano \nkilimo, ufugaji, \nuhunzi, ususi, \nufinyanzi na \nuvuvi) na \nmaadili yake \nkwa sasa \n- Picha /\nfilamu zenye \nkuonesha \nshughuli \nza uchumi \n(mfano kilimo, \nufugaji, \nuhunzi, ususi, \nufinyanzi na \nuvuvi)",
+      "char_count": 1858
+    },
+    {
+      "page_number": 33,
+      "text": "27\nUmahiri \nmkuu Umahiri mahususi Shughuli za ujifunzaji Mbinu za ufundishaji na ujifunzaji zinazopendekezwa Vigezo vya upimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n    kilimo, ufugaji, \nuhunzi, ususi, \nufinyanzi na \nuvuvi)  \nwajibu wa jamii katika \nkuendeleza shughuli za \nuchumi na maadili yake\n3.0 Kumudu \nhistoria \nya ujenzi \nwa Taifa \nna maadili \nkatika \nkipindi \ncha 1961-\n1966\n3.1 Kutumia Alama \nza Taifa kama \nutambulisho wa \nTanzania\n(a) Kueleza \nmatumizi ya \nAlama za \nTaifa\nZiara za mafunzo : Ongoza \nwanafunzi kutembelea \nofisi yoyote ya umma na \nkuchunguza matumizi \nya Alama za Taifa na \nkuwasilisha taarifa\nMaswali na Majibu : Tumia \nmaswali kuongoza wanafunzi \nkujadii na kueleza matumizi \nya Alama za Taifa.\nMatumizi ya \nAlama za Taifa \nyameelezwa \n- Picha/picha \nmguso au \nmichoro yenye \nkuonesha \nAlama za Taifa\n10\n(b) Kuthamini \nAlama za \nTaifa katika \nkutambulisha \nTanzania \nKitaifa na \nKimataifa\nIgizo dhima: Ongoza \nwanafunzi kuigiza matendo \nya kuthamini Alama za Taifa\nMaswali na majibu: \nTumia maswali kuwezesha \nmajadiliano ya namna ya \nkuthamini Alama za Taifa \nkatika kutambulisha Tanzania \nKitaifa na Kimataifa\nMwanafunzi \nana thamini \nAlama za \nTaifa katika \nkutambulisha \nTanzania Kitaifa \nna Kimataifa \n- Picha/picha \nmguso au \nmichoro yenye \nkuonesha \nAlama za Taifa",
+      "char_count": 1339
+    },
+    {
+      "page_number": 34,
+      "text": "28\nDarasa la V\nJedwali Na 4: Maudhui ya Darasa la V\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n1.0 Kumudu \nHistoria \nya \nTanzania \nna \nMaadili \nwakati wa \nukoloni \n1890-\n1960\n1.1 Kuelezea \nhistoria ya \nTanzania na \nurithi wakati \nwa ukoloni\n(a) Kueleza \ndhana ya \nukoloni.\nBanguabongo : Ongoza wanafunzi \nkubanguabongo wakieleza dhana \nya ukoloni kwa kuzingatia maana \nna chimbuko lake\nKisamafunzo : Wanafunzi kujadili \nkisa mafunzo ili kueleza dhana ya \nukoloni kwa kuzingatia maana na \nchimbuko lake\nFikiri-andika-jozisha-shirikisha : \nWezesha wanafunzi kufikiri, \nkuandika na kushirikishana dhana \nya ukoloni kwa kuzingatia maana \nna chimbuko lake\nDhana ya \nukoloni \nimeelezwa \n- Matini yenye \nkuonesha \nmatukio ya \nkihistoria \nwakati wa \nukoloni\n- Picha zenye \nkuonesha \nmatukio ya \nkikoloni.\n73\n(b) Kufafanua \nmifumo ya \nkiutawala \nna kijamii \nwakati wa \nukoloni \n(mfano \nmahakama, \nulinzi, \nuongozi, \nafya na \nelimu)\nFikiri-andika-jozisha-shirikisha : \nWezesha wanafunzi kufikiri-\nandika-jozisha-shirikisha kuhusu \nmifumo ya kiutawala (mfano \nmahakama, ulinzi, uongozi) na \nkijamii (afya, elimu na miundo \nmbinu) iliyopo\nMifumo ya \nkiutawala na \nkijamii wakati \nwa ukoloni, \nimefafanuliwa \n- Nakala za \nvisa mafunzo \nkuhusu \nukoloni\n- Chati na \nmachapisho \nkuhusu \nukoloni",
+      "char_count": 1439
+    },
+    {
+      "page_number": 35,
+      "text": "29\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nKutumia TEHAMA: Wanafunzi \nwajadili makala za filamu ili \nkufafanua mifumo ya kiutawala \n(mfano mahakama, ulinzi na \nuongozi) na jamii (mfano afya, \nelimu na miundombinu) wakati wa \nukoloni\n- Filamu zenye \nmakala \nkuhusu \nmifumo ya \nkiutawala na \njamii wakati \nwa ukoloni\n(c) Kufafanua \nathari za \nmifumo ya \nkikoloni \nkatika \nmaadili na \nurithi wa \nKitanzania\nMaswali na majibu: Tumia \nmaswali kuongoza wanafunzi \nkujadili na kufafanua athari za\nmifumo ya kikoloni katika maadili \nna urithi wa Kitanzania \nMajadiliano: Ongoza wanafunzi \nkatika vikundi kujadili na \nkufafanua athari za mifumo ya \nkikoloni katika maadili na urithi \nwa Kitanzania\nAthari za \nmifumo ya \nkikoloni katika \nmaadili na urithi \nwa Kitanzania \nzimefafanuliwa\n- Chati/\nkisamafunzo \nmachapisho \nkuhusu \nukoloni\n- Filamu zenye \nmakala \nkuhusu \nmifumo ya \nukoloni\n(d) Kutathmini \nathari za \nukoloni \nkatika \nmifumo ya \nmamlaka za \nkijadi katika \njamii\nBunguabongo: Ongoza wanafunzi \nkubangua bongo kuhusu athari \nza ukoloni katika mifumo ya \nmamlaka za kijadi katika jamii\nMwanafunzi \nametathimini \nathari za \nukoloni katika \nmifumo ya \n- Nakala za \nvisa mafunzo \nkuhusu athari \nza ukoloni \nkatika mifumo \nya mamlaka \nza kijadi",
+      "char_count": 1405
+    },
+    {
+      "page_number": 36,
+      "text": "30\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nMaswali na majibu : Tumia \nmaswali kuwezesha wanafunzi \nkujadili ili kutathimini athari \nza ukoloni katika mifumo ya \nmamlaka za kijadi katika jamii\nUtafiti mdogo : Ongoza wanafunzi \nkufanya utafiti mdogo katika \nmaeneo yao wakitathimini athari \nza ukoloni katika mifumo ya \nmamlaka za kijadi katika jamii\nmamlaka za \nkijadi katika \njamii\n- Machapisho \nkuhusu athari \nza ukoloni \nkatika mifumo \nya mamlaka \nza kijadi \nkatika jamii\n1.2 Kulinganisha \nmabadiliko \nna \nmwendelezo \nwa maadili \nkabla na \nwakati wa \nukoloni.\n(a) Kufafanua \nmabadiliko \nna \nmwendelezo \nwa \nmaadili ya \nKitanzania \nkabla na \nwakati wa \nukoloni\nBunguabongo : Ongoza \nwanafunzi kubanguabongo \nwakifafanua mabadiliko na \nmwendelezo wa maadili ya \nKitanzania wakati wa ukoloni\nMajadiliano : Wezesha wanafunzi \nkujadili ili kufafanua mabadiliko \nna mwendelezo wa maadili ya \nKitanzania kabla na wakati wa \nukoloni \nMabadiliko na \nmwendelezo \nwa maadili \nya Kitanzania \nkabla na wakati \nwa ukoloni \nyamefafanuliwa \n- Picha/picha \nmguso/\nmichoro \nyenye \nkuonesha \nvitendo vya \nmaadili\n- Matini yenye \nkuonesha \nmatukio ya \nmaadili ya \nTanzania \nkabla na \nwakati wa \nukoloni\n32",
+      "char_count": 1351
+    },
+    {
+      "page_number": 37,
+      "text": "31\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(b) Kutathmini \nnafasi ya \nukoloni \nkatika kuleta \nmabadiliko \nna \nmwendelezo \nwa maadili\nKisamafunzo : Ongoza \nwanafunzi kujadili kisamafunzo \nili kutathimini nafasi ya ukoloni \nkatika kuleta mabadiliko na \nmwendelezo wa maadili\nMajadaliano : Wezesha wanafunzi \nkujadii na kutathimini nafasi ya \nukoloni katika kuleta mabadiliko \nna mwendelezo wa maadili\nKutumia TEHAMA: Wanafunzi \nwajadili makala za filamu na \nkutathmini nafasi ya ukoloni katika \nkuleta mabadiliko na mwendelezo \nwa maadili\nMwanafunzi \nametathimini \nnafasi ya \nukoloni \nkatika kuleta \nmabadiliko na \nmwendelezo wa \nmaadili \n- Picha/michoro \nyenye \nkuonesha \nvitendo vya \nmaadili katika \nnyakati tofauti\n- Matini ya \nHistoria ya \nTanzania \nkipindi cha \nukoloni.\n1.3 Kuelezea \njitahada \nza kulinda \nmaadili ya \nKitanzania \ndhidi ya \nmaadili \nya kigeni \nyaliyoletwa \nwakati wa \nukoloni.\n(a) Kubaini \njitihada \nzilizotumika \nkulinda \nmaadili ya \nKitanzania \ndhidi ya \nmaadili ya \nkigeni\nBunguabongo : Ongoza \nwanafunzi kubunguabongo \nwakieleza jitihada zilizotumika \nkulinda maadili ya Kitanzania \ndhidi ya maadili ya kigeni\nMajadiliano : Wezesha wanafunzi \nkujadili na kueleza jitihada \nzilizotumika kulinda maadili ya \nKitanzania dhidi ya maadili ya \nkigeni \nMwanafunzi \nanabaini jitihada \nzilizotumika \nkulinda maadili \nya Kitanzania \ndhidi ya maadili \nya kigeni \n- Picha/picha \nmguso au \nmichoro \nyenye \nkuonesha \nvitendo vya \nmaadili\n- Matini ya \nHistoria ya \nTanzania \n20",
+      "char_count": 1650
+    },
+    {
+      "page_number": 38,
+      "text": "32\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n2.0 Kumudu \nhistoria \nya ujenzi \nwa Taifa \nna maadili \nkatika \nkipindi \ncha 1961-\n1966 \n2.1 Kuelezea \nmchango \nwa Tunu na \nAlama za \nTaifa katika \nkujenga \numoja wa \nkitaifa na \nuzalendo.\n(a) Kufafanua \nhistoria ya \nTunu za \nTaifa (utu, \nuzalendo, \nuadilifu, \numoja, \nuwazi, \nuwajibikaji \nna lugha ya \nTaifa) nchini\nBanguabongo : Ongoza wanafunzi \nkubanguabongo wakifafanua \nhistoria ya Tunu za Taifa \nUtafiti mdogo : Elekeza \nwanafunzi kufanya utafiti mdogo \nkuhusu historia ya Tunu za Taifa \n(mfano utu, uzalendo, uadilifu, \numoja, uwazi, uwajibikaji na lugha \nya Taifa nchini) na kuwasilisha \ntaarifa\nMajadiliano : Wezesha wanafunzi \nkujadili na kufafanua historia ya \nTunu za Taifa\nHistoria ya \nTunu za Taifa \n(utu, uzalendo, \nuadilifu, \numoja, uwazi, \nuwajibikaji \nna lugha ya \nTaifa) nchini \nimefafanuliwa \n- Chati au \nmatini kuhusu \nhistoria ya \nTunu za Taifa \n- Picha picha/\npicha mguso \nau michoro \nyenye \nkuonesha \nmatendo ya \nutu, uzalendo, \nuadilifu, \numoja, uwazi, \nuwajibikaji\n50\n(b) Kueleza \numuhimu \nwa kuenzi \nTunu za \nTaifa\nKisamafunzo : Tumia \nkisamafunzo kuwezesha wanafunzi \nkujadili na kueleza umuhimu wa \nkuenzi Tunu za Taifa\nFikiri-andika-jozisha-shirikisha : \nOngoza wanafunzi katika jozi \nkufikiri-kuandika na kushirikishana \numuhimu wa kuenzi Tunu za Taifa\nMajadiliano : Ongoza majadiliano \nkuwezesha wanafunzi kueleza \numuhimu wa kuenzi Tunu za Taifa\nUmuhimu \nwa kuenzi \nTunu za Taifa \numeelezwa \n- Chati au \nmatini zenye \nhistoria ya \nTunu za Taifa \n- Picha picha/\npicha mguso \nau michoro \nyenye \nmatendo ya \nutu, uzalendo, \nuadilifu, \numoja, uwazi, \nuwajibikaji",
+      "char_count": 1798
+    },
+    {
+      "page_number": 39,
+      "text": "33\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(c) Kueleza \nmatendo ya \nkushiriki \nkutetea, \nkulinda na \nkudumisha \nTunu, \nAlama za \nTaifa, umoja \nwa Kitaifa \nna uzalendo\nBunguabongo : Ongoza \nwanafunzi kubanguabongo kuhusu \nmatendo yanayoashiria kuheshimu \nkutetea, kulinda na kudumisha \nTunu, Alama za Taifa, umoja wa \nKitaifa na uzalendo\nMatembezi ya Galari : Waongoze \nwanafunzi kusoma chati/picha \nzenye matendo ya kuheshimu \nkutetea, kulinda na kudumisha \nTunu, Alama za Taifa \nIgizo dhima : Ongoza wanafunzi \nkuandaa na kuonesha igizo kuhusu \nmatendo ya kushiriki kutetea, \nkulinda na kudumisha Tunu, \nAlama za Taifa, umoja wa Kitaifa \nna uzalendo\nMwanafunzi \nameeleza \nmatendo ya \nkushiriki \nkutetea, kulinda \nna kudumisha \nTunu, Alama \nza Taifa, umoja \nwa Kitaifa na \nuzalendo\n- Picha picha/\npicha mguso \nau michoro \nyenye \nmatendo ya \nkuheshimu \nkutetea, \nkulinda na \nkudumisha \nTunu, Alama \nza Taifa\n- Matini \nyanayohusu \nTunu, Alama \nza Taifa, \numoja wa \nKitaifa na \nuzalendo.",
+      "char_count": 1148
+    },
+    {
+      "page_number": 40,
+      "text": "34\nDarasa la VI\nJedwali Na 5: Maudhui ya Darasa la VI\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n1.0 Kumudu \nHistoria \nya Ujenzi \nwa Taifa \nna Maadili \nkatika \nKipindi \ncha 1961-\n1966\n1.1 Kumudu \nhistoria ya \nujenzi wa \nTaifa na \nmaadili baada \nya uhuru \nkatika kipindi \ncha 1961-\n1966\n(a) Kueleza historia \nya ujenzi wa \nTaifa na maadili \nbaada ya uhuru \nkatika kipindi \ncha 1961-1966 \n(kiuchumi, \nkisiasa na \nkijamii)\nBunguabongo : Ongoza \nwanafunzi kubanguabongo \nwakieleza historia ya ujenzi wa \nTaifa na maadili baada ya uhuru \nkatika kipindi cha 1961-1966 \nChanganyakete : Wanafunzi \nwajadili katika vikundi \nwakifafanua historia ya ujenzi \nwa Taifa na maadili baada ya \nuhuru katika kipindi cha 1961-\n1966 na kisha kushirikisha \nvikundi vya jirani \nMaswali na majibu : Tumia \nmaswali kuwezesha wanafunzi \nkujadili na kueleza historia \nya ujenzi wa Taifa na maadili \nbaada ya uhuru katika kipindi \ncha 1961-1966\nHistoria ya \nujenzi wa Taifa \nna maadili \nbaada ya uhuru \nkatika kipindi \ncha 1961-1966 \nkiuchumi, \nkisiasa na \nkijamii \n- Matini na \npicha picha/\npicha mguso \nzenye \nkuonesha \nmatukio ya \nkihistoria \nkuhusu ujenzi \nwa Taifa na \nmaadili kipindi \ncha 1961-1966\n- Matini, picha \npicha/picha \nmguso au \nmichoro yenye \nkuonesha \nmaendeleo/\nshughuli za \nkiuchumi, \nkisiasa na \nkijamii katika \nkipindi cha \n1961-1966\n34",
+      "char_count": 1492
+    },
+    {
+      "page_number": 41,
+      "text": "35\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(b) Kubaini \nmafanikio \nyaliyofikiwa \nkatika historia \nya ujenzi wa \nTaifa na maadili\nFikiri-andika-jozisha-\nshirikisha: Waongoze \nwanafunzi katika jozi \nkufikiri, kuandika na kisha \nkushirikishana mafanikio \nyaliyofikiwa katika historia \nya ujenzi wa Taifa na maadili \nkatika kipindi cha 1961-1966\nKutumia TEHAMA: Wezesha \nwanafunzi ukitumia filamu \nkubaini mafanikio yaliyofikiwa \nkatika historia ya ujenzi wa \nTaifa na maadili katika kipindi \ncha 1961-1966\nMwanafunzi \nanabaini \nmafanikio \nyaliyofikiwa \nkatika historia \nya ujenzi \nwa Taifa na \nmaadili \n- Makala \nza filamu \nzinazohusu \nmafanikio \nkatika historia \nya ujenzi \nwa Taifa na \nmaadili kipindi \ncha 1961-1966\n- Matini, \npicha/picha \nmguso au \nmichoro yenye \nkuonesha \nmaendeleo/\nshughuli za \nkiuchumi, \nkisiasa na \nkijamii katika \nkipindi cha \n1961-1966\n(c) Kuelezea \nchangamoto \nzilizojitokeza \nwakati wa ujenzi \nwa Taifa na \nmaadili baada ya \nuhuru\nMaswali na Majibu: Tumia \nmaswali kuongoza wanafunzi \nkuelezea changamoto \nzilizojitokeza wakati wa ujenzi \nwa Taifa na maadili katika \nkipindi cha 1961-1966\nChangamoto \nzilizojitokeza \nwakati wa \nujenzi wa Taifa \nna maadili \nbaada ya uhuru \nzimeelezwa\n- Makala za \nfilamu, picha/\npicha mguso \nzinazohusu \nhistoria ya \nujenzi wa Taifa \nna maadili \nkatika ",
+      "char_count": 1477
+    },
+    {
+      "page_number": 42,
+      "text": "36\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nMajadiliano : Ongoza \nmajadiliano kuwezesha \nwanafunzi kuelezea \nchangamoto zilizojitokeza \nwakati wa ujenzi wa Taifa na \nmaadili katika kipindi cha 1961-\n1966\nkipindi cha \n1961-1966\n2.0 Kutathmini \nujenzi wa \nTaifa na \nMaadili \nwakati wa \nAzimio \nla Arusha \n1967-1985\n2.1 Kuelezea \nMisingi na \nMaadili ya \nAzimio la \nArusha na \nSiasa ya \nUjamaa na \nKujitegemea\n(a) Kueleza dhana \nya Azimio la \nArusha na Siasa \nya Ujamaa na \nKujitegemea \n(lengo na \numuhimu)\nBunguabongo: Ongoza \nwanafunzi kubanguabongo \nwakieleza dhana, lengo na \numuhimu wa Azimio la \nArusha na Siasa ya Ujamaa na \nKujitegemea\nChanganyakete: Wezesha \nwanafunzi kujadili katika \nvikundi dhana, lengo na \numuhimu wa Azimio la \nArusha na Siasa ya Ujamaa \nna Kujitegemea na kisha \nkushirikisha kundi la jirani kazi \nzao\nDhana ya \nAzimio la \nArusha na \nSiasa ya \nUjamaa na \nKujitegemea \nimeelezwa \nkwa kuzingatia \nlengo na \numuhimu \nwake\n- Matini yenye \ntaarifa za \nAzimio la \nArusha\n- Picha//picha \nmguso au \nmichoro yenye \nkuonesha \nmatukio ya \nAzimio la \nArusha\n42\n(b) Kufafanua \nmisingi ya \nAzimio la \nArusha (Ujamaa \nna Kujitegemea) \nkatika\nKisamafunzo: Tumia \nkisamafunzo kuwezesha \nwanafunzi kufafanua misingi \nya Azimio la Arusha katika \nharakati za ujenzi wa Taifa huru \nna maadili nchini\nMisingi ya \nAzimio la \nArusha katika \nharakati za \nujenzi wa \nTaifa huru na \nmaadili nchini \nimefafanuliwa\n- Matini yenye \ntaarifa za \nAzimio la \nArusha",
+      "char_count": 1621
+    },
+    {
+      "page_number": 43,
+      "text": "37\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n harakati za \nujenzi wa \nTaifa huru na \nmaadili nchini \n(ushirikiano, \nhaki na usawa, \nheshima, utu, \nuwajibikaji, \nmiiko ya \nuongozi, umoja \nwa Kitaifa na \nuzalendo n.k)\nMajadiliano: Ongoza \nwanafunzi kujadili na \nkufafafanua misingi ya \nAzimio la Arusha (Ujamaa na \nKujitegemea) katika harakati za \nujenzi wa Taifa huru na maadili \nKutumia TEHAMA: \nTumia picha au maudhui \nyaliyoifadhiwa katika midia \nkuwezesha wanafunzi \nkufafanua misingi ya Azimio la \nArusha katika harakati za ujenzi \nwa Taifa huru na maadili nchini\n- Picha//picha \nmguso au \nmichoro yenye \nkuonesha \nmatukio ya \nAzimio la \nArusha\n- Filamu \nza hotuba \nzinazohusu \nmatukio ya \nAzimio la \nArusha\n(a) Kueleza \nmchango wa \nAzimio la \nArusha katika \nharakati za \nmapambano \ndhidi ya rushwa\nMaswali na majibu: Tumia \nmaswali kuwezesha wanafunzi \nkujadili na kueleza mchango wa \nazimio la Arusha katika harakati \nza mapambano dhidi ya rushwa \nChanganyakete: Ongoza \nwanafunzi katika vikundi \nkujadili mchango wa Azimio \nla Arusha katika harakati za \nmapambano dhidi ya rushwa na \nkisha kushirikisha vikundi vya \njirani\nMchango wa \nAzimio la \nArusha katika \nharakati za \nmapambano \ndhidi ya \nrushwa \numeelezwa \n- Matini \nyanayohusu \nmatukio ya \nkihistoria, \n- Visa mafunzo \nkuhusu rushwa\n- Hotuba \nzinazohusu \nAzimio la \nArusha katika \nharakati za \nmapambano \ndhidi ya \nrushwa ",
+      "char_count": 1549
+    },
+    {
+      "page_number": 44,
+      "text": "38\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\nKisa mafunzo: Tumia \nkisamafunzo kuwezesha \nwanafunzi kujadili na kueleza \nmchango wa Azimio la Arusha \nkatika harakati za mapambano \ndhidi ya rushwa\n(b) Kutathmini \nharakati za \nujenzi wa Taifa \nna maadili \nwakati wa \nkipindi cha \n1967-1985 \nUtafiti mdogo: Wanafunzi \nwachunguze na kutathimini \nharakati za ujenzi wa Taifa na \nmaadili wakati wa kipindi cha \n1967-1985 \nChanganyakete: Wanafunzi \nkujadili wakitathimini harakati \nza ujenzi wa Taifa na maadili \nwakati wa kipindi cha 1967-\n1985 kwa kushirikisha vikundi \nvya jirani \nMwanafunzi \nametathimini \nharakati za \nujenzi wa Taifa \nna maadili \nwakati wa \nkipindi cha \n1967-1985 \n- Matini yenye \ntaarifa za \nharakati za \nujenzi wa Taifa \nna maadili \nwakati wa \nkipindi cha \n1967-1985 \n- Hotuba zenye \ntaarifa za \nharakati za \nujenzi wa Taifa \nna maadili \nwakati wa \nkipindi cha \n1967-1985 ",
+      "char_count": 1050
+    },
+    {
+      "page_number": 45,
+      "text": "39\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n2.2 Kuelezea \nmchango \nwa Tanzania \nkatika \nmapambano \ndhidi ya \nukoloni na \nukandamizaji\n(a) Kueleza \nmchango wa \nTanzania katika \nukombozi wa \nAfrika dhidi \nya ukoloni na \nukandamizaji \n(lengo na \numuhimu wake \nkwa Tanzania)\nMgeni mtaalamu: Alika \nmgeni kusimulia mchango wa \nTanzania katika ukombozi wa \nAfrika dhidi ya ukoloni na \nukandamizaji \nKisa mafunzo: Tumia \nkisamafunzo kuwezesha \nwanafunzi kueleza mchango \nwa Tanzania katika ukombozi \nwa Afrika dhidi ya ukoloni na \nukandamizaji\nMchango \nwa Tanzania \nkatika \nukombozi wa \nAfrika dhidi \nya ukoloni na \nukandamizaji \numeelezwa \nlwa kuzingatia \nlengo na \numuhimu \nwake kwa \nTanzania\n- Visa mafunzo \nkuhusu \nmapambano \ndhidi ya \nukoloni na \nukandamizaji \nAfrika \n- Hotuba \nau matini \nzinazohusu \nmapambano \ndhidi ya \nukoloni na \nukandamizaji \nAfrika\n23\n(b) Kubaini \nmchango wa \nTanzania katika \nmapambano \ndhidi ya ukoloni \nna ukandamizaji\nMajadiliano: Ongoza \nwanafunzi kujadili ili kubaini \nmchango wa Tanzania katika \nmapambano dhidi ya ukoloni na \nukandamizaji\nMsawali na Majibu: \nTumia maswali kuwezesha \nwanafunzi kubaini mchango \nwa Tanzania katika ukombozi \nwa Afrika dhidi ya ukoloni na \nukandamizaji\nMwanafunzi \nanabaini \nmchango \nwa Tanzania \nkatika \nmapambano \ndhidi ya \nukoloni na \nukandamizaji \n- Hotuba \nzinazohusu \nmapambano \ndhidi ya \nukoloni na \nukandamizaji \nAfrika\n- Matini yenye \ntaarifa za \nharakati za \nukombozi wa \nAfrika dhidi \nya ukoloni na \nukandamizaji",
+      "char_count": 1647
+    },
+    {
+      "page_number": 46,
+      "text": "40\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n3.0 Kutathmini \nHistoria ya \nTanzania \nna Maadili \nwakati wa \nUliberali \n1986 hadi \nsasa\n3.1 Kufafanua \ndhana ya \nuliberali kwa \nkuhusianisha \nna maadili ya \nKitanzania\n(a) Kuelezea dhana \nya uliberali \n(maana na sifa)\n Changanyakete: Wezesha \nwanafunzi kujadili katika \nvikundi dhana ya uliberali kwa \nkuzingatia maana na sifa za \nuliberali wakishirikisha vikundi \nvya jirani\nBanguaBongo: Ongoza \nwanafunzi kubanguabongo \nwakieleza maana, chimbuko, \nsifa na sababu za uliberali \nDhana ya \nuliberali \nimeelezwa \nkwa kuzingatia \nmaana na sifa\n- Matini zenye \ntaarifa za \nuliberali\n38\n(b) Kubaini athari \nza uliberali \nkatika maadili \nna ujenzi wa \nTaifa\nUtafiti mdogo: Ongoza \nwanafunzi kuchunguza athari \nza uliberali katika maadili na \nujenzi wa Taifa\nKutumia TEHAMA: Tumia \nmakala za filamu zinayohusu \nuliberali na maadili kuwezesha \nwanafunzi kujadili athari za \nuliberali katika maadili na \nujenzi wa Taifa\nMdahalo: Ongoza mdahalo \nkuhusu athari za utandawazi \nkatika maadili \nAthari za \nuliberali katika \nmaadili na \nujenzi wa Taifa \nzimebainishwa\n- Matini zenye \ntaarifa za \nuliberali \n- Filamu zenye \nmakala \nzinazohusu \nuliberali na \nmaadili",
+      "char_count": 1357
+    },
+    {
+      "page_number": 47,
+      "text": "41\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(c) Kutathmini \nmikakati ya \nkukabiliana na \nchangamoto za \nkimaadili katika \nujenzi wa Taifa \nkatika nyakati \nza uliberali na \nwakati uliopo\nIgizodhima: Waongoze \nwanafunzi kuandaa na kuonesha \nigizo kuhusu changamoto \nza kimaadili na mikakati ya \nkukabiliana nazo\nMdahalo: Wanafunzi wajadili \nkatika mdahalo wakitathimini \nmikakati ya kukabiliana na \nchangamoto za kimaadili katika \nujenzi wa Taifa katika nyakati \nza uliberali na wakati uliopo\nMwanafunzi \nanatathimini \nmikakati ya \nkukabiliana na \nchangamoto \nza kimaadili \nkatika ujenzi \nwa Taifa \nkatika nyakati \nza uliberali na \nwakati uliopo \n- Matini zenye \nmakala \nzinazohusu \nathari za \nuliberali katika \nujenzi wa Taifa \nna maadili\n- Filamu zenye \nmakala \nzinazohusu \nathari za \nuliberali katika \nujenzi wa Taifa \nna maadili\n3.2 Kutumia \nmaarifa na \nujuzi wa \nhistoria ya \nTanzania \nna maadili \nkufanya \nuamuzi \nsahihi katika \nnyakati za \nuliberali\n(a) Kubaini uwepo \nwa mkinzano wa \nmaadili nyakati \nza uliberali\nMtaalamu mwalikwa: Alika \nmtaalamu kuongea kuhusu \nuwepo wa mkinzano wa maadili \nnyakati za uliberali \nUtafiti mdogo: Ongoza \nwanafunzi kufanya utafiti \nmdogo kuhusu athari za \nutandawazi katika maadili \nnchini\nMdahalo: Ongoza wanafunzi \nkujadili katika mdahalo kuhusu \nuwepo wa mkinzano wa maadili \nnyakati za uliberali\nMwanafunzi \namebaini \nuwepo wa \nmkinzano \nwa maadili \nnyakati za \nuliberali \n- Matini \nzenye taarifa \nzinazohusu \nathari za \nutandawazi \nkatika maadili\n- Filamu zenye \nmakala \nzinazohusu \nmkinzano \nwa maadili \nnyakati za \nuliberali\n38",
+      "char_count": 1738
+    },
+    {
+      "page_number": 48,
+      "text": "42\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(b) Kueleza athari \nza uliberali kwa \nTaifa katika \nkufanya uamuzi \nsahihi\nMdahalo: Ongoza mdahalo \nkuwezesha wanafunzi kujadili \nna kueleza athari za uliberali \nkwa Taifa na katika kufanya \nuamuzi sahihi\nMaswali na majibu: Tumia \nmaswali kuwezesha wanafunzi \nkujadili na kueleza athari za \nuliberali kwa Taifa katika \nkufanya uamuzi sahihi\nAthari za \nuliberali kwa \nTaifa katika \nkufanya \nmaamuzi \nsahihi \nzimeelezwa \n- Matini zenye \nmaudhui \nyanayohusu \nuliberali, \nujenzi wa Taifa \nna maadili\n- Filamu zenye \nmakala \nzinazohusu \nuliberali, \nujenzi wa Taifa \nna maadili\n(c) Kubaini mbinu \nzinazotumika \nkukabili \nmkinzano wa \nmaadili katika \nujenzi wa Taifa\nZiara mafunzo: Ongoza \nwanafunzi kutembelea ofisi \nza ustawi wa jamii/ serikali \nza mitaa ili kubaini mbinu \nmbalimbali zinazotumika \nkulinda maadili na katika ujenzi \nwa Taifa\nMdahalo: Ongoza mdahalo \nkuwezesha wanafunzi kujadili \nmbinu zinazotumika kukabili \nmkinzano wa maadili katika \nujenzi wa Taifa\nMbinu \nzinazotumika \nkukabili \nmkinzano wa \nmaadili katika \nujenzi wa Taifa \nzimebainishwa \n- Matini zenye \nmaudhui \nyanayohusu \nuliberali, \nujenzi wa Taifa \nna maadili\n- Filamu zenye \nmakala \nzinazohusu \nuliberali, \nujenzi wa Taifa \nna maadili",
+      "char_count": 1416
+    },
+    {
+      "page_number": 49,
+      "text": "43\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n4.0 Kumudu \nKatiba ya \nJamhuri ya \nMuungano \nwa Tanzania\n4.1 Kufafanua \ndhana ya \nKatiba ya \nJamhuri ya \nMuungano \nwa Tanzania\n(a) Kueleza dhana \nya Katiba  \n(maana, aina, \numuhimu na \nupatikanaji \nwake)\nMtaalamu mwalikwa: Alika \nmtaalamu kuongea kuhusu \ndhana ya Katiba \nUtafiti mdogo: Ongoza \nwanafunzi kufanya utafiti \nmdogo kuhusu dhana ya Katiba\nMdahalo: Ongoza wanafunzi \nkujadili katika mdahalo kuhusu \ndhana ya Katiba\nDhana ya \nKatiba  kwa \nkuzingatia \nmaana, aina, \numuhimu na \nupatikanaji \nwake \nimeelezwa\n- Matini zenye \ntaarifa kuhusu \ndhana ya \nKatiba\n38\n(b) Kuelezea \nhistoria ya \nKatiba ya \nJamhuri ya \nMuungano wa \nTanzania\nMtaalamu mwalikwa: Alika \nmtaalamu kuongea kuhusu \nhistoria ya Katiba ya Jamhuri ya \nMuungano wa Tanzania\nMaswali na majibu: Tumia \nmaswali kuwezesha wanafunzi \nkujadili na kueleza historia \nya Katiba ya Jamhuri ya \nMuungano wa Tanzania\nHistoria ya \nKatiba ya \nJamhuri ya \nMuungano \nwa Tanzania \nimeelezwa\n- Matini zenye \ntaarifa kuhusu \nKatiba \n- Matini zenye \ntaarifa kuhusu \nHistoria ya \nKatiba\n- Katiba ya \nJamhuri ya \nMuungano wa \nTanzania",
+      "char_count": 1291
+    },
+    {
+      "page_number": 50,
+      "text": "44\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n4.2 Kuelezea \nutekelezaji \nwa Katiba ya \nJamhuri ya \nMuungano \nwa Tanzania  \nkatika jamii\n(a) Kufafanua \nkazi za Katiba \nya Jamhuri ya \nMuungano wa \nTanzania\nMaswali na majibu: Tumia \nmaswali na majibu kuwezesha \nwanafunzi kufafanua kazi \nza Katiba ya Jamhuri ya \nMuungano wa Tanzania\nUtafiti mdogo: Ongoza \nwanafunzi kufanya utafiti \nmdogo kuhusu kazi za Katiba \nya Jamhuri ya Muungano wa \nTanzania\nMdahalo: Ongoza wanafunzi \nkujadili katika mdahalo kuhusu \nkazi za Katiba ya Jamhuri ya \nMuungano wa Tanzania\nKazi za Katiba \nya Jamhuri \nya Muungano \nwa Tanzania \nzimeelezwa\n- Matini zenye \ntaarifa kuhusu \nkazi za Katiba \n- Katiba ya \nJamhuri ya \nMuungano wa \nTanzania\n(b) Kubaini \nmihimili ya dola \n(Serikali, Bunge \nna Mahakama)\ninavyotekeleza \nKatiba ya JMT\nMaswali na majibu: Tumia \nmaswali kuwezesha wanafunzi \nkubaini mihimili ya dola\nZiara mafunzo: Ongoza \nwanafunzi kutembelea \nmahakama na bunge ili \nkubaini jinsi mihimili hiyo \ninavyotekeleza Katiba\nMihimili \nya dola \nimebainishwa\n- Matini zenye \ntaarifa kuhusu \nmihimili ya \ndola",
+      "char_count": 1249
+    },
+    {
+      "page_number": 51,
+      "text": "45\nUmahiri \nmkuu\nUmahiri \nmahususi\nShughuli za \nujifunzaji\nMbinu za ufundishaji na \nujifunzaji zinazopendekezwa\nVigezo vya \nupimaji\nZana za \nufundishaji \nna ujifunzaji \nzinazo-\npendekezwa\nIdadi \nya \nvipindi\n(c) Kubainisha \nrasilimali \nmbalimbali za \nTaifa (ardhi, \nmadini,maji, \nnishati, \nrasilimali \nza majini, \nwanyamapori, \nmisitu nk) \nzinazolindwa na \nKatiba ya JMT\nMaswali na majibu: Tumia \nmaswali na majibu kuwezesha \nwanafunzi kubainisha rasilimali \nmbalimbali za Taifa \nUtafiti mdogo: Ongoza \nwanafunzi kufanya utafiti \nmdogo kuhusu rasilimali \nmbalimbali za Taifa \nRasilimali \nmbalimbali \nza Taifa \nzimebainishwa\n- Matini zenye \ntaarifa kuhusu \nrasilimali \nmbalimbali za \nTaifa",
+      "char_count": 687
+    },
+    {
+      "page_number": 52,
+      "text": "46\nBibliografia\nBaraza la Kiswahili la Taifa. (2017). Kamusi ya Kiswahili, Toleo la Pili. Longhorn Publishers (T) Ltd. \nBrennan, J. (2012). Taifa: Making Nation and Race in Urban Tanzania. Ohio University Press.\nIliffe, J. (1979). A Modern History of Tanganyika. Cambridge University Press.\nJamhuri ya Muungano wa Tanzania. (2022). Muungano wa Tanganyika na Zanzibar: Chimbuko, Misingi na Maendeleo. Mkuki na \nNyota Publishers Ltd.\nKimambo I., Maddox, G. & Nyanto, S. (2017). A New History of Tanzania. Mkuki na Nyota Publishers Ltd. \nMauritius Institute of Education. (2015). National Curriculum Framework. Mauritius Institute of Education.\nMkapa, B. W.  (2019).  My Life, My Purpose: A Tanzanian President Remembers. Mkuki na Nyota Publishers Ltd.\nNdagala D.K. (2018). Utamaduni na Maendeleo Nchini Tanzania. Matai Ltd.\nNyerere, J. (1967). Freedom and Unity: A Selection from Writings and Speeches, 1952-1965. Oxford University Press. \nNyerere, J. (1973). Freedom and Socialism: A Selection from Writings and Speeches, 1965-1967. Oxford University Press.\nShivji, I., Yahya- Othman, S.  & Kamata, N. (2020). Development as Rebellion: A Biography of Julius Nyerere, Vol. 1-3. Mkuki na \nNyota Publishers Ltd.\nTaasisi ya Elimu Tanzania. (2019). Muhtasari wa Somo la Maarifa ya Jamii Elimu ya Msingi Darasa la III-VII. Wizara ya Elimu, \nSayansi na Teknolojia.\nTaasisi ya Elimu Tanzania. (2019). Muhtasari wa Somo la Uraia na Maadili Elimu ya Msingi Darasa la III-VII. Wizara ya \nElimu, Sayansi na Teknolojia.\nTAKUKURU & Chama cha Skauti Tanzania. (2019). Mwongozo wa Mafunzo kwa Wawezeshaji Kufundisha Vijana wa Skauti \nKuhusu Kuzuia na Kupambana na Rushwa. Taasisi ya Kuzuia na Kupambana na Rushwa Tanzania.\nTAKUKURU & Chama cha Skauti Tanzania. (2020). Mwongozo wa Mafunzo kwa Wananchi, Viongozi na Watendaji wa Serikali za \nMitaa Kuhusu Mapambano dhidi ya Rushwa. Taasisi ya Kuzuia na Kupambana na Rushwa Tanzania.\nWizara ya Utamaduni, Sanaa na Michezo. (2022).  Mwongozo wa Maadili na Utamaduni wa Mtanzania. Wizara ya Utamaduni, \nSanaa na Michezo.",
+      "char_count": 2049
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 3,
+        "main_competences": [
+          "1.0 Utangulizi ..............................................................................................................",
+          "2.0 Malengo ya Elimu Tanzania ...............................................................................................",
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III-VI .............................................................................",
+          "4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI .......................................................................",
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ........................................................................................",
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji .........................................",
+          "7.0 Ufundishaji na Ujifunzaji ...............................................................................................",
+          "8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji ................................................................................",
+          "9.0 Upimaji katika Ufundishaji na Ujifunzaji ................................................................................"
+        ],
+        "specific_competences": [
+          "1.0 Utangulizi ..............................................................................................................",
+          "2.0 Malengo ya Elimu Tanzania ...............................................................................................",
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III-VI .............................................................................",
+          "4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI .......................................................................",
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ........................................................................................",
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji .........................................",
+          "6.1  Mwalimu .................................................................................................................",
+          "6.2  Mwanafunzi ..............................................................................................................",
+          "6.3  Mzazi/Mlezi .............................................................................................................",
+          "7.0 Ufundishaji na Ujifunzaji ...............................................................................................",
+          "8.0 Zana/Vifaa vya Ufundishaji na Ujifunzaji ................................................................................",
+          "9.0 Upimaji katika Ufundishaji na Ujifunzaji ................................................................................"
+        ],
+        "periods": []
+      },
+      {
+        "page": 7,
+        "main_competences": [
+          "2.0 Malengo ya Elimu Tanzania"
+        ],
+        "specific_competences": [
+          "2.0 Malengo ya Elimu Tanzania"
+        ],
+        "periods": []
+      },
+      {
+        "page": 8,
+        "main_competences": [
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III-VI"
+        ],
+        "specific_competences": [
+          "3.0 Malengo ya Elimu ya Msingi Darasa la III-VI"
+        ],
+        "periods": []
+      },
+      {
+        "page": 9,
+        "main_competences": [
+          "4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI"
+        ],
+        "specific_competences": [
+          "4.0 Umahiri wa Jumla Elimu ya Msingi Darasa la III-VI"
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ",
+          "1.0 Kulinda historia ya Tanzania, ",
+          "2.0 Kumudu historia ya Tanzania ",
+          "3.0 Kumudu historia ya Tanzania ",
+          "4.0 Kumudu historia ya ujenzi wa ",
+          "5.0 Kutathmini ujenzi wa Taifa na ",
+          "6.0 Kutathmini historia ya ",
+          "7.0   Kumudu Katiba ya Jamhuri ya "
+        ],
+        "specific_competences": [
+          "5.0 Umahiri Mkuu na Umahiri Mahususi ",
+          "1.0 Kulinda historia ya Tanzania, ",
+          "1.1 Kumudu dhana ya historia ya Tanzania urithi na maadili",
+          "1.2 Kumudu maarifa ya jamii inayomzunguka",
+          "1.3 Kutumia maarifa na ujuzi wa jamii inayomzunguka kusimulia asili, urithi na maadili ya jamii ",
+          "1.4 Kutathmini ushirikiano baina ya jamii za Kitanzania katika kujenga uhusiano wa kijamii na ",
+          "2.0 Kumudu historia ya Tanzania ",
+          "2.1 Kuelezea mifumo mbalimbali ya utunzaji na ukuzaji wa maadili ya jamii za Kitanzania kabla ya ",
+          "2.2 Kueleza maendeleo ya jamii za Kitanzania na maadili yake kabla ya ukoloni.",
+          "3.0 Kumudu historia ya Tanzania ",
+          "3.1  Kuelezea historia ya Tanzania na urithi wakati wa ukoloni",
+          "3.2  Kulinganisha mabadiliko na mwendelezo wa maadili kabla na wakati wa ukoloni ",
+          "3.3 Kuelezea jitihada za kulinda maadili ya Kitanzania dhidi ya maadili ya kigeni yaliyoletwa ",
+          "4.0 Kumudu historia ya ujenzi wa ",
+          "4.1 Kumudu historia ya ujenzi wa Taifa na maadili mara baada ya uhuru katika kipindi cha 1961-1966",
+          "4.2 Kuelezea mchango wa Tunu na Alama za Taifa katika kujenga umoja wa kitaifa na uzalendo",
+          "4.3  Kutumia Alama za Taifa kama utambulisho wa Tanzania",
+          "5.0 Kutathmini ujenzi wa Taifa na ",
+          "5.1 Kuelezea misingi na maadili ya Azimio la Arusha na Siasa ya Ujamaa na Kujitegemea",
+          "5.2 Kuelezea mchango wa Tanzania katika mapambano dhidi ya ukoloni na ukandamizaji",
+          "6.0 Kutathmini historia ya ",
+          "6.1 Kufafanua dhana ya ulibelali kwa kuhusianisha na maadili ya Kitanzania",
+          "6.2 Kutumia maarifa na ujuzi wa historia ya Tanzania na maadili kufanya uaamuzi sahihi katika ",
+          "7.0   Kumudu Katiba ya Jamhuri ya ",
+          "7.1 Kufafanua dhana ya Katiba ya Jamhuri ya Muungano wa Tanzania",
+          "7.2 Kuelezea utekelezaji wa Katiba ya Jamhuri ya Muungano wa Tanzania  katika jamii"
+        ],
+        "periods": []
+      },
+      {
+        "page": 11,
+        "main_competences": [
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji"
+        ],
+        "specific_competences": [
+          "6.0 Majukumu ya Mwalimu, Mwanafunzi na Mzazi/Mlezi katika Ufundishaji na Ujifunzaji"
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [],
+        "specific_competences": [
+          "6.3 Mzazi/Mlezi"
+        ],
+        "periods": []
+      },
+      {
+        "page": 13,
+        "main_competences": [
+          "7.0 Ufundishaji na Ujifunzaji ",
+          "8.0 Zana za Ufundishaji na Ujifunzaji "
+        ],
+        "specific_competences": [
+          "7.0 Ufundishaji na Ujifunzaji ",
+          "8.0 Zana za Ufundishaji na Ujifunzaji "
+        ],
+        "periods": []
+      },
+      {
+        "page": 14,
+        "main_competences": [
+          "9.0 Upimaji katika Ufundishaji na Ujifunzaji",
+          "10.0  Idadi ya Vipindi "
+        ],
+        "specific_competences": [
+          "9.0 Upimaji katika Ufundishaji na Ujifunzaji",
+          "10.0  Idadi ya Vipindi "
+        ],
+        "periods": []
+      },
+      {
+        "page": 15,
+        "main_competences": [
+          "11.0   Maudhui ya Ufundishaji na Ujifunzaji wa Umahiri Husika"
+        ],
+        "specific_competences": [
+          "11.0   Maudhui ya Ufundishaji na Ujifunzaji wa Umahiri Husika"
+        ],
+        "periods": []
+      },
+      {
+        "page": 16,
+        "main_competences": [],
+        "specific_competences": [
+          "1.1 Kumudu dhana "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 19,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3 Kutumia maarifa "
+        ],
+        "periods": []
+      },
+      {
+        "page": 22,
+        "main_competences": [],
+        "specific_competences": [
+          "1.4 Kutathmini "
+        ],
+        "periods": []
+      },
+      {
+        "page": 33,
+        "main_competences": [],
+        "specific_competences": [
+          "3.1 Kutumia Alama "
+        ],
+        "periods": []
+      }
+    ],
+    "Standard V": [
+      {
+        "page": 36,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Kulinganisha "
+        ],
+        "periods": []
+      },
+      {
+        "page": 42,
+        "main_competences": [
+          "2.0 Kutathmini "
+        ],
+        "specific_competences": [
+          "2.0 Kutathmini "
+        ],
+        "periods": []
+      },
+      {
+        "page": 46,
+        "main_competences": [
+          "3.0 Kutathmini "
+        ],
+        "specific_competences": [
+          "3.0 Kutathmini "
+        ],
+        "periods": [
+          "3"
+        ]
+      }
+    ]
+  }
+}

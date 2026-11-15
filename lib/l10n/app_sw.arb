@@ -789,6 +789,58 @@
   "@topicsLabel": {},
   "lessonsLabel": "masomo",
   "@lessonsLabel": {},
+  "subtopicsLabel": "mada ndogo",
+  "@subtopicsLabel": {},
+  "periodCountLabel": "Vipindi {count}",
+  "@periodCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalPeriodsLabel": "Jumla ya vipindi {count}",
+  "@totalPeriodsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "competencyCodeLabel": "Umahiri Mahususi",
+  "@competencyCodeLabel": {},
+  "assessmentCriteriaLabel": "Vigezo vya Upimaji",
+  "@assessmentCriteriaLabel": {},
+  "learningOutcomesLabel": "Umahiri Mahususi na Matokeo ya Kujifunza",
+  "@learningOutcomesLabel": {},
+  "sourcePageLabel": "Ukurasa {page}",
+  "@sourcePageLabel": {
+    "placeholders": {
+      "page": {
+        "type": "int"
+      }
+    }
+  },
+  "classificationCompulsory": "Somo la Lazima",
+  "@classificationCompulsory": {},
+  "classificationElective": "Somo la Hiari",
+  "@classificationElective": {},
+  "officialCurriculumBadge": "Mtaala Rasmi wa TET 2023",
+  "@officialCurriculumBadge": {},
+  "syllabusReferenceLabel": "Rejea ya Muhtasari",
+  "@syllabusReferenceLabel": {},
+  "allSubjectsFilter": "Masomo Yote",
+  "@allSubjectsFilter": {},
+  "compulsoryFilter": "Ya Lazima Pekee",
+  "@compulsoryFilter": {},
+  "electiveFilter": "Ya Hiari Pekee",
+  "@electiveFilter": {},
+  "searchCurriculumPlaceholder": "Tafuta masomo, umahiri, au mada...",
+  "@searchCurriculumPlaceholder": {},
+  "viewOfficialSyllabusAction": "Maelezo ya Muhtasari",
+  "@viewOfficialSyllabusAction": {},
+  "officialDocumentDetailsTitle": "Maelezo Rasmi ya Muhtasari wa TET",
+  "@officialDocumentDetailsTitle": {},
   "studyLessonAction": "Jifunze",
   "@studyLessonAction": {},
   "parentDashboardSubtitle": "Fuatilia shughuli za kujifunza, maendeleo ya umahiri, na matokeo ya watoto wako.",

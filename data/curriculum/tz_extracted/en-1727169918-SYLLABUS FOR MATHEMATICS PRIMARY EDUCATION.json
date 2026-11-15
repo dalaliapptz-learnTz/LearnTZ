@@ -1,0 +1,557 @@
+{
+  "filename": "en-1727169918-SYLLABUS FOR MATHEMATICS PRIMARY EDUCATION.pdf",
+  "title": "Mathematics Syllabus for Primary School Education Standard III-VI",
+  "swahili_title": "Muhtasari wa Somo la Hisabati Elimu ya Msingi Darasa la III-VI",
+  "subject_name": "Mathematics",
+  "subject_code": "TZ-TIE-PRI-MATH",
+  "classification": "compulsory",
+  "language": "en",
+  "isbn": "978-9987-09-858-3",
+  "publication_year": 2023,
+  "publisher": "Tanzania Institute of Education (TIE)",
+  "country_code": "TZ",
+  "education_level": "Primary Education",
+  "grades": [
+    "Standard III",
+    "Standard IV",
+    "Standard V",
+    "Standard VI"
+  ],
+  "file_sha256": "baef25143a8133b1a435854134f0971133585bb8674d873ba99b83826a0e6eb8",
+  "file_size_bytes": 826615,
+  "page_count": 40,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "i\nTHE UNITED REPUBLIC OF TANZANIA \nMINISTRY OF EDUCATION, SCIENCE AND TECHNOLOGY\nMATHEMATICS SYLLABUS FOR PRIMARY SCHOOL EDUCATION \nSTANDARD III-VI\n2023\n",
+      "char_count": 153
+    },
+    {
+      "page_number": 2,
+      "text": "ii\n© Tanzania Institute of Education 2023\n First Edition 2023\nISBN: 978-9987-09-858-3  \nTanzania Institute of Education \nMikocheni Area\n132 Ali Hassan Mwinyi Road\nP. O. Box 35094 \n14112 Dar es Salaam\nMobile numbers:  +255 735 041 168 / 735 041 170 \nE-mail: director.general@tie.go.tz \nWebsite:  www.tie.go.tz\nThis Syllabus should be cited as: Ministry of Education, Science and Technology (2023). Mathematics Syllabus for Primary \nEducation Standard III - VI. Tanzania Institute of Education.\nAll rights reserved. No part of this syllabus may be reproduced, stored in any retrieval system or transmitted in any form or by \nany means whether electronic, mechanical, photocopying, recording or otherwise without the prior written permission of the \nTanzania Institute of Education. ",
+      "char_count": 780
+    },
+    {
+      "page_number": 3,
+      "text": "iii\nTable of Contents\nList of Tables........................................................................................................................................................................   iv\nAbbreviations   ....................................................................................................................................................................    v \nAcknowledgements...............................................................................................................................................................  vi\n1.0 Introduction.................................................................................................................................................................     1\n2.0 Main Objectives of Education in Tanzania..................................................................................................................    1\n3.0 Objectives of Primary Education...............................................................................................................................      2\n4.0 General Competences for Primary Education....................................................................................,........................     2\n5.0 Main and Specific Competences................................................................................................................................      3\n6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning.............................................................      4\n6.1 The teacher............................................................................................................................................................     4\n6.2 The Pupil...............................................................................................................................................................     5\n6.3 Parent/Guardian....................................................................................................................................................     5\n7.0 Teaching and Learning Methods................................................................................................................................      5\n8.0 Teaching and Learning Resources/materials..............................................................................................................      6\n9.0 Assessment.................................................................................................................................................................    . 6\n10.0 Number of Periods.......................................................................................................................................................    6\n11.0  Teaching and Learning Content....................................................................................................................................   7\nStandard III...........................................................................................................................................................................   8\nStandard IV ..................................................................................................................................................................;........   16\nStandard V ....................................................................................................................................................................;......    20\nStandard VI.....................................................................................................................................................................;...    28\nBibliography..................................................................................................................................................................;.....    34",
+      "char_count": 3906
+    },
+    {
+      "page_number": 4,
+      "text": "iv\nList of Tables\nTable 1: Main and specific competences...........................................................................................................................     3\nTable 2: Contents for Standard III....................................................................................................................................      8\nTable 3: Contents for Standard IV ...................................................................................................................................       16\nTable 4: Contents for Standard V ......................................................................................................................................      20\nTable 5: Contents for Standard VI..................................................................................................................................        28",
+      "char_count": 884
+    },
+    {
+      "page_number": 5,
+      "text": "v\nAbbreviations\nGCF Greatest Common Factor\nLCM Lowest Commnon Multiple\nTSL Tanzania Sign Language\nICT Information and Communication Technology\nTIE Tanzania Institute of Education",
+      "char_count": 178
+    },
+    {
+      "page_number": 6,
+      "text": "vi\nAcknowledgements\nThe writing of the Mathematics Syllabus for Primary Education Standard III–IV involved various experts from both governmental \nand non-governmental institutions. Therefore, the Tanzania Institute of Education (TIE) would like to thank all the experts who \nparticipated in the writing of this syllabus, namely curriculum developers from TIE, lecturers, tutors, school quality assurance \nofficers, teachers and experts from civil society organisations. The Institute is also grateful to the National Technical Committee \nthat was formed by the Minister for Education, Science and Technology for coordinating the curriculum review process for pre- \nprimary, primary, secondary and teacher education. The Committee discharged its responsibilities professionally by ensuring \nthat the contents of this syllabus are in line with the main objective of the 2023 curricular review, which is to ensure that the \ngraduates acquire skills, knowledge and attitude that will enable them to create self-employment, employ others, be employed \nand able to sustain themselves. \nFinally, TIE thanks the Ministry of Education, Science and Technology in a special way for facilitating the preparation and \ndistribution of this syllabus.  \nDr  Aneth A. Komba \nDirector General\nTanzania Institute of Education\n",
+      "char_count": 1308
+    },
+    {
+      "page_number": 7,
+      "text": "1\n1.0 Introduction\nMathematics is a compulsory subject for Primary Education pupils from Standard III to VI. The aim of teaching this subject \nis to enable the pupil have the ability to demonstrate mastery of elementary mathematical skills and mastery of  elementary \nmathematical applications. In addition, this subject will enable the pupil demonstrate understanding of concepts  and various \nmathematical skills  including concept of numbers, basic numerical operations, measurements, financial mathematics  and \nmathematics of time. The pupil will also be able to have understanding of elementary statistics and its applications, algebra, \nmathematical skills, and geometry. In general, the pupil will develop the ability to think logically in interpreting and solving \nproblems in his or her environment.\nThis Syllabus has been prepared with the aim of guiding the teacher in the teaching and learning of Mathematics Standard \nIII-VI in Tanzania Mainland. The Syllabus interprets the competences indicated in the 2023 Primary  Education Curriculum. \nIt provides information that will enable teachers to plan their teaching processes effectively and help learner to develop the \nintended competences. In addition, the Syllabus will enable the teacher to plan teaching and learning activities that  build the \npupil’s skills of curiosity, creativity, cooperation, critical thinking, problem solving and  communication\n2.0 Main Objectives of Education in Tanzania\nThe main objectives of providing education in Tanzania are to enable every Tanzanian to:\n(a) Develop and improve his or her personality so that he or she values himself or herself and develops self-confidence;\n(b) Respect the culture, traditions and customs of Tanzania; cultural differences; dignity; human rights; attitudes and \ninclusive actions;\n(c) Apply science and technology, creativity, critical thinking, innovation, cooperation, communication and positive \nattitudes for his or her development and the sustainable development of the nation and the world at large;\n(d) Understand and protect national values, including dignity, patriotism, integrity, unity, transparency, honesty, \naccountability and the national language;\n(e) Develop life and work-related skills to increase efficiency in everyday life;",
+      "char_count": 2281
+    },
+    {
+      "page_number": 8,
+      "text": "2\n(f) Develop a habit of loving and valuing work to increase productivity and efficiency in production and service provision;\n(g) Identify and consider cross-cutting issues, including the health and well-being of the society, gender equality, as well \nas the management and sustainable conservation of the environment; and\n(h) Develop national and international cooperation, peace and justice in accordance with the Constitution of the United \nRepublic of Tanzania and international conventions.\n3.0 Objectives of Primary Education \nThe objectives of Primary Education Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills, communicate fluently, using Tanzanian Sign Language (TSL) and \ntactile communication;\n(b) Master, appreciate and  use Kiswahili and English Language and at least one other foreign language;\n(c) Appreciate and maintain Tanzanian culture, and national unity and recognising other people’s cultures;\n(d) Develop knowledge, the ability to inquire, think critically, design and solve problems.\n(e) Promote moral values, integrity, and respect for differences of /in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of appreciating/valuing and loving work;\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and inclination to take care of the environment, respect gender equality and other cross-\ncutting issues; and\n(j) Develop the ability to socialise in an inclusive environment.\n4.0 General Competences for Primary Education\nThe general competences for Primary Education, Standard III─VI are to: \n(a) Develop reading, writing, and arithmetic skills and communicate fluently using Tanzanian Sign Language (TSL) and \ntactile communication;",
+      "char_count": 1786
+    },
+    {
+      "page_number": 9,
+      "text": "3\n(b) Use and appreciate Kiswahili and English Language. Also, a student should be encouraged to develop competence in \nat least one other foreign language depending on the school situation;\n(c) Appreciate and maintain Tanzanian culture and national unity and acknowledge other people’s cultures;\n(d) Develop knowledge, inquisitive mind, critical thinking, creativity and problem-solving skills;\n(e) Promote ethics, integrity, and respect for differences in faith;\n(f) Identify and develop talents, gifts, work skills, sports and arts;\n(g) Develop the habit of valuing and loving work;\n(h) Recognise and use science and technology in learning and daily life;\n(i) Develop knowledge, skills and attitude towards taking care of the environment and respect gender equality, as well as \nother cross-cutting issues; and\n(j) Develop the ability to interact in an inclusive environment.\n5.0 Main and Specific Competences\nMathematics Sylabus for Primary Education Standard III-VI has main and specific competences as presented in Table 1.\nTable 1: Main and specific competences \nMain Competences Specific  Competences\n1.0 Demonstrate mastery of elementary \nmathematical skills\n1.1 Demonstrate an understanding of the concept of numbers\n1.2 Demonstrate an understanding of basic numerical operations\n1.3 Demonstrate an understanding of measurements\n1.4 Demonstrate an understanding of elementary geometry\n1.5 Demonstrate an understanding of elementary mathematical skills\n1.6 Demonstrate an understanding of algebra\n2.0 Demonstrate mastery of elementary \napplication of mathematics\n2.1 Demonstrate an understanding of the mathematics of time\n2.2 Demonstrate an understanding of financial mathematics",
+      "char_count": 1689
+    },
+    {
+      "page_number": 10,
+      "text": "4\n6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning \nA good relationship between a teacher, pupil and parent or guardian is fundamental to ensuring successful learning. This section \noutlines the roles of each participant in facilitating effective teaching and learning mathematics subject. \n6.1 The Teacher\nThe teacher is expected to:\n(a) Help the pupil to learn and acquire the intended competences in mathematics;\n(b) Use teaching  and learning approaches that will allow the pupil with various needs and abilities to;\ni. develop the competences needed in the 21st century; \nii. actively participate in the teaching and learning process;\n(c) Use learner centred instructional strategies that make the pupil a centre of learning including those which allow \npupils to think, reflect and search information from various sources.  Other strategies include practical work, research, \nscientific experiments, group discussion and project works.  Projects should be those which are geared toward \nproposing solutions to real life problems;\n(d) Create a friendly teaching and learning environment;\n(e) Prepare and improvise teaching and learning resources;\n(f) Conduct formative assessment regularly by using tools that assess theory and practice including brainstorming, \nchecklist, experiments, questionnaire, face to face questions, classroom exercises, individual and group practical, \nprojects and portfolio. Other tools include tests, classroom presentations, mid-term, term and annual examinations; \n(g) Treat all pupils equally irrespective of their differences; \n(h) Protect the pupil while at school;\n(i) Keep track of the pupil’s daily progress;\n(j) Identify individual pupil’s needs and provide the right intervention;\n(k) Involve parents/guardians and the society at large in the pupil’s learning process; and\n(l) Integrate cross-cutting issues and ICT in the teaching and learning process.",
+      "char_count": 1926
+    },
+    {
+      "page_number": 11,
+      "text": "5\n6.2 The Pupil\nThe pupil is expected to:\n(a) Develop the intended competences by participating in various learning activities inside and outside the classroom;\n(b) Actively engage in the teaching and learning process; and\n(c) Participate in the search for knowledge from various sources, including textbooks, reference books and other publications      \n            in online libraries.\n6.3 Parent/Guardian \nParent/Guardian is expected to:\n(a) Managing and monitoring the child’s progress in learning;\n(b) Supervising the child to carry out his or her duties where possible;\n(c) Ensuring that the home environment is friendly and safe that facilitates learning\n(d) Monitoring the behavior of the child;\n(e) Provide the child with all the equipment needed in learning;\n(f) Ensuring the student gets the necessary needs; and\n(g) Teaching the child about the importance and value of education as well as encouraging him or her to study hard.\n7.0 Teaching and Learning Methods\nThis Syllabus emphasizes the use of learning and teaching methods that aim to enable the pupil to be the centre of learning \nand the teacher to be the facilitator. The teacher will use a collaborative and integrated approach in the entire learning process \ntaking into account the age, different needs and abilities of the student. Those methods are those that enable the pupil to think \noutside the box, seek knowledge from various sources, investigate things in the environment, compare, plan, translate, present, \ndo mathematical operations and use ICT to achieve learning.",
+      "char_count": 1550
+    },
+    {
+      "page_number": 12,
+      "text": "6\n8.0 Teaching and Learning Resources/materials\nLearning and teaching resources/materials should be interactive and meet the needs, age and abilities of the pupil. The teacher \nshould ensure that the pupil gets a chance to see, hear and handle the resources/materials during teaching and learning. Teaching \nand learning materials should help the pupil understand what is being taught. In addition, the teacher is advised to use the \nmaterials available in the environment around him or her, as well as textbooks, supplements and other teaching and learning \nmaterials that have been approved by the Tanzania Institute of Education (TIE). Some of the materials that will be used to \nfacilitate teaching and learning are suggested in one of the columns of the teaching and learning content in Table 2.\n9.0 Assessment\nAssessment is an important process in the teaching and learning of mathematics to facilitate the construction of the intended \ncompetences. Assessment of the Mathematics subject will include continuous assessment and final assessment. Continuous \nassessment will consider the criteria defined in each learning activity and will enable the teacher to determine the pupil’s \nability and need in learning. In addition, the teacher will aim to measure changes in knowledge, skills and the tendency to act, \nappreciate, narrate and use the skills he or she learns in the environment around him or her. Likewise, the teacher will use the \ntest information to improve teaching and enable the student to achieve the learning goal. Assessment tools that can be used \nduring teaching and learning are brainstorming, checklists, class exercises, tests, practical tests, quizzes, face-to-face questions, \nexercises, practical work (individual work and group work), project work, portfolio and other such tools. \nFinal assessment will include weekly, monthly, semester and annual examination that will be used to measure student learning \nprogress. Information from this assessment, along with being used to evaluate student progress, will be used to provide \nfeedback to facilitate teaching and learning. There will be a national assessment in Standard Six that will contribute to the \nscore 7.5 in the Form Four National Examinations.\n10.0  Number of Periods\nThe Mathematics Syllabus for Primary Education provides an estimate of the time that will be spent in teaching and learning \nbased on the weight of specific skills and activities to be performed by the pupil. These time estimates are based on a period \nsystem where each period is 40 minutes. The number of periods for this subject is six (6) per week.",
+      "char_count": 2616
+    },
+    {
+      "page_number": 13,
+      "text": "7\n11.0 Teaching and Learning Content\nMathematics Syllabus for Primary Education contains content that is organised into seven components which are the main \ncompetences, specific competences, learning activities, recommended methods, testing criteria, suggested resources and the \nnumber of periods. The content is shown in Table No. 2 to 5.",
+      "char_count": 341
+    },
+    {
+      "page_number": 14,
+      "text": "8\nStandard III\nTable 2: Contents for Standard III\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery of \nelementary \nmathematical \nskills\n1.1 Demonstrate an \nunderstanding \nof the concept \nof numbers\n(a) Recognise \nthe value of a \ndigit in a \n       multi-digit  \n       whole   \n       number\nExamples from \nMaterials: Guide \npupils, using materials \nlike learning tablets \nwith digits from 1 to 9 \nand 0, through creating \nmulti-digit numbers \nand putting values on \neach digit \nQuestions and \ndiscussion: Guide \npupils through \nrecognising the value \nof a digit in \nmulti-digit whole \nnumber \nThe value of a \ndigit in \nmulti-digit \nwhole number is \nrecognised \nCards of digits \nfrom 1 to 9 \nand 0, abacus, \nnumber tray, \nand online \nprogrammes \nrelated to value \nof a digit in \nmulti-digit \nwhole number\n52\n(b) Read and \nwrite \n      multi-digit  \n      whole \n      numbers\nGroup discussion: \nGuide the pupils \nthrough discussion on \nreading and writing \nmulti-digit whole \nnumbers\nMulti-digit whole \nnumbers are \ncorrectly read \nand written\nCards of digits \nfrom 1 to 9 \nand 0, abacus, \nnumber tray and \nchecklist",
+      "char_count": 1257
+    },
+    {
+      "page_number": 15,
+      "text": "9\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(c) Compare \nwhole \nnumbers \nusing symbols \n=, <, and >\nExamples from \nreal objects:\nGuide pupils through \nusing real objects \ncomparing whole \nnumbers and using \ncorrect comparison \nsymbols =, <, and >\nWhole numbers \nare correctly \ncompared\nWhole number \ncards, abacus, \nnumber tray and \nchecklist\n(d) Identify \nsequences \nin whole \nnumbers\nGroup discussion: \nGuide pupils through \nidentifying sequences \nof whole numbers by \nproviding examples \nfrom real life situations, \nand  discussing several \nquestions on sequences \nin whole number\nSequence \nof whole \nnumbers is \ncorrectly \nidentified \nCounters, \nabacus, \nnumber tray \nand checklist  \nand online \nprogrammes \nrelated to \nidentifying \nsequences in \nwhole numbers\n1.2 Demonstrate \nan \nunderstanding \nof basic \nnumerical \noperations\n(a) Addition  and \nsubtraction \nof  whole \nnumbers\nGroup discussion: \nGuide pupils \nthrough addition and \nsubtraction of  whole \nnumbers while drawing \nexamples from real life \nsituations\nAddition and \nsubtraction of \nwhole numbers \nis performed \ncorrectly\nCounters, \nAbacus, number \ntray, and online \nprogrammes \nrelated to \naddition and \nsubtraction of \nwhole numbers\n30",
+      "char_count": 1328
+    },
+    {
+      "page_number": 16,
+      "text": "10\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.3 Demonstrate \nan \nunderstanding \nof  \nmeasurements \n(a) Recognise \nmeasurements \nof length, \nmass and \nvolume\nPractical exercises: \nLead pupils  in groups \nto practice measuring \ndifferent objects and \nidentifying their units.\nThereafter, each group \npresents its findings  in \nclass\nMeasurements \nof length, mass \nand volume \nare recognised  \naccurately \nMeasurement \nchart, ruler, \ntape measure, \nscale, flask, \nbeaker, \nmeasuring \ncylinder, string, \njug, cup and \nbucket\n22\n1.4 Demonstrate \nan \nunderstanding \nof elementary \ngeometry\n(a) Explain the \nconcept of \nshape\nGroup discussion: \nGuide pupils thyrough \nexplaining the concept \nof shape\nCraft: Guide pupils \nthrough making \ndifferent shapes to \nexplain the concept of \nshapes and identifying \ntheir characteristics\nThe concept of \nshape is clearly \nexplained\nDrwan figures, \nphotos, real \nobjects, fabrics \nof different \nshapes, cards \nof differents \nshapes \nand online \nprogrammes \nrelated to \nexplaining \nthe concept of \nshapes",
+      "char_count": 1160
+    },
+    {
+      "page_number": 17,
+      "text": "11\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(b) Explain a \npoint, line, \nline segment, \nand a ray\nExample from real \nobjects: Lead pupils \nto explain the concept \nof point, line, line \nsegment and a ray on \nreal objects\nConcept of a \npoint, line, line \nsegment and a \nray are correctly \nexplained\nDrawn figures, \nphotos, real \nobjects, \nmathematical \nset, ruler, \nmanila\ncards and marker \npens\n30\n(c) Construct \nplain figures \nusing points, \nlines and line \nsegments\nObject diagrams: \nGuide pupils through \nconstructing plane \nfigures using points, \nlines and line segments\nPlane figures \nare accurately \nconstructed using \npoint, line and \nline segment\nDrawn figures, \nphotos, real \nobjects, \nmathematical \nset, ruler, \nmanila\ncards, and \nmarker pens and \nbox",
+      "char_count": 884
+    },
+    {
+      "page_number": 18,
+      "text": "12\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.5 Demonstrate  \nan \nunderstanding \nof elementary \nmathematical \nskills\n(a) Use division \nof objects to \nexplain the \nconcept of \nfraction\nObject diagrams: \nGuide pupils \nthrough using simple \ndiagrams to explain \nthe concept of \nfractions\nPractical exercises: \nLead pupils to practice \nusing  division of real \nobjects like fruits, \ncakes and sugarcane  to \nexplain the concept of \nfraction\nThe concept \nof fraction is \nclearly explained \nusing division of \nobjects\nPhysical objects,     \nmanila cards, \nand online \nprogrammes \nrelated \nexplaining \nthe concept of \nfractions\n26\n (b) Addition and \nsubtraction \nof fractions \nof the same \ndenominator\nGroup discussion: \nGuide pupils through \nadding and subtracting \nfractions of the same \ndenominator using \nreal objects and online \nprogrammes related to \naddition and subtraction \nof fractions of the same \ndenominator\nOperations of \naddition and \nsubtraction \nof fractions \nof the same \ndenominator \nare performed \ncorrectly\nPhysical objects, \nmanila card, \nand online \nprogrammes \nrelated to \naddition and \nsubtraction \nof fractions \nof the same \ndenominator ",
+      "char_count": 1280
+    },
+    {
+      "page_number": 19,
+      "text": "13\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n2.0 Demonstrate \nmastery of \nelementary \napplication of \nmathematics\n2.1Demonstrate an \nunderstanding \nof the \nmathematics of \ntime\n(a) Describe units \nof measuring \ntime\nGroup discussion: \nGuide pupils through \ndescribing units of \nmeasuring time in real \nsituations showing \nexamples of activities \nrelated to time in \neveryday life\nUnits of \nmeasuring time is \nclearly described\nCalendar, \nclock, time \nmeasurement \nchart, and online \nprogrammes \nrelated to units \nof measuring \ntime\n36\n(b) Describe  time \nin 12-hour      \nformat\nReal examples: \nGuide pupils through \ndescribing time in 12-\nhour format using real \nobjects such as clocks \nand time charts \nGames and learning \nactivities: Guide \npupils through \ndescribing time in \n12-hour format while \nplaying games\nTime in \n12-hour format \nis accurately \ndescribed\nClock, time \nmeasurement \nchart, and online \nprogrammes \nrelated to \ndescribing time \nin 12-hour \nformat\n(c) Describe time \nin 24-hour      \nformat\nReal examples: \nGuide pupils through \ndescribing time in 24-\nhour format using real \nobjects such as clocks \nand time charts \nTime in \n24-hour format \nis accurately \ndescribed number \nof hours in a day, \ndays in a week, \nweeks\nClock in 24-hour \nformat, time \nmeasurement \nchart, and online \nprogrammes \nrelated to \ndescribing time \nin 24-hour \nformat",
+      "char_count": 1487
+    },
+    {
+      "page_number": 20,
+      "text": "14\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(d) Recognise \nnumber of \nhours in a \nday, days in a \nweek, weeks \nin a month, \nmonths in  a \nyear\nExample of physical \nobjects: Guide pupils \nthrough recognising \nnumber of hours in a \nday, days in a week, \nweeks in a month, \nmonths in a year using \nreal objects such as \ncalendars and clocks\nin a month, \nmonths in  \na year are \ncorrectly \nrecognised \nCalendar, clock \nand time chart \nshowing number \nof hours in a \nday, days in a \nweek, weeks \nin a month and \nmonths in a year \n2.2 Demonstrate an \nunderstanding \nof financial \nmathematics\n(a) Recognise the \ndenomination \nof Tanzanian \ncurrency in \nshillings and \ncents\nExample from \nreal objects: Guide \npupils in recognising \nthe domination of  \nTanzanian currency in \nshillings and cents\nThe denomination \nof Tanzanian \ncurrency in \nshillings and \ncents is clearly \nrecognised\nReal Tanzanian \ncurrency \n(coins and \nnotes) photos \nof Tanzanian \ncurrency, \nbanknotes \nspecimen made \nof papers, and \nchart of money \nmeasurement\n38",
+      "char_count": 1151
+    },
+    {
+      "page_number": 21,
+      "text": "15\nMain \ncompetences\nSpecific \ncompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(b) Addition  and \nsubtraction \nof Tanzanian \ncurrency\nDiscussion and real \nexamples: Guide \npupils through adding \nand subtracting \namounts of money \nin shillings and cents \nusing real currency\nOperations of \naddition and \nsubtraction   of \namounts of \nmoney in\nshillings and \ncents are \nperformed \ncorrectly\nReal currency \n(coins and \nnotes), \nbanknotes \nspecimen made \nof papers, cards \nin different \nvalues of \nTanzanian \ncoins, and \nchart of money \nmeasurements\n ",
+      "char_count": 636
+    },
+    {
+      "page_number": 22,
+      "text": "16\nStandard IV\nTable 3: Contents for Standard IV\nMain \ncompetences\nSpecific \ncompetences\nLearning \nActivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.0 Demonstrate \nmastery of \nelementary \nmathematical \nskills\n1.1 Demonstrate an \nunderstanding \nof the concept \nof numbers\n(a) Recognise \nRoman numbers \n(up to M)\nReal objects: Guide \npupils through \ndemonstrating different \napplications of roman \nnumbers (up M) in real \nlife using real objects \nsuch as watches, \nclocks, tables and \nbooks\nRoman \nnumbers are \ncorrectly \nrecognised \nNumber \ncards, charts \nof roman \nnumbers, \nroman number \nwatches and \nclocks \n12\n1.2 Demonstrate an \nunderstanding \nof basic \nnumerical \noperations\n(a) Multiplication \nand division of \nwhole numbers \nOnline \nprogrammes: \nGuide pupils through \nmultiplication and \ndivision of whole \nnumbers using \nonline programmes \nScenarios: Guide \npupils through \nscenarios to multiply \nand divide whole \nnumbers \nWhole \nnumbers are \ncorrectly \nmultiplied and \ndivided\nMultiplication \nchart, number \ntray, online \nprogrammes \nrelated to \nmultiplication \nand division \nof whole \nnumbers, \nCalculators \nand abacus\n26",
+      "char_count": 1199
+    },
+    {
+      "page_number": 23,
+      "text": "17\nMain \ncompetences\nSpecific \ncompetences\nLearning \nActivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.3 Demonstrate \nan \nunderstanding \nof \nmeasurements\n(a) Convert \nbetween \nthe various \ncomponents \nof the \nmeasures of \nlength, mass, \nand volume \n(millimetres \nto kilometres, \nmiligrams to \ntonnes, and \nmillilitres to \nlitres)\nReal objects: Guide \npupils through discussing \nand converting between \nthe various components \nof measures of length, \nmass, and volume  of \nreal objects using digital \nweighing balance\nVarious \ncomponents \nof the \nmeasures of \nlength, mass, \nand volume \nare correctly \nconverted\nMeasurement \nchart, rulers, tape \nmeasure, weighing \nbalance, bottles, \nbeakers, cylinders, \nrope, mathematical \nset and online \nprogrammes related \nto converting \nmeasures of length, \nmass and volume\n38\n(b) Addition and \nsubtraction of \nmeasurements \nfor length, mass \nand volume\nReal objects: Guide \nstudents through addition  \nand subtraction of \nmeasurement for length, \nmass and volume  of real \nobjects \nAddition and \nsubtraction of \nmeasurement \nfor length, \nmass and \nvolume  are \ncorrectly \nperformed\nMeasurement chart, \nrulers, tape measure, \nweighing balance, \nbottles, beakers, \ncylinders, rope and \nmathematical set\n1.4 Demonstrate \nan \nunderstanding \nof elementary \ngeometry\n(a) Calculate the  \nperimeters and areas \nof plane figures \n(rectangle, square \nand triangle)\nReal objects: Guide \npupils  through \ncalculating the  perimeters \nand areas of plane figures \nof real objects and \ncalculation of  perimeters \nand areas of plane figures \nquestions\nPerimeters \nand areas of \nplane figures \nare calculated  \ncorrectly\nReal objects like \nboard and tables, \nvarious  plane \nfigures made of \nmanila cards,  \nphotos, and online \nprogrammes related \nto calculating \nperimeters and areas \nof plane figures\n32",
+      "char_count": 1895
+    },
+    {
+      "page_number": 24,
+      "text": "18\nMain \ncompetences\nSpecific \ncompetences\nLearning \nActivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.5 Demonstrate \nan \nunderstanding \nof elementary \nmathematical \nskills\n(a)  Compare \nfractions by \nusing =, <, \nand > signs\nQuestions and \ndiscussions:  Guide \npupils through \ncomparing fractions by \nusing =, < and > signs\nComparing \nfractions by \nusing =, <, and \n> is performed \ncorrectly\nReal objects, \ndifferent coloured \nobjects, equality \nand inequality \nsigns chart, \nand online \nprogrammes \nrelated to \ncomparing \nfractions\n66\n(b) Multiplication \nand division \nof  fractions\nQuestions and \ndiscussions: Guide \npupils through \nmultiplication and \ndivision of fractions\nMultiplication \nand division \nof fractions \nare correctly \nperformed\nReal objects \nlike fruits and \nsweets, objects \ndrawn papers, \nfraction number \ncards, and online \nprogrammes \nrelated to \nmultiplication \nand divisions of \nfractions\n(c)  Explain the \nconcept of \ndecimals\nQuestions and \ndiscussions:  Guide \npupils through \nexplain the concept of \ndecimals\nConcept of \ndecimals is \nexplained \ncorrectly\nDecimal \nnumber charts, \nreal objects, \nand online \nprogrammes \nrelated to  \ndecimals",
+      "char_count": 1236
+    },
+    {
+      "page_number": 25,
+      "text": "19\nMain \ncompetences\nSpecific \ncompetences\nLearning \nActivities\nSuggested teach-\ning and learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(d) Addition and \n     subtraction of \ndecimals\nQuestions and \ndiscussions: \nGuide pupils \nthrough addition \nand subtraction of  \ndecimals  \nAddition and \nsubtraction \nof decimals \nare performed  \ncorrectly\nDecimal number \ncharts, real \nobjects, and online \nprogrammes related \nto  addition and \nsubtraction of \ndecimals\n2.0 Demonstrate \nmastery of \nelementary \napplication \nof \nmathematics\n2.1  Demonstrate an \nunderstanding \nof the \nmathematics of \ntime\n(a) Convert  \nbetween the \ncomponents of \nmeasures  of \ntime (seconds \nto hours)\nReal objects: Guide \npupils through \nconverting time using \ndigital watches \nMeasures of \ntime between \ntheir component \nare correctly \nconverted \nClocks, watches, \nclock specimen, \ntime unit chart, and \nonline programmes \nrelated to time and \ntheir components\n34\n(b) Addition and \nsubtraction of  \ntime\nQuestions and \nDiscussions: Guide \npupils through \naddition  and \nsubtraction of time \nAddition and \nsubtraction of \ntime is done \ncorrectly\nClock and online \nprogrammes related \nto addition and \nsubtraction of time\n2.2  Demonstrate an \nunderstanding \nof financial \nmathematics\n(a) Multiplication  \nand division \nof Tanzanian \ncurrency\nQuestions and \ndiscussions:  Guide \npupils through \nmultiplication and \ndivision of Tanzanian \ncurrency\nMultiplication \nand division \nof Tanzanian \ncurrency is \nperformed \ncorrectly\nReal money \n(coins and notes), \nmoney unit \nchart and online \nprogrammes related \nto multiplication \nand division of \nTanzanian currency\n26",
+      "char_count": 1667
+    },
+    {
+      "page_number": 26,
+      "text": "20\nStandard V\nTable 4: Contents for Standard V\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssess-\nment cri-\nteria\nSuggested \nresources\nNumber \nof \nperiods\n1.0 Demonstrate  \nmastery of \nelementary \nmathematical \nskills\n1.1 Demonstrate an \nunderstanding of  \nmeasurements\n(a) Multiplication \nof \nmeasurements \nfor length, \nmass and \nvolume\nGroup discussion: \nGuide pupils through \nmultiplication of \nmeasurements for \nlength, mass and \nvolume \nMeasurements \nfor length, \nmass and \nvolume are \ncorrectly \nmultiplied\nMeasurements \nfor length, \nweight and \nvolume charts \nand online \nprogrammes \nrelated to \nmultiplication \nof \nmeasurements \nfor length, \nmass and \nvolume \n44\n(b) Division of   \nmeasurements \nfor length, \nmass and \nvolume\nGroup discussion: \nGuide pupils \nthough division \nof measurements \nfor length, mass \nand volume using \nexamples\nMeasurements \nfor length, \nmass and \nvolume are \ncorrectly \ndivided\nMeasurements \nfor length, \nmass and \nvolume charts, \nand online \nprogrammes \nrelated to \ndivision of \nmeasurements \nfor length, \nmass and \nvolume",
+      "char_count": 1119
+    },
+    {
+      "page_number": 27,
+      "text": "21\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssess-\nment cri-\nteria\nSuggested \nresources\nNumber \nof \nperiods\n1.2 Demonstrate an \nunderstanding \nof elementary \ngeometry\n(a) Explain the \nconcept of pi\nReal objects:  Guide \npupils though \nexplaining the concept \nof pi using  real \ncircular objects  \nProject: Guide pupils \nthough  calculatingthe \nvalue of pi using real \ncircular objects of a \ncircle\nConcept of pi \nis  correctly \nexplained \nCircular \nfigures. String, \nruler, manila \ncard, maker \npen, and \nmathematical \nset and online \nprogrammes \nrelated to \nconcept of pi\n62\n(b) Calculate the \ncircumference of a \ncircle\nReal objects: Guide \npupils though \nexplaining the \nconcept of pi by \nusing real circular \nobjects\nGroup discussion: \nGuide pupils \nthrough using \nexamples  to calculate \ncircumference of a \ncircle\nThe \ncircumference \nof a circle \nis correctly \ncalculated\nCircular \nfigures, string, \nruler, manila \ncard, maker \npen, and \nmathematical \nset\n(c) Calculate the area \nof a circle\nReal objects:  Guide \npupils through \ncalculating the area \nof a circle by using \nreal circular objects\nOnline programmes: \nGuide pupils through \ncalculating the area \nof a circle by using \ndigital programmes\nArea of a circle \nis correctly \ncalculated\nCircular \nfigures, \nstring, ruler, \nmanila card, \nmaker pen, \nmathematical \nset and online \nprogrammes \nrelated to \ncalculating \narea of a circle",
+      "char_count": 1458
+    },
+    {
+      "page_number": 28,
+      "text": "22\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested\nresources\nNumber \nof\n periods\n1.3 Demonstrate \nan \nunderstanding \nof elementary \nof \nmathematical \nskills\n(a) Identify  even, \nodd and prime \nnumbers\nQuestions and \nanswers: Guide \npupils through \ndiscussions to identify \neven, odd and prime \nnumbers\nOnline programmes: \nGuide pupils through \ndigital learning to \nidentify even, odd and \nprime numbers\nEven, odd \nand prime \nnumbers are \ncorrectly \nidentified \nEven, odd and \nprime number \ncards and online \nprogrammes \nrelated to even, \nodd and prime \nnumbers\n68\n(b) Calculate \nfactors and \nmultiples of \nnumbers not \nexceeding \nthree digits\nQuestions and \ndiscussion: Guide \npupils through \ncalculating the factors \nand multiples \nof numbers not \nexceeding three\nFactors and \nmultiples of \nnumbers  not \nexceeding \nthree digits \nare correctly \ncalculated \nNumber cards, \nnumber tray, \nand online \nprogrammes \nrelated to factors \nand multiples \nof numbers not \nexceeding three \ndigits\n (c)  Calculate \nthe Lowest \nCommon \nMultiple \n(LCM) and \nGreatest \nCommon \nFactor (GCF) \nof whole \nnumbers\nQuestions and \ndiscussion: Guide \npupils through \ncalculating the Lowest \nCommon Multiple \n(LCM) and Greatest \nCommon Factor \n(GCF) of whole \nnumbers\nLowest \nCommon \nMultiple (LCM) \nand Greatest \nCommon \nFactor (GCF) of \nwhole numbers \nare correctly \ncalculated\nNumber cards, \nnumber tray \nand online pro-\ngrammes related \nto LCM and \nGCF",
+      "char_count": 1518
+    },
+    {
+      "page_number": 29,
+      "text": "23\nMain \nCompetences\nSpecific \nCompetences\nLearning\n activities\nSuggested teaching \nand learning \nmethods\nAssess-\nment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(d) Addition  and \nsubtraction \nof  fractions \nwith different \ndenominators\nQuestions and \ndiscussion: Guide \npupils through \naddition and \nsubtraction of \nfractions with \ndifferent denominator\nOnline programmes: \nGuide pupils through \nadding and subtracting \nfractions with different \ndenominators\nFractions \nwith different \ndenominators are \ncorrectly added \nand subtracted  \nReal objects, \nexample of \naddition and \nsubtraction of \nfraction chart, \nand online \nprogrammes \nrelated to \naddition and \nsubtraction \nof fraction \nwith different \ndenominator\n(e) Addition and \nsubtraction  of \nmixed fractions\nReal objects: Guide \npupils through \naddition and \nsubtraction of  mixed \nfractions using real \nobjects\nOnline programmes: \nGuide pupils through \nadding and subtracting \nmixed fractions using \nonline programmes\nMixed fractions \nare correctly \nadded and \nsubtracted \nDifferent \ndenominator \nfraction cards, \nreal objects, \nand omline \nprogrammes \nrelated to \naddition and \nsubtraction of \nmixed fractions \n(f) Multiplication \nof  decimals\nQuestions and \ndiscussion:  Guide \npupils through \nmultiplication of  \ndecimals\nDecimals \nare correctly \nmultiplied\nReal objects \nand online \nprogrammes \nrelated to \nmultiplication \nof decimals",
+      "char_count": 1408
+    },
+    {
+      "page_number": 30,
+      "text": "24\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n(g) Divide \nnumbers to \nobtain an \nanswer with \nno more than \nthree decimal \nplaces\nReal examples: \nGuide pupils through \ndividing decimals \nto get answer with \nno more than three \ndecimal places by \nusing various tools \nand real objects\nQuestions and \nanswers: Guide pupils \nthrough dividing \ndecimals to get answer \nwith no more than \nthree decimal places \nDecimals to \nget answer \nwith no more \nthan three \ndecimal places \nare correctly \ndivided\nExamples \nof division \nof number \nto obtain \ndecimal  \nchart, \nabacus and \nand online \nprogrammes \nrelated to \ndividing \nnumbers to \nobtain an \nanswer with \nno more than \nthree decimal \nplaces\n(h) Convert \npercentages \ninto fractions \nand decimals\nReal objects: Guide \npupils through \nconverting percentages \ninto fractions and \ndecimals using real \nobjects\nQuestions and \nanswers: Guide pupils \nthrough converting \npercentages in \nfractions and decimals\nPercentages \ninto fractions \nand decimals \nare correctly \nidentified\nVarious \npercentage \ncards, abacus \nand online \nprogrammes \nrealated \nto convert \npercentages \ninto fractions \nand decimals",
+      "char_count": 1264
+    },
+    {
+      "page_number": 31,
+      "text": "25\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested \nresources\nNumber \nof \nperiods\n1.4 Demonstrate \nan elementary \nunderstanding \nof algebra\n(a) Explain the \nconcept of \nalgebra\nReal objects: Guide \npupils through \nexplaining the concept \nof algebra \nConcept of \nalgebra is \ncorrectly \nexplained \nAlphabet chart, \nabacus, alphabet \ncards and online \nprogrammes \nrelated to \nalgebra\n54\n(b)  Identify term, \nvariables, and \ncoefficients \nin algebraic \nexpressions\nQuestions and \nanswers: Guide \npupils through \nidentifying term, \nvariables and \ncoefficients of \nalgebraic expressions\nTerm, variables, \nand coefficients \nof algebraic \nexpressions  \nare correctly \nidentified\nTerm, variables, \nand coefficients \nchart, term, \nvariables, and \ncoefficients \ncards and  \nonline \nprogrammes \nrelated to \nalgebra\n(c) Write  algebraic \nequations\nQuestions and \ndiscussions: Guide \npupils through \nwriting algebraic \nequations  \nAlgebraic \nequations  are \ncorrectly written\nAlgebraic \nexpression \nchart, alphabet \nchart and online",
+      "char_count": 1104
+    },
+    {
+      "page_number": 32,
+      "text": "26\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested\n resources\nNum-\nber of \nperi-\nods\nprogrammes \nrelated to \nwriting \nalgebric \nequations\n(d) Simplify \nalgebraic \nexpressions \nusing the right \nsequence of \nmathematical \noperations\nQuestions and \ndiscussions: Guide \npupils through \nsimplifying algebraic \nexpressions using \nthe right sequence of \nmathematical operations \nrelated to real life\nAlgebraic \nexpressions \nusing the right \nsequence of \nmathematical \noperations \nare correctly \nsimplified\nAlphabet \nchart,  abacus,  \nnumber tray \nand online \nprogrammes \nrelated to \nSimplify \nalgebraic \nexpressions\n(e) Calculate \nsimple \nequations\nReal objects: Guide \npupils through using real \nobjects to calculate simple  \nalgebraic equations\nSimple \nalgebraic \nequations \nare correctly \ncalculated\nAlphabet \nchart,  cards, \nsticks, abacus,  \nnumber tray \nand online \nprogrammes \nrelated to \ncalculating \nsimple \nequations",
+      "char_count": 1005
+    },
+    {
+      "page_number": 33,
+      "text": "27\nMain \nCompetences\nSpecific \nCompetences\nLearning \nactivities\nSuggested teaching \nand learning \nmethods\nAssessment \ncriteria\nSuggested\n resources\nNum-\nber of \nperi-\nods\n2.0 Demonstrate \nmastery of \nelementary \napplication \nof \nmathematics\n2.1 Demonstrate \nan \nunderstanding \nof financial \nmathematics\n(a) Solve \nproblems \ninvolving sale \nand purchase\nGames: Guide pupils \nthrough solving \nproblems involving \nsale and purchase using  \nmoney  specimen or \nplaying cards \nGroup discussion: \nGuide pupils through \nsolving problems \ninvolving sale and \npurchase then each group \npresent to the class.\nProblems \ninvolving sale \nand purchase \ncorrectly solved \nMoney \n(specimen), \nreal money, \nvarious \nobjects, \nand online \nprogrammes \nreletaed \nto  solving \nproblems \ninvolving sale \nand purchase\n12",
+      "char_count": 797
+    },
+    {
+      "page_number": 34,
+      "text": "28\nStandard VI\nTable 5: Contents for Standard VI\nMain\ncompetences\nSpecific \nCompetences\nLearning \nActivities \nSuggested Teaching \nand Learning Methods\nAssessment \nCriteria \nSuggested \nResources \nNumber \nof \nPeriods\n1.0 Demonstrate \nmastery of \nelementary \nmathematical \nskills \n1.1 Demonstrate an \nunderstanding \nof \nmeasurements \n(a)  Solve \nproblems \ninvolving \ndistance and \ntime\nDrawn examples  from \nreal objects: Guide \npupils through solving \nproblems involving \ndistance and time using \nreal objects\nGroup  discussion: \nGuide pupils through \ndiscussing questions \non solving problems \ninvolving distance and \ntime\nProblems \ninvolving \ndistance \nand time are \nadequately \nsolved \nClock, simple \nmaps, tape \nmeasure, online \nprogrammes \nralated to \nsolving problems \ninvolving \ndistance and time\n18\n1.2 Demonstrate an \nunderstanding \nof elementary \ngeometry\n(a) Calculate \nthe area \nand volume \nof three \ndimensional \nfigures \n(rectangular \nparallelepiped, \nsquare \nparallelepiped \nand cylinder)\nDrawings of objects: \nGuide pupils through \ncalculating  surface areas \nand volumes of three-\ndimensional figures \nusing drawings in boards \nand manila cards\nArea and \nvolume \nof three-\ndimensional \nfigures are \ncorrectly \ncalculated\nReal objects, \nphotos, drawings \nof objects on \nmanila cards, \nmarker pen, \nbox, and online \nprogrammes \nrelated to \ncalculating \nthe area and \nvolume of three– \ndimensional \nfigures\n102",
+      "char_count": 1422
+    },
+    {
+      "page_number": 35,
+      "text": "29\nMain \ncompetences\nSpecific\n Competences\nLearning \nActivities \nSuggested Teaching \nand Learning \nMethods\nAssessment \nCriteria \nSuggested \nResources \nNumber \nof \nPeriods\n(b) Calculate \ndegree of \nangles  in \nplane figures \n(triangle, \nrectangle and \ncircle) \nDrawings of objects: \nGuide pupils through \ncalculating degrees of \nangles in plane figures \nusing drawings of \nobjects on boards and \nmanila cards\nDegree of \nangles in \nplane figures \nare correctly \ncalculated\nProtractors, \nmanila cards \nwith drawings \nof objects, \nand online \nprogrammes \nrelated to \ncalculating \ndegree of angles \nin plane figures\n(c) Describe \ntypes of \ntriangles and \nPythagoras’ \ntheorem\nDrawings of objects: \nGuide pupils through \nusing drawings of  \ntriangular objects \non board and manila \ncards  to describe \ntypes of triangles and \nformula of Pythago-\nras’ theorem \nTypes of \ntriangles and \nPythagoras’ \ntheorem are \ncorrectly \ndescribed\nProtractors, \nmanila cards, \nmarker pens, \nand online \nprogrammes \nrelated to \ndescribing types \nof triangles and \nPythagoras’ \ntheorem",
+      "char_count": 1061
+    },
+    {
+      "page_number": 36,
+      "text": "30\nMain \ncompetences\nSpecific \nCompetences\nLearning \nActivities \nSuggested Teaching \nand Learning Methods\nAssessment \nCriteria \nSuggested \nResources \nNumber \nof \nPeriods\n1.3  Demonstrate \nan \nunderstanding \nof elementary \nmathematical \nskills\n(a) Calculate \nthe square \nof a number\nGroup discussion: Lead \nthe pupils’ discussion on \ncalculating square of a \nnumber\nThe square \nof a number \nis correctly \ncalculated\nNumber chart \nand symbol of \nsquares, online \nprogrammes \nrelated to \ncalculating the \nsquare of a \nnumber\n52\n(b) Calculate  \nthe square \nroot of a \nnumber\nGroup discussion: \nGuide pupils through \ncalculating  the square  \nroot of a number\nSquare  root \nof a number \nis calculated  \ncorrectly\nNumber chart \nand symbol \nof square \nroots, online \nprogrammes \nrelated to \ncalculating the \nsquare  root of a \nnumber\n(c)  Explain the \nconcept of \nintegers\nReal examples: \nGuide pupils through \nexplaining the concept \nof integers using real \nexamples\nConcept of \nintegers is \ncorrectly \nexplained\nColoured papers, \ncoloured learning \ntablet,money, \nbooks, pens and \ncounters",
+      "char_count": 1084
+    },
+    {
+      "page_number": 37,
+      "text": "31\nMain \ncompetences\nSpecific \nCompetences\nLearning \nActivities \nSuggested Teaching \nand Learning Methods\nAssessment \nCriteria \nSuggested \nResources \nNumber \nof \nPeriods\n(d) Perform \noperations \nin integers\nGames and learning \nactivities: Guide pupils \nthrough using different \ncoloured cards to play \na game of comparing \ncards to perform basic \noperations in integers \nwhile considering zero \npair\nQuestions and \ndiscussions: \nGuide pupils \nthroughdiscussion  on \nperforming operations \nin integers \nOperations \nwith integers \nare correctly \nperformed\nNumber tray \nnumber chart, \nabacus and online \nprogrammes related \nto performing \nmathematical \noperations in \nintegers ",
+      "char_count": 674
+    },
+    {
+      "page_number": 38,
+      "text": "32\nMain \ncompetences\nSpecific \nCompetences\nLearning \nActivities\nSuggested Teaching \nand Learning Methods\nAssessment \nCriteria\nSuggested \nResources\nNumber \nof \nPeriods\n2.0 Demonstrate \nmastery of \nelementary \napplication \nof \nmathematics\n2.1 Demonstrate \nan \nunderstanding \nof elementary \nstatistics and \nits applications\n(a) Explain the \nconcept of \nstatistics\nGroup discussion: \nGuide pupils through \ncollecting and listing \nobjects in order using \nmixed object groups\nPractical exercises: \nGuide pupils through \npractising drawing \nstatistical diagrams \nshowing various data\nConcept of \nstatistics \nis clearly \nexplained\nGroups of \nmixed objects, \nmaps showing \nreal statistics, \ngeographical \nillustrations \nexplaining \nstatistical \ninformation from \ndifferent places, \nphoto and video \nshowing data \nand statistical \ninformation\n62",
+      "char_count": 835
+    },
+    {
+      "page_number": 39,
+      "text": "33\nMain \nCompetences\nSpecific \nCompetences\nLearning \nActivities \nSuggested Teaching \nand Learning Methods\nAssessment Criteria Suggested \nResources \nNumber \nof \nPeriods\n(b) Find the \nmean, \nmedian and \nmode of \nungrouped \ndata\nReal examples: Guide \npupils through finding \naverage, median and \nmode of ungrouped \ndata\nOnline programmes:\nGuide pupils through  \nusing online programs to \nfind average, median and \nmode of ungrouped data\nThe mean, median \nand mode of \nungrouped data is \ncorrectly calculated\nGroups of \ndifferent \nobjects, \nand online \nprogrammes \nrelated to \nfinding mean, \nmedian and \nmodes of \nungrouped data\n(c) Interpretation \nand \npresentation \nof data using \nstatistical \ndiagrams \n(pie \ncharts and \nhistograms)\nReal examples: \nGuide pupils through \ninterpreting and \npresenting information in \na pie chart and histogram \nusing real data\nProject: Guide pupils \nthrough finding various \ninformation in the \ncommunity and present \nthat information in a pie \ncharts and histograms\nData in statistical \ndiagrams are correctly \ninterpreted and \npresented\nReal statistical \ndata charts \nin pie and \nhistograms, \nonline \nprogrammes \nrelated to \ncreating charts, \ngraphs, and \ngeographical \ndrawings \nshowing  \nstatistical \ninformation",
+      "char_count": 1247
+    },
+    {
+      "page_number": 40,
+      "text": "34\nBibliography\nCambridge Assessment International Education (2020). Curriculum framework: Cambridge Primary Mathematics 0096. \nCambridge Assessment International Education.\nMauritius Institute of Education (2015). National curriculum framework grades 1 to 6. Ministry of Education and Human \nResources, Tertiary Education and Scientific Research.\nNational Curriculum Development Center (NCDC) (2005). Mathematics curriculum for upper primary education (P4, P5, \nP6). Ministry of Education.\nTanzania Institute of Education. (2020). Mathematics syllabus for primary school education standard III-VII. Ministry of \nEducation, Science and Technology. \nTanzania Institute of Education (2020). Mathematics pupil’ s book standard seven. Tanzania Institute of Education.\nTanzania Institute of Education (2019). Mathematics pupil’ s book standard six. Tanzania Institute of Education.\nTanzania Institute of Education (2018). Mathematics pupil’ s book standard five. Tanzania Institute of Education.\nTanzania Institute of Education (2018). Mathematics pupil’ s book standard four. Tanzania Institute of Education.\nTanzania Institute of Education (2018). Mathematics pupil’ s book standard three. Tanzania Institute of Education.\nTanzania Institute of Education (2016). Teacher’ s guide for teaching mathematics subject. Tanzania Institute of Education.",
+      "char_count": 1343
+    }
+  ],
+  "competence_summary": [],
+  "detailed_standards": {
+    "Standard I": [
+      {
+        "page": 8,
+        "main_competences": [
+          "3.0 Objectives of Primary Education ",
+          "4.0 General Competences for Primary Education"
+        ],
+        "specific_competences": [
+          "3.0 Objectives of Primary Education ",
+          "4.0 General Competences for Primary Education"
+        ],
+        "periods": []
+      },
+      {
+        "page": 9,
+        "main_competences": [
+          "5.0 Main and Specific Competences",
+          "1.0 Demonstrate mastery of elementary ",
+          "2.0 Demonstrate mastery of elementary "
+        ],
+        "specific_competences": [
+          "5.0 Main and Specific Competences",
+          "1.0 Demonstrate mastery of elementary ",
+          "1.1 Demonstrate an understanding of the concept of numbers",
+          "1.2 Demonstrate an understanding of basic numerical operations",
+          "1.3 Demonstrate an understanding of measurements",
+          "1.4 Demonstrate an understanding of elementary geometry",
+          "1.5 Demonstrate an understanding of elementary mathematical skills",
+          "1.6 Demonstrate an understanding of algebra",
+          "2.0 Demonstrate mastery of elementary ",
+          "2.1 Demonstrate an understanding of the mathematics of time",
+          "2.2 Demonstrate an understanding of financial mathematics"
+        ],
+        "periods": []
+      },
+      {
+        "page": 10,
+        "main_competences": [
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning "
+        ],
+        "specific_competences": [
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning ",
+          "6.1 The Teacher"
+        ],
+        "periods": []
+      },
+      {
+        "page": 11,
+        "main_competences": [
+          "7.0 Teaching and Learning Methods"
+        ],
+        "specific_competences": [
+          "6.3 Parent/Guardian ",
+          "7.0 Teaching and Learning Methods"
+        ],
+        "periods": []
+      },
+      {
+        "page": 12,
+        "main_competences": [
+          "8.0 Teaching and Learning Resources/materials",
+          "10.0  Number of Periods"
+        ],
+        "specific_competences": [
+          "8.0 Teaching and Learning Resources/materials",
+          "10.0  Number of Periods"
+        ],
+        "periods": []
+      },
+      {
+        "page": 13,
+        "main_competences": [
+          "11.0 Teaching and Learning Content"
+        ],
+        "specific_competences": [
+          "11.0 Teaching and Learning Content"
+        ],
+        "periods": []
+      },
+      {
+        "page": 14,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate an "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 15,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Demonstrate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 16,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3 Demonstrate ",
+          "1.4 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 18,
+        "main_competences": [],
+        "specific_competences": [
+          "1.5 Demonstrate  "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 19,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate "
+        ],
+        "periods": [
+          "2"
+        ]
+      },
+      {
+        "page": 20,
+        "main_competences": [],
+        "specific_competences": [
+          "2.2 Demonstrate an "
+        ],
+        "periods": []
+      },
+      {
+        "page": 22,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate an ",
+          "1.2 Demonstrate an "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 23,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3 Demonstrate ",
+          "1.4 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 24,
+        "main_competences": [],
+        "specific_competences": [
+          "1.5 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 25,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate ",
+          "2.1  Demonstrate an ",
+          "2.2  Demonstrate an "
+        ],
+        "periods": []
+      }
+    ],
+    "Standard V": [
+      {
+        "page": 3,
+        "main_competences": [
+          "1.0 Introduction.............................................................................................................",
+          "2.0 Main Objectives of Education in Tanzania.................................................................................",
+          "3.0 Objectives of Primary Education..........................................................................................",
+          "4.0 General Competences for Primary Education................................................................................",
+          "5.0 Main and Specific Competences............................................................................................",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning.................................................",
+          "7.0 Teaching and Learning Methods............................................................................................",
+          "8.0 Teaching and Learning Resources/materials................................................................................",
+          "9.0 Assessment...............................................................................................................",
+          "10.0 Number of Periods........................................................................................................",
+          "11.0  Teaching and Learning Content............................................................................................"
+        ],
+        "specific_competences": [
+          "1.0 Introduction.............................................................................................................",
+          "2.0 Main Objectives of Education in Tanzania.................................................................................",
+          "3.0 Objectives of Primary Education..........................................................................................",
+          "4.0 General Competences for Primary Education................................................................................",
+          "5.0 Main and Specific Competences............................................................................................",
+          "6.0 Roles of Teacher, Pupil and Parent/Guardian in the Teaching and Learning.................................................",
+          "6.1 The teacher..............................................................................................................",
+          "6.2 The Pupil................................................................................................................",
+          "6.3 Parent/Guardian..........................................................................................................",
+          "7.0 Teaching and Learning Methods............................................................................................",
+          "8.0 Teaching and Learning Resources/materials................................................................................",
+          "9.0 Assessment...............................................................................................................",
+          "10.0 Number of Periods........................................................................................................",
+          "11.0  Teaching and Learning Content............................................................................................"
+        ],
+        "periods": []
+      },
+      {
+        "page": 26,
+        "main_competences": [
+          "1.0 Demonstrate  "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate  ",
+          "1.1 Demonstrate an "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 27,
+        "main_competences": [],
+        "specific_competences": [
+          "1.2 Demonstrate an "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 28,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 31,
+        "main_competences": [],
+        "specific_competences": [
+          "1.4 Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 33,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate ",
+          "2.1 Demonstrate "
+        ],
+        "periods": []
+      },
+      {
+        "page": 34,
+        "main_competences": [
+          "1.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "1.0 Demonstrate ",
+          "1.1 Demonstrate an ",
+          "1.2 Demonstrate an "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 36,
+        "main_competences": [],
+        "specific_competences": [
+          "1.3  Demonstrate "
+        ],
+        "periods": [
+          "1"
+        ]
+      },
+      {
+        "page": 38,
+        "main_competences": [
+          "2.0 Demonstrate "
+        ],
+        "specific_competences": [
+          "2.0 Demonstrate ",
+          "2.1 Demonstrate "
+        ],
+        "periods": [
+          "2"
+        ]
+      }
+    ],
+    "Standard \nI": [
+      {
+        "page": 7,
+        "main_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "specific_competences": [
+          "1.0 Introduction",
+          "2.0 Main Objectives of Education in Tanzania"
+        ],
+        "periods": []
+      }
+    ]
+  }
+}
