@@ -263,7 +263,8 @@ class _LandingHeroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.sizeOf(context).width >= 900;
+    final width = MediaQuery.sizeOf(context).width;
+    final isDesktop = width >= 900;
 
     return Container(
       decoration: const BoxDecoration(
@@ -271,35 +272,13 @@ class _LandingHeroSection extends StatelessWidget {
         border: Border(bottom: BorderSide(color: LearnTzColors.neutral200)),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 48 : 16,
-        vertical: isDesktop ? 28 : 18,
+        horizontal: isDesktop ? 48 : 20,
+        vertical: isDesktop ? 36 : 24,
       ),
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1120),
-          child: isDesktop
-              ? Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 6,
-                      child: _buildHeroCopy(context),
-                    ),
-                    const SizedBox(width: 40),
-                    Expanded(
-                      flex: 5,
-                      child: _buildHeroIllustration(context),
-                    ),
-                  ],
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildHeroCopy(context),
-                    const SizedBox(height: 24),
-                    _buildHeroIllustration(context),
-                  ],
-                ),
+          constraints: const BoxConstraints(maxWidth: 780),
+          child: _buildHeroCopy(context),
         ),
       ),
     );
@@ -310,10 +289,13 @@ class _LandingHeroSection extends StatelessWidget {
     final isDesktop = width >= 900;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         // Welcome Badge & Country Tag
         Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           spacing: 8,
           runSpacing: 6,
           children: [
@@ -365,11 +347,25 @@ class _LandingHeroSection extends StatelessWidget {
         ),
         const SizedBox(height: 12),
 
+        // Product Welcome Title
+        Text(
+          l10n.homeTitle(selectedCountry.productName),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: isDesktop ? 20 : 16,
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.3,
+            color: LearnTzColors.primary700,
+          ),
+        ),
+        const SizedBox(height: 6),
+
         // Main Heading
         Text(
           'LEARN ANYWHERE, ANYTIME.',
+          textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: isDesktop ? 32 : 24,
+            fontSize: isDesktop ? 34 : 24,
             fontWeight: FontWeight.w900,
             letterSpacing: -0.8,
             height: 1.15,
@@ -381,6 +377,7 @@ class _LandingHeroSection extends StatelessWidget {
         // Localized headline text
         Text(
           l10n.welcomeHeadline,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: isDesktop ? 18 : 15,
             fontWeight: FontWeight.w700,
@@ -391,28 +388,37 @@ class _LandingHeroSection extends StatelessWidget {
         const SizedBox(height: 8),
 
         // Supporting Text
-        Text(
-          'A smarter way to learn, practise, prepare for examinations and achieve your academic goals.',
-          style: TextStyle(
-            fontSize: isDesktop ? 14 : 13,
-            height: 1.4,
-            color: LearnTzColors.neutral700,
-            fontWeight: FontWeight.w400,
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 620),
+          child: Text(
+            'A smarter way to learn, practise, prepare for examinations and achieve your academic goals.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: isDesktop ? 14 : 13,
+              height: 1.45,
+              color: LearnTzColors.neutral700,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
         const SizedBox(height: 6),
-        Text(
-          l10n.welcomeDescription(selectedCountry.productName),
-          style: const TextStyle(
-            fontSize: 12,
-            color: LearnTzColors.neutral500,
-            height: 1.35,
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 620),
+          child: Text(
+            l10n.welcomeDescription(selectedCountry.productName),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 12,
+              color: LearnTzColors.neutral500,
+              height: 1.35,
+            ),
           ),
         ),
         const SizedBox(height: 20),
 
         // Primary and Secondary CTAs
         Wrap(
+          alignment: WrapAlignment.center,
           spacing: 12,
           runSpacing: 10,
           children: [
@@ -444,12 +450,13 @@ class _LandingHeroSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 18),
 
         // Trust strip
         Wrap(
-          spacing: 14,
-          runSpacing: 6,
+          alignment: WrapAlignment.center,
+          spacing: 16,
+          runSpacing: 8,
           children: const [
             _TrustItem(icon: Icons.check_circle_outline, text: 'National Curricula Aligned'),
             _TrustItem(icon: Icons.offline_bolt_outlined, text: 'Works Offline'),
@@ -457,99 +464,6 @@ class _LandingHeroSection extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-
-  Widget _buildHeroIllustration(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final isDesktop = width >= 900;
-
-    return Container(
-      padding: EdgeInsets.all(isDesktop ? 22 : 16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFF0F4C81),
-            Color(0xFF1E3A8A),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: LearnTzColors.primary.withAlpha(40),
-            blurRadius: 20,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Colors.white.withAlpha(40),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.workspace_premium, size: 14, color: LearnTzColors.accent),
-                    const SizedBox(width: 6),
-                    Text(
-                      selectedCountry.displayName.toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(Icons.school_rounded, color: Colors.white, size: 24),
-            ],
-          ),
-          const SizedBox(height: 14),
-          Text(
-            l10n.homeTitle(selectedCountry.productName),
-            style: TextStyle(
-              fontSize: isDesktop ? 20 : 17,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              height: 1.2,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l10n.homeDescription(selectedCountry.productName),
-            style: const TextStyle(
-              fontSize: 12,
-              color: Color(0xFFE2E8F0),
-              height: 1.35,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 6,
-            runSpacing: 6,
-            children: const [
-              _HeroBadge(label: '🇹🇿 TIE Tanzania'),
-              _HeroBadge(label: '🇰🇪 KICD Kenya'),
-              _HeroBadge(label: '🇺🇬 NCDC Uganda'),
-              _HeroBadge(label: '🇷🇼 REB Rwanda'),
-              _HeroBadge(label: '🇧🇮 Burundi'),
-              _HeroBadge(label: '🇸🇸 South Sudan'),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }
@@ -567,45 +481,17 @@ class _TrustItem extends StatelessWidget {
       children: [
         Icon(icon, size: 14, color: LearnTzColors.secondary),
         const SizedBox(width: 4),
-        Flexible(
-          child: Text(
-            text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              color: LearnTzColors.neutral700,
-            ),
+        Text(
+          text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: LearnTzColors.neutral700,
           ),
         ),
       ],
-    );
-  }
-}
-
-class _HeroBadge extends StatelessWidget {
-  const _HeroBadge({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.white.withAlpha(25),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.white.withAlpha(40)),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-        ),
-      ),
     );
   }
 }

@@ -20,71 +20,134 @@ class ContentStudioDashboardScreen extends ConsumerWidget {
       backgroundColor: LearnTzColors.background,
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header Row
-            Row(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: () => context.go('/home'),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        spacing: 10,
-                        runSpacing: 4,
+                // Header Row
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isNarrow = constraints.maxWidth < 640;
+                    if (isNarrow) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Content Management Studio',
-                            style: LearnTzTypography.h2.copyWith(
-                              fontWeight: FontWeight.w800,
-                              color: LearnTzColors.textPrimary,
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.arrow_back),
+                                onPressed: () => context.go('/home'),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  'Content Studio',
+                                  style: LearnTzTypography.h3.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                    color: LearnTzColors.textPrimary,
+                                  ),
+                                ),
+                              ),
+                              const AppBadge(
+                                label: 'Authoring',
+                                variant: AppBadgeVariant.primary,
+                                size: AppBadgeSize.sm,
+                              ),
+                            ],
                           ),
-                          const AppBadge(
-                            label: 'Authoring & Editorial Cockpit',
-                            variant: AppBadgeVariant.primary,
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AppButton(
+                                  label: 'Media Library',
+                                  variant: AppButtonVariant.outlined,
+                                  size: AppButtonSize.sm,
+                                  icon: Icons.photo_library_outlined,
+                                  onPressed: () => context.push('/content/studio/media'),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: AppButton(
+                                  key: const Key('create-new-lesson-btn'),
+                                  label: 'New Lesson',
+                                  variant: AppButtonVariant.primary,
+                                  size: AppButtonSize.sm,
+                                  icon: Icons.add,
+                                  onPressed: () => context.push('/content/studio/editor'),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Interactive Curriculum Authoring, Markdown Lesson Studio, Version History & Two-Party Review',
-                        style: LearnTzTypography.bodyRegular.copyWith(
-                          color: LearnTzColors.textSecondary,
+                      );
+                    }
+                    return Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: () => context.go('/home'),
                         ),
-                      ),
-                    ],
-                  ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: 10,
+                                runSpacing: 4,
+                                children: [
+                                  Text(
+                                    'Content Management Studio',
+                                    style: LearnTzTypography.h2.copyWith(
+                                      fontWeight: FontWeight.w800,
+                                      color: LearnTzColors.textPrimary,
+                                    ),
+                                  ),
+                                  const AppBadge(
+                                    label: 'Authoring & Editorial Cockpit',
+                                    variant: AppBadgeVariant.primary,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                'Interactive Curriculum Authoring, Markdown Lesson Studio, Version History & Two-Party Review',
+                                style: LearnTzTypography.bodyRegular.copyWith(
+                                  color: LearnTzColors.textSecondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Wrap(
+                          spacing: 8,
+                          children: [
+                            AppButton(
+                              label: 'Media Library',
+                              variant: AppButtonVariant.outlined,
+                              size: AppButtonSize.md,
+                              icon: Icons.photo_library_outlined,
+                              onPressed: () => context.push('/content/studio/media'),
+                            ),
+                            AppButton(
+                              key: const Key('create-new-lesson-btn'),
+                              label: 'New Lesson',
+                              variant: AppButtonVariant.primary,
+                              size: AppButtonSize.md,
+                              icon: Icons.add,
+                              onPressed: () => context.push('/content/studio/editor'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  },
                 ),
-                Wrap(
-                  spacing: 8,
-                  children: [
-                    AppButton(
-                      label: 'Media Library',
-                      variant: AppButtonVariant.outlined,
-                      size: AppButtonSize.md,
-                      icon: Icons.photo_library_outlined,
-                      onPressed: () => context.push('/content/studio/media'),
-                    ),
-                    AppButton(
-                      key: const Key('create-new-lesson-btn'),
-                      label: 'New Lesson',
-                      variant: AppButtonVariant.primary,
-                      size: AppButtonSize.md,
-                      icon: Icons.add,
-                      onPressed: () => context.push('/content/studio/editor'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
             const SizedBox(height: 24),
 
             // Metrics Grid
@@ -489,6 +552,8 @@ class ContentStudioDashboardScreen extends ConsumerWidget {
               ),
             ),
           ],
+        ),
+          ),
         ),
       ),
     );

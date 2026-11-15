@@ -271,64 +271,69 @@ class _TimedExaminationRunnerScreenState
                     : SingleChildScrollView(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Progress bar
-                            _buildProgressBar(runnerState, attempt),
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 1200),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Progress bar
+                                _buildProgressBar(runnerState, attempt),
 
-                            const SizedBox(height: 16),
+                                const SizedBox(height: 16),
 
-                            // Main Layout: Question Canvas & Side Palette
-                            LayoutBuilder(
-                              builder: (context, constraints) {
-                                final isWide = constraints.maxWidth >= 900;
-                                if (isWide) {
-                                  return Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        flex: 7,
-                                        child: _buildQuestionCanvas(
-                                          currentQuestion: currentQuestion,
-                                          currentAns: currentAns,
-                                          isFlagged: isFlagged,
-                                          repo: repo,
-                                          runnerState: runnerState,
-                                        ),
-                                      ),
-                                      const SizedBox(width: 20),
-                                      Expanded(
-                                        flex: 3,
-                                        child: _buildQuestionNavigatorPalette(
-                                          attempt: attempt,
-                                          runnerState: runnerState,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                } else {
-                                  return Column(
-                                    children: [
-                                      _buildQuestionCanvas(
-                                        currentQuestion: currentQuestion,
-                                        currentAns: currentAns,
-                                        isFlagged: isFlagged,
-                                        repo: repo,
-                                        runnerState: runnerState,
-                                      ),
-                                      const SizedBox(height: 20),
-                                      _buildQuestionNavigatorPalette(
-                                        attempt: attempt,
-                                        runnerState: runnerState,
-                                      ),
-                                    ],
-                                  );
-                                }
-                              },
+                                // Main Layout: Question Canvas & Side Palette
+                                LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    final isWide = constraints.maxWidth >= 900;
+                                    if (isWide) {
+                                      return Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            flex: 7,
+                                            child: _buildQuestionCanvas(
+                                              currentQuestion: currentQuestion,
+                                              currentAns: currentAns,
+                                              isFlagged: isFlagged,
+                                              repo: repo,
+                                              runnerState: runnerState,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          Expanded(
+                                            flex: 3,
+                                            child: _buildQuestionNavigatorPalette(
+                                              attempt: attempt,
+                                              runnerState: runnerState,
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    } else {
+                                      return Column(
+                                        children: [
+                                          _buildQuestionCanvas(
+                                            currentQuestion: currentQuestion,
+                                            currentAns: currentAns,
+                                            isFlagged: isFlagged,
+                                            repo: repo,
+                                            runnerState: runnerState,
+                                          ),
+                                          const SizedBox(height: 20),
+                                          _buildQuestionNavigatorPalette(
+                                            attempt: attempt,
+                                            runnerState: runnerState,
+                                          ),
+                                        ],
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
           ),

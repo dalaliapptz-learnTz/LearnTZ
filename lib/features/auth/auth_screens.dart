@@ -8,6 +8,7 @@ import '../../core/auth/auth_providers.dart';
 import '../../core/config/app_environment.dart';
 import '../../core/config/country_configuration.dart';
 import '../../core/config/country_providers.dart';
+import '../../core/design_system/components/app_brand_logo.dart';
 import '../../core/routing/app_router.dart';
 import '../../core/state/app_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -623,7 +624,7 @@ class AuthFormFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 480),
@@ -631,9 +632,23 @@ class AuthFormFrame extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(title, style: Theme.of(context).textTheme.headlineMedium),
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: AppBrandLogo(height: 42),
+                  ),
+                ),
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 10),
-                Text(description, style: Theme.of(context).textTheme.bodyLarge),
+                Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 24),
                 ...children,
               ],

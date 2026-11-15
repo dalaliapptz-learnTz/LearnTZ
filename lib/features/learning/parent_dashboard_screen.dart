@@ -27,44 +27,102 @@ class ParentDashboardScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () => context.go(AppRoutes.account),
-                    icon: const Icon(Icons.arrow_back),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Column(
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final isCompact = constraints.maxWidth < 600;
+                  if (isCompact) {
+                    return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          l10n.parentDashboardTitle,
-                          style: Theme.of(context).textTheme.headlineMedium,
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () => context.go(AppRoutes.account),
+                              icon: const Icon(Icons.arrow_back),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    l10n.parentDashboardTitle,
+                                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                  Text(
+                                    l10n.parentDashboardSubtitle,
+                                    style: Theme.of(context).textTheme.bodySmall,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          l10n.parentDashboardSubtitle,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                onPressed: () => context.go(AppRoutes.accountSettings),
+                                icon: const Icon(Icons.settings_outlined, size: 16),
+                                label: const Text('Settings'),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: FilledButton.icon(
+                                onPressed: () => context.go(AppRoutes.addLearner),
+                                icon: const Icon(Icons.add, size: 16),
+                                label: const Text('+ Add Child'),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
-                    ),
-                  ),
-                  Wrap(
-                    spacing: 8,
+                    );
+                  }
+                  return Row(
                     children: [
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.accountSettings),
-                        icon: const Icon(Icons.settings_outlined, size: 18),
-                        label: const Text('Settings'),
+                      IconButton(
+                        onPressed: () => context.go(AppRoutes.account),
+                        icon: const Icon(Icons.arrow_back),
                       ),
-                      FilledButton.icon(
-                        onPressed: () => context.go(AppRoutes.addLearner),
-                        icon: const Icon(Icons.add, size: 18),
-                        label: const Text('+ Add Child'),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n.parentDashboardTitle,
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            Text(
+                              l10n.parentDashboardSubtitle,
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Wrap(
+                        spacing: 8,
+                        children: [
+                          OutlinedButton.icon(
+                            onPressed: () => context.go(AppRoutes.accountSettings),
+                            icon: const Icon(Icons.settings_outlined, size: 18),
+                            label: const Text('Settings'),
+                          ),
+                          FilledButton.icon(
+                            onPressed: () => context.go(AppRoutes.addLearner),
+                            icon: const Icon(Icons.add, size: 18),
+                            label: const Text('+ Add Child'),
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                ],
+                  );
+                },
               ),
               const SizedBox(height: 16),
               // Family Subscription & Safety Status Banner

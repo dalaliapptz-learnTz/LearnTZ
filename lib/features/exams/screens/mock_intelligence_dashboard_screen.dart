@@ -44,68 +44,126 @@ class _MockIntelligenceDashboardScreenState
       backgroundColor: LearnTzColors.background,
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Top Navigation & Header
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+                // Top Navigation & Header
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isCompact = constraints.maxWidth < 640;
+                    if (isCompact) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
-                            Icons.insights,
-                            color: LearnTzColors.primary,
-                            size: 28,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              'Mock-to-Real Examination Intelligence',
-                              style: LearnTzTypography.h2.copyWith(
-                                fontWeight: FontWeight.w800,
-                                color: LearnTzColors.textPrimary,
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.insights,
+                                color: LearnTzColors.primary,
+                                size: 24,
                               ),
-                            ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  'Mock Intelligence',
+                                  style: LearnTzTypography.h3.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                    color: LearnTzColors.textPrimary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: AppButton(
+                                  label: 'Exam Centre',
+                                  icon: Icons.assignment_outlined,
+                                  variant: AppButtonVariant.secondary,
+                                  size: AppButtonSize.sm,
+                                  onPressed: () => context.go(AppRoutes.examCentre),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: AppButton(
+                                  label: 'Question Bank',
+                                  icon: Icons.auto_stories,
+                                  variant: AppButtonVariant.primary,
+                                  size: AppButtonSize.sm,
+                                  onPressed: () => context.go(AppRoutes.examBank),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Empirical calibration measuring how closely regional & district mocks predict official national exams.',
-                        style: LearnTzTypography.bodyRegular.copyWith(
-                          color: LearnTzColors.textSecondary,
+                      );
+                    }
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.insights,
+                                    color: LearnTzColors.primary,
+                                    size: 28,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'Mock-to-Real Examination Intelligence',
+                                      style: LearnTzTypography.h2.copyWith(
+                                        fontWeight: FontWeight.w800,
+                                        color: LearnTzColors.textPrimary,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                'Empirical calibration measuring how closely regional & district mocks predict official national exams.',
+                                style: LearnTzTypography.bodyRegular.copyWith(
+                                  color: LearnTzColors.textSecondary,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                        const SizedBox(width: 16),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            AppButton(
+                              label: 'Exam Centre',
+                              icon: Icons.assignment_outlined,
+                              variant: AppButtonVariant.secondary,
+                              onPressed: () => context.go(AppRoutes.examCentre),
+                            ),
+                            AppButton(
+                              label: 'Question Bank',
+                              icon: Icons.auto_stories,
+                              variant: AppButtonVariant.primary,
+                              onPressed: () => context.go(AppRoutes.examBank),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  },
                 ),
-                const SizedBox(width: 16),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [
-                    AppButton(
-                      label: 'Exam Centre',
-                      icon: Icons.assignment_outlined,
-                      variant: AppButtonVariant.secondary,
-                      onPressed: () => context.go(AppRoutes.examCentre),
-                    ),
-                    AppButton(
-                      label: 'Question Bank',
-                      icon: Icons.auto_stories,
-                      variant: AppButtonVariant.primary,
-                      onPressed: () => context.go(AppRoutes.examBank),
-                    ),
-                  ],
-                ),
-              ],
-            ),
 
             const SizedBox(height: 24),
 
@@ -320,6 +378,8 @@ class _MockIntelligenceDashboardScreenState
               },
             ),
           ],
+        ),
+          ),
         ),
       ),
     );

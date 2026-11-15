@@ -65,12 +65,14 @@ void main() {
       expect(find.byKey(const Key('landing-cta-register-parent-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-cta-sign-in-btn')), findsOneWidget);
 
-      // Verify crowded sections have been removed to fit cleanly on screen
+      // Verify crowded sections and curriculum illustration card have been removed to fit cleanly on screen
       expect(find.text('WHAT LEARNTZ OFFERS'), findsNothing);
       expect(find.text('HOW IT WORKS'), findsNothing);
       expect(find.text('EXAMINATION PREPARATION'), findsNothing);
       expect(find.text('ONE APPLICATION • MULTIPLE AFRICAN NATIONS'), findsNothing);
       expect(find.text('About LearnTZ'), findsNothing);
+      expect(find.textContaining('TIE Tanzania'), findsNothing);
+      expect(find.textContaining('KICD Kenya'), findsNothing);
 
       expect(tester.takeException(), isNull);
     });

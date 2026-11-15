@@ -18,49 +18,54 @@ class SelectCountryScreen extends ConsumerWidget {
     final countries = ref.watch(countriesProvider);
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            l10n.countryTitle,
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            l10n.countryDescription(selectedCountry.productName),
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          const SizedBox(height: 24),
-          countries.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (error, stackTrace) => AppCard(
-              child: Column(
-                children: [
-                  Text(
-                    error is CountriesBackendNotConfiguredException
-                        ? l10n.countriesNotConfigured(selectedCountry.productName)
-                        : error is PostgrestException
-                        ? l10n.requestFailed
-                        : l10n.requestFailed,
-                  ),
-                  TextButton(
-                    onPressed: () => ref.invalidate(countriesProvider),
-                    child: Text(l10n.tryAgainAction),
-                  ),
-                ],
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                l10n.countryTitle,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-            ),
-            data: (items) => _CountryList(
-              countries: items,
-              selectedCountry: selectedCountry,
-              onSelected: ref
-                  .read(selectedCountryProvider.notifier)
-                  .selectCountry,
-              l10n: l10n,
-            ),
+              const SizedBox(height: 12),
+              Text(
+                l10n.countryDescription(selectedCountry.productName),
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 24),
+              countries.when(
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (error, stackTrace) => AppCard(
+                  child: Column(
+                    children: [
+                      Text(
+                        error is CountriesBackendNotConfiguredException
+                            ? l10n.countriesNotConfigured(selectedCountry.productName)
+                            : error is PostgrestException
+                            ? l10n.requestFailed
+                            : l10n.requestFailed,
+                      ),
+                      TextButton(
+                        onPressed: () => ref.invalidate(countriesProvider),
+                        child: Text(l10n.tryAgainAction),
+                      ),
+                    ],
+                  ),
+                ),
+                data: (items) => _CountryList(
+                  countries: items,
+                  selectedCountry: selectedCountry,
+                  onSelected: ref
+                      .read(selectedCountryProvider.notifier)
+                      .selectCountry,
+                  l10n: l10n,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
