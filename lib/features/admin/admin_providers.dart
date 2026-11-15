@@ -27,6 +27,15 @@ final adminDashboardStatsProvider = FutureProvider<AdminDashboardStats>((
   return repository.getDashboardStats();
 });
 
+final adminControlCentreStatsProvider = FutureProvider<SuperAdminControlCentreStats>((
+  ref,
+) async {
+  ref.watch(authStateChangesProvider);
+  final repository = ref.watch(adminRepositoryProvider);
+  if (repository == null) throw const AuthNotConfiguredException();
+  return repository.getControlCentreStats();
+});
+
 final adminAccountRequestsProvider =
     FutureProvider<List<AdminAccountRequest>>((ref) async {
       ref.watch(authStateChangesProvider);
@@ -54,3 +63,31 @@ final adminCountriesProvider =
   return repository.listAllCountries();
 });
 
+final adminInvitationsProvider =
+    FutureProvider<List<AdminInvitation>>((ref) async {
+  ref.watch(authStateChangesProvider);
+  final repository = ref.watch(adminRepositoryProvider);
+  if (repository == null) return [];
+  return repository.listInvitations();
+});
+
+final adminProfilesListProvider =
+    FutureProvider<List<AdminProfile>>((ref) async {
+  ref.watch(authStateChangesProvider);
+  final repository = ref.watch(adminRepositoryProvider);
+  if (repository == null) return [];
+  return repository.listAdminProfiles();
+});
+
+/// Administrative session MFA status in current memory session
+final adminSessionMfaVerifiedProvider =
+    NotifierProvider<AdminSessionMfaNotifier, bool>(
+      AdminSessionMfaNotifier.new,
+    );
+
+class AdminSessionMfaNotifier extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void setVerified(bool value) => state = value;
+}

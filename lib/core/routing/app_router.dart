@@ -93,6 +93,25 @@ abstract final class AppRoutes {
   static String lessonReader(String lessonId) => '/learn/lessons/$lessonId';
   static String lessonQuiz(String lessonId) => '/learn/lessons/$lessonId/quiz';
   static const admin = '/admin';
+  static const adminLogin = '/admin/login';
+  static const adminMfaSetup = '/admin/mfa-setup';
+  static const adminInvitations = '/admin/invitations';
+  static const adminAcceptInvitation = '/admin/invitations/accept';
+  static const adminDashboard = '/admin/dashboard';
+  static const adminCountries = '/admin/countries';
+  static const adminUsers = '/admin/users';
+  static const adminAdministrators = '/admin/administrators';
+  static const adminRoles = '/admin/roles';
+  static const adminPermissions = '/admin/permissions';
+  static const adminCms = '/admin/cms';
+  static const adminExaminations = '/admin/examinations';
+  static const adminSubscriptions = '/admin/subscriptions';
+  static const adminFinance = '/admin/finance';
+  static const adminAnalytics = '/admin/analytics';
+  static const adminSupport = '/admin/support';
+  static const adminSecurity = '/admin/security';
+  static const adminAuditLogs = '/admin/audit-logs';
+  static const adminSettings = '/admin/settings';
   static const curriculumAdmin = '/admin/curriculum';
   static const examCentre = '/exams/centre';
   static const examUpload = '/exams/upload';
@@ -142,6 +161,9 @@ final _routerAuthListenerProvider = Provider<_RouterAuthListener>((ref) {
   ref.listen(activeLearnerSessionProvider, (previous, next) {
     listener.refresh();
   });
+  ref.listen(adminSessionMfaVerifiedProvider, (previous, next) {
+    listener.refresh();
+  });
   ref.onDispose(listener.dispose);
   return listener;
 });
@@ -185,11 +207,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         return AppRoutes.accountSettings;
       }
 
+      final isAdminPublicRoute = path == AppRoutes.adminLogin ||
+          path == AppRoutes.adminAcceptInvitation;
+
       final isAdminRoute =
           path == AppRoutes.admin ||
           path == AppRoutes.curriculumAdmin ||
           path.startsWith('/admin/');
-      if (isAdminRoute) {
+      if (isAdminRoute && !isAdminPublicRoute) {
         if (!isSignedIn) {
           return Uri(
             path: AppRoutes.signIn,
@@ -208,7 +233,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           if (adminCapabilities != null && !adminCapabilities.canAccessAdmin) {
             return AppRoutes.account;
           }
+          if (adminCapabilities != null &&
+              !adminCapabilities.isMfaEnrolled &&
+              path != AppRoutes.adminMfaSetup) {
+            return AppRoutes.adminMfaSetup;
+          }
         }
+      }
+
+      if (isSignedIn && path == AppRoutes.adminLogin) {
+        return AppRoutes.adminDashboard;
       }
 
       // Onboarding progression guards
@@ -234,8 +268,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       final isProtected =
           path == AppRoutes.account ||
           path.startsWith('${AppRoutes.account}/') ||
-          path == AppRoutes.admin ||
-          path.startsWith('${AppRoutes.admin}/') ||
+          (path == AppRoutes.admin && !isAdminPublicRoute) ||
+          (path.startsWith('${AppRoutes.admin}/') && !isAdminPublicRoute) ||
           (path == AppRoutes.learn && !isChildMode) ||
           (path.startsWith('${AppRoutes.learn}/') && !isChildMode) ||
           path == AppRoutes.examUpload;
@@ -399,6 +433,98 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: AppRoutes.admin,
             builder: (context, state) => const AdminDashboardScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminLogin,
+            builder: (context, state) => const AdminLoginScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminMfaSetup,
+            builder: (context, state) => const AdminMfaSetupScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminInvitations,
+            builder: (context, state) => const AdminInvitationsScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminAcceptInvitation,
+            builder: (context, state) => AdminAcceptInvitationScreen(
+              token: state.uri.queryParameters['token'],
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.adminDashboard,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'dashboard'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminCountries,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'countries'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminUsers,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'users'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminAdministrators,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'users'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminRoles,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'security'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminPermissions,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'security'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminCms,
+            builder: (context, state) => const ContentStudioDashboardScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminExaminations,
+            builder: (context, state) =>
+                const NationalExaminationCentreScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.adminSubscriptions,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'subscriptions'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminFinance,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'finance'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminAnalytics,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'analytics'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminSupport,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'support'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminSecurity,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'security'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminAuditLogs,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'audit-logs'),
+          ),
+          GoRoute(
+            path: AppRoutes.adminSettings,
+            builder: (context, state) =>
+                const SuperAdminControlCentreScreen(initialModule: 'security'),
           ),
           GoRoute(
             path: AppRoutes.curriculumAdmin,

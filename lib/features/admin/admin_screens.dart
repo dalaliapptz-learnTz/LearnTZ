@@ -9,6 +9,12 @@ import '../../l10n/generated/app_localizations.dart';
 import '../auth/auth_screens.dart';
 import 'admin_models.dart';
 import 'admin_providers.dart';
+import 'screens/super_admin_control_centre_screen.dart';
+
+export 'screens/admin_invitations_screen.dart';
+export 'screens/admin_login_screen.dart';
+export 'screens/admin_mfa_setup_screen.dart';
+export 'screens/super_admin_control_centre_screen.dart';
 
 class AdminDashboardScreen extends ConsumerWidget {
   const AdminDashboardScreen({super.key});
@@ -24,17 +30,23 @@ class AdminDashboardScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(24),
         child: AuthInlineMessage(message: error.toString(), isError: true),
       ),
-      data: (value) => value.canAccessAdmin
-          ? _AdminPortalContent(capabilities: value)
-          : Padding(
-              padding: const EdgeInsets.all(24),
-              child: AppCard(
-                child: Text(
-                  l10n.adminAccessDenied,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
+      data: (value) {
+        if (!value.canAccessAdmin) {
+          return Padding(
+            padding: const EdgeInsets.all(24),
+            child: AppCard(
+              child: Text(
+                l10n.adminAccessDenied,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
+          );
+        }
+        if (value.isSuperAdmin) {
+          return const SuperAdminControlCentreScreen(initialModule: 'dashboard');
+        }
+        return _AdminPortalContent(capabilities: value);
+      },
     );
   }
 }
