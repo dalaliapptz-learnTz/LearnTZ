@@ -292,87 +292,20 @@ class _LandingHeroSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Welcome Badge & Country Tag
-        Wrap(
-          alignment: WrapAlignment.center,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 8,
-          runSpacing: 6,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(
-                color: LearnTzColors.primary50,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: LearnTzColors.primary200),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.school, size: 14, color: LearnTzColors.primary),
-                  const SizedBox(width: 6),
-                  Flexible(
-                    child: Text(
-                      l10n.welcomeBadge(selectedCountry.displayName),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.8,
-                        color: LearnTzColors.primary,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+        // Prominent Official Brand Logo (Properly Aligned & Centered)
+        Center(
+          child: Semantics(
+            label: selectedCountry.productName,
+            child: AppBrandLogo(
+              key: const Key('hero-official-brand-logo'),
+              height: isDesktop ? 76 : 48,
+              productName: selectedCountry.productName,
+              countryBadge: selectedCountry.countryCode,
+              onTap: () => context.go(AppRoutes.welcome),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              decoration: BoxDecoration(
-                color: LearnTzColors.secondary50,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: LearnTzColors.secondary300),
-              ),
-              child: Text(
-                l10n.tagline,
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  color: LearnTzColors.secondary,
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-
-        // Product Welcome Title
-        Text(
-          l10n.homeTitle(selectedCountry.productName),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: isDesktop ? 20 : 16,
-            fontWeight: FontWeight.bold,
-            letterSpacing: -0.3,
-            color: LearnTzColors.primary700,
           ),
         ),
-        const SizedBox(height: 6),
-
-        // Main Heading
-        Text(
-          'LEARN ANYWHERE, ANYTIME.',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: isDesktop ? 34 : 24,
-            fontWeight: FontWeight.w900,
-            letterSpacing: -0.8,
-            height: 1.15,
-            color: LearnTzColors.primary,
-          ),
-        ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 20),
 
         // Localized headline text
         Text(

@@ -101,6 +101,11 @@ class AppBrandLogo extends StatelessWidget {
       );
     }
 
+    content = FittedBox(
+      fit: BoxFit.scaleDown,
+      child: content,
+    );
+
     if (onTap != null) {
       return InkWell(
         onTap: onTap,

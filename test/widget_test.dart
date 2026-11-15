@@ -36,7 +36,7 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: LearnTzApp()));
     await tester.pumpAndSettle();
 
-    expect(find.text('LEARN ANYWHERE, ANYTIME.'), findsOneWidget);
+    expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
     expect(find.text('Learning that moves with your child.'), findsOneWidget);
     expect(find.text('GET STARTED'), findsOneWidget);
 
@@ -64,7 +64,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Elimu inayosonga pamoja na mtoto wako.'), findsOneWidget);
-    expect(find.textContaining('Karibu'), findsWidgets);
+    expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
   });
 
   testWidgets('wide layout uses the top navigation without overflow', (
@@ -131,8 +131,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('LearnKE'), findsWidgets);
-    expect(find.text('Learning, rooted in Kenya'), findsWidgets);
-    expect(find.text('Welcome to LearnKE'), findsOneWidget);
+    expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
+    expect(find.text('Learning, rooted in Kenya'), findsNothing);
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(app.theme!.colorScheme.primary, const Color(0xFF6A1B9A));
 

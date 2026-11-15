@@ -53,8 +53,10 @@ void main() {
       expect(find.byKey(const Key('landing-header-sign-in-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-header-get-started-btn')), findsOneWidget);
 
-      // Section B: Hero Section
-      expect(find.text('LEARN ANYWHERE, ANYTIME.'), findsOneWidget);
+      // Section B: Hero Section with Prominent Official Logo
+      expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
+      expect(find.text('LEARN ANYWHERE, ANYTIME.'), findsNothing);
+      expect(find.textContaining('Learning, rooted in'), findsNothing);
       expect(find.text('A smarter way to learn, practise, prepare for examinations and achieve your academic goals.'), findsOneWidget);
       expect(find.byKey(const Key('landing-get-started-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-explore-learning-btn')), findsOneWidget);
