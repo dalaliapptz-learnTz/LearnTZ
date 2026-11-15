@@ -32,8 +32,8 @@ Widget _buildTestApp({
 }
 
 void main() {
-  group('LearnTZ Streamlined Welcome & Home Landing Page', () {
-    testWidgets('renders streamlined landing page fitting cleanly on screen', (
+  group('LearnTZ Enterprise Home Page UI/UX Optimization', () {
+    testWidgets('renders enterprise landing page with all core sections and typography', (
       tester,
     ) async {
       tester.view.physicalSize = const Size(390, 844);
@@ -43,62 +43,92 @@ void main() {
         tester.view.resetDevicePixelRatio();
       });
 
-      // Pump single frame — must be rendered immediately
       await tester.pumpWidget(_buildTestApp());
-      await tester.pump();
+      await tester.pumpAndSettle();
 
-      // Section A: Header & Static Brand Logo
+      // 1. Header Navigation
       expect(find.byType(AppBrandLogo), findsAtLeastNWidgets(1));
       expect(find.byKey(const ValueKey('nav-/country')), findsOneWidget);
       expect(find.byKey(const Key('landing-header-sign-in-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-header-get-started-btn')), findsOneWidget);
 
-      // Section B: Hero Section with Prominent Official Logo
+      // 2. Hero Section (Official Logo, Exact Headlines, CTAs)
       expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
-      expect(find.text('LEARN ANYWHERE, ANYTIME.'), findsNothing);
-      expect(find.textContaining('Learning, rooted in'), findsNothing);
-      expect(find.text('A smarter way to learn, practise, prepare for examinations and achieve your academic goals.'), findsOneWidget);
+      expect(find.text('LEARN ANYWHERE. ACHIEVE EVERYWHERE.'), findsOneWidget);
+      expect(find.text('Learning that moves with your child.'), findsOneWidget);
+      expect(
+        find.text(
+          'Curriculum-aligned lessons, interactive practice and examination preparation, wherever learning happens.',
+        ),
+        findsOneWidget,
+      );
       expect(find.byKey(const Key('landing-get-started-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-explore-learning-btn')), findsOneWidget);
+      expect(find.text('GET STARTED'), findsWidgets);
       expect(find.text('EXPLORE LEARNING'), findsOneWidget);
 
-      // Section G: Call to Action Banner
+      // Capability Trust Strip
+      expect(find.text('National Curricula Aligned'), findsOneWidget);
+      expect(find.text('Works 100% Offline'), findsOneWidget);
+      expect(find.text('Independent Child Device Access'), findsOneWidget);
+
+      // 3. Four Core Learning Feature Cards
+      expect(find.text('Curriculum-Aligned Lessons'), findsOneWidget);
+      expect(find.text('Interactive Practice'), findsOneWidget);
+      expect(find.text('Examination Preparation'), findsOneWidget);
+      expect(find.text('Learning Progress & Analytics'), findsOneWidget);
+      expect(find.text('Explore Syllabi →'), findsOneWidget);
+      expect(find.text('Start Practice →'), findsOneWidget);
+      expect(find.text('View Exam Centre →'), findsOneWidget);
+      expect(find.text('See Analytics →'), findsOneWidget);
+
+      // 4. Parent & Learner Experience Section
+      expect(find.text('Built for Parents. Designed for Independent Learners.'), findsOneWidget);
+      expect(find.text('One Parent, Multiple Learners'), findsOneWidget);
+      expect(find.text('Parents Monitor Learning Progress'), findsOneWidget);
+      expect(find.text('Children Access on Separate Devices'), findsOneWidget);
+      expect(find.text('Progress Synchronizes Everywhere'), findsOneWidget);
+
+      // 5. Call to Action Banner & Footer
       expect(find.text("YOUR CHILD'S LEARNING JOURNEY STARTS HERE."), findsOneWidget);
       expect(find.byKey(const Key('landing-cta-register-parent-btn')), findsOneWidget);
       expect(find.byKey(const Key('landing-cta-sign-in-btn')), findsOneWidget);
-
-      // Verify crowded sections and curriculum illustration card have been removed to fit cleanly on screen
-      expect(find.text('WHAT LEARNTZ OFFERS'), findsNothing);
-      expect(find.text('HOW IT WORKS'), findsNothing);
-      expect(find.text('EXAMINATION PREPARATION'), findsNothing);
-      expect(find.text('ONE APPLICATION • MULTIPLE AFRICAN NATIONS'), findsNothing);
-      expect(find.text('About LearnTZ'), findsNothing);
-      expect(find.textContaining('TIE Tanzania'), findsNothing);
-      expect(find.textContaining('KICD Kenya'), findsNothing);
+      expect(find.textContaining('About LearnTZ'), findsOneWidget);
+      expect(find.textContaining('Help & Support'), findsOneWidget);
 
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('renders desktop header with tagline and full navigation links on wide viewport', (
+    testWidgets('responsive layout renders without overflow across all 7 viewports', (
       tester,
     ) async {
-      tester.view.physicalSize = const Size(1280, 900);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(() {
-        tester.view.resetPhysicalSize();
-        tester.view.resetDevicePixelRatio();
-      });
+      final viewports = [
+        const Size(320, 640),  // 320px mobile
+        const Size(360, 780),  // 360px mobile
+        const Size(390, 844),  // 390px mobile
+        const Size(430, 932),  // 430px mobile
+        const Size(768, 1024), // 768px tablet
+        const Size(1024, 768), // 1024px laptop/tablet
+        const Size(1440, 900), // 1440px desktop
+      ];
 
-      await tester.pumpWidget(_buildTestApp());
-      await tester.pump();
+      for (final size in viewports) {
+        tester.view.physicalSize = size;
+        tester.view.devicePixelRatio = 1;
 
-      expect(find.text('Learn Anywhere, Anytime.'), findsWidgets);
-      expect(find.byKey(const ValueKey('nav-/about')), findsOneWidget);
-      expect(find.byKey(const ValueKey('nav-/help')), findsOneWidget);
-      expect(find.byKey(const Key('landing-header-sign-in-btn')), findsOneWidget);
-      expect(find.byKey(const Key('landing-header-get-started-btn')), findsOneWidget);
+        await tester.pumpWidget(_buildTestApp());
+        await tester.pumpAndSettle();
 
-      expect(tester.takeException(), isNull);
+        expect(find.text('LEARN ANYWHERE. ACHIEVE EVERYWHERE.'), findsOneWidget);
+        expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
+        expect(find.byKey(const Key('landing-get-started-btn')), findsOneWidget);
+        expect(find.text('Curriculum-Aligned Lessons'), findsOneWidget);
+        expect(find.text('Built for Parents. Designed for Independent Learners.'), findsOneWidget);
+        expect(tester.takeException(), isNull, reason: 'Failed at viewport: ${size.width}x${size.height}');
+      }
+
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
     });
 
     testWidgets('dynamically adapts to country configuration', (
@@ -116,8 +146,15 @@ void main() {
         isDefault: false,
       );
 
+      tester.view.physicalSize = const Size(1280, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
       await tester.pumpWidget(_buildTestApp(country: kenyaConfig));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text('KE'), findsWidgets);
       expect(find.textContaining('LearnKE'), findsWidgets);
