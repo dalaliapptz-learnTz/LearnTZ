@@ -17,6 +17,11 @@ class AppScaffold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (location == AppRoutes.learnerLogin ||
+        location == AppRoutes.learnerDashboard) {
+      return child;
+    }
+
     final l10n = AppLocalizations.of(context)!;
     final authEvent = ref.watch(authStateChangesProvider).asData?.value;
     final client = ref.watch(supabaseClientProvider);

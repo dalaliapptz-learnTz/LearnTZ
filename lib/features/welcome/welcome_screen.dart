@@ -209,6 +209,15 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
               ),
               child: Text(l10n.learnAboutUs(country.productName)),
             ),
+            OutlinedButton.icon(
+              onPressed: () => context.go(AppRoutes.learnerLogin),
+              icon: const Icon(Icons.school_outlined, size: 18),
+              label: const Text('STUDENT ACCESS'),
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size(48, 52),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 20),

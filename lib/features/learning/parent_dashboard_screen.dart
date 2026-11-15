@@ -7,6 +7,7 @@ import '../../core/routing/app_router.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../auth/auth_screens.dart';
 import '../learners/learner_providers.dart';
+import '../learners/providers/learner_auth_providers.dart';
 import 'learning_models.dart';
 import 'learning_providers.dart';
 
@@ -288,19 +289,39 @@ class _ParentLearnerCard extends ConsumerWidget {
           ],
           const SizedBox(height: 16),
           // Actions
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          Wrap(
+            alignment: WrapAlignment.end,
+            spacing: 8,
+            runSpacing: 8,
             children: [
+              OutlinedButton.icon(
+                onPressed: () => context.go(AppRoutes.childDevices(learner.learnerId)),
+                icon: const Icon(Icons.devices_outlined, size: 16),
+                label: const Text('Devices'),
+              ),
               OutlinedButton(
                 onPressed: () => context.go(AppRoutes.learnerProfile(learner.learnerId)),
                 child: Text(l10n.learnerProfileTitle),
               ),
-              const SizedBox(width: 12),
               FilledButton.icon(
                 onPressed: () async {
                   await ref.read(activeLearnerProvider.notifier).select(learner.learnerId);
+                  await ref.read(activeLearnerSessionProvider.notifier).startParentManagedChildMode(
+                        learnerId: learner.learnerId,
+                        firstName: learner.fullName.split(' ').first,
+                        lastName: learner.fullName.split(' ').length > 1
+                            ? learner.fullName.split(' ').last
+                            : '',
+                        learnerCode: learner.learnerId.substring(0, 8).toUpperCase(),
+                        avatarPreset: 'lion_reader',
+                        countryCode: 'TZ',
+                        educationSystemId: '',
+                        curriculumId: '',
+                        educationLevelId: '',
+                        gradeId: '',
+                      );
                   if (context.mounted) {
-                    context.go(AppRoutes.learn);
+                    context.go(AppRoutes.learnerDashboard);
                   }
                 },
                 icon: const Icon(Icons.play_arrow),

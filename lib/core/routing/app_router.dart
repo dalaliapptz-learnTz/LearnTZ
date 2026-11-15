@@ -38,6 +38,10 @@ import '../../features/exams/screens/timed_examination_runner_screen.dart';
 import '../../features/help/help_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/learners/learner_screens.dart';
+import '../../features/learners/providers/learner_auth_providers.dart';
+import '../../features/learners/screens/child_device_management_screen.dart';
+import '../../features/learners/screens/learner_dashboard_screen.dart';
+import '../../features/learners/screens/learner_login_screen.dart';
 import '../../features/learning/flashcard_study_screen.dart';
 import '../../features/learning/learning_screens.dart';
 import '../../features/learning/parent_dashboard_screen.dart';
@@ -110,6 +114,10 @@ abstract final class AppRoutes {
       '/account/learners/$learnerId';
   static String editLearner(String learnerId) =>
       '/account/learners/$learnerId/edit';
+  static String childDevices(String learnerId) =>
+      '/account/learners/$learnerId/devices';
+  static const learnerLogin = '/learner-login';
+  static const learnerDashboard = '/learner/dashboard';
   static const contentStudio = '/content/studio';
   static const contentStudioEditor = '/content/studio/editor';
   static const contentStudioMedia = '/content/studio/media';
@@ -129,6 +137,9 @@ final _routerAuthListenerProvider = Provider<_RouterAuthListener>((ref) {
   ref.listen(adminCapabilitiesProvider, (previous, next) {
     listener.refresh();
   });
+  ref.listen(activeLearnerSessionProvider, (previous, next) {
+    listener.refresh();
+  });
   ref.onDispose(listener.dispose);
   return listener;
 });
@@ -142,6 +153,26 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       final client = ref.read(supabaseClientProvider);
       final isSignedIn = client?.auth.currentSession != null;
       final isPasswordRecovery = ref.read(passwordRecoveryModeProvider);
+      final isChildMode = ref.read(isChildModeActiveProvider);
+
+      if (isChildMode && !isSignedIn) {
+        final isParentAdminRoute = path == AppRoutes.account ||
+            path.startsWith('${AppRoutes.account}/') ||
+            path == AppRoutes.admin ||
+            path.startsWith('${AppRoutes.admin}/') ||
+            path == AppRoutes.subscriptions ||
+            path == AppRoutes.enterpriseRegister;
+        if (isParentAdminRoute) {
+          return AppRoutes.learnerDashboard;
+        }
+        if (path == AppRoutes.learnerLogin) {
+          return AppRoutes.learnerDashboard;
+        }
+      }
+
+      if (path == AppRoutes.learnerDashboard && !isChildMode && !isSignedIn) {
+        return AppRoutes.learnerLogin;
+      }
 
       if (isPasswordRecovery && path != AppRoutes.passwordRecovery) {
         return AppRoutes.passwordRecovery;
@@ -183,8 +214,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           path.startsWith('${AppRoutes.account}/') ||
           path == AppRoutes.admin ||
           path.startsWith('${AppRoutes.admin}/') ||
-          path == AppRoutes.learn ||
-          path.startsWith('${AppRoutes.learn}/') ||
+          (path == AppRoutes.learn && !isChildMode) ||
+          (path.startsWith('${AppRoutes.learn}/') && !isChildMode) ||
           path == AppRoutes.onboardingAddChild ||
           path == AppRoutes.onboardingConfirm ||
           path == AppRoutes.examUpload;
@@ -396,6 +427,20 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => LearnerFormScreen(
               learnerId: state.pathParameters['learnerId']!,
             ),
+          ),
+          GoRoute(
+            path: '/account/learners/:learnerId/devices',
+            builder: (context, state) => ChildDeviceManagementScreen(
+              learnerId: state.pathParameters['learnerId']!,
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.learnerLogin,
+            builder: (context, state) => const LearnerLoginScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.learnerDashboard,
+            builder: (context, state) => const LearnerDashboardScreen(),
           ),
           GoRoute(
             path: AppRoutes.examCentre,

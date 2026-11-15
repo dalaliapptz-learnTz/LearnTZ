@@ -141,6 +141,13 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           label: l10n.createAccountAction,
           onPressed: () => context.go(AppRoutes.signUp),
         ),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          key: const Key('student-learner-sign-in-button'),
+          onPressed: () => context.go(AppRoutes.learnerLogin),
+          icon: const Icon(Icons.school_outlined, size: 18),
+          label: const Text('Student / Learner Sign In'),
+        ),
       ],
     );
   }

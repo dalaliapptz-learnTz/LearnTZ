@@ -22,6 +22,9 @@ class ChildDraft {
     this.schoolName,
     this.schoolLocation,
     this.avatarPreset = 'owl_scholar',
+    this.accessMode = 'parent_managed',
+    this.pin,
+    this.username,
   });
 
   final String id;
@@ -43,6 +46,9 @@ class ChildDraft {
   final String? schoolName;
   final String? schoolLocation;
   final String avatarPreset;
+  final String accessMode; // 'parent_managed', 'independent_device', 'setup_later'
+  final String? pin;
+  final String? username;
 
   String get fullName {
     if (middleName != null && middleName!.trim().isNotEmpty) {
@@ -92,6 +98,9 @@ class ChildDraft {
     String? schoolName,
     String? schoolLocation,
     String? avatarPreset,
+    String? accessMode,
+    String? pin,
+    String? username,
   }) {
     return ChildDraft(
       id: id ?? this.id,
@@ -113,6 +122,9 @@ class ChildDraft {
       schoolName: schoolName ?? this.schoolName,
       schoolLocation: schoolLocation ?? this.schoolLocation,
       avatarPreset: avatarPreset ?? this.avatarPreset,
+      accessMode: accessMode ?? this.accessMode,
+      pin: pin ?? this.pin,
+      username: username ?? this.username,
     );
   }
 
@@ -137,6 +149,9 @@ class ChildDraft {
       'school_name': schoolName,
       'school_location': schoolLocation,
       'avatar_preset': avatarPreset,
+      'access_mode': accessMode,
+      'pin': pin,
+      'username': username,
     };
   }
 
@@ -161,6 +176,9 @@ class ChildDraft {
       schoolName: json['school_name'] as String?,
       schoolLocation: json['school_location'] as String?,
       avatarPreset: json['avatar_preset'] as String? ?? 'owl_scholar',
+      accessMode: json['access_mode'] as String? ?? 'parent_managed',
+      pin: json['pin'] as String?,
+      username: json['username'] as String?,
     );
   }
 }

@@ -29,10 +29,13 @@ class _OnboardingAddChildScreenState
   final _lastNameController = TextEditingController();
   final _schoolNameController = TextEditingController();
   final _schoolLocationController = TextEditingController();
+  final _pinController = TextEditingController();
 
   DateTime? _dateOfBirth;
   String _gender = 'prefer_not_to_say';
   String _selectedAvatar = 'owl_scholar';
+  String _accessMode = 'parent_managed';
+  bool _obscurePin = true;
 
   String? _selectedSystemId;
   String? _selectedCurriculumId;
@@ -121,6 +124,8 @@ class _OnboardingAddChildScreenState
         _selectedSchoolId = child.schoolId;
         _schoolNameController.text = child.schoolName ?? '';
         _schoolLocationController.text = child.schoolLocation ?? '';
+        _accessMode = child.accessMode;
+        _pinController.text = child.pin ?? '';
         return;
       }
     }
@@ -142,6 +147,7 @@ class _OnboardingAddChildScreenState
     _lastNameController.dispose();
     _schoolNameController.dispose();
     _schoolLocationController.dispose();
+    _pinController.dispose();
     super.dispose();
   }
 
@@ -223,6 +229,10 @@ class _OnboardingAddChildScreenState
           ? _schoolLocationController.text.trim()
           : null,
       avatarPreset: _selectedAvatar,
+      accessMode: _accessMode,
+      pin: _accessMode == 'independent_device' && _pinController.text.trim().isNotEmpty
+          ? _pinController.text.trim()
+          : null,
     );
   }
 
@@ -245,10 +255,12 @@ class _OnboardingAddChildScreenState
       _middleNameController.clear();
       _schoolNameController.clear();
       _schoolLocationController.clear();
+      _pinController.clear();
       _dateOfBirth = null;
       _selectedLevelId = null;
       _selectedGradeId = null;
       _selectedAvatar = 'lion_reader';
+      _accessMode = 'parent_managed';
     });
   }
 
@@ -668,6 +680,19 @@ class _OnboardingAddChildScreenState
               ),
             ],
           ),
+          const SizedBox(height: 28),
+
+          // Section 4: Device Access Arrangement
+          _buildSectionTitle('4. How will your child access LearnTZ?'),
+          const SizedBox(height: 6),
+          Text(
+            'Choose the device arrangement (you can change this at any time from your Parent Dashboard):',
+            style: LearnTzTypography.caption.copyWith(
+              color: LearnTzColors.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 14),
+          _buildAccessModeSelector(),
           const SizedBox(height: 32),
 
           // Action Buttons: + Add Another Child | Review & Confirm
@@ -766,6 +791,175 @@ class _OnboardingAddChildScreenState
                   ),
                 ],
               ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildAccessModeSelector() {
+    final modes = [
+      (
+        code: 'parent_managed',
+        title: "Use parent's device",
+        subtitle: 'Child uses your phone or tablet in supervised child mode.',
+        icon: Icons.phone_android_rounded,
+      ),
+      (
+        code: 'independent_device',
+        title: "Set up child's own device",
+        subtitle: 'Child signs in independently with their own Learner ID and PIN.',
+        icon: Icons.tablet_mac_rounded,
+      ),
+      (
+        code: 'setup_later',
+        title: 'Set up later',
+        subtitle: 'Configure device access anytime from your Parent Dashboard.',
+        icon: Icons.schedule_rounded,
+      ),
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        for (final m in modes) ...[
+          InkWell(
+            onTap: () => setState(() => _accessMode = m.code),
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: _accessMode == m.code
+                    ? LearnTzColors.primary50
+                    : Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: _accessMode == m.code
+                      ? LearnTzColors.primary
+                      : LearnTzColors.neutral200,
+                  width: _accessMode == m.code ? 2 : 1,
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    m.icon,
+                    color: _accessMode == m.code
+                        ? LearnTzColors.primary
+                        : LearnTzColors.neutral500,
+                    size: 24,
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          m.title,
+                          style: LearnTzTypography.bodyLarge.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: _accessMode == m.code
+                                ? LearnTzColors.primary900
+                                : LearnTzColors.textPrimary,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          m.subtitle,
+                          style: LearnTzTypography.caption.copyWith(
+                            color: LearnTzColors.textSecondary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 22,
+                    height: 22,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: _accessMode == m.code
+                            ? LearnTzColors.primary
+                            : LearnTzColors.neutral400,
+                        width: 2,
+                      ),
+                    ),
+                    child: _accessMode == m.code
+                        ? Center(
+                            child: Container(
+                              width: 12,
+                              height: 12,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: LearnTzColors.primary,
+                              ),
+                            ),
+                          )
+                        : null,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+        if (_accessMode == 'independent_device') ...[
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: LearnTzColors.secondary50,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: LearnTzColors.secondary200),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.pin_outlined,
+                        color: LearnTzColors.secondary, size: 20),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Create 4 to 6-Digit Learner PIN',
+                      style: LearnTzTypography.bodyRegular.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: LearnTzColors.secondary900,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Your child will use this PIN together with their unique Learner ID to sign in. (Never use birth date or birth year).',
+                  style: LearnTzTypography.caption
+                      .copyWith(color: LearnTzColors.textSecondary),
+                ),
+                const SizedBox(height: 12),
+                TextFormField(
+                  controller: _pinController,
+                  obscureText: _obscurePin,
+                  keyboardType: TextInputType.number,
+                  maxLength: 6,
+                  decoration: InputDecoration(
+                    labelText: 'Child PIN (4-6 Digits)',
+                    counterText: '',
+                    prefixIcon:
+                        const Icon(Icons.lock_clock_outlined, size: 20),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                          _obscurePin ? Icons.visibility_off : Icons.visibility,
+                          size: 20),
+                      onPressed: () =>
+                          setState(() => _obscurePin = !_obscurePin),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

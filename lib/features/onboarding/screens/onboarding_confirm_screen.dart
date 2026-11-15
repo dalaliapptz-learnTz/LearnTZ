@@ -384,7 +384,16 @@ class _OnboardingConfirmScreenState
                 Icons.cake_outlined,
                 '${DateFormat("dd MMM yyyy").format(child.dateOfBirth)} (${child.ageYears} yrs)',
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 8),
+              _buildDetailPill(
+                child.accessMode == 'independent_device'
+                    ? Icons.tablet_mac_rounded
+                    : Icons.phone_android_rounded,
+                child.accessMode == 'independent_device'
+                    ? 'Own Device'
+                    : "Parent's Device",
+              ),
+              const SizedBox(width: 8),
               if (child.schoolName != null &&
                   child.schoolName!.trim().isNotEmpty)
                 Expanded(
