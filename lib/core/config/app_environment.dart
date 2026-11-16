@@ -21,11 +21,26 @@ class AppEnvironment {
       'SUPABASE_AUTH_REDIRECT_URL',
     );
 
+    // In local development, default to the local Supabase stack if not explicitly provided
+    final effectiveUrl = supabaseUrl.isNotEmpty
+        ? supabaseUrl
+        : (rawName == 'development' ? 'http://127.0.0.1:54321' : null);
+    final effectiveKey = supabasePublishableKey.isNotEmpty
+        ? supabasePublishableKey
+        : (rawName == 'development'
+            ? 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH'
+            : null);
+    final effectiveRedirect = authRedirectUrl.isNotEmpty
+        ? authRedirectUrl
+        : (rawName == 'development'
+            ? 'http://localhost:5056/auth/callback'
+            : null);
+
     return AppEnvironment.fromValues(
       environment: rawName,
-      supabaseUrl: supabaseUrl,
-      supabasePublishableKey: supabasePublishableKey,
-      authRedirectUrl: authRedirectUrl,
+      supabaseUrl: effectiveUrl,
+      supabasePublishableKey: effectiveKey,
+      authRedirectUrl: effectiveRedirect,
     );
   }
 

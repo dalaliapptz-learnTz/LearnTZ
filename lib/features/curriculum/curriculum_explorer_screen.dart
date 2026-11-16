@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/auth/auth_providers.dart';
 import '../../core/routing/app_router.dart';
 import '../../core/state/app_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -78,11 +79,34 @@ class _CurriculumExplorerScreenState
               ],
 
               catalogAsync.when(
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, _) => AuthInlineMessage(
-                  message: l10n.requestFailed,
-                  isError: true,
+                loading: () => const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(32.0),
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
+                error: (error, stack) {
+                  debugPrint('CurriculumExplorer catalogAsync error: $error\n$stack');
+                  return Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AuthInlineMessage(
+                          message: error is AuthNotConfiguredException
+                              ? 'Backend service is not configured. Please check your Supabase connection.'
+                              : l10n.requestFailed,
+                          isError: true,
+                        ),
+                        const SizedBox(height: 12),
+                        OutlinedButton.icon(
+                          onPressed: () => ref.invalidate(educationCatalogProvider),
+                          icon: const Icon(Icons.refresh, size: 16),
+                          label: Text(l10n.tryAgainAction),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 data: (catalog) {
                   final systems = catalog.systems
                       .where((s) => s.countryCode == currentCountry && s.isEnabled)
@@ -745,11 +769,32 @@ class _SubjectTreeList extends ConsumerWidget {
     );
 
     return treeAsync.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, _) => AuthInlineMessage(
-        message: l10n.requestFailed,
-        isError: true,
+      loading: () => const Center(
+        child: Padding(
+          padding: EdgeInsets.all(32.0),
+          child: CircularProgressIndicator(),
+        ),
       ),
+      error: (error, stack) {
+        debugPrint('CurriculumExplorer treeAsync error: $error\n$stack');
+        return Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AuthInlineMessage(
+                message: l10n.requestFailed,
+                isError: true,
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: () => ref.invalidate(curriculumExplorerTreeProvider),
+                icon: const Icon(Icons.refresh, size: 16),
+                label: Text(l10n.tryAgainAction),
+              ),
+            ],
+          ),
+        );
+      },
       data: (allSubjects) {
         if (allSubjects.isEmpty) {
           return AppCard(
