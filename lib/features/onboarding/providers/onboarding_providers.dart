@@ -15,7 +15,11 @@ final onboardingRepositoryProvider = Provider<OnboardingRepository?>((ref) {
   final client = ref.watch(supabaseClientProvider);
   if (client == null) return null;
   final env = ref.watch(appEnvironmentProvider);
-  return OnboardingRepository(client, redirectUrl: env.authRedirectUrl);
+  return OnboardingRepository(
+    client,
+    redirectUrl: env.authRedirectUrl,
+    environmentName: env.name,
+  );
 });
 
 final onboardingSessionProvider =

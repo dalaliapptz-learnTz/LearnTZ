@@ -1,13 +1,19 @@
 import 'dart:async';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../../../core/config/app_environment.dart';
 import '../models/child_draft.dart';
 
 /// Backend Repository for LearnTZ Parent Onboarding
 class OnboardingRepository {
-  const OnboardingRepository(this._client, {this.redirectUrl});
+  const OnboardingRepository(
+    this._client, {
+    this.redirectUrl,
+    this.environmentName = AppEnvironmentName.development,
+  });
 
   final SupabaseClient _client;
   final String? redirectUrl;
+  final AppEnvironmentName environmentName;
 
   User? get currentUser => _client.auth.currentUser;
 
@@ -105,10 +111,12 @@ class OnboardingRepository {
       throw const AuthException('Invalid verification code length');
     }
 
-    final isDevCode = trimmedToken == '123456' ||
-        trimmedToken == '654321' ||
-        trimmedToken == '000000' ||
-        trimmedToken == '999999';
+    final isDev = environmentName == AppEnvironmentName.development;
+    final isDevCode = isDev &&
+        (trimmedToken == '123456' ||
+            trimmedToken == '654321' ||
+            trimmedToken == '000000' ||
+            trimmedToken == '999999');
 
     // 1. Try Supabase Auth OTP verification if SMS provider configured
     var authVerified = false;

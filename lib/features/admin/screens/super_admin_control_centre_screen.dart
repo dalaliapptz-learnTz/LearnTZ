@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/auth/auth_providers.dart';
+import '../../../core/config/app_environment.dart';
 import '../../../core/design_system/components/components.dart';
 import '../../../core/design_system/layouts/admin_portal_shell.dart';
 import '../../../core/design_system/tokens/design_tokens.dart';
@@ -141,24 +142,26 @@ class _SuperAdminControlCentreScreenState
           ),
         ],
       ),
-      const AdminNavGroup(
+      AdminNavGroup(
         title: 'DevSecOps & Compliance',
         items: [
-          AdminNavItem(
+          const AdminNavItem(
             route: 'security',
             label: 'Security & Sessions',
             icon: Icons.shield_outlined,
           ),
-          AdminNavItem(
+          const AdminNavItem(
             route: 'audit-logs',
             label: 'Immutable Audit Trail',
             icon: Icons.history_outlined,
           ),
-          AdminNavItem(
-            route: 'demo-sandbox',
-            label: 'Demo Accounts & Sandbox',
-            icon: Icons.science_outlined,
-          ),
+          if (ref.watch(appEnvironmentProvider).name ==
+              AppEnvironmentName.development)
+            const AdminNavItem(
+              route: 'demo-sandbox',
+              label: 'Demo Accounts & Sandbox',
+              icon: Icons.science_outlined,
+            ),
         ],
       ),
     ];
@@ -295,7 +298,10 @@ class _SuperAdminControlCentreScreenState
       'support' => _buildSupportModule(stats),
       'security' => _buildSecurityModule(),
       'audit-logs' => _buildAuditLogsModule(),
-      'demo-sandbox' => _buildDemoSandboxModule(),
+      'demo-sandbox' => (ref.watch(appEnvironmentProvider).name ==
+              AppEnvironmentName.development)
+          ? _buildDemoSandboxModule()
+          : _buildProductionSandboxDisabledModule(),
       _ => _buildDashboardModule(stats),
     };
   }
@@ -1314,6 +1320,35 @@ class _SuperAdminControlCentreScreenState
           ),
         );
       },
+    );
+  }
+
+  Widget _buildProductionSandboxDisabledModule() {
+    return const Center(
+      child: Padding(
+        padding: EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.lock_outline, size: 48, color: LearnTzColors.textSecondary),
+            SizedBox(height: 16),
+            Text(
+              'Sandbox & Demo Module Unavailable',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: LearnTzColors.textPrimary,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Demo accounts and sandbox engines are strictly prohibited in production environments.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14, color: LearnTzColors.textSecondary),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

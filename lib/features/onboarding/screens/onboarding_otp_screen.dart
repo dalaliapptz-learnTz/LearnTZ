@@ -5,8 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../core/config/app_environment.dart';
 import '../../../core/design_system/tokens/design_tokens.dart';
 import '../../../core/routing/app_router.dart';
+import '../../../core/state/app_providers.dart';
 import '../providers/onboarding_providers.dart';
 
 class OnboardingOtpScreen extends ConsumerStatefulWidget {
@@ -141,24 +143,33 @@ class _OnboardingOtpScreenState extends ConsumerState<OnboardingOtpScreen> {
       await repository.resendOtp(phoneNumber: phone);
       _startCooldownTimer();
       if (mounted) {
+        final isDev = ref.read(appEnvironmentProvider).name ==
+            AppEnvironmentName.development;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'Verification request sent. If SMS is delayed, use test code: 123456',
+            content: Text(
+              isDev
+                  ? 'Verification request sent. If SMS is delayed, use test code: 123456'
+                  : 'Verification code resent successfully. Please check your SMS inbox.',
             ),
             backgroundColor: LearnTzColors.primary,
-            action: SnackBarAction(
-              label: 'Fill 123456',
-              textColor: Colors.white,
-              onPressed: _quickFillTestCode,
-            ),
+            action: isDev
+                ? SnackBarAction(
+                    label: 'Fill 123456',
+                    textColor: Colors.white,
+                    onPressed: _quickFillTestCode,
+                  )
+                : null,
           ),
         );
       }
     } catch (_) {
+      final isDev = ref.read(appEnvironmentProvider).name ==
+          AppEnvironmentName.development;
       setState(() {
-        _errorMessage =
-            'SMS gateway in sandbox mode. Please use code 123456 to continue.';
+        _errorMessage = isDev
+            ? 'SMS gateway in sandbox mode. Please use code 123456 to continue.'
+            : 'Unable to resend verification code. Please check your connection and try again.';
       });
     } finally {
       if (mounted) setState(() => _isResending = false);
@@ -352,97 +363,101 @@ class _OnboardingOtpScreenState extends ConsumerState<OnboardingOtpScreen> {
                         ),
                 ),
               ),
-              const SizedBox(height: 20),
+              if (ref.watch(appEnvironmentProvider).name ==
+                  AppEnvironmentName.development) ...[
+                const SizedBox(height: 20),
 
-              // Instant Sandbox / Testing Helper Card
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: LearnTzColors.primary50,
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: LearnTzColors.primary200),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(6),
-                          decoration: const BoxDecoration(
-                            color: LearnTzColors.primary100,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.bolt,
-                            color: LearnTzColors.primary,
-                            size: 18,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            'Instant Verification (Testing Mode)',
-                            style: LearnTzTypography.bodyRegular.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: LearnTzColors.primary900,
+                // Instant Sandbox / Testing Helper Card
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: LearnTzColors.primary50,
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: LearnTzColors.primary200),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(6),
+                            decoration: const BoxDecoration(
+                              color: LearnTzColors.primary100,
+                              shape: BoxShape.circle,
                             ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6),
-                            border: Border.all(color: LearnTzColors.primary300),
-                          ),
-                          child: Text(
-                            '123456',
-                            style: LearnTzTypography.caption.copyWith(
-                              fontFamily: 'monospace',
-                              fontWeight: FontWeight.w800,
+                            child: const Icon(
+                              Icons.bolt,
                               color: LearnTzColors.primary,
-                              letterSpacing: 2,
+                              size: 18,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              'Instant Verification (Testing Mode)',
+                              style: LearnTzTypography.bodyRegular.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: LearnTzColors.primary900,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(6),
+                              border:
+                                  Border.all(color: LearnTzColors.primary300),
+                            ),
+                            child: Text(
+                              '123456',
+                              style: LearnTzTypography.caption.copyWith(
+                                fontFamily: 'monospace',
+                                fontWeight: FontWeight.w800,
+                                color: LearnTzColors.primary,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'If SMS delivery is delayed by your telecom carrier or when running in test/sandbox mode, use test code 123456 to verify immediately.',
+                        style: LearnTzTypography.bodySmall.copyWith(
+                          color: LearnTzColors.textSecondary,
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton.icon(
+                          key: const Key('quick_fill_otp_button'),
+                          onPressed: _isVerifying ? null : _quickFillTestCode,
+                          icon: const Icon(Icons.flash_on, size: 18),
+                          label: const Text('Quick Fill Test Code (123456)'),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: LearnTzColors.primary,
+                            side: const BorderSide(
+                              color: LearnTzColors.primary,
+                              width: 1.5,
+                            ),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'If SMS delivery is delayed by your telecom carrier or when running in test/sandbox mode, use test code 123456 to verify immediately.',
-                      style: LearnTzTypography.bodySmall.copyWith(
-                        color: LearnTzColors.textSecondary,
-                        height: 1.4,
                       ),
-                    ),
-                    const SizedBox(height: 14),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
-                        key: const Key('quick_fill_otp_button'),
-                        onPressed: _isVerifying ? null : _quickFillTestCode,
-                        icon: const Icon(Icons.flash_on, size: 18),
-                        label: const Text('Quick Fill Test Code (123456)'),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: LearnTzColors.primary,
-                          side: const BorderSide(
-                            color: LearnTzColors.primary,
-                            width: 1.5,
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+              ],
               const SizedBox(height: 24),
 
               // Resend timer row
