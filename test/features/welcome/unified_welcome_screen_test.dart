@@ -65,38 +65,12 @@ void main() {
           findsOneWidget,
         );
 
-        // 2. Hero Section (Image-Only Official Logo, "Learn Anywhere, Anytime.", CTAs)
+        // 2. Hero Section (Image-Only Official Logo, "Learn Anywhere, Anytime.")
         expect(
           find.byKey(const Key('hero-official-brand-logo')),
           findsOneWidget,
         );
         expect(find.text('Learn Anywhere, Anytime.'), findsWidgets);
-        expect(
-          find.text('Learning that moves with your child.'),
-          findsOneWidget,
-        );
-        expect(
-          find.text(
-            'Curriculum-aligned lessons, interactive practice and examination preparation, wherever learning happens.',
-          ),
-          findsOneWidget,
-        );
-        expect(
-          find.byKey(const Key('landing-get-started-btn')),
-          findsOneWidget,
-        );
-        expect(
-          find.byKey(const Key('landing-explore-learning-btn')),
-          findsOneWidget,
-        );
-        expect(find.text('GET STARTED'), findsWidgets);
-        expect(find.text('EXPLORE LEARNING'), findsOneWidget);
-
-        // Four Proportional Trust Strip Indicators
-        expect(find.text('National Curriculum'), findsOneWidget);
-        expect(find.text('Self-Paced Learning'), findsOneWidget);
-        expect(find.text('Child Device Access'), findsOneWidget);
-        expect(find.text('Offline Capable'), findsOneWidget);
 
         // 3. Four Core Learning Feature Cards (2x2 on mobile)
         expect(find.text('National Syllabi Coverage'), findsOneWidget);
@@ -108,20 +82,7 @@ void main() {
         expect(find.text('View Exam Centre →'), findsOneWidget);
         expect(find.text('See Analytics →'), findsOneWidget);
 
-        // 4. Parent & Learner Experience Section (Dual Architecture)
-        expect(
-          find.text('Built for Parents. Designed for Independent Learners.'),
-          findsOneWidget,
-        );
-        expect(find.text('One Parent, Multiple Learners'), findsOneWidget);
-        expect(find.text('Parents Monitor Learning Progress'), findsOneWidget);
-        expect(
-          find.text('Children Access on Separate Devices'),
-          findsOneWidget,
-        );
-        expect(find.text('Progress Synchronizes Everywhere'), findsOneWidget);
-
-        // 5. Call to Action Banner
+        // 4. Call to Action Banner
         expect(find.text("PARENT ONBOARDING"), findsOneWidget);
         expect(
           find.text("YOUR CHILD'S LEARNING JOURNEY STARTS HERE."),
@@ -137,19 +98,6 @@ void main() {
         );
         expect(find.text('REGISTER AS A PARENT'), findsOneWidget);
         expect(find.text('PARENT SIGN IN'), findsOneWidget);
-
-        // 6. Enterprise Footer
-        expect(find.textContaining('Tanzania'), findsOneWidget);
-        expect(find.textContaining('Kenya'), findsOneWidget);
-        expect(find.textContaining('Uganda'), findsOneWidget);
-        expect(find.textContaining('Rwanda'), findsOneWidget);
-        expect(find.textContaining('Burundi'), findsOneWidget);
-        expect(find.textContaining('South Sudan'), findsOneWidget);
-        expect(find.byKey(const Key('footer-about-link')), findsOneWidget);
-        expect(find.byKey(const Key('footer-contact-link')), findsOneWidget);
-        expect(find.byKey(const Key('footer-help-link')), findsOneWidget);
-        expect(find.byKey(const Key('footer-privacy-link')), findsOneWidget);
-        expect(find.byKey(const Key('footer-terms-link')), findsOneWidget);
 
         expect(tester.takeException(), isNull);
       },
@@ -180,15 +128,8 @@ void main() {
             find.byKey(const Key('hero-official-brand-logo')),
             findsOneWidget,
           );
-          expect(
-            find.byKey(const Key('landing-get-started-btn')),
-            findsOneWidget,
-          );
           expect(find.text('National Syllabi Coverage'), findsOneWidget);
-          expect(
-            find.text('Built for Parents. Designed for Independent Learners.'),
-            findsOneWidget,
-          );
+          expect(find.text('PARENT ONBOARDING'), findsOneWidget);
           expect(
             tester.takeException(),
             isNull,
@@ -227,50 +168,6 @@ void main() {
       expect(find.text('KE'), findsWidgets);
       expect(find.text('🇰🇪'), findsWidgets);
       expect(tester.takeException(), isNull);
-    });
-
-    testWidgets('footer legal dialogs open and close cleanly', (tester) async {
-      tester.view.physicalSize = const Size(1280, 900);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(() {
-        tester.view.resetPhysicalSize();
-        tester.view.resetDevicePixelRatio();
-      });
-
-      await tester.pumpWidget(_buildTestApp());
-      await tester.pumpAndSettle();
-
-      // Test Privacy Policy dialog
-      await tester.scrollUntilVisible(
-        find.byKey(const Key('footer-privacy-link')),
-        500,
-      );
-      await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const Key('footer-privacy-link')));
-      await tester.pumpAndSettle();
-      expect(
-        find.text('Privacy Policy & Child Data Protection'),
-        findsOneWidget,
-      );
-      await tester.tap(find.text('Close'));
-      await tester.pumpAndSettle();
-      expect(find.text('Privacy Policy & Child Data Protection'), findsNothing);
-
-      // Test Terms & Conditions dialog
-      await tester.scrollUntilVisible(
-        find.byKey(const Key('footer-terms-link')),
-        500,
-      );
-      await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const Key('footer-terms-link')));
-      await tester.pumpAndSettle();
-      expect(
-        find.text('Terms & Conditions'),
-        findsNWidgets(2),
-      ); // link + dialog title
-      await tester.tap(find.text('Close'));
-      await tester.pumpAndSettle();
-      expect(find.text('Terms & Conditions'), findsOneWidget); // link remains
     });
   });
 }

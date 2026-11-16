@@ -39,7 +39,7 @@ class WelcomeScreen extends ConsumerWidget {
             ),
 
             // 2. Uncluttered, Centered Hero Section with Image-Only Animated Logo
-            _LandingHeroSection(selectedCountry: selectedCountry, l10n: l10n),
+            const _LandingHeroSection(),
 
             // 3. Four Core Learning Feature Cards (Mobile: 2x2, Tablet: 2x2, Desktop: 4 cols)
             _LandingFeaturesSection(
@@ -47,14 +47,8 @@ class WelcomeScreen extends ConsumerWidget {
               l10n: l10n,
             ),
 
-            // 4. Parent & Learner Experience — Dual Architecture
-            _LandingExperienceSection(l10n: l10n),
-
-            // 5. Conversion Call-to-Action Banner
+            // 4. Conversion Call-to-Action Banner
             _LandingCtaBanner(selectedCountry: selectedCountry, l10n: l10n),
-
-            // 6. Clean Enterprise Footer with Regional Flags & Dynamic Year
-            _LandingFooter(selectedCountry: selectedCountry, l10n: l10n),
           ],
         ),
       ),
@@ -396,20 +390,13 @@ class _LandingHeader extends ConsumerWidget {
 // 2. HERO SECTION
 // ============================================================================
 class _LandingHeroSection extends StatelessWidget {
-  const _LandingHeroSection({
-    required this.selectedCountry,
-    required this.l10n,
-  });
-
-  final CountryConfiguration selectedCountry;
-  final AppLocalizations l10n;
+  const _LandingHeroSection();
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final isDesktop = width >= 900;
     final isNarrow = width < 360;
-    final isSwahili = Localizations.localeOf(context).languageCode == 'sw';
 
     return Container(
       decoration: const BoxDecoration(
@@ -442,122 +429,6 @@ class _LandingHeroSection extends StatelessWidget {
                   height: 1.18,
                   color: LearnTzColors.primary, // Deep Academic Blue #0F4C81
                 ),
-              ),
-              const SizedBox(height: 10),
-
-              // Supporting Headline (Savannah Green #15803D, switches with language)
-              Text(
-                l10n.welcomeHeadline, // en: "Learning that moves with your child." | sw: "Elimu inayosonga pamoja na mtoto wako."
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: isDesktop ? 19 : (isNarrow ? 14 : 16),
-                  fontWeight: FontWeight.w700,
-                  color: LearnTzColors.secondary,
-                  height: 1.25,
-                ),
-              ),
-              const SizedBox(height: 12),
-
-              // Description (Curriculum-aligned lessons, localized)
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 680),
-                child: Text(
-                  isSwahili
-                      ? 'Masomo yanayozingatia mitaala, mazoezi shirikishi, na maandalizi ya mitihani popote pale ujifunzaji unapotokea.'
-                      : 'Curriculum-aligned lessons, interactive practice and examination preparation, wherever learning happens.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: isDesktop ? 15 : (isNarrow ? 12 : 13),
-                    height: 1.5,
-                    color: LearnTzColors.neutral700,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              SizedBox(height: isDesktop ? 28 : 22),
-
-              // Actions: Primary GET STARTED + Secondary Explore Learning
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 12,
-                runSpacing: 10,
-                children: [
-                  FilledButton.icon(
-                    key: const Key('landing-get-started-btn'),
-                    onPressed: () => context.go(AppRoutes.onboardingCountry),
-                    icon: const Icon(Icons.arrow_forward_rounded, size: 16),
-                    label: const Text('GET STARTED'),
-                    style: FilledButton.styleFrom(
-                      backgroundColor: LearnTzColors.secondary,
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isDesktop ? 26 : 18,
-                        vertical: isDesktop ? 14 : 12,
-                      ),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  OutlinedButton.icon(
-                    key: const Key('landing-explore-learning-btn'),
-                    onPressed: () => context.go(AppRoutes.curriculumExplorer),
-                    icon: const Icon(Icons.explore_outlined, size: 16),
-                    label: const Text('EXPLORE LEARNING'),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: LearnTzColors.primary,
-                      side: const BorderSide(
-                        color: LearnTzColors.primary,
-                        width: 1.5,
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isDesktop ? 24 : 16,
-                        vertical: isDesktop ? 14 : 12,
-                      ),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: isDesktop ? 26 : 20),
-
-              // Four Proportional Trust Indicators Strip
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: isDesktop ? 20 : 12,
-                runSpacing: 8,
-                children: [
-                  _TrustItem(
-                    icon: Icons.school_outlined,
-                    text: isSwahili
-                        ? 'Mtaala wa Kitaifa'
-                        : 'National Curriculum',
-                  ),
-                  _TrustItem(
-                    icon: Icons.schedule_outlined,
-                    text: isSwahili
-                        ? 'Kujifunza kwa Kasi Yako'
-                        : 'Self-Paced Learning',
-                  ),
-                  _TrustItem(
-                    icon: Icons.devices_outlined,
-                    text: isSwahili ? 'Vifaa vya Mtoto' : 'Child Device Access',
-                  ),
-                  _TrustItem(
-                    icon: Icons.cloud_off_outlined,
-                    text: isSwahili ? 'Bila Mtandao' : 'Offline Capable',
-                  ),
-                ],
               ),
             ],
           ),
@@ -647,36 +518,6 @@ class _AnimatedHeroLogoState extends State<_AnimatedHeroLogo>
           ),
         ),
       ),
-    );
-  }
-}
-
-class _TrustItem extends StatelessWidget {
-  const _TrustItem({required this.icon, required this.text});
-
-  final IconData icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 14, color: LearnTzColors.secondary),
-        const SizedBox(width: 5),
-        Flexible(
-          child: Text(
-            text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              color: LearnTzColors.neutral700,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
@@ -1044,297 +885,7 @@ class _FeatureCardState extends State<_FeatureCard> {
 }
 
 // ============================================================================
-// 4. PARENT & LEARNER EXPERIENCE — DUAL ARCHITECTURE
-// ============================================================================
-class _LandingExperienceSection extends StatelessWidget {
-  const _LandingExperienceSection({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final isDesktop = width >= 1100;
-    final isTablet = width >= 600 && width < 1100;
-    final isNarrow = width < 360;
-    final isSwahili = Localizations.localeOf(context).languageCode == 'sw';
-
-    final pillars = [
-      _ExperiencePillarData(
-        icon: Icons.diversity_3_rounded,
-        color: LearnTzColors.secondary,
-        title: isSwahili
-            ? 'Mzazi Mmoja, Wanafunzi Wengi'
-            : 'One Parent, Multiple Learners',
-        bullets: isSwahili
-            ? [
-                'Akaunti moja ya mzazi inasimamia watoto kadhaa.',
-                'Kila mwanafunzi ana wasifu wake, ngazi ya masomo na maendeleo binafsi.',
-              ]
-            : [
-                'One parent account can manage multiple children.',
-                'Each learner has an individual profile, academic level and learning progress.',
-              ],
-      ),
-      _ExperiencePillarData(
-        icon: Icons.query_stats_rounded,
-        color: LearnTzColors.primary,
-        title: isSwahili
-            ? 'Wazazi Hufuatilia Maendeleo'
-            : 'Parents Monitor Learning Progress',
-        bullets: isSwahili
-            ? [
-                'Fuatilia masomo, tathmini, ufaulu na maeneo yanayohitaji maboresho.',
-                'Pata muhtasari thabiti wa shughuli za kujisomea za watoto wako.',
-              ]
-            : [
-                'Parents can monitor lessons, assessments, performance and improvement areas.',
-                'Provide a clear overview of children\'s learning activities.',
-              ],
-      ),
-      _ExperiencePillarData(
-        icon: Icons.phonelink_setup_rounded,
-        color: LearnTzColors.accent,
-        title: isSwahili
-            ? 'Watoto Huingia Kwenye Vifaa Vyao'
-            : 'Children Access on Separate Devices',
-        bullets: isSwahili
-            ? [
-                'Watoto hufikia akaunti zao binafsi kupitia simu, tableti au kompyuta.',
-                'Uzoefu wa mzazi na mwanafunzi unabaki ukitenganishwa kiusalama.',
-              ]
-            : [
-                'Children can access their own learner accounts using supported devices.',
-                'Parent and learner experiences remain appropriately separated.',
-              ],
-      ),
-      _ExperiencePillarData(
-        icon: Icons.cloud_sync_rounded,
-        color: const Color(0xFF0D9488),
-        title: isSwahili
-            ? 'Maendeleo Husawazishwa Kila Mahali'
-            : 'Progress Synchronizes Everywhere',
-        bullets: isSwahili
-            ? [
-                'Shughuli zote na maendeleo ya masomo husawazishwa kwenye vifaa vyote.',
-                'Dumisha uwiano kamili kati ya dashibodi ya mzazi na ile ya mwanafunzi.',
-              ]
-            : [
-                'Learning activities and progress synchronize across supported devices.',
-                'Maintain consistency between parent and learner dashboards.',
-              ],
-      ),
-    ];
-
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 32 : (isNarrow ? 14 : 20),
-        vertical: isDesktop ? 48 : 32,
-      ),
-      decoration: const BoxDecoration(
-        color: Color(0xFFF8FAFC),
-        border: Border.symmetric(
-          horizontal: BorderSide(color: Color(0xFFE2E8F0)),
-        ),
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1200),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Section Header
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: LearnTzColors.secondary50,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: LearnTzColors.secondary300),
-                ),
-                child: Text(
-                  isSwahili
-                      ? 'MFUMO WA MZAZI NA MWANAFUNZI'
-                      : 'PARENT & LEARNER COLLABORATION',
-                  style: const TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.8,
-                    color: LearnTzColors.secondary,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                isSwahili
-                    ? 'Imejengwa kwa Wazazi. Imeundwa kwa Wanafunzi Huru.'
-                    : 'Built for Parents. Designed for Independent Learners.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: isDesktop ? 26 : 20,
-                  fontWeight: FontWeight.w900,
-                  color: LearnTzColors.textPrimary,
-                  letterSpacing: -0.4,
-                ),
-              ),
-              const SizedBox(height: 6),
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 640),
-                child: Text(
-                  isSwahili
-                      ? 'LearnTZ inawawezesha wazazi kusimamia masomo huku wanafunzi wakijifunza kwa uhuru kwenye simu, tableti na kompyuta.'
-                      : 'LearnTZ seamlessly combines comprehensive parental supervision with distraction-free student autonomy across mobile phones, tablets, and computers.',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: LearnTzColors.neutral600,
-                    height: 1.45,
-                  ),
-                ),
-              ),
-              SizedBox(height: isDesktop ? 32 : 24),
-
-              // Responsive Pillars Grid
-              if (isDesktop)
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (int i = 0; i < pillars.length; i++) ...[
-                      if (i > 0) const SizedBox(width: 16),
-                      Expanded(child: _ExperiencePillarCard(data: pillars[i])),
-                    ],
-                  ],
-                )
-              else if (isTablet)
-                Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: _ExperiencePillarCard(data: pillars[0]),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: _ExperiencePillarCard(data: pillars[1]),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: _ExperiencePillarCard(data: pillars[2]),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: _ExperiencePillarCard(data: pillars[3]),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              else
-                Column(
-                  children: [
-                    for (int i = 0; i < pillars.length; i++) ...[
-                      if (i > 0) const SizedBox(height: 12),
-                      _ExperiencePillarCard(data: pillars[i]),
-                    ],
-                  ],
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ExperiencePillarData {
-  const _ExperiencePillarData({
-    required this.icon,
-    required this.color,
-    required this.title,
-    required this.bullets,
-  });
-
-  final IconData icon;
-  final Color color;
-  final String title;
-  final List<String> bullets;
-}
-
-class _ExperiencePillarCard extends StatelessWidget {
-  const _ExperiencePillarCard({required this.data});
-
-  final _ExperiencePillarData data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 38,
-            height: 38,
-            decoration: BoxDecoration(
-              color: data.color.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(data.icon, color: data.color, size: 20),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            data.title,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-              color: LearnTzColors.textPrimary,
-              height: 1.25,
-            ),
-          ),
-          const SizedBox(height: 8),
-          for (final bullet in data.bullets) ...[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 6),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(Icons.check_circle_rounded, size: 14, color: data.color),
-                  const SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      bullet,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: LearnTzColors.textSecondary,
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-// ============================================================================
-// 5. CONVERSION CALL-TO-ACTION BANNER
+// 4. CONVERSION CALL-TO-ACTION BANNER
 // ============================================================================
 class _LandingCtaBanner extends StatelessWidget {
   const _LandingCtaBanner({required this.selectedCountry, required this.l10n});
@@ -1349,436 +900,151 @@ class _LandingCtaBanner extends StatelessWidget {
     final isNarrow = width < 360;
     final isSwahili = Localizations.localeOf(context).languageCode == 'sw';
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 32 : (isNarrow ? 12 : 16),
-        vertical: isDesktop ? 40 : 28,
-      ),
-      color: const Color(0xFFF8FAFC),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 960),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: isDesktop ? 40 : (isNarrow ? 16 : 24),
-              vertical: isDesktop ? 40 : 28,
-            ),
-            decoration: BoxDecoration(
-              color: LearnTzColors.primary, // Deep Academic Blue #0F4C81
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: LearnTzColors.primary.withValues(alpha: 0.18),
-                  blurRadius: 20,
-                  offset: const Offset(0, 8),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                // Badge: "PARENT ONBOARDING" in Kilimanjaro Gold #F59E0B
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: LearnTzColors.accent.withValues(alpha: 0.20),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: LearnTzColors.accent, width: 1.2),
-                  ),
-                  child: Text(
-                    isSwahili ? 'USAJILI WA MZAZI' : 'PARENT ONBOARDING',
-                    style: const TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 1.0,
-                      color: LearnTzColors.accent,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // Heading
-                Text(
-                  isSwahili
-                      ? 'SAFARI YA MASOMO YA MTOTO WAKO INAANZIA HAPA.'
-                      : 'YOUR CHILD\'S LEARNING JOURNEY STARTS HERE.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: isDesktop ? 25 : (isNarrow ? 17 : 20),
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: -0.5,
-                    color: Colors.white,
-                    height: 1.2,
-                  ),
-                ),
-                const SizedBox(height: 8),
-
-                // Description
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 620),
-                  child: Text(
-                    isSwahili
-                        ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
-                        : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      color: Color(0xFFE2E8F0),
-                      height: 1.45,
-                    ),
-                  ),
-                ),
-                SizedBox(height: isDesktop ? 26 : 20),
-
-                // Dual Buttons: REGISTER AS A PARENT + PARENT SIGN IN
-                Wrap(
-                  spacing: 12,
-                  runSpacing: 10,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    FilledButton.icon(
-                      key: const Key('landing-cta-register-parent-btn'),
-                      onPressed: () => context.go(AppRoutes.onboardingCountry),
-                      icon: const Icon(Icons.person_add_rounded, size: 16),
-                      label: Text(
-                        isSwahili
-                            ? 'JISAJILI KAMA MZAZI'
-                            : 'REGISTER AS A PARENT',
-                      ),
-                      style: FilledButton.styleFrom(
-                        backgroundColor:
-                            LearnTzColors.secondary, // Savannah Green #15803D
-                        foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: isDesktop ? 24 : 18,
-                          vertical: isDesktop ? 14 : 12,
-                        ),
-                        textStyle: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    OutlinedButton.icon(
-                      key: const Key('landing-cta-sign-in-btn'),
-                      onPressed: () => context.go(AppRoutes.signIn),
-                      icon: const Icon(Icons.login_rounded, size: 16),
-                      label: Text(
-                        isSwahili ? 'INGIA KAMA MZAZI' : 'PARENT SIGN IN',
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        side: const BorderSide(color: Colors.white, width: 1.5),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: isDesktop ? 24 : 18,
-                          vertical: isDesktop ? 14 : 12,
-                        ),
-                        textStyle: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+    return SafeArea(
+      top: false,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: isDesktop ? 32 : (isNarrow ? 12 : 16),
+          vertical: isDesktop ? 40 : 28,
         ),
-      ),
-    );
-  }
-}
-
-// ============================================================================
-// 6. CLEAN ENTERPRISE FOOTER
-// ============================================================================
-class _LandingFooter extends StatelessWidget {
-  const _LandingFooter({required this.selectedCountry, required this.l10n});
-
-  final CountryConfiguration selectedCountry;
-  final AppLocalizations l10n;
-
-  void _showLegalDialog(BuildContext context, String title, String content) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
-        content: SingleChildScrollView(
-          child: Text(
-            content,
-            style: const TextStyle(fontSize: 13, height: 1.5),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final isDesktop = width >= 900;
-    final currentYear = DateTime.now().year;
-
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: Color(0xFFE2E8F0))),
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 32 : 16,
-        vertical: isDesktop ? 28 : 20,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1000),
-          child: Column(
-            children: [
-              // Supported East African Countries
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 12,
-                runSpacing: 6,
-                children: const [
-                  Text(
-                    '🇹🇿 Tanzania',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
-                  ),
-                  Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  Text(
-                    '🇰🇪 Kenya',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
-                  ),
-                  Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  Text(
-                    '🇺🇬 Uganda',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
-                  ),
-                  Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  Text(
-                    '🇷🇼 Rwanda',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
-                  ),
-                  Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  Text(
-                    '🇧🇮 Burundi',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
-                  ),
-                  Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  Text(
-                    '🇸🇸 South Sudan',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral600,
-                    ),
+        color: const Color(0xFFF8FAFC),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 960),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: isDesktop ? 40 : (isNarrow ? 16 : 24),
+                vertical: isDesktop ? 40 : 28,
+              ),
+              decoration: BoxDecoration(
+                color: LearnTzColors.primary, // Deep Academic Blue #0F4C81
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: LearnTzColors.primary.withValues(alpha: 0.18),
+                    blurRadius: 20,
+                    offset: const Offset(0, 8),
                   ),
                 ],
               ),
-              const SizedBox(height: 14),
-
-              // Footer Identity: Logo + Tagline (Scales down gracefully on compact screens)
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      'assets/branding/learntz_logo.png',
-                      height: 24,
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) => const Icon(
-                        Icons.school_rounded,
-                        size: 20,
-                        color: LearnTzColors.primary,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Learn Anywhere, Anytime.',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: LearnTzColors.neutral700,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-
-              // Footer Navigation Links
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 14,
-                runSpacing: 6,
+              child: Column(
                 children: [
-                  InkWell(
-                    key: const Key('footer-about-link'),
-                    onTap: () => context.go(AppRoutes.about),
-                    child: const Text(
-                      'About LearnTZ',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LearnTzColors.primary,
+                  // Badge: "PARENT ONBOARDING" in Kilimanjaro Gold #F59E0B
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: LearnTzColors.accent.withValues(alpha: 0.20),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: LearnTzColors.accent, width: 1.2),
+                    ),
+                    child: Text(
+                      isSwahili ? 'USAJILI WA MZAZI' : 'PARENT ONBOARDING',
+                      style: const TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 1.0,
+                        color: LearnTzColors.accent,
                       ),
                     ),
                   ),
-                  const Text(
-                    '•',
+                  const SizedBox(height: 12),
+
+                  // Heading
+                  Text(
+                    isSwahili
+                        ? 'SAFARI YA MASOMO YA MTOTO WAKO INAANZIA HAPA.'
+                        : 'YOUR CHILD\'S LEARNING JOURNEY STARTS HERE.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
+                      fontSize: isDesktop ? 25 : (isNarrow ? 17 : 20),
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: -0.5,
+                      color: Colors.white,
+                      height: 1.2,
                     ),
                   ),
-                  InkWell(
-                    key: const Key('footer-contact-link'),
-                    onTap: () => context.go(AppRoutes.help),
-                    child: const Text(
-                      'Contact',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LearnTzColors.primary,
+                  const SizedBox(height: 8),
+
+                  // Description
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 620),
+                    child: Text(
+                      isSwahili
+                          ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
+                          : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Color(0xFFE2E8F0),
+                        height: 1.45,
                       ),
                     ),
                   ),
-                  const Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  InkWell(
-                    key: const Key('footer-help-link'),
-                    onTap: () => context.go(AppRoutes.help),
-                    child: const Text(
-                      'Help & Support',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LearnTzColors.primary,
+                  SizedBox(height: isDesktop ? 26 : 20),
+
+                  // Dual Buttons: REGISTER AS A PARENT + PARENT SIGN IN
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 10,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      FilledButton.icon(
+                        key: const Key('landing-cta-register-parent-btn'),
+                        onPressed: () => context.go(AppRoutes.onboardingCountry),
+                        icon: const Icon(Icons.person_add_rounded, size: 16),
+                        label: Text(
+                          isSwahili
+                              ? 'JISAJILI KAMA MZAZI'
+                              : 'REGISTER AS A PARENT',
+                        ),
+                        style: FilledButton.styleFrom(
+                          backgroundColor:
+                              LearnTzColors.secondary, // Savannah Green #15803D
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: isDesktop ? 24 : 18,
+                            vertical: isDesktop ? 14 : 12,
+                          ),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  InkWell(
-                    key: const Key('footer-privacy-link'),
-                    onTap: () => _showLegalDialog(
-                      context,
-                      'Privacy Policy & Child Data Protection',
-                      'LearnTZ is committed to protecting learner privacy. We enforce strict data minimization, zero tracking for commercial ads, parent-controlled student profiles, and encrypted storage in compliance with regional and international data protection standards.',
-                    ),
-                    child: const Text(
-                      'Privacy Policy',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LearnTzColors.primary,
+                      OutlinedButton.icon(
+                        key: const Key('landing-cta-sign-in-btn'),
+                        onPressed: () => context.go(AppRoutes.signIn),
+                        icon: const Icon(Icons.login_rounded, size: 16),
+                        label: Text(
+                          isSwahili ? 'INGIA KAMA MZAZI' : 'PARENT SIGN IN',
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          side: const BorderSide(color: Colors.white, width: 1.5),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: isDesktop ? 24 : 18,
+                            vertical: isDesktop ? 14 : 12,
+                          ),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Text(
-                    '•',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: LearnTzColors.neutral400,
-                    ),
-                  ),
-                  InkWell(
-                    key: const Key('footer-terms-link'),
-                    onTap: () => _showLegalDialog(
-                      context,
-                      'Terms & Conditions',
-                      'By using LearnTZ, parents and educational institutions agree to our educational services terms. LearnTZ provides syllabus-aligned curriculum content, self-paced revision materials, and timed practice assessments designed to support classroom learning.',
-                    ),
-                    child: const Text(
-                      'Terms & Conditions',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: LearnTzColors.primary,
-                      ),
-                    ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-
-              // Dynamic Copyright Notice
-              Text(
-                '© $currentYear LearnTZ. All rights reserved.',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 11,
-                  color: LearnTzColors.neutral500,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
