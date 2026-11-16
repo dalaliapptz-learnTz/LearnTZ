@@ -20,7 +20,10 @@ class AppScaffold extends ConsumerWidget {
     if (location == AppRoutes.learnerLogin ||
         location == AppRoutes.learnerDashboard ||
         location == AppRoutes.welcome ||
-        location == AppRoutes.home) {
+        location == AppRoutes.home ||
+        location == AppRoutes.contentStudio ||
+        location.startsWith('/admin') ||
+        location.startsWith('/exams')) {
       return child;
     }
 

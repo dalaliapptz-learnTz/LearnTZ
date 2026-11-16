@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -10,6 +11,7 @@ class SecureSupabaseStorage extends LocalStorage implements GotrueAsyncStorage {
 
   final FlutterSecureStorage _storage;
   final String _keyPrefix;
+  final Map<String, String> _webStorage = {};
 
   String get _sessionKey => '${_keyPrefix}session';
 
@@ -20,24 +22,50 @@ class SecureSupabaseStorage extends LocalStorage implements GotrueAsyncStorage {
   Future<bool> hasAccessToken() async => await accessToken() != null;
 
   @override
-  Future<String?> accessToken() => _storage.read(key: _sessionKey);
+  Future<String?> accessToken() {
+    if (kIsWeb) return Future.value(_webStorage[_sessionKey]);
+    return _storage.read(key: _sessionKey);
+  }
 
   @override
-  Future<void> removePersistedSession() => _storage.delete(key: _sessionKey);
+  Future<void> removePersistedSession() {
+    if (kIsWeb) {
+      _webStorage.remove(_sessionKey);
+      return Future.value();
+    }
+    return _storage.delete(key: _sessionKey);
+  }
 
   @override
-  Future<void> persistSession(String persistSessionString) =>
-      _storage.write(key: _sessionKey, value: persistSessionString);
+  Future<void> persistSession(String persistSessionString) {
+    if (kIsWeb) {
+      _webStorage[_sessionKey] = persistSessionString;
+      return Future.value();
+    }
+    return _storage.write(key: _sessionKey, value: persistSessionString);
+  }
 
   @override
-  Future<String?> getItem({required String key}) =>
-      _storage.read(key: '${_keyPrefix}pkce.$key');
+  Future<String?> getItem({required String key}) {
+    if (kIsWeb) return Future.value(_webStorage['${_keyPrefix}pkce.$key']);
+    return _storage.read(key: '${_keyPrefix}pkce.$key');
+  }
 
   @override
-  Future<void> setItem({required String key, required String value}) =>
-      _storage.write(key: '${_keyPrefix}pkce.$key', value: value);
+  Future<void> setItem({required String key, required String value}) {
+    if (kIsWeb) {
+      _webStorage['${_keyPrefix}pkce.$key'] = value;
+      return Future.value();
+    }
+    return _storage.write(key: '${_keyPrefix}pkce.$key', value: value);
+  }
 
   @override
-  Future<void> removeItem({required String key}) =>
-      _storage.delete(key: '${_keyPrefix}pkce.$key');
+  Future<void> removeItem({required String key}) {
+    if (kIsWeb) {
+      _webStorage.remove('${_keyPrefix}pkce.$key');
+      return Future.value();
+    }
+    return _storage.delete(key: '${_keyPrefix}pkce.$key');
+  }
 }

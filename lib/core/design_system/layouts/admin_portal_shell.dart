@@ -120,17 +120,7 @@ class _AdminPortalShellState extends State<AdminPortalShell> {
               children: [
                 _buildTopHeader(),
                 Expanded(
-                  child: SingleChildScrollView(
-                    padding: LearnTzSpacing.screenPadding,
-                    child: Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          maxWidth: LearnTzSpacing.maxWideContentWidth,
-                        ),
-                        child: widget.child,
-                      ),
-                    ),
-                  ),
+                  child: widget.child,
                 ),
               ],
             ),

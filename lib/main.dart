@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -14,15 +15,22 @@ Future<void> main() async {
   final supabaseUrl = environment.supabaseUrl;
   final publishableKey = environment.supabasePublishableKey;
   if (supabaseUrl != null && publishableKey != null) {
-    final secureStorage = SecureSupabaseStorage(supabaseUrl: supabaseUrl);
-    await Supabase.initialize(
-      url: supabaseUrl,
-      publishableKey: publishableKey,
-      authOptions: FlutterAuthClientOptions(
-        localStorage: secureStorage,
-        pkceAsyncStorage: secureStorage,
-      ),
-    );
+    if (kIsWeb) {
+      await Supabase.initialize(
+        url: supabaseUrl,
+        publishableKey: publishableKey,
+      );
+    } else {
+      final secureStorage = SecureSupabaseStorage(supabaseUrl: supabaseUrl);
+      await Supabase.initialize(
+        url: supabaseUrl,
+        publishableKey: publishableKey,
+        authOptions: FlutterAuthClientOptions(
+          localStorage: secureStorage,
+          pkceAsyncStorage: secureStorage,
+        ),
+      );
+    }
   }
 
   runApp(
