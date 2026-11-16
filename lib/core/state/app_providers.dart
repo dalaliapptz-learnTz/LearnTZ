@@ -11,7 +11,12 @@ final appEnvironmentProvider = Provider<AppEnvironment>(
 
 final supabaseClientProvider = Provider<SupabaseClient?>((ref) {
   final environment = ref.watch(appEnvironmentProvider);
-  return environment.hasSupabaseConfiguration ? Supabase.instance.client : null;
+  if (!environment.hasSupabaseConfiguration) return null;
+  try {
+    return Supabase.instance.client;
+  } catch (_) {
+    return null;
+  }
 });
 
 final appLocaleProvider = NotifierProvider<AppLocaleNotifier, Locale>(

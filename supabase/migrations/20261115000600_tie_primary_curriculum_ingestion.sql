@@ -64,9 +64,13 @@ do $$
 declare
   v_tie_curriculum_id uuid := '20000000-0000-0000-0000-000000000002';
   v_version_id uuid := '20000000-0000-0000-0000-000000000023';
+  v_admin_id uuid;
 begin
+  select id into v_admin_id from auth.users order by created_at limit 1;
+
   insert into public.curriculum_versions (
-    id, curriculum_id, version_code, display_name, official_document_version, status, requires_reviewed_import
+    id, curriculum_id, version_code, display_name, official_document_version, status, requires_reviewed_import,
+    created_by, approved_by, approved_at, published_by, published_at
   ) values (
     v_version_id,
     v_tie_curriculum_id,
@@ -74,11 +78,20 @@ begin
     'TIE National Primary Curriculum 2023',
     '2023 Competency-Based Edition',
     'published',
-    false
+    false,
+    v_admin_id,
+    v_admin_id,
+    now(),
+    v_admin_id,
+    now()
   ) on conflict (curriculum_id, version_code) do update
   set display_name = excluded.display_name,
       status = 'published',
-      official_document_version = excluded.official_document_version;
+      official_document_version = excluded.official_document_version,
+      approved_by = coalesce(curriculum_versions.approved_by, excluded.approved_by),
+      approved_at = coalesce(curriculum_versions.approved_at, excluded.approved_at),
+      published_by = coalesce(curriculum_versions.published_by, excluded.published_by),
+      published_at = coalesce(curriculum_versions.published_at, excluded.published_at);
 end $$;
 
 -- 5. Register Official TIE Source Documents in curriculum_sources
@@ -95,6 +108,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -109,6 +123,7 @@ begin
       'b5298c4153dbe9f9d22fb21740a7a666405cb2a2c875db1a506379aac834a447',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -126,6 +141,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -140,6 +156,7 @@ begin
       '34a99e256d89fd117f951223a78f4a13afaf15e630299f7cb5c250b09157a8b1',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -157,6 +174,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -171,6 +189,7 @@ begin
       'fe373aee700908a968ebad4dfc365a7141891c260dfc828eedbf882a75a3489d',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -188,6 +207,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -202,6 +222,7 @@ begin
       'baef25143a8133b1a435854134f0971133585bb8674d873ba99b83826a0e6eb8',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -219,6 +240,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -233,6 +255,7 @@ begin
       'f83ea3623f244c0505b6df390a797db9b014d0449ea99172d5622d1ab95f6157',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -250,6 +273,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -264,6 +288,7 @@ begin
       '49aa2159d9801f2fc597befb79f73ed3f528b00b25bf9106ae4f718ec9fc2011',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -281,6 +306,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -295,6 +321,7 @@ begin
       'ae6b2f5d28b60bb77bd3bb2d7816535bacb671934cca4660705cfa937f9aacd2',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -312,6 +339,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -326,6 +354,7 @@ begin
       '323905446a4d04fabc32e05aeaa3bf97616afbde37b12c6c0d1aec7193e8f21d',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -343,6 +372,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -357,6 +387,7 @@ begin
       '037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;
@@ -374,6 +405,7 @@ begin
       authority_id, document_title, issuing_institution, document_reference,
       publication_date, effective_date, document_version, storage_bucket,
       storage_object_path, sha256_checksum, usage_permissions, verification_status,
+      verified_by, verified_at,
       created_by
     ) values (
       v_authority_id,
@@ -388,6 +420,7 @@ begin
       '4ea0df6a92752fbba00dbb9aa2f9cacd4f66733c8471d650bb3d99e4c83c70e3',
       'Official Tanzania Government Curriculum Document published by TIE under MoEST.',
       'verified',
+      v_admin_id, now(),
       v_admin_id
     ) on conflict do nothing;
   end if;

@@ -37,8 +37,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
-    expect(find.text('Learning that moves with your child.'), findsOneWidget);
-    expect(find.text('GET STARTED'), findsOneWidget);
+    expect(find.text('Learn Anywhere, Anytime.'), findsWidgets);
+    expect(find.text('Get Started'), findsWidgets);
 
     await tester.tap(find.byKey(const ValueKey('nav-/country')));
     await tester.pumpAndSettle();
@@ -63,7 +63,7 @@ void main() {
     await tester.tap(find.text('Kiswahili'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Elimu inayosonga pamoja na mtoto wako.'), findsOneWidget);
+    expect(find.text('Mitaala ya Kitaifa'), findsOneWidget);
     expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
   });
 

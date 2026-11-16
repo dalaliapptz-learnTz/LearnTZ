@@ -551,8 +551,8 @@ begin
   end if;
 
   -- 4. Generate secure token
-  token_secret := encode(gen_random_bytes(32), 'hex');
-  token_hash := encode(digest(token_secret, 'sha256'), 'hex');
+  token_secret := encode(extensions.gen_random_bytes(32), 'hex');
+  token_hash := encode(extensions.digest(token_secret, 'sha256'), 'hex');
 
   -- 5. Insert invitation with 72-hour expiry
   insert into public.admin_invitations (
@@ -629,7 +629,7 @@ begin
     raise exception 'Authentication required to accept administrator invitation' using errcode = '42501';
   end if;
 
-  computed_hash := encode(digest(p_token, 'sha256'), 'hex');
+  computed_hash := encode(extensions.digest(p_token, 'sha256'), 'hex');
 
   select * into invitation_rec
   from public.admin_invitations
@@ -873,7 +873,7 @@ begin
     raise exception 'Invalid TOTP secret key' using errcode = '22023';
   end if;
 
-  secret_hash := encode(digest(p_totp_secret, 'sha256'), 'hex');
+  secret_hash := encode(extensions.digest(p_totp_secret, 'sha256'), 'hex');
 
   update public.admin_profiles
   set mfa_enrolled = true,
@@ -945,7 +945,7 @@ begin
   )
   values (
     target_admin.id,
-    encode(gen_random_bytes(24), 'hex'),
+    encode(extensions.gen_random_bytes(24), 'hex'),
     true,
     now() + interval '8 hours'
   );

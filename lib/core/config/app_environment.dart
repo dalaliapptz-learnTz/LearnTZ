@@ -21,14 +21,16 @@ class AppEnvironment {
       'SUPABASE_AUTH_REDIRECT_URL',
     );
 
-    // In local development, default to the local Supabase stack if not explicitly provided
+    // Default development to hosted remote Supabase if not explicitly overridden
     final effectiveUrl = supabaseUrl.isNotEmpty
         ? supabaseUrl
-        : (rawName == 'development' ? 'http://127.0.0.1:54321' : null);
+        : (rawName == 'development'
+            ? 'https://jmllsuohmllklzhmhiva.supabase.co'
+            : null);
     final effectiveKey = supabasePublishableKey.isNotEmpty
         ? supabasePublishableKey
         : (rawName == 'development'
-            ? 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH'
+            ? 'sb_publishable_bicPB5xPkjcNeKpuG4fVjg_GnpVQtXp'
             : null);
     final effectiveRedirect = authRedirectUrl.isNotEmpty
         ? authRedirectUrl
