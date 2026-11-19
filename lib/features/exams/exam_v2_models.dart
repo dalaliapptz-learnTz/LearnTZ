@@ -458,3 +458,211 @@ class ExamV2SelectionKey {
         examinationTypeId,
       );
 }
+
+// ============================================================================
+// Phase 2: Examination Master, Blueprint Sections & Curriculum Coverage Models
+// ============================================================================
+
+class ExamV2SectionDraft {
+  const ExamV2SectionDraft({
+    required this.sectionCode,
+    required this.title,
+    required this.questionFormat,
+    this.instructions = '',
+    this.questionCount = 5,
+    this.marksAllocated = 10,
+    this.displayOrder = 1,
+  });
+
+  final String sectionCode;
+  final String title;
+  final String questionFormat;
+  final String instructions;
+  final int questionCount;
+  final double marksAllocated;
+  final int displayOrder;
+
+  ExamV2SectionDraft copyWith({
+    String? sectionCode,
+    String? title,
+    String? questionFormat,
+    String? instructions,
+    int? questionCount,
+    double? marksAllocated,
+    int? displayOrder,
+  }) {
+    return ExamV2SectionDraft(
+      sectionCode: sectionCode ?? this.sectionCode,
+      title: title ?? this.title,
+      questionFormat: questionFormat ?? this.questionFormat,
+      instructions: instructions ?? this.instructions,
+      questionCount: questionCount ?? this.questionCount,
+      marksAllocated: marksAllocated ?? this.marksAllocated,
+      displayOrder: displayOrder ?? this.displayOrder,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'section_code': sectionCode,
+        'title': title,
+        'question_format': questionFormat,
+        'instructions': instructions,
+        'question_count': questionCount,
+        'marks_allocated': marksAllocated,
+        'display_order': displayOrder,
+      };
+
+  factory ExamV2SectionDraft.fromJson(Map<String, dynamic> json) {
+    return ExamV2SectionDraft(
+      sectionCode: json['section_code'] as String? ?? 'A',
+      title: json['title'] as String? ?? '',
+      questionFormat: json['question_format'] as String? ?? 'multiple_choice',
+      instructions: json['instructions'] as String? ?? '',
+      questionCount: (json['question_count'] as num?)?.toInt() ?? 5,
+      marksAllocated: (json['marks_allocated'] as num?)?.toDouble() ?? 10,
+      displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
+    );
+  }
+}
+
+class ExamV2CompetencyAllocation {
+  const ExamV2CompetencyAllocation({
+    required this.specificCompetenceId,
+    required this.allocatedMarks,
+    this.targetQuestionCount = 5,
+    this.notes = '',
+  });
+
+  final String specificCompetenceId;
+  final double allocatedMarks;
+  final int targetQuestionCount;
+  final String notes;
+
+  Map<String, dynamic> toJson() => {
+        'specific_competence_id': specificCompetenceId,
+        'allocated_marks': allocatedMarks,
+        'target_question_count': targetQuestionCount,
+        'notes': notes,
+      };
+}
+
+class ExamV2ExaminationSummary {
+  const ExamV2ExaminationSummary({
+    required this.id,
+    required this.title,
+    required this.countryCode,
+    required this.countryName,
+    required this.curriculumName,
+    this.curriculumVersionCode,
+    required this.educationLevelName,
+    required this.gradeName,
+    required this.subjectName,
+    required this.examinationTypeName,
+    required this.academicYear,
+    required this.academicTerm,
+    this.examinationDate,
+    required this.durationMinutes,
+    required this.totalMarks,
+    required this.languageCode,
+    required this.deliveryMode,
+    required this.status,
+    required this.isPublished,
+    required this.versionNumber,
+    this.reviewNotes,
+    required this.sectionCount,
+    required this.competencyCount,
+    this.updatedAt,
+  });
+
+  final String id;
+  final String title;
+  final String countryCode;
+  final String countryName;
+  final String curriculumName;
+  final String? curriculumVersionCode;
+  final String educationLevelName;
+  final String gradeName;
+  final String subjectName;
+  final String examinationTypeName;
+  final int academicYear;
+  final String academicTerm;
+  final String? examinationDate;
+  final int durationMinutes;
+  final double totalMarks;
+  final String languageCode;
+  final String deliveryMode;
+  final String status;
+  final bool isPublished;
+  final int versionNumber;
+  final String? reviewNotes;
+  final int sectionCount;
+  final int competencyCount;
+  final DateTime? updatedAt;
+
+  factory ExamV2ExaminationSummary.fromJson(Map<String, dynamic> json) {
+    return ExamV2ExaminationSummary(
+      id: json['id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      countryCode: json['country_code'] as String? ?? '',
+      countryName: json['country_name'] as String? ?? '',
+      curriculumName: json['curriculum_name'] as String? ?? '',
+      curriculumVersionCode: json['curriculum_version_code'] as String?,
+      educationLevelName: json['education_level_name'] as String? ?? '',
+      gradeName: json['grade_name'] as String? ?? '',
+      subjectName: json['subject_name'] as String? ?? '',
+      examinationTypeName: json['examination_type_name'] as String? ?? '',
+      academicYear: (json['academic_year'] as num?)?.toInt() ?? 2026,
+      academicTerm: json['academic_term'] as String? ?? 'Term I',
+      examinationDate: json['examination_date'] as String?,
+      durationMinutes: (json['duration_minutes'] as num?)?.toInt() ?? 90,
+      totalMarks: (json['total_marks'] as num?)?.toDouble() ?? 0,
+      languageCode: json['language_code'] as String? ?? 'en',
+      deliveryMode: json['delivery_mode'] as String? ?? 'hybrid',
+      status: json['status'] as String? ?? 'draft',
+      isPublished: json['is_published'] as bool? ?? false,
+      versionNumber: (json['version_number'] as num?)?.toInt() ?? 1,
+      reviewNotes: json['review_notes'] as String?,
+      sectionCount: (json['section_count'] as num?)?.toInt() ?? 0,
+      competencyCount: (json['competency_count'] as num?)?.toInt() ?? 0,
+      updatedAt: json['updated_at'] is String
+          ? DateTime.tryParse(json['updated_at'] as String)
+          : null,
+    );
+  }
+}
+
+class ExamV2ExaminationListResult {
+  const ExamV2ExaminationListResult({
+    required this.totalCount,
+    required this.draftCount,
+    required this.underReviewCount,
+    required this.approvedCount,
+    required this.publishedCount,
+    required this.items,
+  });
+
+  final int totalCount;
+  final int draftCount;
+  final int underReviewCount;
+  final int approvedCount;
+  final int publishedCount;
+  final List<ExamV2ExaminationSummary> items;
+
+  factory ExamV2ExaminationListResult.fromJson(Map<String, dynamic> json) {
+    final summary = Map<String, dynamic>.from(
+      json['summary'] as Map? ?? const <String, dynamic>{},
+    );
+    return ExamV2ExaminationListResult(
+      totalCount: (summary['total_count'] as num?)?.toInt() ?? 0,
+      draftCount: (summary['draft_count'] as num?)?.toInt() ?? 0,
+      underReviewCount: (summary['under_review_count'] as num?)?.toInt() ?? 0,
+      approvedCount: (summary['approved_count'] as num?)?.toInt() ?? 0,
+      publishedCount: (summary['published_count'] as num?)?.toInt() ?? 0,
+      items: (json['items'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2ExaminationSummary.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}

@@ -8,6 +8,7 @@ import '../../../core/routing/app_router.dart';
 import '../../content_studio/widgets/searchable_curriculum_dropdown.dart';
 import '../exam_v2_models.dart';
 import '../exam_v2_providers.dart';
+import '../widgets/exam_v2_creation_dialog.dart';
 
 class ExamCentreV2Screen extends ConsumerStatefulWidget {
   const ExamCentreV2Screen({super.key});
@@ -130,7 +131,6 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
       label: 'Examinations',
       subtitle: 'Create & manage papers',
       icon: Icons.assignment_outlined,
-      phaseBadge: 'Phase 2',
     ),
     _ExamNavItem(
       id: 'question_bank',
@@ -234,7 +234,8 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             const SizedBox(height: 16),
                             _buildBreadcrumbStrip(),
                             const SizedBox(height: 16),
-                            if (_activeNavSection != 'overview') ...[
+                            if (_activeNavSection != 'overview' &&
+                                _activeNavSection != 'examinations') ...[
                               _buildUpcomingPhaseBanner(),
                               const SizedBox(height: 16),
                             ],
@@ -918,9 +919,240 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
         children: [
           _buildSelectedContextSummaryCard(summary),
           const SizedBox(height: 16),
+          _buildExaminationsSection(key, summary),
+          const SizedBox(height: 16),
           _buildRealMetricsStrip(summary),
           const SizedBox(height: 16),
           _buildCompetencesSection(summary),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _openCreateExaminationDialog(
+    ExamV2SelectionKey selection,
+    ExamV2ContextSummary summary,
+  ) async {
+    final created = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => ExamV2CreationDialog(
+        selection: selection,
+        summary: summary,
+      ),
+    );
+    if (created == true && mounted) {
+      ref.invalidate(examV2ExaminationsListProvider(selection));
+      ref.invalidate(examV2ContextSummaryProvider(selection));
+    }
+  }
+
+  Widget _buildExaminationsSection(
+    ExamV2SelectionKey selection,
+    ExamV2ContextSummary summary,
+  ) {
+    final examsAsync = ref.watch(examV2ExaminationsListProvider(selection));
+
+    return Container(
+      key: const Key('exam-v2-examinations-section'),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: LearnTzColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 12,
+            runSpacing: 10,
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Examinations for This Context',
+                    style: LearnTzTypography.h3.copyWith(
+                      color: LearnTzColors.textPrimary,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Text(
+                    'Real database records for ${summary.context.gradeName} ${summary.context.subjectName} (${summary.context.examinationTypeName})',
+                    style: LearnTzTypography.caption.copyWith(
+                      color: LearnTzColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+              AppButton(
+                key: const Key('exam-v2-create-exam-btn'),
+                label: 'Create Examination',
+                icon: Icons.add,
+                variant: AppButtonVariant.primary,
+                size: AppButtonSize.sm,
+                onPressed: () =>
+                    _openCreateExaminationDialog(selection, summary),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          examsAsync.when(
+            loading: () => const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+            ),
+            error: (err, _) => Text(
+              'Unable to load examinations: $err',
+              style: LearnTzTypography.bodySmall.copyWith(
+                color: const Color(0xFFDC2626),
+              ),
+            ),
+            data: (result) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 8,
+                    children: [
+                      _ContextPill(
+                        label: 'Total',
+                        value: '${result.totalCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Drafts',
+                        value: '${result.draftCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Under Review',
+                        value: '${result.underReviewCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Approved',
+                        value: '${result.approvedCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Published',
+                        value: '${result.publishedCount}',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 14),
+                  if (result.items.isEmpty)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: LearnTzColors.border),
+                      ),
+                      child: Text(
+                        'No examinations created yet for this academic context. Click "Create Examination" to configure metadata, official curriculum coverage, and blueprint sections.',
+                        style: LearnTzTypography.bodySmall.copyWith(
+                          color: LearnTzColors.textSecondary,
+                        ),
+                      ),
+                    )
+                  else
+                    ...result.items.map((exam) {
+                      final badgeVariant = switch (exam.status) {
+                        'published' || 'active' || 'results_released' =>
+                          AppBadgeVariant.success,
+                        'approved' => AppBadgeVariant.primary,
+                        'submitted_for_review' || 'under_review' =>
+                          AppBadgeVariant.warning,
+                        'revision_requested' => AppBadgeVariant.error,
+                        _ => AppBadgeVariant.neutral,
+                      };
+                      return Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF8FAFC),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: LearnTzColors.border),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 6,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                AppBadge(
+                                  label: exam.status.replaceAll('_', ' '),
+                                  variant: badgeVariant,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label:
+                                      '${exam.academicYear} • ${exam.academicTerm}',
+                                  variant: AppBadgeVariant.neutral,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label: 'v${exam.versionNumber}',
+                                  variant: AppBadgeVariant.neutral,
+                                  size: AppBadgeSize.sm,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              exam.title,
+                              style: LearnTzTypography.bodyRegular.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: LearnTzColors.textPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: 6),
+                            Wrap(
+                              spacing: 14,
+                              runSpacing: 4,
+                              children: [
+                                Text(
+                                  '${exam.totalMarks.toStringAsFixed(0)} marks',
+                                  style: LearnTzTypography.caption.copyWith(
+                                    color: const Color(0xFF15803D),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                Text(
+                                  '${exam.durationMinutes} mins',
+                                  style: LearnTzTypography.caption.copyWith(
+                                    color: LearnTzColors.textSecondary,
+                                  ),
+                                ),
+                                Text(
+                                  '${exam.sectionCount} sections',
+                                  style: LearnTzTypography.caption.copyWith(
+                                    color: LearnTzColors.textSecondary,
+                                  ),
+                                ),
+                                Text(
+                                  '${exam.competencyCount} competencies',
+                                  style: LearnTzTypography.caption.copyWith(
+                                    color: LearnTzColors.textSecondary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                ],
+              );
+            },
+          ),
         ],
       ),
     );

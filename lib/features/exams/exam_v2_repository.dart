@@ -105,4 +105,84 @@ class ExamCentreV2Repository {
       Map<String, dynamic>.from(res as Map),
     );
   }
+
+  Future<ExamV2ExaminationListResult> listExaminations(
+    ExamV2SelectionKey selection, {
+    String? status,
+    String? search,
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    final res = await _db.rpc(
+      'list_exam_v2_examinations',
+      params: {
+        'p_country_code': selection.countryCode,
+        'p_education_level_id': selection.educationLevelId,
+        'p_grade_id': selection.gradeId,
+        'p_subject_id': selection.subjectId,
+        'p_examination_type_id': selection.examinationTypeId,
+        'p_status': status,
+        'p_search': (search == null || search.trim().isEmpty) ? null : search.trim(),
+        'p_limit': limit,
+        'p_offset': offset,
+      },
+    );
+    return ExamV2ExaminationListResult.fromJson(
+      Map<String, dynamic>.from(res as Map),
+    );
+  }
+
+  Future<Map<String, dynamic>> saveExamination({
+    required ExamV2SelectionKey selection,
+    required String title,
+    required int academicYear,
+    required String academicTerm,
+    String? examinationDate,
+    required int durationMinutes,
+    required String languageCode,
+    required String instructions,
+    required String deliveryMode,
+    required List<ExamV2SectionDraft> sections,
+    required List<ExamV2CompetencyAllocation> competencies,
+    String? examinationId,
+  }) async {
+    final res = await _db.rpc(
+      'save_exam_v2_examination',
+      params: {
+        'p_country_code': selection.countryCode,
+        'p_education_level_id': selection.educationLevelId,
+        'p_grade_id': selection.gradeId,
+        'p_subject_id': selection.subjectId,
+        'p_examination_type_id': selection.examinationTypeId,
+        'p_title': title.trim(),
+        'p_academic_year': academicYear,
+        'p_academic_term': academicTerm.trim(),
+        'p_examination_date': examinationDate,
+        'p_duration_minutes': durationMinutes,
+        'p_language_code': languageCode,
+        'p_instructions': instructions.trim(),
+        'p_delivery_mode': deliveryMode,
+        'p_sections': sections.map((s) => s.toJson()).toList(),
+        'p_competencies': competencies.map((c) => c.toJson()).toList(),
+        'p_examination_id': examinationId,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> transitionExaminationStatus({
+    required String examinationId,
+    required String action,
+    String comments = '',
+  }) async {
+    final res = await _db.rpc(
+      'transition_exam_v2_status',
+      params: {
+        'p_examination_id': examinationId,
+        'p_action': action,
+        'p_comments': comments,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

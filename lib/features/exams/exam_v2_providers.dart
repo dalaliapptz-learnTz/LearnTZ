@@ -53,3 +53,10 @@ final examV2ContextSummaryProvider = FutureProvider.autoDispose
       .watch(examCentreV2RepositoryProvider)
       .getAcademicContextSummary(selection),
 );
+
+final examV2ExaminationsListProvider = FutureProvider.autoDispose
+    .family<ExamV2ExaminationListResult, ExamV2SelectionKey>(
+  (ref, selection) => ref
+      .watch(examCentreV2RepositoryProvider)
+      .listExaminations(selection),
+);

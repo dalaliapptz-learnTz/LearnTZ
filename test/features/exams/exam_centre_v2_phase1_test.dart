@@ -8,6 +8,80 @@ import 'package:learntz/features/exams/exam_v2_repository.dart';
 import 'package:learntz/features/exams/screens/exam_centre_v2_screen.dart';
 
 class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
+  final List<ExamV2ExaminationSummary> _savedExams = [];
+  int saveCalls = 0;
+
+  @override
+  Future<ExamV2ExaminationListResult> listExaminations(
+    ExamV2SelectionKey selection, {
+    String? status,
+    String? search,
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    return ExamV2ExaminationListResult(
+      totalCount: _savedExams.length,
+      draftCount: _savedExams.where((e) => e.status == 'draft').length,
+      underReviewCount:
+          _savedExams.where((e) => e.status == 'submitted_for_review').length,
+      approvedCount: 0,
+      publishedCount: 0,
+      items: List.unmodifiable(_savedExams),
+    );
+  }
+
+  @override
+  Future<Map<String, dynamic>> saveExamination({
+    required ExamV2SelectionKey selection,
+    required String title,
+    required int academicYear,
+    required String academicTerm,
+    String? examinationDate,
+    required int durationMinutes,
+    required String languageCode,
+    required String instructions,
+    required String deliveryMode,
+    required List<ExamV2SectionDraft> sections,
+    required List<ExamV2CompetencyAllocation> competencies,
+    String? examinationId,
+  }) async {
+    saveCalls++;
+    final totalMarks =
+        sections.fold<double>(0, (sum, s) => sum + s.marksAllocated);
+    _savedExams.add(
+      ExamV2ExaminationSummary(
+        id: 'exam-$saveCalls',
+        title: title,
+        countryCode: selection.countryCode,
+        countryName: 'Tanzania',
+        curriculumName: 'Tanzania Institute of Education',
+        curriculumVersionCode: 'TIE_PRIMARY_2023',
+        educationLevelName: 'Primary Education',
+        gradeName: 'Standard III',
+        subjectName: 'English Language',
+        examinationTypeName: 'Terminal Examination',
+        academicYear: academicYear,
+        academicTerm: academicTerm,
+        durationMinutes: durationMinutes,
+        totalMarks: totalMarks,
+        languageCode: languageCode,
+        deliveryMode: deliveryMode,
+        status: 'draft',
+        isPublished: false,
+        versionNumber: 1,
+        sectionCount: sections.length,
+        competencyCount: competencies.length,
+      ),
+    );
+    return {
+      'id': 'exam-$saveCalls',
+      'status': 'draft',
+      'is_published': false,
+      'total_marks': totalMarks,
+      'version_number': 1,
+    };
+  }
+
   @override
   Future<List<ExamV2CountryOption>> getCountries() async {
     return const [
@@ -321,6 +395,63 @@ void main() {
       expect(find.text('Examination Centre 2.0'), findsOneWidget);
       expect(find.byKey(const Key('exam-v2-locked-notice')), findsOneWidget);
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'Phase 2: Create Examination dialog calculates total marks dynamically and saves draft to list',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 960);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      await tester.pumpWidget(_wrapScreen(repo));
+      await tester.pumpAndSettle();
+
+      await _selectDropdownOption(tester, 'exam-v2-step1-country', 'Tanzania');
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step2-level',
+        'Primary Education',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step3-grade',
+        'Standard III',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step4-subject',
+        'English Language',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step5-exam-type',
+        'Terminal Examination',
+      );
+
+      final createBtn = find.byKey(const Key('exam-v2-create-exam-btn'));
+      await tester.ensureVisible(createBtn);
+      await tester.tap(createBtn);
+      await tester.pumpAndSettle();
+
+      // Default 3 starter sections = 50 marks; adding a 4th section adds 10 -> 60 marks
+      expect(find.text('Total Marks: 50'), findsOneWidget);
+      await tester.ensureVisible(
+        find.byKey(const Key('exam-v2-add-section-btn')),
+      );
+      await tester.tap(find.byKey(const Key('exam-v2-add-section-btn')));
+      await tester.pumpAndSettle();
+      expect(find.text('Total Marks: 60'), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('exam-v2-save-draft-btn')));
+      await tester.pumpAndSettle();
+
+      expect(repo.saveCalls, 1);
+      expect(find.text('60 marks'), findsOneWidget);
+      expect(find.text('4 sections'), findsOneWidget);
     },
   );
 }
