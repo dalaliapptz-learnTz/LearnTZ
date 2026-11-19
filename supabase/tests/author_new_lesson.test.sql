@@ -1,5 +1,5 @@
 begin;
-select plan(29);
+select plan(30);
 
 -- 1. Verify schema objects & functions exist
 select has_table('public', 'curriculum_main_competences', 'curriculum_main_competences table exists');
@@ -168,6 +168,15 @@ select is(
   ),
   'false',
   'TC-10 & TC-11: Saved lesson draft has valid foreign keys and remains unpublished'
+);
+
+-- TC-11b: get_authored_lesson_bundle returns complete lesson bundle cleanly
+select is(
+  public.get_authored_lesson_bundle(
+    (select id from public.lessons where title = 'Listening to Simple Stories at Home and School' limit 1)
+  ) -> 'lesson' ->> 'title',
+  'Listening to Simple Stories at Home and School',
+  'TC-11b: get_authored_lesson_bundle loads saved lesson cleanly without exceeding 100-arg limit'
 );
 
 -- TC-17: Author attaches an oral_response question to the lesson in question_bank
