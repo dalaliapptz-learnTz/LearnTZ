@@ -415,4 +415,66 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<Map<String, dynamic>> startAttempt({
+    required String examinationId,
+    required String learnerId,
+  }) async {
+    final res = await _db.rpc(
+      'start_exam_v2_attempt',
+      params: {
+        'p_examination_id': examinationId,
+        'p_learner_id': learnerId,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> saveResponse({
+    required String attemptId,
+    required String examinationQuestionId,
+    required Map<String, dynamic> responsePayload,
+  }) async {
+    final res = await _db.rpc(
+      'save_exam_v2_response',
+      params: {
+        'p_attempt_id': attemptId,
+        'p_examination_question_id': examinationQuestionId,
+        'p_response_payload': responsePayload,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> submitAttempt(String attemptId) async {
+    final res = await _db.rpc(
+      'submit_exam_v2_attempt',
+      params: {'p_attempt_id': attemptId},
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> markResponse({
+    required String responseId,
+    required double marksAwarded,
+    String feedback = '',
+  }) async {
+    final res = await _db.rpc(
+      'mark_exam_v2_response',
+      params: {
+        'p_response_id': responseId,
+        'p_marks_awarded': marksAwarded,
+        'p_feedback': feedback,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> releaseResults(String examinationId) async {
+    final res = await _db.rpc(
+      'release_exam_v2_results',
+      params: {'p_examination_id': examinationId},
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

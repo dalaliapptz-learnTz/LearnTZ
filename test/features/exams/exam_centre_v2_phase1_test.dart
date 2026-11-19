@@ -6,6 +6,7 @@ import 'package:learntz/features/exams/exam_v2_models.dart';
 import 'package:learntz/features/exams/exam_v2_providers.dart';
 import 'package:learntz/features/exams/exam_v2_repository.dart';
 import 'package:learntz/features/exams/screens/exam_centre_v2_screen.dart';
+import 'package:learntz/features/exams/screens/exam_v2_online_runner_screen.dart';
 import 'package:learntz/features/exams/screens/exam_v2_paper_builder_screen.dart';
 
 class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
@@ -60,6 +61,44 @@ class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
         ),
       ],
     );
+  }
+
+  @override
+  Future<Map<String, dynamic>> startAttempt({
+    required String examinationId,
+    required String learnerId,
+  }) async {
+    return {
+      'attempt_id': 'att-1',
+      'examination_id': examinationId,
+      'examination_title': 'English Terminal Examination',
+      'server_deadline_at':
+          DateTime.now().toUtc().add(const Duration(minutes: 45)).toIso8601String(),
+      'questions': [
+        {
+          'id': 'eq-1',
+          'question_number': 1,
+          'marks': 2,
+          'question_type': 'multiple_choice',
+          'question_text': 'What is the opposite of happy?',
+          'options': ['Excited', 'Sad', 'Kind', 'Friendly'],
+        },
+      ],
+    };
+  }
+
+  @override
+  Future<Map<String, dynamic>> saveResponse({
+    required String attemptId,
+    required String examinationQuestionId,
+    required Map<String, dynamic> responsePayload,
+  }) async {
+    return {'saved': true};
+  }
+
+  @override
+  Future<Map<String, dynamic>> submitAttempt(String attemptId) async {
+    return {'attempt_id': attemptId, 'percentage': 100, 'unmarked_count': 0};
   }
 
   @override
@@ -863,6 +902,45 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(repo.lastReviewAction, 'approve');
+    },
+  );
+
+  testWidgets(
+    'Phase 8-10: Online Examination Runner auto-saves answer and submits cleanly',
+    (tester) async {
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            examCentreV2RepositoryProvider.overrideWithValue(repo),
+          ],
+          child: const MaterialApp(
+            home: ExamV2OnlineRunnerScreen(
+              examinationId: 'exam-1',
+              learnerId: 'learner-1',
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('What is the opposite of happy?'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('exam-v2-opt-1')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('exam-v2-saved-indicator')), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('exam-v2-submit-attempt-btn')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('exam-v2-submitted-card')), findsOneWidget);
+      expect(find.textContaining('Score: 100%'), findsOneWidget);
+      expect(tester.takeException(), isNull);
     },
   );
 }
