@@ -100,3 +100,10 @@ final examV2DashboardProvider = FutureProvider.autoDispose.family<
         subjectId: params.subjectId,
       ),
 );
+
+final examV2GradingPoliciesProvider = FutureProvider.autoDispose
+    .family<List<ExamV2GradingPolicy>, String?>(
+  (ref, countryCode) => ref
+      .watch(examCentreV2RepositoryProvider)
+      .listGradingPolicies(countryCode: countryCode),
+);

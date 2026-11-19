@@ -477,4 +477,36 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<List<ExamV2GradingPolicy>> listGradingPolicies({
+    String? countryCode,
+  }) async {
+    final res = await _db.rpc(
+      'list_exam_v2_grading_policies',
+      params: {'p_country_code': countryCode},
+    );
+    return (res as List<dynamic>? ?? const [])
+        .map((e) => ExamV2GradingPolicy.fromJson(
+              Map<String, dynamic>.from(e as Map),
+            ))
+        .toList();
+  }
+
+  Future<Map<String, dynamic>> syncOfflineResponses({
+    required String attemptId,
+    required List<Map<String, dynamic>> responses,
+    String clientDeviceId = '',
+    String payloadSha256 = '',
+  }) async {
+    final res = await _db.rpc(
+      'sync_exam_v2_offline_responses',
+      params: {
+        'p_attempt_id': attemptId,
+        'p_responses': responses,
+        'p_client_device_id': clientDeviceId,
+        'p_payload_sha256': payloadSha256,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

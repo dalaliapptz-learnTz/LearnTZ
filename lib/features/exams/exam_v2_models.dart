@@ -1229,3 +1229,44 @@ class ExamV2DashboardData {
     );
   }
 }
+
+// ============================================================================
+// Phase 11 & 12: Multi-Country Grading Policy Models
+// ============================================================================
+
+class ExamV2GradingPolicy {
+  const ExamV2GradingPolicy({
+    required this.id,
+    required this.countryCode,
+    this.educationLevelCode,
+    required this.policyCode,
+    required this.name,
+    this.description = '',
+    this.gradeBands = const [],
+    this.isDefault = false,
+  });
+
+  final String id;
+  final String countryCode;
+  final String? educationLevelCode;
+  final String policyCode;
+  final String name;
+  final String description;
+  final List<Map<String, dynamic>> gradeBands;
+  final bool isDefault;
+
+  factory ExamV2GradingPolicy.fromJson(Map<String, dynamic> json) {
+    return ExamV2GradingPolicy(
+      id: json['id'] as String? ?? '',
+      countryCode: json['country_code'] as String? ?? '',
+      educationLevelCode: json['education_level_code'] as String?,
+      policyCode: json['policy_code'] as String? ?? '',
+      name: json['name'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      gradeBands: (json['grade_bands'] as List<dynamic>? ?? const [])
+          .map((e) => Map<String, dynamic>.from(e as Map))
+          .toList(),
+      isDefault: json['is_default'] as bool? ?? false,
+    );
+  }
+}

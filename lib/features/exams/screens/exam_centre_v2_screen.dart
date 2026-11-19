@@ -186,6 +186,12 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
       subtitle: 'Academic quality assurance',
       icon: Icons.fact_check_outlined,
     ),
+    _ExamNavItem(
+      id: 'settings',
+      label: 'Settings',
+      subtitle: 'Grading policies & offline sync',
+      icon: Icons.settings_outlined,
+    ),
   ];
 
   @override
@@ -234,6 +240,8 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             const SizedBox(height: 16),
                             if (_activeNavSection == 'review') ...[
                               _buildReviewApprovalCockpit(),
+                            ] else if (_activeNavSection == 'settings') ...[
+                              _buildSettingsAndGradingPolicies(),
                             ] else ...[
                               if (_activeNavSection == 'overview' ||
                                   _activeNavSection == 'sessions' ||
@@ -564,6 +572,112 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingsAndGradingPolicies() {
+    final policiesAsync = ref.watch(
+      examV2GradingPoliciesProvider(_selectedCountry?.countryCode),
+    );
+
+    return Container(
+      key: const Key('exam-v2-settings-panel'),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: LearnTzColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Multi-Country Grading Policies & Integrity Settings',
+            style: LearnTzTypography.h3.copyWith(
+              color: const Color(0xFF0F4C81),
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Grading thresholds are configured per country and education level in Supabase — zero hardcoded national scales.',
+            style: LearnTzTypography.bodySmall.copyWith(
+              color: LearnTzColors.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 16),
+          policiesAsync.when(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (err, _) => Text(
+              'Unable to load grading policies: $err',
+              style: LearnTzTypography.bodySmall.copyWith(
+                color: const Color(0xFFDC2626),
+              ),
+            ),
+            data: (policies) => Column(
+              children: policies.map((p) {
+                return Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF8FAFC),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: LearnTzColors.border),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 6,
+                        children: [
+                          AppBadge(
+                            label: p.countryCode,
+                            variant: AppBadgeVariant.primary,
+                            size: AppBadgeSize.sm,
+                          ),
+                          AppBadge(
+                            label: p.policyCode,
+                            variant: AppBadgeVariant.neutral,
+                            size: AppBadgeSize.sm,
+                          ),
+                          if (p.isDefault)
+                            const AppBadge(
+                              label: 'Default Policy',
+                              variant: AppBadgeVariant.success,
+                              size: AppBadgeSize.sm,
+                            ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        p.name,
+                        style: LearnTzTypography.bodyRegular.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 6,
+                        children: p.gradeBands.map((b) {
+                          return _ContextPill(
+                            label: '${b['grade']} (${b['label']})',
+                            value:
+                                '${b['min_percentage']}–${b['max_percentage']}%',
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
             ),
           ),
         ],

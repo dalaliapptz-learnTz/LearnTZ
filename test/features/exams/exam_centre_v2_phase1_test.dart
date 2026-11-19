@@ -64,6 +64,36 @@ class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
   }
 
   @override
+  Future<List<ExamV2GradingPolicy>> listGradingPolicies({
+    String? countryCode,
+  }) async {
+    return const [
+      ExamV2GradingPolicy(
+        id: 'pol-tz',
+        countryCode: 'TZ',
+        educationLevelCode: 'PRIMARY',
+        policyCode: 'TZ_PRIMARY_STANDARD',
+        name: 'Tanzania Primary Assessment Scale (A–E)',
+        gradeBands: [
+          {'grade': 'A', 'label': 'Excellent', 'min_percentage': 81, 'max_percentage': 100},
+        ],
+        isDefault: true,
+      ),
+      ExamV2GradingPolicy(
+        id: 'pol-ke',
+        countryCode: 'KE',
+        educationLevelCode: 'PRIMARY',
+        policyCode: 'KE_CBC_PERFORMANCE',
+        name: 'Kenya CBC Performance Levels (EE–BE)',
+        gradeBands: [
+          {'grade': 'EE', 'label': 'Exceeding Expectations', 'min_percentage': 80, 'max_percentage': 100},
+        ],
+        isDefault: true,
+      ),
+    ];
+  }
+
+  @override
   Future<Map<String, dynamic>> startAttempt({
     required String examinationId,
     required String learnerId,
@@ -941,6 +971,33 @@ void main() {
       expect(find.byKey(const Key('exam-v2-submitted-card')), findsOneWidget);
       expect(find.textContaining('Score: 100%'), findsOneWidget);
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'Phase 11-12: Settings panel renders multi-country configurable grading policies',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 960);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      await tester.pumpWidget(_wrapScreen(repo));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Settings'));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('exam-v2-settings-panel')), findsOneWidget);
+      expect(
+        find.text('Tanzania Primary Assessment Scale (A–E)'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Kenya CBC Performance Levels (EE–BE)'),
+        findsOneWidget,
+      );
     },
   );
 }
