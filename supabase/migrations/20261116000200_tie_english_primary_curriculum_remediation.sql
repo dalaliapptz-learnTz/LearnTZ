@@ -34,7 +34,8 @@ begin
   update public.subjects
   set is_published = false,
       description = 'Archived umbrella subject superseded by grade-specific subjects (Std III-VI).'
-  where id = 'aad316b8-8d97-4d79-9f01-a1946886185d';
+  where id = 'aad316b8-8d97-4d79-9f01-a1946886185d'
+     or (country_code = 'TZ' and code = 'tie-pri-english' and grade_id is null);
 end $$;
 
 -- 2. Update Curriculum Source rights clearance and verification status
@@ -43,7 +44,8 @@ set verification_status = 'verified',
     usage_rights_status = 'permission_pending',
     usage_rights_reviewed_at = now(),
     usage_rights_note = 'Reference metadata (competence codes, titles, learning activities, period allocations) verified against official 2023 TIE syllabus. Commercial full-text publication permission is pending; LearnTZ educational content, lessons, and assessments are original proprietary creations.'
-where id = 'e8301da6-b2e7-4540-990b-c939a0faa22d';
+where id = 'e8301da6-b2e7-4540-990b-c939a0faa22d'
+   or sha256_checksum = 'ae6b2f5d28b60bb77bd3bb2d7816535bacb671934cca4660705cfa937f9aacd2';
 
 -- 3. Ingest Authoritative Grade-Scoped Subjects, Competence Topics, and Learning Activity Subtopics
 -- ============================================================================
@@ -51,20 +53,34 @@ where id = 'e8301da6-b2e7-4540-990b-c939a0faa22d';
 -- ============================================================================
 do $$
 declare
+  v_curriculum_id uuid := '20000000-0000-0000-0000-000000000002';
+  v_level_id uuid := '20000000-0000-0000-0000-000000000010';
+  v_grade_id uuid;
   v_subject_id uuid;
   v_topic_id uuid;
 begin
+  select id into v_grade_id
+  from public.education_grades
+  where curriculum_id = v_curriculum_id
+    and education_level_id = v_level_id
+    and code = 'STANDARD_3'
+  limit 1;
+
+  if v_grade_id is null then
+    raise exception 'Education grade STANDARD_3 not found for TIE curriculum %', v_curriculum_id;
+  end if;
+
   -- Subject: Standard III
   v_subject_id := null;
   select id into v_subject_id from public.subjects
-  where country_code = 'TZ' and curriculum_id = '20000000-0000-0000-0000-000000000002' and code = 'tie-pri-english-standard3' and grade_id = '03705394-edb4-41c8-813d-30d5a37b9c2e';
+  where country_code = 'TZ' and curriculum_id = v_curriculum_id and code = 'tie-pri-english-standard3' and grade_id = v_grade_id;
 
   if v_subject_id is null then
     insert into public.subjects (
       country_code, curriculum_id, education_level_id, grade_id,
       code, name, official_name, description, display_order, is_published, classification, language
     ) values (
-      'TZ', '20000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000010', '03705394-edb4-41c8-813d-30d5a37b9c2e',
+      'TZ', v_curriculum_id, v_level_id, v_grade_id,
       'tie-pri-english-standard3', 'English Language', 'English Language Syllabus for Primary Education — Standard III', 'Developing English language competencies for Standard III (244 periods, 7 periods/week): listening, speaking, reading fluency, functional grammar, and writing as prescribed by TIE 2023 syllabus.', 3, true, 'compulsory', 'en'
     ) returning id into v_subject_id;
   else
@@ -304,20 +320,34 @@ end $$;
 -- ============================================================================
 do $$
 declare
+  v_curriculum_id uuid := '20000000-0000-0000-0000-000000000002';
+  v_level_id uuid := '20000000-0000-0000-0000-000000000010';
+  v_grade_id uuid;
   v_subject_id uuid;
   v_topic_id uuid;
 begin
+  select id into v_grade_id
+  from public.education_grades
+  where curriculum_id = v_curriculum_id
+    and education_level_id = v_level_id
+    and code = 'STANDARD_4'
+  limit 1;
+
+  if v_grade_id is null then
+    raise exception 'Education grade STANDARD_4 not found for TIE curriculum %', v_curriculum_id;
+  end if;
+
   -- Subject: Standard IV
   v_subject_id := null;
   select id into v_subject_id from public.subjects
-  where country_code = 'TZ' and curriculum_id = '20000000-0000-0000-0000-000000000002' and code = 'tie-pri-english-standard4' and grade_id = 'deeb8105-49e8-45ff-83ac-97a85633cef2';
+  where country_code = 'TZ' and curriculum_id = v_curriculum_id and code = 'tie-pri-english-standard4' and grade_id = v_grade_id;
 
   if v_subject_id is null then
     insert into public.subjects (
       country_code, curriculum_id, education_level_id, grade_id,
       code, name, official_name, description, display_order, is_published, classification, language
     ) values (
-      'TZ', '20000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000010', 'deeb8105-49e8-45ff-83ac-97a85633cef2',
+      'TZ', v_curriculum_id, v_level_id, v_grade_id,
       'tie-pri-english-standard4', 'English Language', 'English Language Syllabus for Primary Education — Standard IV', 'Developing English language competencies for Standard IV (234 periods, 7 periods/week): listening, speaking, reading fluency, functional grammar, and writing as prescribed by TIE 2023 syllabus.', 3, true, 'compulsory', 'en'
     ) returning id into v_subject_id;
   else
@@ -635,20 +665,34 @@ end $$;
 -- ============================================================================
 do $$
 declare
+  v_curriculum_id uuid := '20000000-0000-0000-0000-000000000002';
+  v_level_id uuid := '20000000-0000-0000-0000-000000000010';
+  v_grade_id uuid;
   v_subject_id uuid;
   v_topic_id uuid;
 begin
+  select id into v_grade_id
+  from public.education_grades
+  where curriculum_id = v_curriculum_id
+    and education_level_id = v_level_id
+    and code = 'STANDARD_5'
+  limit 1;
+
+  if v_grade_id is null then
+    raise exception 'Education grade STANDARD_5 not found for TIE curriculum %', v_curriculum_id;
+  end if;
+
   -- Subject: Standard V
   v_subject_id := null;
   select id into v_subject_id from public.subjects
-  where country_code = 'TZ' and curriculum_id = '20000000-0000-0000-0000-000000000002' and code = 'tie-pri-english-standard5' and grade_id = '75e4ca53-91c0-4d22-a23f-5854272817d8';
+  where country_code = 'TZ' and curriculum_id = v_curriculum_id and code = 'tie-pri-english-standard5' and grade_id = v_grade_id;
 
   if v_subject_id is null then
     insert into public.subjects (
       country_code, curriculum_id, education_level_id, grade_id,
       code, name, official_name, description, display_order, is_published, classification, language
     ) values (
-      'TZ', '20000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000010', '75e4ca53-91c0-4d22-a23f-5854272817d8',
+      'TZ', v_curriculum_id, v_level_id, v_grade_id,
       'tie-pri-english-standard5', 'English Language', 'English Language Syllabus for Primary Education — Standard V', 'Developing English language competencies for Standard V (224 periods, 6 periods/week): listening, speaking, reading fluency, functional grammar, and writing as prescribed by TIE 2023 syllabus.', 3, true, 'compulsory', 'en'
     ) returning id into v_subject_id;
   else
@@ -1132,20 +1176,34 @@ end $$;
 -- ============================================================================
 do $$
 declare
+  v_curriculum_id uuid := '20000000-0000-0000-0000-000000000002';
+  v_level_id uuid := '20000000-0000-0000-0000-000000000010';
+  v_grade_id uuid;
   v_subject_id uuid;
   v_topic_id uuid;
 begin
+  select id into v_grade_id
+  from public.education_grades
+  where curriculum_id = v_curriculum_id
+    and education_level_id = v_level_id
+    and code = 'STANDARD_6'
+  limit 1;
+
+  if v_grade_id is null then
+    raise exception 'Education grade STANDARD_6 not found for TIE curriculum %', v_curriculum_id;
+  end if;
+
   -- Subject: Standard VI
   v_subject_id := null;
   select id into v_subject_id from public.subjects
-  where country_code = 'TZ' and curriculum_id = '20000000-0000-0000-0000-000000000002' and code = 'tie-pri-english-standard6' and grade_id = 'd5942cbc-51b0-4031-b407-c632a8f2742d';
+  where country_code = 'TZ' and curriculum_id = v_curriculum_id and code = 'tie-pri-english-standard6' and grade_id = v_grade_id;
 
   if v_subject_id is null then
     insert into public.subjects (
       country_code, curriculum_id, education_level_id, grade_id,
       code, name, official_name, description, display_order, is_published, classification, language
     ) values (
-      'TZ', '20000000-0000-0000-0000-000000000002', '20000000-0000-0000-0000-000000000010', 'd5942cbc-51b0-4031-b407-c632a8f2742d',
+      'TZ', v_curriculum_id, v_level_id, v_grade_id,
       'tie-pri-english-standard6', 'English Language', 'English Language Syllabus for Primary Education — Standard VI', 'Developing English language competencies for Standard VI (150 periods, 6 periods/week): listening, speaking, reading fluency, functional grammar, and writing as prescribed by TIE 2023 syllabus.', 3, true, 'compulsory', 'en'
     ) returning id into v_subject_id;
   else

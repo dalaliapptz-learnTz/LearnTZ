@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/design_system/components/components.dart';
 import '../../../core/design_system/tokens/design_tokens.dart';
+import '../../../core/routing/app_router.dart';
 import '../content_studio_providers.dart';
+import '../lesson_authoring_models.dart';
 import '../widgets/content_studio_overview_pane.dart';
 import '../widgets/curriculum_explorer_tree.dart';
 import '../widgets/subject_workspace_view.dart';
@@ -62,29 +64,53 @@ class ContentStudioDashboardScreen extends ConsumerWidget {
                             ],
                           ),
                           const SizedBox(height: 12),
-                          Row(
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
                             children: [
-                              Expanded(
-                                child: AppButton(
-                                  label: 'Media Library',
-                                  variant: AppButtonVariant.outlined,
-                                  size: AppButtonSize.sm,
-                                  icon: Icons.photo_library_outlined,
-                                  onPressed: () =>
-                                      context.push('/content/studio/media'),
-                                ),
+                              AppButton(
+                                key: const Key('open-review-queue-btn'),
+                                label: 'Review Queue',
+                                variant: AppButtonVariant.outlined,
+                                size: AppButtonSize.sm,
+                                icon: Icons.fact_check_outlined,
+                                onPressed: () {
+                                  final country = ref.read(
+                                    contentStudioCountryFilterProvider,
+                                  );
+                                  context.push(
+                                    AppRoutes.academicReviewQueue,
+                                    extra: country == 'ALL' ? null : country,
+                                  );
+                                },
                               ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: AppButton(
-                                  key: const Key('create-new-lesson-btn'),
-                                  label: 'New Lesson',
-                                  variant: AppButtonVariant.primary,
-                                  size: AppButtonSize.sm,
-                                  icon: Icons.add,
-                                  onPressed: () =>
-                                      context.push('/content/studio/editor'),
-                                ),
+                              AppButton(
+                                label: 'Media Library',
+                                variant: AppButtonVariant.outlined,
+                                size: AppButtonSize.sm,
+                                icon: Icons.photo_library_outlined,
+                                onPressed: () =>
+                                    context.push('/content/studio/media'),
+                              ),
+                              AppButton(
+                                key: const Key('create-new-lesson-btn'),
+                                label: 'New Lesson',
+                                variant: AppButtonVariant.primary,
+                                size: AppButtonSize.sm,
+                                icon: Icons.add,
+                                onPressed: () {
+                                  final country = ref.read(
+                                    contentStudioCountryFilterProvider,
+                                  );
+                                  context.push(
+                                    AppRoutes.authorNewLesson,
+                                    extra: AuthorLessonLaunchContext(
+                                      countryCode:
+                                          country == 'ALL' ? null : country,
+                                      sourceEntry: 'content_studio_dashboard',
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -134,6 +160,22 @@ class ContentStudioDashboardScreen extends ConsumerWidget {
                           spacing: 8,
                           children: [
                             AppButton(
+                              key: const Key('open-review-queue-btn'),
+                              label: 'Review Queue',
+                              variant: AppButtonVariant.outlined,
+                              size: AppButtonSize.md,
+                              icon: Icons.fact_check_outlined,
+                              onPressed: () {
+                                final country = ref.read(
+                                  contentStudioCountryFilterProvider,
+                                );
+                                context.push(
+                                  AppRoutes.academicReviewQueue,
+                                  extra: country == 'ALL' ? null : country,
+                                );
+                              },
+                            ),
+                            AppButton(
                               label: 'Media Library',
                               variant: AppButtonVariant.outlined,
                               size: AppButtonSize.md,
@@ -147,8 +189,19 @@ class ContentStudioDashboardScreen extends ConsumerWidget {
                               variant: AppButtonVariant.primary,
                               size: AppButtonSize.md,
                               icon: Icons.add,
-                              onPressed: () =>
-                                  context.push('/content/studio/editor'),
+                              onPressed: () {
+                                final country = ref.read(
+                                  contentStudioCountryFilterProvider,
+                                );
+                                context.push(
+                                  AppRoutes.authorNewLesson,
+                                  extra: AuthorLessonLaunchContext(
+                                    countryCode:
+                                        country == 'ALL' ? null : country,
+                                    sourceEntry: 'content_studio_dashboard',
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),

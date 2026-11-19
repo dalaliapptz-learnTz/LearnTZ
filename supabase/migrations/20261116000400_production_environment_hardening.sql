@@ -106,183 +106,198 @@ $$;
 -- 3. Controlled Dependency-Ordered Cascade Removal of Demo Records
 -- ============================================================================
 
--- Stage 3.1: Learner Activity & Recommendations
-delete from public.learner_recommendations
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_topic_mastery
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_assessment_attempts
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_progress
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_sessions
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_activation_tokens
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_status_history
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
-delete from public.learner_profile_changes
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-);
-
--- Stage 3.2: Parent-Learner Relationships
-delete from public.parent_learner_relationships
-where learner_id in (
-  select id from public.learners
-  where is_demo = true or id::text like 'd2000000-%'
-) or parent_user_id in (
-  select user_id from public.parent_accounts
-  where is_demo = true or user_id::text like 'd1000000-%'
-);
-
--- Stage 3.3: Delete Demo Learners
-delete from public.learners
-where (is_demo = true or id::text like 'd2000000-%')
-  and created_by_parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
--- Stage 3.4: Delete Demo Commercial Data & Onboarding Events
-delete from public.onboarding_events
-where parent_id in (
-  select user_id from public.parent_accounts
-  where is_demo = true or user_id::text like 'd1000000-%'
-) and parent_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
-delete from public.payment_transactions
-where (is_demo = true or parent_user_id::text like 'd1000000-%')
-  and parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
-delete from public.parent_subscriptions
-where (is_demo = true or parent_user_id::text like 'd1000000-%')
-  and parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
--- Stage 3.5: Delete Demo Parent Accounts
-delete from public.parent_accounts
-where (is_demo = true or user_id::text like 'd1000000-%')
-  and user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
-delete from public.profiles
-where id::text like 'd1000000-%'
-  and id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
--- Stage 3.6: Delete Demo Administrators
-delete from public.admin_audit_logs
-where admin_id in (
-  select id from public.admin_profiles
-  where (is_demo = true or id::text like 'd3000000-%')
-    and user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f'
-);
-
-delete from public.admin_roles
-where admin_id in (
-  select id from public.admin_profiles
-  where (is_demo = true or id::text like 'd3000000-%')
-    and user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f'
-);
-
-delete from public.admin_profiles
-where (is_demo = true or id::text like 'd3000000-%')
-  and user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
--- Stage 3.7: Delete Demo Auth Users
-delete from auth.users
-where (id::text like 'd1000000-%' or id::text like 'd3000000-%' or email like '%@demo.learntz.test')
-  and id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
-
--- ============================================================================
--- 4. Archive Legacy Dummy & Unverified Umbrella Curriculum Records
--- ============================================================================
-
--- Archive legacy dummy subjects
-update public.subjects
-set is_active = false
-where id in ('tie-hisabati', 'tie-kiswahili', 'tie-sayansi', 'tie-primary-english');
-
--- Archive unverified umbrella subjects until grade-scoped syllabus extractions are deployed
-update public.subjects
-set is_active = false
-where id in (
-  'tie-pri-arts',
-  'tie-pri-chinese',
-  'tie-pri-geography',
-  'tie-pri-history',
-  'tie-pri-kiswahili',
-  'tie-pri-mathematics',
-  'tie-pri-science'
-) and grade_id is null;
-
--- Ensure verified English subjects remain active and grade-scoped
-update public.subjects
-set is_active = true
-where id in (
-  'tie-pri-english-standard3',
-  'tie-pri-english-standard4',
-  'tie-pri-english-standard5',
-  'tie-pri-english-standard6'
-);
-
--- ============================================================================
--- 5. Safety & Integrity Post-Execution Assertions
--- ============================================================================
-
 do $$
 declare
+  v_real_user_existed_before boolean;
+  v_real_admin_existed_before boolean;
   v_real_user_exists boolean;
   v_real_admin_exists boolean;
   v_english_topics int;
   v_demo_users_remaining int;
   v_demo_learners_remaining int;
 begin
-  -- 1. Assert genuine registered Super Admin / Parent account is preserved
   select exists (
     select 1 from auth.users where email = 'bonimwangi243@gmail.com' and id = '558cb26f-d06e-45a7-9454-4570ab856f3f'
-  ) into v_real_user_exists;
-
-  if not v_real_user_exists then
-    raise exception 'FATAL INTEGRITY VIOLATION: Genuine registered user bonimwangi243@gmail.com was deleted!' using errcode = 'P0001';
-  end if;
+  ) into v_real_user_existed_before;
 
   select exists (
-    select 1 from public.admin_profiles where user_id = '558cb26f-d06e-45a7-9454-4570ab856f3f'
-  ) into v_real_admin_exists;
+    select 1 from public.admin_profiles where auth_user_id = '558cb26f-d06e-45a7-9454-4570ab856f3f'
+  ) into v_real_admin_existed_before;
 
-  if not v_real_admin_exists then
-    raise exception 'FATAL INTEGRITY VIOLATION: Genuine admin profile for bonimwangi243@gmail.com was deleted!' using errcode = 'P0001';
+  -- Stage 3.1: Learner Activity & Recommendations
+  delete from public.learner_recommendations
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_topic_mastery
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_assessment_attempts
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_progress
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_sessions
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_activation_tokens
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_status_history
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  delete from public.learner_change_history
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  );
+
+  -- Stage 3.2: Parent-Learner Relationships
+  delete from public.parent_learners
+  where learner_id in (
+    select id from public.learners
+    where is_demo = true or id::text like 'd2000000-%'
+  ) or parent_user_id in (
+    select user_id from public.parent_accounts
+    where is_demo = true or user_id::text like 'd1000000-%'
+  );
+
+  -- Stage 3.3: Delete Demo Learners
+  delete from public.learners
+  where (is_demo = true or id::text like 'd2000000-%')
+    and created_by_parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  -- Stage 3.4: Delete Demo Commercial Data & Onboarding Events
+  delete from public.onboarding_events
+  where parent_id in (
+    select user_id from public.parent_accounts
+    where is_demo = true or user_id::text like 'd1000000-%'
+  ) and parent_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  delete from public.payment_transactions
+  where (is_demo = true or parent_user_id::text like 'd1000000-%')
+    and parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  delete from public.parent_subscriptions
+  where (is_demo = true or parent_user_id::text like 'd1000000-%')
+    and parent_user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  -- Stage 3.5: Delete Demo Parent Accounts
+  delete from public.parent_accounts
+  where (is_demo = true or user_id::text like 'd1000000-%')
+    and user_id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  delete from public.profiles
+  where id::text like 'd1000000-%'
+    and id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  -- Stage 3.6: Delete Demo Administrators
+  delete from public.admin_audit_logs
+  where admin_id in (
+    select id from public.admin_profiles
+    where (is_demo = true or id::text like 'd3000000-%')
+      and coalesce(auth_user_id, '00000000-0000-0000-0000-000000000000'::uuid) != '558cb26f-d06e-45a7-9454-4570ab856f3f'
+  );
+
+  delete from public.admin_user_roles
+  where admin_id in (
+    select id from public.admin_profiles
+    where (is_demo = true or id::text like 'd3000000-%')
+      and coalesce(auth_user_id, '00000000-0000-0000-0000-000000000000'::uuid) != '558cb26f-d06e-45a7-9454-4570ab856f3f'
+  );
+
+  delete from public.admin_profiles
+  where (is_demo = true or id::text like 'd3000000-%')
+    and coalesce(auth_user_id, '00000000-0000-0000-0000-000000000000'::uuid) != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  -- Stage 3.7: Delete Demo Auth Users
+  delete from auth.users
+  where (id::text like 'd1000000-%' or id::text like 'd3000000-%' or email like '%@demo.learntz.test')
+    and id != '558cb26f-d06e-45a7-9454-4570ab856f3f';
+
+  -- ============================================================================
+  -- 4. Archive Legacy Dummy & Unverified Umbrella Curriculum Records
+  -- ============================================================================
+
+  -- Archive legacy dummy subjects
+  update public.subjects
+  set is_published = false
+  where code in ('tie-hisabati', 'tie-kiswahili', 'tie-sayansi', 'tie-primary-english');
+
+  -- Archive unverified umbrella subjects until grade-scoped syllabus extractions are deployed
+  update public.subjects
+  set is_published = false
+  where code in (
+    'tie-pri-arts',
+    'tie-pri-chinese',
+    'tie-pri-geography',
+    'tie-pri-history',
+    'tie-pri-kiswahili',
+    'tie-pri-mathematics',
+    'tie-pri-science'
+  ) and grade_id is null;
+
+  -- Ensure verified English subjects remain active and grade-scoped
+  update public.subjects
+  set is_published = true
+  where code in (
+    'tie-pri-english-standard3',
+    'tie-pri-english-standard4',
+    'tie-pri-english-standard5',
+    'tie-pri-english-standard6'
+  );
+
+  -- ============================================================================
+  -- 5. Safety & Integrity Post-Execution Assertions
+  -- ============================================================================
+
+  -- 1. If a genuine registered Super Admin / Parent account existed before cleanup, assert it is preserved
+  if v_real_user_existed_before then
+    select exists (
+      select 1 from auth.users where email = 'bonimwangi243@gmail.com' and id = '558cb26f-d06e-45a7-9454-4570ab856f3f'
+    ) into v_real_user_exists;
+
+    if not v_real_user_exists then
+      raise exception 'FATAL INTEGRITY VIOLATION: Genuine registered user bonimwangi243@gmail.com was deleted!' using errcode = 'P0001';
+    end if;
+  end if;
+
+  if v_real_admin_existed_before then
+    select exists (
+      select 1 from public.admin_profiles where auth_user_id = '558cb26f-d06e-45a7-9454-4570ab856f3f'
+    ) into v_real_admin_exists;
+
+    if not v_real_admin_exists then
+      raise exception 'FATAL INTEGRITY VIOLATION: Genuine admin profile for bonimwangi243@gmail.com was deleted!' using errcode = 'P0001';
+    end if;
   end if;
 
   -- 2. Assert verified English Standards III-VI curriculum remains intact
   select count(*) into v_english_topics
-  from public.topics
-  where subject_id in (
+  from public.topics t
+  join public.subjects s on s.id = t.subject_id
+  where s.code in (
     'tie-pri-english-standard3',
     'tie-pri-english-standard4',
     'tie-pri-english-standard5',

@@ -10,6 +10,9 @@ import '../../features/admin/admin_providers.dart';
 import '../../features/admin/admin_screens.dart';
 import '../../features/auth/auth_screens.dart';
 import '../../features/billing/subscription_screen.dart';
+import '../../features/content_studio/lesson_authoring_models.dart';
+import '../../features/content_studio/screens/academic_review_queue_screen.dart';
+import '../../features/content_studio/screens/author_new_lesson_screen.dart';
 import '../../features/content_studio/screens/content_studio_dashboard_screen.dart';
 import '../../features/content_studio/screens/lesson_editor_studio_screen.dart';
 import '../../features/content_studio/screens/content_media_library_screen.dart';
@@ -141,6 +144,8 @@ abstract final class AppRoutes {
   static const learnerDashboard = '/learner/dashboard';
   static const contentStudio = '/content/studio';
   static const contentStudioEditor = '/content/studio/editor';
+  static const authorNewLesson = '/content/studio/author-lesson';
+  static const academicReviewQueue = '/content/studio/review-queue';
   static const contentStudioMedia = '/content/studio/media';
 }
 
@@ -272,6 +277,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           (path.startsWith('${AppRoutes.admin}/') && !isAdminPublicRoute) ||
           (path == AppRoutes.learn && !isChildMode) ||
           (path.startsWith('${AppRoutes.learn}/') && !isChildMode) ||
+          path == AppRoutes.authorNewLesson ||
           path == AppRoutes.examUpload;
       if (isProtected && !isSignedIn && !isParentDashboardAccess) {
         return Uri(
@@ -702,6 +708,29 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => LessonEditorStudioScreen(
               initialData: state.extra as Map<String, dynamic>?,
             ),
+          ),
+          GoRoute(
+            path: AppRoutes.authorNewLesson,
+            builder: (context, state) {
+              final extra = state.extra;
+              AuthorLessonLaunchContext? launch;
+              if (extra is AuthorLessonLaunchContext) {
+                launch = extra;
+              } else if (extra is Map<String, dynamic>) {
+                launch = AuthorLessonLaunchContext.fromMap(extra);
+              }
+              return AuthorNewLessonScreen(launchContext: launch);
+            },
+          ),
+          GoRoute(
+            path: AppRoutes.academicReviewQueue,
+            builder: (context, state) {
+              final extra = state.extra;
+              final countryCode = extra is String ? extra : null;
+              return AcademicReviewQueueScreen(
+                initialCountryCode: countryCode,
+              );
+            },
           ),
           GoRoute(
             path: AppRoutes.contentStudioMedia,

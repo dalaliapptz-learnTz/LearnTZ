@@ -101,6 +101,11 @@ class _SuperAdminControlCentreScreenState
             icon: Icons.edit_note_outlined,
           ),
           AdminNavItem(
+            route: 'review-queue',
+            label: 'Academic Review Queue',
+            icon: Icons.fact_check_outlined,
+          ),
+          AdminNavItem(
             route: 'curriculum',
             label: 'Curriculum Repositories',
             icon: Icons.menu_book_outlined,
@@ -170,6 +175,10 @@ class _SuperAdminControlCentreScreenState
   void _handleNavigation(String route) {
     if (route == 'cms') {
       context.push(AppRoutes.contentStudio);
+      return;
+    }
+    if (route == 'review-queue') {
+      context.push(AppRoutes.academicReviewQueue);
       return;
     }
     if (route == 'curriculum') {

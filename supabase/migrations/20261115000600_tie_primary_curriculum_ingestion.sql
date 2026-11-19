@@ -68,30 +68,54 @@ declare
 begin
   select id into v_admin_id from auth.users order by created_at limit 1;
 
-  insert into public.curriculum_versions (
-    id, curriculum_id, version_code, display_name, official_document_version, status, requires_reviewed_import,
-    created_by, approved_by, approved_at, published_by, published_at
-  ) values (
-    v_version_id,
-    v_tie_curriculum_id,
-    'TIE_PRIMARY_2023',
-    'TIE National Primary Curriculum 2023',
-    '2023 Competency-Based Edition',
-    'published',
-    false,
-    v_admin_id,
-    v_admin_id,
-    now(),
-    v_admin_id,
-    now()
-  ) on conflict (curriculum_id, version_code) do update
-  set display_name = excluded.display_name,
-      status = 'published',
-      official_document_version = excluded.official_document_version,
-      approved_by = coalesce(curriculum_versions.approved_by, excluded.approved_by),
-      approved_at = coalesce(curriculum_versions.approved_at, excluded.approved_at),
-      published_by = coalesce(curriculum_versions.published_by, excluded.published_by),
-      published_at = coalesce(curriculum_versions.published_at, excluded.published_at);
+  if v_admin_id is not null then
+    insert into public.curriculum_versions (
+      id, curriculum_id, version_code, display_name, official_document_version, status, requires_reviewed_import,
+      created_by, approved_by, approved_at, published_by, published_at
+    ) values (
+      v_version_id,
+      v_tie_curriculum_id,
+      'TIE_PRIMARY_2023',
+      'TIE National Primary Curriculum 2023',
+      '2023 Competency-Based Edition',
+      'published',
+      false,
+      v_admin_id,
+      v_admin_id,
+      now(),
+      v_admin_id,
+      now()
+    ) on conflict (curriculum_id, version_code) do update
+    set display_name = excluded.display_name,
+        status = 'published',
+        official_document_version = excluded.official_document_version,
+        approved_by = coalesce(curriculum_versions.approved_by, excluded.approved_by),
+        approved_at = coalesce(curriculum_versions.approved_at, excluded.approved_at),
+        published_by = coalesce(curriculum_versions.published_by, excluded.published_by),
+        published_at = coalesce(curriculum_versions.published_at, excluded.published_at);
+  else
+    -- Fresh database without seeded auth.users: preserve approval & publication
+    -- check constraints by seeding as draft without null actor/timestamp mismatch.
+    insert into public.curriculum_versions (
+      id, curriculum_id, version_code, display_name, official_document_version, status, requires_reviewed_import,
+      created_by, approved_by, approved_at, published_by, published_at
+    ) values (
+      v_version_id,
+      v_tie_curriculum_id,
+      'TIE_PRIMARY_2023',
+      'TIE National Primary Curriculum 2023',
+      '2023 Competency-Based Edition',
+      'draft',
+      false,
+      null,
+      null,
+      null,
+      null,
+      null
+    ) on conflict (curriculum_id, version_code) do update
+    set display_name = excluded.display_name,
+        official_document_version = excluded.official_document_version;
+  end if;
 end $$;
 
 -- 5. Register Official TIE Source Documents in curriculum_sources

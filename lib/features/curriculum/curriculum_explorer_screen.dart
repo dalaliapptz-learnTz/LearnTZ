@@ -8,6 +8,8 @@ import '../../core/state/app_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/app_card.dart';
 import '../auth/auth_screens.dart';
+import '../content_studio/lesson_authoring_models.dart';
+import '../content_studio/lesson_authoring_providers.dart';
 import '../learners/learner_providers.dart';
 import '../learning/learning_models.dart';
 import '../learning/learning_providers.dart';
@@ -50,6 +52,9 @@ class _CurriculumExplorerScreenState
     final currentCountry = _selectedCountryCode ?? defaultCountry;
 
     final catalogAsync = ref.watch(educationCatalogProvider);
+    final authoringCaps =
+        ref.watch(lessonAuthoringCapabilitiesProvider(currentCountry)).asData?.value;
+    final canAuthorLessons = authoringCaps?.canAuthor ?? false;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -59,14 +64,70 @@ class _CurriculumExplorerScreenState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                l10n.curriculumExplorerTitle,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                l10n.curriculumExplorerSubtitle,
-                style: Theme.of(context).textTheme.bodyLarge,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          l10n.curriculumExplorerTitle,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          l10n.curriculumExplorerSubtitle,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (canAuthorLessons) ...[
+                    const SizedBox(width: 12),
+                    FilledButton.icon(
+                      key: const Key('explorer-create-new-lesson-btn'),
+                      onPressed: () {
+                        final catalog = catalogAsync.asData?.value;
+                        final matchingCountry = catalog?.countries
+                            .where((c) => c.code == currentCountry)
+                            .firstOrNull;
+                        final matchingLevel = catalog?.levels
+                            .where((l) => l.id == _selectedLevelId)
+                            .firstOrNull;
+                        final matchingGrade = catalog?.grades
+                            .where((g) => g.id == _selectedGradeId)
+                            .firstOrNull;
+                        final matchingCurriculum = catalog?.curricula
+                            .where((c) =>
+                                c.countryCode == currentCountry && c.isEnabled)
+                            .firstOrNull;
+                        context.push(
+                          AppRoutes.authorNewLesson,
+                          extra: AuthorLessonLaunchContext(
+                            countryCode: currentCountry,
+                            countryName: matchingCountry?.name,
+                            curriculumId: matchingGrade?.curriculumId ??
+                                matchingLevel?.curriculumId ??
+                                matchingCurriculum?.id,
+                            curriculumName: matchingCurriculum?.name,
+                            educationLevelId: _selectedLevelId ??
+                                matchingGrade?.educationLevelId,
+                            educationLevelName: matchingLevel?.name,
+                            gradeId: _selectedGradeId,
+                            gradeName: matchingGrade?.name,
+                            sourceEntry: 'curriculum_explorer',
+                          ),
+                        );
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: const Color(0xFF0F4C81),
+                      ),
+                      icon: const Icon(Icons.edit_note, size: 18),
+                      label: const Text('Create New Lesson'),
+                    ),
+                  ],
+                ],
               ),
               const SizedBox(height: 20),
 
@@ -385,6 +446,7 @@ class _CurriculumExplorerScreenState
                           gradeId: _selectedGradeId,
                           searchQuery: _searchQuery,
                           filterClassification: _filterClassification,
+                          canAuthorLessons: canAuthorLessons,
                         ),
                     ],
                   );
@@ -747,6 +809,7 @@ class _SubjectTreeList extends ConsumerWidget {
     this.gradeId,
     required this.searchQuery,
     required this.filterClassification,
+    this.canAuthorLessons = false,
   });
 
   final String countryCode;
@@ -755,6 +818,7 @@ class _SubjectTreeList extends ConsumerWidget {
   final String? gradeId;
   final String searchQuery;
   final String filterClassification;
+  final bool canAuthorLessons;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -884,7 +948,12 @@ class _SubjectTreeList extends ConsumerWidget {
               separatorBuilder: (_, _) => const SizedBox(height: 16),
               itemBuilder: (context, index) {
                 final subject = filteredSubjects[index];
-                return _SubjectTreeCard(subject: subject);
+                return _SubjectTreeCard(
+                  subject: subject,
+                  countryCode: countryCode,
+                  levelId: levelId,
+                  canAuthorLessons: canAuthorLessons,
+                );
               },
             ),
           ],
@@ -895,9 +964,17 @@ class _SubjectTreeList extends ConsumerWidget {
 }
 
 class _SubjectTreeCard extends StatelessWidget {
-  const _SubjectTreeCard({required this.subject});
+  const _SubjectTreeCard({
+    required this.subject,
+    required this.countryCode,
+    this.levelId,
+    this.canAuthorLessons = false,
+  });
 
   final CurriculumExplorerSubject subject;
+  final String countryCode;
+  final String? levelId;
+  final bool canAuthorLessons;
 
   @override
   Widget build(BuildContext context) {
@@ -1022,6 +1099,35 @@ class _SubjectTreeCard extends StatelessWidget {
               child: Text(
                 subject.description,
                 style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ),
+          if (canAuthorLessons)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: FilledButton.icon(
+                  key: Key('subject-create-lesson-${subject.subjectId}'),
+                  onPressed: () {
+                    context.push(
+                      AppRoutes.authorNewLesson,
+                      extra: AuthorLessonLaunchContext(
+                        countryCode: countryCode,
+                        educationLevelId: levelId,
+                        gradeId: subject.gradeId,
+                        subjectId: subject.subjectId,
+                        subjectName: subject.subjectName,
+                        sourceEntry: 'curriculum_explorer_subject',
+                      ),
+                    );
+                  },
+                  style: FilledButton.styleFrom(
+                    backgroundColor: const Color(0xFF15803D),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                  icon: const Icon(Icons.add_circle_outline, size: 16),
+                  label: Text('Create New Lesson in ${subject.subjectName}'),
+                ),
               ),
             ),
           // Topics breakdown

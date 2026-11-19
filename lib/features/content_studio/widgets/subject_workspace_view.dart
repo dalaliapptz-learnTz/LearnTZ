@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/design_system/components/components.dart';
 import '../../../core/design_system/tokens/design_tokens.dart';
+import '../../../core/routing/app_router.dart';
 import '../content_studio_models.dart';
 import '../content_studio_providers.dart';
+import '../lesson_authoring_models.dart';
 
 class SubjectWorkspaceView extends ConsumerStatefulWidget {
   const SubjectWorkspaceView({
@@ -330,7 +332,19 @@ class _SubjectWorkspaceViewState extends ConsumerState<SubjectWorkspaceView>
                             variant: AppButtonVariant.primary,
                             size: AppButtonSize.sm,
                             icon: Icons.add,
-                            onPressed: () => context.push('/content/studio/editor'),
+                            onPressed: () => context.push(
+                              AppRoutes.authorNewLesson,
+                              extra: AuthorLessonLaunchContext(
+                                countryCode: subject.countryCode,
+                                educationLevelId: subject.educationLevelId,
+                                educationLevelName: subject.educationLevelName,
+                                gradeId: subject.gradeId,
+                                gradeName: subject.gradeName,
+                                subjectId: subject.subjectId,
+                                subjectName: subject.subjectName,
+                                sourceEntry: 'content_studio_subject',
+                              ),
+                            ),
                           ),
                         ],
                       ),
