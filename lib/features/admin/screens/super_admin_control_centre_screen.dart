@@ -111,6 +111,11 @@ class _SuperAdminControlCentreScreenState
             icon: Icons.menu_book_outlined,
           ),
           AdminNavItem(
+            route: 'examinations-v2',
+            label: 'Examination Centre 2.0',
+            icon: Icons.school_outlined,
+          ),
+          AdminNavItem(
             route: 'examinations',
             label: 'Examination Management',
             icon: Icons.assignment_outlined,
@@ -183,6 +188,10 @@ class _SuperAdminControlCentreScreenState
     }
     if (route == 'curriculum') {
       context.push(AppRoutes.curriculumAdmin);
+      return;
+    }
+    if (route == 'examinations-v2') {
+      context.push(AppRoutes.examCentreV2);
       return;
     }
     if (route == 'examinations') {

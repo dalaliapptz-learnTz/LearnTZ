@@ -31,6 +31,7 @@ import '../../features/enterprise/screens/research_institution_workspace_screen.
 import '../../features/enterprise/screens/development_partner_workspace_screen.dart';
 import '../../features/enterprise/screens/institutional_billing_screen.dart';
 import '../../features/enterprise/screens/enterprise_support_screen.dart';
+import '../../features/exams/screens/exam_centre_v2_screen.dart';
 import '../../features/exams/screens/exam_question_bank_screen.dart';
 import '../../features/exams/screens/exam_question_review_cockpit_screen.dart';
 import '../../features/exams/screens/exam_results_analytics_screen.dart';
@@ -117,6 +118,7 @@ abstract final class AppRoutes {
   static const adminSettings = '/admin/settings';
   static const curriculumAdmin = '/admin/curriculum';
   static const examCentre = '/exams/centre';
+  static const examCentreV2 = '/exams/v2';
   static const examUpload = '/exams/upload';
   static const examBank = '/exams/bank';
   static const examQuestionReview = '/exams/bank/review';
@@ -602,6 +604,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             path: AppRoutes.examCentre,
             builder: (context, state) =>
                 const NationalExaminationCentreScreen(),
+          ),
+          GoRoute(
+            path: AppRoutes.examCentreV2,
+            builder: (context, state) => const ExamCentreV2Screen(),
           ),
           GoRoute(
             path: AppRoutes.examUpload,

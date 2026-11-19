@@ -52,6 +52,14 @@ class _NationalExaminationCentreScreenState
                   runSpacing: 8,
                   children: [
                     AppButton(
+                      key: const Key('open-exam-centre-v2-btn'),
+                      label: 'Exam Centre 2.0',
+                      icon: Icons.auto_awesome_outlined,
+                      variant: AppButtonVariant.primary,
+                      size: AppButtonSize.md,
+                      onPressed: () => context.push(AppRoutes.examCentreV2),
+                    ),
+                    AppButton(
                       label: 'Intelligence',
                       icon: Icons.insights_outlined,
                       variant: AppButtonVariant.outlined,
