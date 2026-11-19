@@ -9,6 +9,7 @@ import '../../content_studio/widgets/searchable_curriculum_dropdown.dart';
 import '../exam_v2_models.dart';
 import '../exam_v2_providers.dart';
 import '../widgets/exam_v2_creation_dialog.dart';
+import '../widgets/exam_v2_question_dialog.dart';
 
 class ExamCentreV2Screen extends ConsumerStatefulWidget {
   const ExamCentreV2Screen({super.key});
@@ -134,10 +135,9 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
     ),
     _ExamNavItem(
       id: 'question_bank',
-      label: 'Question Bank',
+      label: 'Question Bank 2.0',
       subtitle: 'Curriculum-mapped items',
       icon: Icons.quiz_outlined,
-      externalRoute: AppRoutes.examBank,
     ),
     _ExamNavItem(
       id: 'paper_builder',
@@ -235,7 +235,8 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             _buildBreadcrumbStrip(),
                             const SizedBox(height: 16),
                             if (_activeNavSection != 'overview' &&
-                                _activeNavSection != 'examinations') ...[
+                                _activeNavSection != 'examinations' &&
+                                _activeNavSection != 'question_bank') ...[
                               _buildUpcomingPhaseBanner(),
                               const SizedBox(height: 16),
                             ],
@@ -919,11 +920,223 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
         children: [
           _buildSelectedContextSummaryCard(summary),
           const SizedBox(height: 16),
-          _buildExaminationsSection(key, summary),
-          const SizedBox(height: 16),
+          if (_activeNavSection == 'question_bank') ...[
+            _buildQuestionBankV2Section(key, summary),
+            const SizedBox(height: 16),
+          ] else ...[
+            _buildExaminationsSection(key, summary),
+            const SizedBox(height: 16),
+            _buildQuestionBankV2Section(key, summary),
+            const SizedBox(height: 16),
+          ],
           _buildRealMetricsStrip(summary),
           const SizedBox(height: 16),
           _buildCompetencesSection(summary),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _openCreateQuestionDialog(
+    ExamV2SelectionKey selection,
+    ExamV2ContextSummary summary,
+  ) async {
+    final created = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => ExamV2QuestionDialog(
+        selection: selection,
+        summary: summary,
+      ),
+    );
+    if (created == true && mounted) {
+      ref.invalidate(examV2QuestionsListProvider(selection));
+      ref.invalidate(examV2ContextSummaryProvider(selection));
+    }
+  }
+
+  Widget _buildQuestionBankV2Section(
+    ExamV2SelectionKey selection,
+    ExamV2ContextSummary summary,
+  ) {
+    final questionsAsync = ref.watch(examV2QuestionsListProvider(selection));
+
+    return Container(
+      key: const Key('exam-v2-question-bank-section'),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: LearnTzColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 12,
+            runSpacing: 10,
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Question Bank 2.0',
+                    style: LearnTzTypography.h3.copyWith(
+                      color: LearnTzColors.textPrimary,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Text(
+                    'Reusable curriculum-mapped questions for ${summary.context.gradeName} ${summary.context.subjectName}',
+                    style: LearnTzTypography.caption.copyWith(
+                      color: LearnTzColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+              AppButton(
+                key: const Key('exam-v2-create-question-btn'),
+                label: 'Create Question',
+                icon: Icons.add,
+                variant: AppButtonVariant.outlined,
+                size: AppButtonSize.sm,
+                onPressed: () =>
+                    _openCreateQuestionDialog(selection, summary),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          questionsAsync.when(
+            loading: () => const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+            ),
+            error: (err, _) => Text(
+              'Unable to load Question Bank 2.0: $err',
+              style: LearnTzTypography.bodySmall.copyWith(
+                color: const Color(0xFFDC2626),
+              ),
+            ),
+            data: (result) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 8,
+                    children: [
+                      _ContextPill(
+                        label: 'Total Questions',
+                        value: '${result.totalCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Drafts',
+                        value: '${result.draftCount}',
+                      ),
+                      _ContextPill(
+                        label: 'In Review',
+                        value: '${result.inReviewCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Approved',
+                        value: '${result.approvedCount}',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 14),
+                  if (result.items.isEmpty)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: LearnTzColors.border),
+                      ),
+                      child: Text(
+                        'No questions mapped to this subject yet. Click "Create Question" to author curriculum-aligned items with answer keys or marking rubrics.',
+                        style: LearnTzTypography.bodySmall.copyWith(
+                          color: LearnTzColors.textSecondary,
+                        ),
+                      ),
+                    )
+                  else
+                    ...result.items.take(10).map((q) {
+                      final statusVariant = switch (q.reviewStatus) {
+                        'approved' => AppBadgeVariant.success,
+                        'in_review' => AppBadgeVariant.warning,
+                        'revision_requested' => AppBadgeVariant.error,
+                        _ => AppBadgeVariant.neutral,
+                      };
+                      return Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF8FAFC),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: LearnTzColors.border),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 6,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                AppBadge(
+                                  label: q.reviewStatus.replaceAll('_', ' '),
+                                  variant: statusVariant,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label: q.questionType.replaceAll('_', ' '),
+                                  variant: AppBadgeVariant.primary,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label:
+                                      '${q.marks.toStringAsFixed(0)} marks • ${q.difficultyLevel}',
+                                  variant: AppBadgeVariant.neutral,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                if (q.specificCompetenceCode != null)
+                                  AppBadge(
+                                    label: 'SC ${q.specificCompetenceCode}',
+                                    variant: AppBadgeVariant.neutral,
+                                    size: AppBadgeSize.sm,
+                                  ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              q.questionText,
+                              style: LearnTzTypography.bodySmall.copyWith(
+                                color: LearnTzColors.textPrimary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            if (q.specificCompetenceTitle != null) ...[
+                              const SizedBox(height: 4),
+                              Text(
+                                'Competence: ${q.specificCompetenceCode ?? ''} ${q.specificCompetenceTitle}',
+                                style: LearnTzTypography.caption.copyWith(
+                                  color: LearnTzColors.textSecondary,
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                      );
+                    }),
+                ],
+              );
+            },
+          ),
         ],
       ),
     );

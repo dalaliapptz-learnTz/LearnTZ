@@ -185,4 +185,95 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<ExamV2QuestionListResult> listQuestions(
+    ExamV2SelectionKey selection, {
+    String? specificCompetenceId,
+    String? questionType,
+    String? difficultyLevel,
+    String? reviewStatus,
+    String? search,
+    int limit = 25,
+    int offset = 0,
+  }) async {
+    final res = await _db.rpc(
+      'list_exam_v2_questions',
+      params: {
+        'p_country_code': selection.countryCode,
+        'p_education_level_id': selection.educationLevelId,
+        'p_grade_id': selection.gradeId,
+        'p_subject_id': selection.subjectId,
+        'p_specific_competence_id': specificCompetenceId,
+        'p_question_type': questionType,
+        'p_difficulty_level': difficultyLevel,
+        'p_review_status': reviewStatus,
+        'p_search':
+            (search == null || search.trim().isEmpty) ? null : search.trim(),
+        'p_limit': limit,
+        'p_offset': offset,
+      },
+    );
+    return ExamV2QuestionListResult.fromJson(
+      Map<String, dynamic>.from(res as Map),
+    );
+  }
+
+  Future<Map<String, dynamic>> saveQuestion({
+    required ExamV2SelectionKey selection,
+    required String specificCompetenceId,
+    required String questionType,
+    required String questionText,
+    required Map<String, dynamic> correctAnswer,
+    required List<dynamic> options,
+    required Map<String, dynamic> markingRubric,
+    required double marks,
+    required String difficultyLevel,
+    required String cognitiveTier,
+    required String languageCode,
+    required String explanation,
+    required String sourceReference,
+    required String copyrightNotice,
+    String? questionId,
+  }) async {
+    final res = await _db.rpc(
+      'save_exam_v2_question',
+      params: {
+        'p_country_code': selection.countryCode,
+        'p_education_level_id': selection.educationLevelId,
+        'p_grade_id': selection.gradeId,
+        'p_subject_id': selection.subjectId,
+        'p_specific_competence_id': specificCompetenceId,
+        'p_question_type': questionType,
+        'p_question_text': questionText.trim(),
+        'p_correct_answer': correctAnswer,
+        'p_options': options,
+        'p_marking_rubric': markingRubric,
+        'p_marks': marks,
+        'p_difficulty_level': difficultyLevel,
+        'p_cognitive_tier': cognitiveTier,
+        'p_language_code': languageCode,
+        'p_explanation': explanation.trim(),
+        'p_source_reference': sourceReference.trim(),
+        'p_copyright_notice': copyrightNotice.trim(),
+        'p_question_id': questionId,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> transitionQuestionStatus({
+    required String questionId,
+    required String action,
+    String comments = '',
+  }) async {
+    final res = await _db.rpc(
+      'transition_exam_v2_question_status',
+      params: {
+        'p_question_id': questionId,
+        'p_action': action,
+        'p_comments': comments,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

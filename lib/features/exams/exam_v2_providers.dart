@@ -60,3 +60,10 @@ final examV2ExaminationsListProvider = FutureProvider.autoDispose
       .watch(examCentreV2RepositoryProvider)
       .listExaminations(selection),
 );
+
+final examV2QuestionsListProvider = FutureProvider.autoDispose
+    .family<ExamV2QuestionListResult, ExamV2SelectionKey>(
+  (ref, selection) => ref
+      .watch(examCentreV2RepositoryProvider)
+      .listQuestions(selection),
+);

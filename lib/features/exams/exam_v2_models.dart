@@ -666,3 +666,133 @@ class ExamV2ExaminationListResult {
     );
   }
 }
+
+// ============================================================================
+// Phase 3: Question Bank 2.0 Models
+// ============================================================================
+
+class ExamV2QuestionItem {
+  const ExamV2QuestionItem({
+    required this.id,
+    required this.countryCode,
+    required this.subjectId,
+    required this.subjectName,
+    this.mainCompetenceId,
+    this.mainCompetenceCode,
+    this.mainCompetenceTitle,
+    this.specificCompetenceId,
+    this.specificCompetenceCode,
+    this.specificCompetenceTitle,
+    required this.questionType,
+    required this.difficultyLevel,
+    this.cognitiveTier,
+    required this.questionText,
+    this.options = const [],
+    this.correctAnswer,
+    this.markingRubric,
+    this.explanation,
+    required this.marks,
+    this.languageCode = 'en',
+    this.sourceReference = '',
+    this.copyrightNotice = '',
+    required this.reviewStatus,
+    required this.isPublished,
+    required this.versionNumber,
+    this.reviewNotes,
+  });
+
+  final String id;
+  final String countryCode;
+  final String subjectId;
+  final String subjectName;
+  final String? mainCompetenceId;
+  final String? mainCompetenceCode;
+  final String? mainCompetenceTitle;
+  final String? specificCompetenceId;
+  final String? specificCompetenceCode;
+  final String? specificCompetenceTitle;
+  final String questionType;
+  final String difficultyLevel;
+  final String? cognitiveTier;
+  final String questionText;
+  final List<dynamic> options;
+  final Map<String, dynamic>? correctAnswer;
+  final Map<String, dynamic>? markingRubric;
+  final String? explanation;
+  final double marks;
+  final String languageCode;
+  final String sourceReference;
+  final String copyrightNotice;
+  final String reviewStatus;
+  final bool isPublished;
+  final int versionNumber;
+  final String? reviewNotes;
+
+  factory ExamV2QuestionItem.fromJson(Map<String, dynamic> json) {
+    return ExamV2QuestionItem(
+      id: json['id'] as String? ?? '',
+      countryCode: json['country_code'] as String? ?? '',
+      subjectId: json['subject_id'] as String? ?? '',
+      subjectName: json['subject_name'] as String? ?? '',
+      mainCompetenceId: json['main_competence_id'] as String?,
+      mainCompetenceCode: json['main_competence_code'] as String?,
+      mainCompetenceTitle: json['main_competence_title'] as String?,
+      specificCompetenceId: json['specific_competence_id'] as String?,
+      specificCompetenceCode: json['specific_competence_code'] as String?,
+      specificCompetenceTitle: json['specific_competence_title'] as String?,
+      questionType: json['question_type'] as String? ?? 'multiple_choice',
+      difficultyLevel: json['difficulty_level'] as String? ?? 'medium',
+      cognitiveTier: json['cognitive_tier'] as String?,
+      questionText: json['question_text'] as String? ?? '',
+      options: (json['options'] as List<dynamic>?) ?? const [],
+      correctAnswer: json['correct_answer'] is Map
+          ? Map<String, dynamic>.from(json['correct_answer'] as Map)
+          : null,
+      markingRubric: json['marking_rubric'] is Map
+          ? Map<String, dynamic>.from(json['marking_rubric'] as Map)
+          : null,
+      explanation: json['explanation'] as String?,
+      marks: (json['marks'] as num?)?.toDouble() ?? 1,
+      languageCode: json['language_code'] as String? ?? 'en',
+      sourceReference: json['source_reference'] as String? ?? '',
+      copyrightNotice: json['copyright_notice'] as String? ?? '',
+      reviewStatus: json['review_status'] as String? ?? 'draft',
+      isPublished: json['is_published'] as bool? ?? false,
+      versionNumber: (json['version_number'] as num?)?.toInt() ?? 1,
+      reviewNotes: json['review_notes'] as String?,
+    );
+  }
+}
+
+class ExamV2QuestionListResult {
+  const ExamV2QuestionListResult({
+    required this.totalCount,
+    required this.draftCount,
+    required this.inReviewCount,
+    required this.approvedCount,
+    required this.items,
+  });
+
+  final int totalCount;
+  final int draftCount;
+  final int inReviewCount;
+  final int approvedCount;
+  final List<ExamV2QuestionItem> items;
+
+  factory ExamV2QuestionListResult.fromJson(Map<String, dynamic> json) {
+    final summary = Map<String, dynamic>.from(
+      json['summary'] as Map? ?? const <String, dynamic>{},
+    );
+    return ExamV2QuestionListResult(
+      totalCount: (summary['total_count'] as num?)?.toInt() ?? 0,
+      draftCount: (summary['draft_count'] as num?)?.toInt() ?? 0,
+      inReviewCount: (summary['in_review_count'] as num?)?.toInt() ?? 0,
+      approvedCount: (summary['approved_count'] as num?)?.toInt() ?? 0,
+      items: (json['items'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2QuestionItem.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}

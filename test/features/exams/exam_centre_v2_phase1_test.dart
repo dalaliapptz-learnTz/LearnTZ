@@ -9,7 +9,81 @@ import 'package:learntz/features/exams/screens/exam_centre_v2_screen.dart';
 
 class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
   final List<ExamV2ExaminationSummary> _savedExams = [];
+  final List<ExamV2QuestionItem> _savedQuestions = [];
   int saveCalls = 0;
+  int saveQuestionCalls = 0;
+
+  @override
+  Future<ExamV2QuestionListResult> listQuestions(
+    ExamV2SelectionKey selection, {
+    String? specificCompetenceId,
+    String? questionType,
+    String? difficultyLevel,
+    String? reviewStatus,
+    String? search,
+    int limit = 25,
+    int offset = 0,
+  }) async {
+    return ExamV2QuestionListResult(
+      totalCount: _savedQuestions.length,
+      draftCount:
+          _savedQuestions.where((q) => q.reviewStatus == 'draft').length,
+      inReviewCount:
+          _savedQuestions.where((q) => q.reviewStatus == 'in_review').length,
+      approvedCount:
+          _savedQuestions.where((q) => q.reviewStatus == 'approved').length,
+      items: List.unmodifiable(_savedQuestions),
+    );
+  }
+
+  @override
+  Future<Map<String, dynamic>> saveQuestion({
+    required ExamV2SelectionKey selection,
+    required String specificCompetenceId,
+    required String questionType,
+    required String questionText,
+    required Map<String, dynamic> correctAnswer,
+    required List<dynamic> options,
+    required Map<String, dynamic> markingRubric,
+    required double marks,
+    required String difficultyLevel,
+    required String cognitiveTier,
+    required String languageCode,
+    required String explanation,
+    required String sourceReference,
+    required String copyrightNotice,
+    String? questionId,
+  }) async {
+    saveQuestionCalls++;
+    _savedQuestions.add(
+      ExamV2QuestionItem(
+        id: 'q-$saveQuestionCalls',
+        countryCode: selection.countryCode,
+        subjectId: selection.subjectId,
+        subjectName: 'English Language',
+        specificCompetenceId: specificCompetenceId,
+        specificCompetenceCode: '1.1',
+        specificCompetenceTitle: 'Develop listening and speaking skills',
+        questionType: questionType,
+        difficultyLevel: difficultyLevel,
+        cognitiveTier: cognitiveTier,
+        questionText: questionText,
+        options: options,
+        correctAnswer: correctAnswer,
+        markingRubric: markingRubric,
+        marks: marks,
+        reviewStatus: 'draft',
+        isPublished: false,
+        versionNumber: 1,
+      ),
+    );
+    return {
+      'id': 'q-$saveQuestionCalls',
+      'review_status': 'draft',
+      'is_published': false,
+      'version_number': 1,
+    };
+  }
 
   @override
   Future<ExamV2ExaminationListResult> listExaminations(
@@ -452,6 +526,69 @@ void main() {
       expect(repo.saveCalls, 1);
       expect(find.text('60 marks'), findsOneWidget);
       expect(find.text('4 sections'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'Phase 3: Question Bank 2.0 dialog creates curriculum-mapped question and refreshes list',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 960);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      await tester.pumpWidget(_wrapScreen(repo));
+      await tester.pumpAndSettle();
+
+      await _selectDropdownOption(tester, 'exam-v2-step1-country', 'Tanzania');
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step2-level',
+        'Primary Education',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step3-grade',
+        'Standard III',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step4-subject',
+        'English Language',
+      );
+      await _selectDropdownOption(
+        tester,
+        'exam-v2-step5-exam-type',
+        'Terminal Examination',
+      );
+
+      final createQBtn = find.byKey(const Key('exam-v2-create-question-btn'));
+      await tester.ensureVisible(createQBtn);
+      await tester.tap(createQBtn);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(
+        find.byKey(const Key('exam-v2-q-statement-field')),
+        'Choose the opposite of the word "big":',
+      );
+      await tester.enterText(
+        find.byKey(const Key('exam-v2-q-options-field')),
+        'Tall\nSmall\nLong\nWide',
+      );
+      await tester.enterText(
+        find.byKey(const Key('exam-v2-q-answer-field')),
+        'Small',
+      );
+
+      await tester.tap(find.byKey(const Key('exam-v2-q-save-draft-btn')));
+      await tester.pumpAndSettle();
+
+      expect(repo.saveQuestionCalls, 1);
+      expect(
+        find.text('Choose the opposite of the word "big":'),
+        findsOneWidget,
+      );
     },
   );
 }
