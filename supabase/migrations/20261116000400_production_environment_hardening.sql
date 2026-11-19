@@ -231,6 +231,14 @@ begin
   where (is_demo = true or id::text like 'd3000000-%')
     and coalesce(auth_user_id, '00000000-0000-0000-0000-000000000000'::uuid) != '558cb26f-d06e-45a7-9454-4570ab856f3f';
 
+  -- Stage 3.65: Delete Demo User Roles before auth.users cascade so audit_role_change FK resolves cleanly
+  delete from public.user_roles
+  where user_id in (
+    select id from auth.users
+    where (id::text like 'd1000000-%' or id::text like 'd3000000-%' or email like '%@demo.learntz.test')
+      and id != '558cb26f-d06e-45a7-9454-4570ab856f3f'
+  );
+
   -- Stage 3.7: Delete Demo Auth Users
   delete from auth.users
   where (id::text like 'd1000000-%' or id::text like 'd3000000-%' or email like '%@demo.learntz.test')
