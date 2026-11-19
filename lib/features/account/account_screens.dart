@@ -5,6 +5,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../core/auth/auth_providers.dart';
 import '../../core/auth/auth_repository.dart';
+import '../../core/design_system/components/components.dart' as ds;
+import '../../core/design_system/tokens/design_tokens.dart';
 import '../../core/routing/app_router.dart';
 import '../../core/state/app_providers.dart';
 import '../admin/admin_providers.dart';
@@ -21,6 +23,31 @@ import 'account_repository.dart';
 class AccountScreen extends ConsumerWidget {
   const AccountScreen({super.key});
 
+  String _initials(String name, String email) {
+    final clean = name.trim();
+    if (clean.isNotEmpty) {
+      final parts = clean.split(RegExp(r'\s+'));
+      if (parts.length >= 2) {
+        return '${parts.first[0]}${parts.last[0]}'.toUpperCase();
+      }
+      return clean.substring(0, clean.length >= 2 ? 2 : 1).toUpperCase();
+    }
+    if (email.isNotEmpty) return email[0].toUpperCase();
+    return 'LT';
+  }
+
+  Future<void> _signOut(BuildContext context, WidgetRef ref) async {
+    try {
+      await ref.read(authRepositoryProvider)?.signOut();
+    } on AuthException catch (error) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(error.message)),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
@@ -31,129 +58,358 @@ class AccountScreen extends ConsumerWidget {
     final curriculumAccess = ref.watch(curriculumStaffCapabilitiesProvider);
     final incomingInvitations = ref.watch(incomingGuardianInvitationsProvider);
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 720),
+    final canAccessAdmin = adminAccess.asData?.value.canAccessAdmin ?? false;
+    final canAccessCurriculum =
+        curriculumAccess.asData?.value.canAccess ?? false;
+    final hasStaffWorkspaces = canAccessAdmin || canAccessCurriculum;
+    final learnerCount = learners.asData?.value.length ?? 0;
+
+    return Container(
+      color: LearnTzColors.background,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1120),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // 1. Full-Width Identity & Status Header Card
+                _buildIdentityHeader(
+                  context: context,
+                  ref: ref,
+                  l10n: l10n,
+                  profile: profile,
+                  email: user?.email ?? '',
+                  canAccessAdmin: canAccessAdmin,
+                  canAccessCurriculum: canAccessCurriculum,
+                ),
+                const SizedBox(height: 20),
+
+                // 2. Responsive Two-Column Desktop Grid / Single-Column Mobile
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isWide = constraints.maxWidth >= 880;
+                    final mainColumn = _buildMainFamilyColumn(
+                      context: context,
+                      ref: ref,
+                      l10n: l10n,
+                      learners: learners,
+                      learnerCount: learnerCount,
+                      incomingInvitations: incomingInvitations,
+                    );
+                    final sideColumn = _buildSideWorkspacesColumn(
+                      context: context,
+                      l10n: l10n,
+                      canAccessAdmin: canAccessAdmin,
+                      canAccessCurriculum: canAccessCurriculum,
+                      hasStaffWorkspaces: hasStaffWorkspaces,
+                    );
+
+                    if (isWide) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(flex: 7, child: mainColumn),
+                          const SizedBox(width: 20),
+                          Expanded(flex: 4, child: sideColumn),
+                        ],
+                      );
+                    }
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        mainColumn,
+                        const SizedBox(height: 20),
+                        sideColumn,
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildIdentityHeader({
+    required BuildContext context,
+    required WidgetRef ref,
+    required AppLocalizations l10n,
+    required AsyncValue<ParentProfile> profile,
+    required String email,
+    required bool canAccessAdmin,
+    required bool canAccessCurriculum,
+  }) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: LearnTzColors.border),
+      ),
+      child: profile.when(
+        loading: () => const Center(
+          child: Padding(
+            padding: EdgeInsets.all(12),
+            child: CircularProgressIndicator(),
+          ),
+        ),
+        error: (error, _) => AuthInlineMessage(
+          message: _accountErrorMessage(error, l10n),
+          isError: true,
+        ),
+        data: (value) {
+          final initials = _initials(value.fullName, email);
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              final isNarrow = constraints.maxWidth < 700;
+              final identityRow = Row(
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    backgroundColor: const Color(0xFF0F4C81),
+                    child: Text(
+                      initials,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 4,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              value.fullName.isNotEmpty
+                                  ? value.fullName
+                                  : l10n.parentDashboardTitle,
+                              style: LearnTzTypography.h3.copyWith(
+                                fontWeight: FontWeight.w800,
+                                color: LearnTzColors.textPrimary,
+                              ),
+                            ),
+                            ds.AppBadge(
+                              label: value.countryCode,
+                              variant: ds.AppBadgeVariant.neutral,
+                              size: ds.AppBadgeSize.sm,
+                            ),
+                            if (canAccessAdmin)
+                              const ds.AppBadge(
+                                label: 'Admin',
+                                variant: ds.AppBadgeVariant.primary,
+                                size: ds.AppBadgeSize.sm,
+                              ),
+                            if (canAccessCurriculum && !canAccessAdmin)
+                              const ds.AppBadge(
+                                label: 'Curriculum Staff',
+                                variant: ds.AppBadgeVariant.success,
+                                size: ds.AppBadgeSize.sm,
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          email,
+                          style: LearnTzTypography.bodySmall.copyWith(
+                            color: LearnTzColors.textSecondary,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+
+              final actions = Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  ds.AppButton(
+                    label: l10n.editProfileAction,
+                    icon: Icons.edit_outlined,
+                    variant: ds.AppButtonVariant.outlined,
+                    size: ds.AppButtonSize.sm,
+                    onPressed: () => context.go(AppRoutes.editParentProfile),
+                  ),
+                  ds.AppButton(
+                    label: l10n.accountSettingsAction,
+                    icon: Icons.settings_outlined,
+                    variant: ds.AppButtonVariant.outlined,
+                    size: ds.AppButtonSize.sm,
+                    onPressed: () => context.go(AppRoutes.accountSettings),
+                  ),
+                  ds.AppButton(
+                    label: l10n.signOutAction,
+                    icon: Icons.logout,
+                    variant: ds.AppButtonVariant.outlined,
+                    size: ds.AppButtonSize.sm,
+                    onPressed: () => _signOut(context, ref),
+                  ),
+                ],
+              );
+
+              if (isNarrow) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    identityRow,
+                    const SizedBox(height: 14),
+                    actions,
+                  ],
+                );
+              }
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(child: identityRow),
+                  const SizedBox(width: 16),
+                  actions,
+                ],
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildMainFamilyColumn({
+    required BuildContext context,
+    required WidgetRef ref,
+    required AppLocalizations l10n,
+    required AsyncValue<List<Learner>> learners,
+    required int learnerCount,
+    required AsyncValue<List<IncomingGuardianInvitation>> incomingInvitations,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Family Quick Actions Bar
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: LearnTzColors.border),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                l10n.parentDashboardTitle,
-                style: Theme.of(context).textTheme.headlineMedium,
+                'Family Learning Hub',
+                style: LearnTzTypography.bodyRegular.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: const Color(0xFF0F4C81),
+                ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Text(
                 l10n.parentDashboardDescription,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 24),
-              profile.when(
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stackTrace) => AppCard(
-                  child: AuthInlineMessage(
-                    message: _accountErrorMessage(error, l10n),
-                    isError: true,
-                  ),
-                ),
-                data: (value) => AppCard(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        value.fullName,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(height: 6),
-                      Text(user?.email ?? ''),
-                      const SizedBox(height: 4),
-                      Text(
-                        value.countryCode,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      const SizedBox(height: 16),
-                      OutlinedButton.icon(
-                        onPressed: () =>
-                            context.go(AppRoutes.editParentProfile),
-                        icon: const Icon(Icons.edit_outlined),
-                        label: Text(l10n.editProfileAction),
-                      ),
-                    ],
-                  ),
+                style: LearnTzTypography.bodySmall.copyWith(
+                  color: LearnTzColors.textSecondary,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 14),
               Wrap(
-                spacing: 8,
-                runSpacing: 8,
+                spacing: 10,
+                runSpacing: 10,
                 children: [
-                  FilledButton.icon(
+                  ds.AppButton(
+                    label: l10n.learningHubTitle,
+                    icon: Icons.school_outlined,
+                    variant: ds.AppButtonVariant.primary,
+                    size: ds.AppButtonSize.sm,
                     onPressed: () => context.go(AppRoutes.learn),
-                    icon: const Icon(Icons.school_outlined),
-                    label: Text(l10n.learningHubTitle),
                   ),
-                  OutlinedButton.icon(
+                  ds.AppButton(
+                    label: 'Progress & Analytics',
+                    icon: Icons.analytics_outlined,
+                    variant: ds.AppButtonVariant.outlined,
+                    size: ds.AppButtonSize.sm,
                     onPressed: () => context.go(AppRoutes.parentDashboard),
-                    icon: const Icon(Icons.analytics_outlined),
-                    label: Text(l10n.parentDashboardTitle),
                   ),
-                  OutlinedButton.icon(
+                  ds.AppButton(
+                    label: l10n.viewSubscriptionsAction,
+                    icon: Icons.payments_outlined,
+                    variant: ds.AppButtonVariant.outlined,
+                    size: ds.AppButtonSize.sm,
                     onPressed: () => context.go(AppRoutes.subscriptions),
-                    icon: const Icon(Icons.payments_outlined),
-                    label: Text(l10n.viewSubscriptionsAction),
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () => context.go(AppRoutes.accountSettings),
-                    icon: const Icon(Icons.settings_outlined),
-                    label: Text(l10n.accountSettingsAction),
                   ),
                 ],
               ),
-              if (adminAccess.asData?.value.canAccessAdmin ?? false) ...[
-                const SizedBox(height: 8),
-                OutlinedButton.icon(
-                  onPressed: () => context.go(AppRoutes.admin),
-                  icon: const Icon(Icons.admin_panel_settings_outlined),
-                  label: Text(l10n.adminPortalAction),
-                ),
-              ],
-              if (curriculumAccess.asData?.value.canAccess ?? false) ...[
-                const SizedBox(height: 8),
-                OutlinedButton.icon(
-                  onPressed: () => context.go(AppRoutes.curriculumAdmin),
-                  icon: const Icon(Icons.menu_book_outlined),
-                  label: Text(l10n.curriculumAdminTitle),
-                ),
-              ],
-              if (incomingInvitations.asData?.value.isNotEmpty ?? false) ...[
-                const SizedBox(height: 20),
-                _IncomingInvitationsCard(
-                  invitations: incomingInvitations.requireValue,
-                ),
-              ],
-              const SizedBox(height: 24),
+            ],
+          ),
+        ),
+
+        if (incomingInvitations.asData?.value.isNotEmpty ?? false) ...[
+          const SizedBox(height: 16),
+          _IncomingInvitationsCard(
+            invitations: incomingInvitations.requireValue,
+          ),
+        ],
+
+        const SizedBox(height: 16),
+
+        // Learners Management Card
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: LearnTzColors.border),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      l10n.learnersSectionTitle,
-                      style: Theme.of(context).textTheme.titleLarge,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          l10n.learnersSectionTitle,
+                          style: LearnTzTypography.h3.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: LearnTzColors.textPrimary,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          l10n.learnerCount(learnerCount),
+                          style: LearnTzTypography.caption.copyWith(
+                            color: LearnTzColors.textSecondary,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  FilledButton.icon(
-                    onPressed: () => context.go(AppRoutes.addLearner),
-                    icon: const Icon(Icons.add),
-                    label: Text(l10n.addLearnerAction),
-                  ),
+                  if (learnerCount > 0)
+                    ds.AppButton(
+                      label: l10n.addLearnerAction,
+                      icon: Icons.add,
+                      variant: ds.AppButtonVariant.primary,
+                      size: ds.AppButtonSize.sm,
+                      onPressed: () => context.go(AppRoutes.addLearner),
+                    ),
                 ],
               ),
-              const SizedBox(height: 8),
-              Text(
-                l10n.learnerCount(learners.asData?.value.length ?? 0),
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 14),
               learners.when(
                 loading: () => const Center(
                   child: Padding(
@@ -161,42 +417,93 @@ class AccountScreen extends ConsumerWidget {
                     child: CircularProgressIndicator(),
                   ),
                 ),
-                error: (error, stackTrace) => AppCard(
-                  child: AuthInlineMessage(
-                    message: _accountErrorMessage(error, l10n),
-                    isError: true,
-                  ),
+                error: (error, _) => AuthInlineMessage(
+                  message: _accountErrorMessage(error, l10n),
+                  isError: true,
                 ),
                 data: (items) => items.isEmpty
-                    ? AppCard(
+                    ? Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF8FAFC),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: LearnTzColors.border),
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              l10n.noLearnersTitle,
-                              style: Theme.of(context).textTheme.titleLarge,
+                            Row(
+                              children: [
+                                Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFF0F4C81)
+                                        .withValues(alpha: 0.1),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Icon(
+                                    Icons.person_add_alt_1_outlined,
+                                    color: Color(0xFF0F4C81),
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        l10n.noLearnersTitle,
+                                        style: LearnTzTypography.bodyRegular
+                                            .copyWith(
+                                          fontWeight: FontWeight.w700,
+                                          color: LearnTzColors.textPrimary,
+                                        ),
+                                      ),
+                                      Text(
+                                        l10n.noLearnersDescription,
+                                        style: LearnTzTypography.bodySmall
+                                            .copyWith(
+                                          color: LearnTzColors.textSecondary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 8),
-                            Text(l10n.noLearnersDescription),
+                            const SizedBox(height: 14),
+                            const _BenefitBullet(
+                              text:
+                                  'Curriculum-aligned lessons matched to your child’s exact grade & country.',
+                            ),
+                            const _BenefitBullet(
+                              text:
+                                  'Practice quizzes, timed examinations, and competency mastery tracking.',
+                            ),
+                            const _BenefitBullet(
+                              text:
+                                  'Independent learner login on shared or dedicated devices.',
+                            ),
                             const SizedBox(height: 16),
-                            OutlinedButton.icon(
+                            ds.AppButton(
+                              label: l10n.addLearnerAction,
+                              icon: Icons.add,
+                              variant: ds.AppButtonVariant.primary,
+                              size: ds.AppButtonSize.md,
                               onPressed: () => context.go(AppRoutes.addLearner),
-                              icon: const Icon(Icons.person_add_alt_1),
-                              label: Text(l10n.addLearnerAction),
                             ),
                           ],
                         ),
                       )
                     : LayoutBuilder(
                         builder: (context, constraints) {
-                          final columns = constraints.maxWidth >= 820
-                              ? 3
-                              : constraints.maxWidth >= 540
-                              ? 2
-                              : 1;
+                          final columns = constraints.maxWidth >= 560 ? 2 : 1;
                           final cardWidth =
                               (constraints.maxWidth - (columns - 1) * 12) /
-                              columns;
+                                  columns;
                           return Wrap(
                             spacing: 12,
                             runSpacing: 12,
@@ -254,24 +561,264 @@ class AccountScreen extends ConsumerWidget {
                         },
                       ),
               ),
-              const SizedBox(height: 24),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton.icon(
-                  onPressed: () async {
-                    try {
-                      await ref.read(authRepositoryProvider)?.signOut();
-                    } on AuthException catch (error) {
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text(error.message)));
-                      }
-                    }
-                  },
-                  icon: const Icon(Icons.logout),
-                  label: Text(l10n.signOutAction),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSideWorkspacesColumn({
+    required BuildContext context,
+    required AppLocalizations l10n,
+    required bool canAccessAdmin,
+    required bool canAccessCurriculum,
+    required bool hasStaffWorkspaces,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (hasStaffWorkspaces) ...[
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: const Color(0xFF0F4C81).withValues(alpha: 0.35),
+                width: 1.5,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 32,
+                      height: 32,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF0F4C81),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Icon(
+                        Icons.admin_panel_settings_outlined,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Staff & Academic Workspaces',
+                            style: LearnTzTypography.bodyRegular.copyWith(
+                              fontWeight: FontWeight.w800,
+                              color: const Color(0xFF0F4C81),
+                            ),
+                          ),
+                          Text(
+                            'Role-gated platform operations',
+                            style: LearnTzTypography.caption.copyWith(
+                              color: LearnTzColors.textSecondary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 14),
+                if (canAccessAdmin) ...[
+                  _WorkspaceShortcutTile(
+                    icon: Icons.dashboard_customize_outlined,
+                    title: l10n.adminPortalAction,
+                    subtitle: 'Platform users, countries & governance',
+                    onTap: () => context.go(AppRoutes.adminDashboard),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+                _WorkspaceShortcutTile(
+                  icon: Icons.school_outlined,
+                  title: 'Examination Centre 2.0',
+                  subtitle: '5-step curriculum exams, bank & paper builder',
+                  onTap: () => context.push(AppRoutes.examCentreV2),
+                ),
+                const SizedBox(height: 8),
+                _WorkspaceShortcutTile(
+                  icon: Icons.edit_note_outlined,
+                  title: 'Content Management Studio',
+                  subtitle: 'Author curriculum-aligned lessons & media',
+                  onTap: () => context.push(AppRoutes.contentStudio),
+                ),
+                const SizedBox(height: 8),
+                _WorkspaceShortcutTile(
+                  icon: Icons.fact_check_outlined,
+                  title: 'Academic Review Queue',
+                  subtitle: 'Review, approve & publish submitted lessons',
+                  onTap: () => context.push(AppRoutes.academicReviewQueue),
+                ),
+                if (canAccessCurriculum) ...[
+                  const SizedBox(height: 8),
+                  _WorkspaceShortcutTile(
+                    icon: Icons.menu_book_outlined,
+                    title: l10n.curriculumAdminTitle,
+                    subtitle: 'Manage official national curricula & versions',
+                    onTap: () => context.go(AppRoutes.curriculumAdmin),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+
+        // Subscription & Account Overview Card
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: LearnTzColors.border),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(
+                    Icons.credit_card_outlined,
+                    color: Color(0xFF15803D),
+                    size: 20,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    l10n.viewSubscriptionsAction,
+                    style: LearnTzTypography.bodyRegular.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: LearnTzColors.textPrimary,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'Manage your family subscription plan, billing history, and multi-learner access.',
+                style: LearnTzTypography.bodySmall.copyWith(
+                  color: LearnTzColors.textSecondary,
+                ),
+              ),
+              const SizedBox(height: 12),
+              ds.AppButton(
+                label: l10n.viewSubscriptionsAction,
+                icon: Icons.arrow_forward,
+                variant: ds.AppButtonVariant.outlined,
+                size: ds.AppButtonSize.sm,
+                onPressed: () => context.go(AppRoutes.subscriptions),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _BenefitBullet extends StatelessWidget {
+  const _BenefitBullet({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 2),
+            child: Icon(
+              Icons.check_circle_outline,
+              size: 16,
+              color: Color(0xFF15803D),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              text,
+              style: LearnTzTypography.bodySmall.copyWith(
+                color: LearnTzColors.textSecondary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WorkspaceShortcutTile extends StatelessWidget {
+  const _WorkspaceShortcutTile({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xFFF8FAFC),
+      borderRadius: BorderRadius.circular(10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: LearnTzColors.border),
+          ),
+          child: Row(
+            children: [
+              Icon(icon, size: 20, color: const Color(0xFF0F4C81)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: LearnTzTypography.bodySmall.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: LearnTzColors.textPrimary,
+                      ),
+                    ),
+                    Text(
+                      subtitle,
+                      style: LearnTzTypography.caption.copyWith(
+                        color: LearnTzColors.textSecondary,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                size: 18,
+                color: LearnTzColors.textSecondary,
               ),
             ],
           ),
