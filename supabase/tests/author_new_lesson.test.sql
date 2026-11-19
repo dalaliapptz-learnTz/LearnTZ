@@ -1,5 +1,5 @@
 begin;
-select plan(28);
+select plan(29);
 
 -- 1. Verify schema objects & functions exist
 select has_table('public', 'curriculum_main_competences', 'curriculum_main_competences table exists');
@@ -78,6 +78,13 @@ select cmp_ok(
 -- Switch to Content Author session
 set local role authenticated;
 select set_config('request.jwt.claim.sub', '00000000-0000-0000-0000-000000000971', true);
+
+-- TC-02b: Calling get_lesson_authoring_context with all NULL optional params resolves default TZ context cleanly
+select is(
+  public.get_lesson_authoring_context(null, null, null, null, null) ->> 'country_code',
+  'TZ',
+  'TC-02b: get_lesson_authoring_context(null, null, null, null, null) resolves cleanly without unassigned record error'
+);
 
 -- TC-03: Grade dropdown loads actual DB records
 select cmp_ok(
