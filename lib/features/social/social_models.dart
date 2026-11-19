@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Pre-approved avatar presets for child safety (no real photos permitted).
 class AvatarPreset {

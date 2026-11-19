@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// LearnTZ Design System 2.0 — Canonical Color Tokens
 /// Single Source of Truth: tokens/learntz_design_tokens.json
