@@ -248,7 +248,7 @@ class _ExamV2OnlineRunnerScreenState
                     ),
                     const SizedBox(height: 18),
                     AppButton(
-                      label: 'Return to Examination Centre',
+                      label: 'Done',
                       variant: AppButtonVariant.primary,
                       size: AppButtonSize.sm,
                       onPressed: () => Navigator.of(context).pop(),
@@ -357,8 +357,10 @@ class _ExamV2OnlineRunnerScreenState
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 6,
+                          alignment: WrapAlignment.spaceBetween,
                           children: [
                             AppBadge(
                               label: '${q['marks']} marks',
