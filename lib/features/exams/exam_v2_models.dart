@@ -956,3 +956,145 @@ class ExamV2PaperBuilderBundle {
     );
   }
 }
+
+// ============================================================================
+// Phase 5: Examination Review & Approval Cockpit Models
+// ============================================================================
+
+class ExamV2ReviewQueueItem {
+  const ExamV2ReviewQueueItem({
+    required this.examinationId,
+    required this.title,
+    required this.countryCode,
+    required this.countryName,
+    required this.curriculumName,
+    this.curriculumVersionCode,
+    required this.educationLevelId,
+    required this.educationLevelName,
+    required this.gradeId,
+    required this.gradeName,
+    required this.subjectId,
+    required this.subjectName,
+    required this.examinationTypeId,
+    required this.examinationTypeName,
+    required this.academicYear,
+    required this.academicTerm,
+    required this.durationMinutes,
+    required this.totalMarks,
+    required this.status,
+    required this.isPublished,
+    required this.versionNumber,
+    required this.authorName,
+    this.reviewNotes,
+    required this.sectionCount,
+    required this.questionCount,
+    required this.competencyCount,
+  });
+
+  final String examinationId;
+  final String title;
+  final String countryCode;
+  final String countryName;
+  final String curriculumName;
+  final String? curriculumVersionCode;
+  final String educationLevelId;
+  final String educationLevelName;
+  final String gradeId;
+  final String gradeName;
+  final String subjectId;
+  final String subjectName;
+  final String examinationTypeId;
+  final String examinationTypeName;
+  final int academicYear;
+  final String academicTerm;
+  final int durationMinutes;
+  final double totalMarks;
+  final String status;
+  final bool isPublished;
+  final int versionNumber;
+  final String authorName;
+  final String? reviewNotes;
+  final int sectionCount;
+  final int questionCount;
+  final int competencyCount;
+
+  ExamV2SelectionKey toSelectionKey() => ExamV2SelectionKey(
+        countryCode: countryCode,
+        educationLevelId: educationLevelId,
+        gradeId: gradeId,
+        subjectId: subjectId,
+        examinationTypeId: examinationTypeId,
+      );
+
+  factory ExamV2ReviewQueueItem.fromJson(Map<String, dynamic> json) {
+    return ExamV2ReviewQueueItem(
+      examinationId: json['examination_id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      countryCode: json['country_code'] as String? ?? '',
+      countryName: json['country_name'] as String? ?? '',
+      curriculumName: json['curriculum_name'] as String? ?? '',
+      curriculumVersionCode: json['curriculum_version_code'] as String?,
+      educationLevelId: json['education_level_id'] as String? ?? '',
+      educationLevelName: json['education_level_name'] as String? ?? '',
+      gradeId: json['grade_id'] as String? ?? '',
+      gradeName: json['grade_name'] as String? ?? '',
+      subjectId: json['subject_id'] as String? ?? '',
+      subjectName: json['subject_name'] as String? ?? '',
+      examinationTypeId: json['examination_type_id'] as String? ?? '',
+      examinationTypeName: json['examination_type_name'] as String? ?? '',
+      academicYear: (json['academic_year'] as num?)?.toInt() ?? 2026,
+      academicTerm: json['academic_term'] as String? ?? 'Term I',
+      durationMinutes: (json['duration_minutes'] as num?)?.toInt() ?? 90,
+      totalMarks: (json['total_marks'] as num?)?.toDouble() ?? 0,
+      status: json['status'] as String? ?? 'submitted_for_review',
+      isPublished: json['is_published'] as bool? ?? false,
+      versionNumber: (json['version_number'] as num?)?.toInt() ?? 1,
+      authorName: json['author_name'] as String? ?? 'Unknown Author',
+      reviewNotes: json['review_notes'] as String?,
+      sectionCount: (json['section_count'] as num?)?.toInt() ?? 0,
+      questionCount: (json['question_count'] as num?)?.toInt() ?? 0,
+      competencyCount: (json['competency_count'] as num?)?.toInt() ?? 0,
+    );
+  }
+}
+
+class ExamV2ReviewQueueResult {
+  const ExamV2ReviewQueueResult({
+    required this.awaitingReviewCount,
+    required this.revisionRequestedCount,
+    required this.approvedCount,
+    required this.publishedCount,
+    required this.canPublish,
+    required this.items,
+  });
+
+  final int awaitingReviewCount;
+  final int revisionRequestedCount;
+  final int approvedCount;
+  final int publishedCount;
+  final bool canPublish;
+  final List<ExamV2ReviewQueueItem> items;
+
+  factory ExamV2ReviewQueueResult.fromJson(Map<String, dynamic> json) {
+    final summary = Map<String, dynamic>.from(
+      json['summary'] as Map? ?? const <String, dynamic>{},
+    );
+    final caps = Map<String, dynamic>.from(
+      json['capabilities'] as Map? ?? const <String, dynamic>{},
+    );
+    return ExamV2ReviewQueueResult(
+      awaitingReviewCount:
+          (summary['awaiting_review_count'] as num?)?.toInt() ?? 0,
+      revisionRequestedCount:
+          (summary['revision_requested_count'] as num?)?.toInt() ?? 0,
+      approvedCount: (summary['approved_count'] as num?)?.toInt() ?? 0,
+      publishedCount: (summary['published_count'] as num?)?.toInt() ?? 0,
+      canPublish: caps['can_publish'] as bool? ?? false,
+      items: (json['items'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2ReviewQueueItem.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}

@@ -10,6 +10,7 @@ import '../exam_v2_models.dart';
 import '../exam_v2_providers.dart';
 import '../widgets/exam_v2_creation_dialog.dart';
 import '../widgets/exam_v2_question_dialog.dart';
+import '../widgets/exam_v2_review_dialog.dart';
 import 'exam_v2_paper_builder_screen.dart';
 
 class ExamCentreV2Screen extends ConsumerStatefulWidget {
@@ -186,7 +187,6 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
       label: 'Review & Approval',
       subtitle: 'Academic quality assurance',
       icon: Icons.fact_check_outlined,
-      phaseBadge: 'Phase 5',
     ),
   ];
 
@@ -234,19 +234,23 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             const SizedBox(height: 16),
                             _buildBreadcrumbStrip(),
                             const SizedBox(height: 16),
-                            if (_activeNavSection != 'overview' &&
-                                _activeNavSection != 'examinations' &&
-                                _activeNavSection != 'question_bank' &&
-                                _activeNavSection != 'paper_builder') ...[
-                              _buildUpcomingPhaseBanner(),
-                              const SizedBox(height: 16),
+                            if (_activeNavSection == 'review') ...[
+                              _buildReviewApprovalCockpit(),
+                            ] else ...[
+                              if (_activeNavSection != 'overview' &&
+                                  _activeNavSection != 'examinations' &&
+                                  _activeNavSection != 'question_bank' &&
+                                  _activeNavSection != 'paper_builder') ...[
+                                _buildUpcomingPhaseBanner(),
+                                const SizedBox(height: 16),
+                              ],
+                              _buildAcademicSelectionCard(),
+                              const SizedBox(height: 20),
+                              if (_isContextComplete)
+                                _buildVerifiedContextWorkspace()
+                              else
+                                _buildLockedWorkspaceNotice(),
                             ],
-                            _buildAcademicSelectionCard(),
-                            const SizedBox(height: 20),
-                            if (_isContextComplete)
-                              _buildVerifiedContextWorkspace()
-                            else
-                              _buildLockedWorkspaceNotice(),
                           ],
                         ),
                       ),
@@ -555,6 +559,241 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildReviewApprovalCockpit() {
+    final queueKey = (
+      countryCode: _selectedCountry?.countryCode,
+      status: 'all_reviewable',
+    );
+    final queueAsync = ref.watch(examV2ReviewQueueProvider(queueKey));
+
+    return Container(
+      key: const Key('exam-v2-review-cockpit'),
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: LearnTzColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Examination Review & Approval Queue',
+                    style: LearnTzTypography.h3.copyWith(
+                      color: const Color(0xFF0F4C81),
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Text(
+                    'Two-party academic quality assurance, reviewer checklist verification, and controlled publication.',
+                    style: LearnTzTypography.caption.copyWith(
+                      color: LearnTzColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+              AppButton(
+                label: 'Refresh Queue',
+                icon: Icons.refresh,
+                variant: AppButtonVariant.outlined,
+                size: AppButtonSize.sm,
+                onPressed: () =>
+                    ref.invalidate(examV2ReviewQueueProvider(queueKey)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          queueAsync.when(
+            loading: () => const Padding(
+              padding: EdgeInsets.symmetric(vertical: 24),
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+            ),
+            error: (err, _) => Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFEF2F2),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xFFFECACA)),
+              ),
+              child: Text(
+                err.toString(),
+                style: LearnTzTypography.bodySmall.copyWith(
+                  color: const Color(0xFF991B1B),
+                ),
+              ),
+            ),
+            data: (queue) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 8,
+                    children: [
+                      _ContextPill(
+                        label: 'Awaiting Review',
+                        value: '${queue.awaitingReviewCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Revision Requested',
+                        value: '${queue.revisionRequestedCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Approved',
+                        value: '${queue.approvedCount}',
+                      ),
+                      _ContextPill(
+                        label: 'Published',
+                        value: '${queue.publishedCount}',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  if (queue.items.isEmpty)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: LearnTzColors.border),
+                      ),
+                      child: Text(
+                        'No examinations are currently awaiting review or publication.',
+                        style: LearnTzTypography.bodySmall.copyWith(
+                          color: LearnTzColors.textSecondary,
+                        ),
+                      ),
+                    )
+                  else
+                    ...queue.items.map((item) {
+                      final statusVariant = switch (item.status) {
+                        'approved' => AppBadgeVariant.primary,
+                        'revision_requested' => AppBadgeVariant.error,
+                        'published' => AppBadgeVariant.success,
+                        _ => AppBadgeVariant.warning,
+                      };
+                      return Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF8FAFC),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: LearnTzColors.border),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 6,
+                              children: [
+                                AppBadge(
+                                  label: item.status.replaceAll('_', ' '),
+                                  variant: statusVariant,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label:
+                                      '${item.countryName} • ${item.gradeName} • ${item.subjectName}',
+                                  variant: AppBadgeVariant.neutral,
+                                  size: AppBadgeSize.sm,
+                                ),
+                                AppBadge(
+                                  label: 'v${item.versionNumber}',
+                                  variant: AppBadgeVariant.neutral,
+                                  size: AppBadgeSize.sm,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              item.title,
+                              style: LearnTzTypography.bodyRegular.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: LearnTzColors.textPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Author: ${item.authorName} • ${item.totalMarks.toStringAsFixed(0)} marks • ${item.questionCount} questions • ${item.competencyCount} competencies',
+                              style: LearnTzTypography.caption.copyWith(
+                                color: LearnTzColors.textSecondary,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: [
+                                AppButton(
+                                  label: 'Inspect Paper',
+                                  icon: Icons.article_outlined,
+                                  variant: AppButtonVariant.outlined,
+                                  size: AppButtonSize.sm,
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute<void>(
+                                        builder: (_) =>
+                                            ExamV2PaperBuilderScreen(
+                                          examinationId: item.examinationId,
+                                          selection: item.toSelectionKey(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                AppButton(
+                                  key: Key(
+                                    'exam-v2-review-decide-${item.examinationId}',
+                                  ),
+                                  label: 'Review & Decide',
+                                  icon: Icons.fact_check_outlined,
+                                  variant: AppButtonVariant.primary,
+                                  size: AppButtonSize.sm,
+                                  onPressed: () async {
+                                    final changed = await showDialog<bool>(
+                                      context: context,
+                                      barrierDismissible: false,
+                                      builder: (_) => ExamV2ReviewDialog(
+                                        item: item,
+                                        canPublish: queue.canPublish,
+                                      ),
+                                    );
+                                    if (changed == true && mounted) {
+                                      ref.invalidate(
+                                        examV2ReviewQueueProvider(queueKey),
+                                      );
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                ],
+              );
+            },
           ),
         ],
       ),

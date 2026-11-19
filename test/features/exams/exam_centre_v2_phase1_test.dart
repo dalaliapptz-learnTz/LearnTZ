@@ -14,6 +14,64 @@ class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
   final List<ExamV2PaperQuestion> _paperQuestions = [];
   int saveCalls = 0;
   int saveQuestionCalls = 0;
+  String? lastReviewAction;
+
+  @override
+  Future<ExamV2ReviewQueueResult> listReviewQueue({
+    String? countryCode,
+    String status = 'all_reviewable',
+    String? search,
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    return const ExamV2ReviewQueueResult(
+      awaitingReviewCount: 1,
+      revisionRequestedCount: 0,
+      approvedCount: 0,
+      publishedCount: 0,
+      canPublish: true,
+      items: [
+        ExamV2ReviewQueueItem(
+          examinationId: 'exam-review-1',
+          title: 'Standard III English Terminal Examination',
+          countryCode: 'TZ',
+          countryName: 'Tanzania',
+          curriculumName: 'Tanzania Institute of Education',
+          curriculumVersionCode: 'TIE_PRIMARY_2023',
+          educationLevelId: 'lvl-tz-pri',
+          educationLevelName: 'Primary Education',
+          gradeId: 'grd-tz-std3',
+          gradeName: 'Standard III',
+          subjectId: 'subj-tz-eng3',
+          subjectName: 'English Language',
+          examinationTypeId: 'type-TZ-terminal',
+          examinationTypeName: 'Terminal Examination',
+          academicYear: 2026,
+          academicTerm: 'Term I',
+          durationMinutes: 90,
+          totalMarks: 50,
+          status: 'submitted_for_review',
+          isPublished: false,
+          versionNumber: 1,
+          authorName: 'Amina Juma',
+          sectionCount: 3,
+          questionCount: 12,
+          competencyCount: 3,
+        ),
+      ],
+    );
+  }
+
+  @override
+  Future<Map<String, dynamic>> recordReviewDecision({
+    required String examinationId,
+    required String action,
+    required String comments,
+    Map<String, bool> checklist = const {},
+  }) async {
+    lastReviewAction = action;
+    return {'id': examinationId, 'status': 'approved', 'is_published': false};
+  }
 
   @override
   Future<ExamV2PaperBuilderBundle> getPaperBuilder(String examinationId) async {
@@ -731,6 +789,44 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Marking Guide: Small'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'Phase 5: Review & Approval Cockpit displays submitted examination and approves with checklist',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 960);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      await tester.pumpWidget(_wrapScreen(repo));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Review & Approval'));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('exam-v2-review-cockpit')), findsOneWidget);
+      expect(
+        find.text('Standard III English Terminal Examination'),
+        findsOneWidget,
+      );
+
+      await tester.tap(
+        find.byKey(const Key('exam-v2-review-decide-exam-review-1')),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Official Academic Reviewer Checklist'), findsOneWidget);
+      await tester.enterText(
+        find.byKey(const Key('exam-v2-review-comments-field')),
+        'Verified against TIE Standard III English.',
+      );
+      await tester.tap(find.byKey(const Key('exam-v2-approve-exam-btn')));
+      await tester.pumpAndSettle();
+
+      expect(repo.lastReviewAction, 'approve');
     },
   );
 }

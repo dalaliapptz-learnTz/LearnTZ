@@ -330,4 +330,45 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<ExamV2ReviewQueueResult> listReviewQueue({
+    String? countryCode,
+    String status = 'all_reviewable',
+    String? search,
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    final res = await _db.rpc(
+      'list_exam_v2_review_queue',
+      params: {
+        'p_country_code': countryCode,
+        'p_status': status,
+        'p_search':
+            (search == null || search.trim().isEmpty) ? null : search.trim(),
+        'p_limit': limit,
+        'p_offset': offset,
+      },
+    );
+    return ExamV2ReviewQueueResult.fromJson(
+      Map<String, dynamic>.from(res as Map),
+    );
+  }
+
+  Future<Map<String, dynamic>> recordReviewDecision({
+    required String examinationId,
+    required String action,
+    required String comments,
+    Map<String, bool> checklist = const {},
+  }) async {
+    final res = await _db.rpc(
+      'record_exam_v2_review_decision',
+      params: {
+        'p_examination_id': examinationId,
+        'p_action': action,
+        'p_comments': comments,
+        'p_checklist': checklist,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

@@ -74,3 +74,13 @@ final examV2PaperBuilderProvider = FutureProvider.autoDispose
       .watch(examCentreV2RepositoryProvider)
       .getPaperBuilder(examinationId),
 );
+
+final examV2ReviewQueueProvider = FutureProvider.autoDispose
+    .family<ExamV2ReviewQueueResult, ({String? countryCode, String status})>(
+  (ref, params) => ref
+      .watch(examCentreV2RepositoryProvider)
+      .listReviewQueue(
+        countryCode: params.countryCode,
+        status: params.status,
+      ),
+);
