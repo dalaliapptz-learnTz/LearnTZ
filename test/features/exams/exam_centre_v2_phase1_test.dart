@@ -6,12 +6,82 @@ import 'package:learntz/features/exams/exam_v2_models.dart';
 import 'package:learntz/features/exams/exam_v2_providers.dart';
 import 'package:learntz/features/exams/exam_v2_repository.dart';
 import 'package:learntz/features/exams/screens/exam_centre_v2_screen.dart';
+import 'package:learntz/features/exams/screens/exam_v2_paper_builder_screen.dart';
 
 class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
   final List<ExamV2ExaminationSummary> _savedExams = [];
   final List<ExamV2QuestionItem> _savedQuestions = [];
+  final List<ExamV2PaperQuestion> _paperQuestions = [];
   int saveCalls = 0;
   int saveQuestionCalls = 0;
+
+  @override
+  Future<ExamV2PaperBuilderBundle> getPaperBuilder(String examinationId) async {
+    final totalMarks = _paperQuestions.fold<double>(0, (s, q) => s + q.marks);
+    return ExamV2PaperBuilderBundle(
+      examination: {
+        'id': examinationId,
+        'title': 'English Language Terminal Examination — Standard III',
+        'country_code': 'TZ',
+        'country_name': 'Tanzania',
+        'grade_name': 'Standard III',
+        'subject_id': 'subj-tz-eng3',
+        'subject_name': 'English Language',
+        'examination_type_name': 'Terminal Examination',
+        'duration_minutes': 90,
+        'total_marks': totalMarks,
+        'instructions': 'Read all questions carefully.',
+        'status': 'draft',
+      },
+      isValid: _paperQuestions.isNotEmpty,
+      validationIssues: _paperQuestions.isEmpty
+          ? const ['Attach at least one question from Question Bank 2.0.']
+          : const [],
+      questionCount: _paperQuestions.length,
+      sections: [
+        ExamV2PaperSection(
+          id: 'sec-a',
+          sectionCode: 'A',
+          title: 'Multiple Choice',
+          questionFormat: 'multiple_choice',
+          instructions: 'Choose the correct answer.',
+          questionCount: _paperQuestions.length,
+          marksAllocated: totalMarks,
+          displayOrder: 1,
+          questions: List.unmodifiable(_paperQuestions),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Future<Map<String, dynamic>> addPaperQuestion({
+    required String examinationId,
+    required String sectionId,
+    required String sourceQuestionId,
+    double? marks,
+  }) async {
+    final src = _savedQuestions.firstWhere((q) => q.id == sourceQuestionId);
+    final idx = _paperQuestions.length + 1;
+    _paperQuestions.add(
+      ExamV2PaperQuestion(
+        id: 'pq-$idx',
+        sectionId: sectionId,
+        sourceQuestionId: src.id,
+        sourceQuestionVersion: src.versionNumber,
+        specificCompetenceCode: src.specificCompetenceCode,
+        questionNumber: idx,
+        displayOrder: idx,
+        marks: marks ?? src.marks,
+        questionType: src.questionType,
+        questionText: src.questionText,
+        options: src.options,
+        correctAnswer: src.correctAnswer,
+        markingRubric: src.markingRubric,
+      ),
+    );
+    return {'id': 'pq-$idx', 'total_marks': marks ?? src.marks};
+  }
 
   @override
   Future<ExamV2QuestionListResult> listQuestions(
@@ -589,6 +659,78 @@ void main() {
         find.text('Choose the opposite of the word "big":'),
         findsOneWidget,
       );
+    },
+  );
+
+  testWidgets(
+    'Phase 4: Paper Builder attaches versioned question snapshot and renders formatted Print Preview with Marking Guide',
+    (tester) async {
+      tester.view.physicalSize = const Size(1280, 960);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final repo = _FakeExamCentreV2Repository();
+      const selection = ExamV2SelectionKey(
+        countryCode: 'TZ',
+        educationLevelId: 'lvl-tz-pri',
+        gradeId: 'grd-tz-std3',
+        subjectId: 'subj-tz-eng3',
+        examinationTypeId: 'type-TZ-terminal',
+      );
+      await repo.saveQuestion(
+        selection: selection,
+        specificCompetenceId: 'sc-1',
+        questionType: 'multiple_choice',
+        questionText: 'The opposite of big is:',
+        correctAnswer: const {'answer': 'Small'},
+        options: const ['Tall', 'Small', 'Long', 'Wide'],
+        markingRubric: const {},
+        marks: 2,
+        difficultyLevel: 'easy',
+        cognitiveTier: 'knowledge',
+        languageCode: 'en',
+        explanation: '',
+        sourceReference: '',
+        copyrightNotice: '',
+      );
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            examCentreV2RepositoryProvider.overrideWithValue(repo),
+          ],
+          child: const MaterialApp(
+            home: ExamV2PaperBuilderScreen(
+              examinationId: 'exam-1',
+              selection: selection,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('paper-add-q-sec-A')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('paper-bank-pick-q-1')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('The opposite of big is:'), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('paper-builder-preview-tab')));
+      await tester.pumpAndSettle();
+
+      expect(find.text('UNITED REPUBLIC OF TANZANIA'), findsOneWidget);
+      expect(find.textContaining('1. The opposite of big is:'), findsOneWidget);
+      expect(find.text('Marking Guide: Small'), findsNothing);
+
+      await tester.tap(
+        find.byKey(const Key('paper-builder-marking-guide-chip')),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Marking Guide: Small'), findsOneWidget);
     },
   );
 }

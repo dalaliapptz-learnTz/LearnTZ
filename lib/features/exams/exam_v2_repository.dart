@@ -276,4 +276,58 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<ExamV2PaperBuilderBundle> getPaperBuilder(String examinationId) async {
+    final res = await _db.rpc(
+      'get_exam_v2_paper_builder',
+      params: {'p_examination_id': examinationId},
+    );
+    return ExamV2PaperBuilderBundle.fromJson(
+      Map<String, dynamic>.from(res as Map),
+    );
+  }
+
+  Future<Map<String, dynamic>> addPaperQuestion({
+    required String examinationId,
+    required String sectionId,
+    required String sourceQuestionId,
+    double? marks,
+  }) async {
+    final res = await _db.rpc(
+      'add_exam_v2_paper_question',
+      params: {
+        'p_examination_id': examinationId,
+        'p_section_id': sectionId,
+        'p_source_question_id': sourceQuestionId,
+        'p_marks': marks,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> reorderPaperQuestions({
+    required String examinationId,
+    required String sectionId,
+    required List<String> orderedIds,
+  }) async {
+    final res = await _db.rpc(
+      'reorder_exam_v2_paper_questions',
+      params: {
+        'p_examination_id': examinationId,
+        'p_section_id': sectionId,
+        'p_ordered_ids': orderedIds,
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<Map<String, dynamic>> removePaperQuestion(
+    String examinationQuestionId,
+  ) async {
+    final res = await _db.rpc(
+      'remove_exam_v2_paper_question',
+      params: {'p_examination_question_id': examinationQuestionId},
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }

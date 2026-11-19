@@ -10,6 +10,7 @@ import '../exam_v2_models.dart';
 import '../exam_v2_providers.dart';
 import '../widgets/exam_v2_creation_dialog.dart';
 import '../widgets/exam_v2_question_dialog.dart';
+import 'exam_v2_paper_builder_screen.dart';
 
 class ExamCentreV2Screen extends ConsumerStatefulWidget {
   const ExamCentreV2Screen({super.key});
@@ -144,7 +145,6 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
       label: 'Paper Builder',
       subtitle: 'Compose structured papers',
       icon: Icons.article_outlined,
-      phaseBadge: 'Phase 4',
     ),
     _ExamNavItem(
       id: 'candidates',
@@ -236,7 +236,8 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             const SizedBox(height: 16),
                             if (_activeNavSection != 'overview' &&
                                 _activeNavSection != 'examinations' &&
-                                _activeNavSection != 'question_bank') ...[
+                                _activeNavSection != 'question_bank' &&
+                                _activeNavSection != 'paper_builder') ...[
                               _buildUpcomingPhaseBanner(),
                               const SizedBox(height: 16),
                             ],
@@ -1357,6 +1358,24 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                                   ),
                                 ),
                               ],
+                            ),
+                            const SizedBox(height: 10),
+                            AppButton(
+                              key: Key('exam-v2-open-paper-builder-${exam.id}'),
+                              label: 'Open Paper Builder',
+                              icon: Icons.article_outlined,
+                              variant: AppButtonVariant.outlined,
+                              size: AppButtonSize.sm,
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute<void>(
+                                    builder: (_) => ExamV2PaperBuilderScreen(
+                                      examinationId: exam.id,
+                                      selection: selection,
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),

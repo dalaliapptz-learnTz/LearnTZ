@@ -67,3 +67,10 @@ final examV2QuestionsListProvider = FutureProvider.autoDispose
       .watch(examCentreV2RepositoryProvider)
       .listQuestions(selection),
 );
+
+final examV2PaperBuilderProvider = FutureProvider.autoDispose
+    .family<ExamV2PaperBuilderBundle, String>(
+  (ref, examinationId) => ref
+      .watch(examCentreV2RepositoryProvider)
+      .getPaperBuilder(examinationId),
+);

@@ -796,3 +796,163 @@ class ExamV2QuestionListResult {
     );
   }
 }
+
+// ============================================================================
+// Phase 4: Examination Paper Builder Models
+// ============================================================================
+
+class ExamV2PaperQuestion {
+  const ExamV2PaperQuestion({
+    required this.id,
+    required this.sectionId,
+    this.sourceQuestionId,
+    required this.sourceQuestionVersion,
+    this.specificCompetenceId,
+    this.specificCompetenceCode,
+    required this.questionNumber,
+    required this.displayOrder,
+    required this.marks,
+    required this.questionType,
+    required this.questionText,
+    this.options = const [],
+    this.correctAnswer,
+    this.markingRubric,
+    this.explanation,
+  });
+
+  final String id;
+  final String sectionId;
+  final String? sourceQuestionId;
+  final int sourceQuestionVersion;
+  final String? specificCompetenceId;
+  final String? specificCompetenceCode;
+  final int questionNumber;
+  final int displayOrder;
+  final double marks;
+  final String questionType;
+  final String questionText;
+  final List<dynamic> options;
+  final Map<String, dynamic>? correctAnswer;
+  final Map<String, dynamic>? markingRubric;
+  final String? explanation;
+
+  factory ExamV2PaperQuestion.fromJson(Map<String, dynamic> json) {
+    return ExamV2PaperQuestion(
+      id: json['id'] as String? ?? '',
+      sectionId: json['section_id'] as String? ?? '',
+      sourceQuestionId: json['source_question_id'] as String?,
+      sourceQuestionVersion:
+          (json['source_question_version'] as num?)?.toInt() ?? 1,
+      specificCompetenceId: json['specific_competence_id'] as String?,
+      specificCompetenceCode: json['specific_competence_code'] as String?,
+      questionNumber: (json['question_number'] as num?)?.toInt() ?? 1,
+      displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
+      marks: (json['marks'] as num?)?.toDouble() ?? 1,
+      questionType: json['question_type'] as String? ?? 'multiple_choice',
+      questionText: json['question_text'] as String? ?? '',
+      options: (json['options'] as List<dynamic>?) ?? const [],
+      correctAnswer: json['correct_answer'] is Map
+          ? Map<String, dynamic>.from(json['correct_answer'] as Map)
+          : null,
+      markingRubric: json['marking_rubric'] is Map
+          ? Map<String, dynamic>.from(json['marking_rubric'] as Map)
+          : null,
+      explanation: json['explanation'] as String?,
+    );
+  }
+}
+
+class ExamV2PaperSection {
+  const ExamV2PaperSection({
+    required this.id,
+    required this.sectionCode,
+    required this.title,
+    required this.questionFormat,
+    this.instructions = '',
+    required this.questionCount,
+    required this.marksAllocated,
+    required this.displayOrder,
+    this.questions = const [],
+  });
+
+  final String id;
+  final String sectionCode;
+  final String title;
+  final String questionFormat;
+  final String instructions;
+  final int questionCount;
+  final double marksAllocated;
+  final int displayOrder;
+  final List<ExamV2PaperQuestion> questions;
+
+  factory ExamV2PaperSection.fromJson(Map<String, dynamic> json) {
+    return ExamV2PaperSection(
+      id: json['id'] as String? ?? '',
+      sectionCode: json['section_code'] as String? ?? 'A',
+      title: json['title'] as String? ?? '',
+      questionFormat: json['question_format'] as String? ?? 'multiple_choice',
+      instructions: json['instructions'] as String? ?? '',
+      questionCount: (json['question_count'] as num?)?.toInt() ?? 0,
+      marksAllocated: (json['marks_allocated'] as num?)?.toDouble() ?? 0,
+      displayOrder: (json['display_order'] as num?)?.toInt() ?? 1,
+      questions: (json['questions'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2PaperQuestion.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}
+
+class ExamV2PaperBuilderBundle {
+  const ExamV2PaperBuilderBundle({
+    required this.examination,
+    required this.isValid,
+    required this.validationIssues,
+    required this.questionCount,
+    required this.sections,
+  });
+
+  final Map<String, dynamic> examination;
+  final bool isValid;
+  final List<String> validationIssues;
+  final int questionCount;
+  final List<ExamV2PaperSection> sections;
+
+  String get id => examination['id'] as String? ?? '';
+  String get title => examination['title'] as String? ?? '';
+  String get countryCode => examination['country_code'] as String? ?? '';
+  String get countryName => examination['country_name'] as String? ?? '';
+  String get gradeName => examination['grade_name'] as String? ?? '';
+  String get subjectId => examination['subject_id'] as String? ?? '';
+  String get subjectName => examination['subject_name'] as String? ?? '';
+  String get examTypeName =>
+      examination['examination_type_name'] as String? ?? '';
+  String get instructions => examination['instructions'] as String? ?? '';
+  String get status => examination['status'] as String? ?? 'draft';
+  int get durationMinutes =>
+      (examination['duration_minutes'] as num?)?.toInt() ?? 90;
+  double get totalMarks =>
+      (examination['total_marks'] as num?)?.toDouble() ?? 0;
+
+  factory ExamV2PaperBuilderBundle.fromJson(Map<String, dynamic> json) {
+    final val = Map<String, dynamic>.from(
+      json['validation'] as Map? ?? const <String, dynamic>{},
+    );
+    return ExamV2PaperBuilderBundle(
+      examination: Map<String, dynamic>.from(
+        json['examination'] as Map? ?? const <String, dynamic>{},
+      ),
+      isValid: val['is_valid'] as bool? ?? false,
+      validationIssues: (val['issues'] as List<dynamic>? ?? const [])
+          .map((e) => e.toString())
+          .toList(),
+      questionCount: (val['question_count'] as num?)?.toInt() ?? 0,
+      sections: (json['sections'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2PaperSection.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}
