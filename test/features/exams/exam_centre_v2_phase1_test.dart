@@ -63,6 +63,36 @@ class _FakeExamCentreV2Repository extends ExamCentreV2Repository {
   }
 
   @override
+  Future<ExamV2DashboardData> getDashboard({
+    String? countryCode,
+    String? educationLevelId,
+    String? gradeId,
+    String? subjectId,
+  }) async {
+    return ExamV2DashboardData(
+      totalExaminations: 3,
+      draftCount: 1,
+      underReviewCount: 1,
+      approvedCount: 0,
+      publishedCount: 1,
+      completedCount: 0,
+      totalCandidates: 24,
+      upcomingSessionsCount: 1,
+      upcomingSessions: const [
+        ExamV2SessionItem(
+          id: 'sess-1',
+          examinationId: 'exam-1',
+          examinationTitle: 'Standard III English Terminal',
+          title: 'Morning Sitting — Term I',
+          deliveryMode: 'online',
+          venue: 'Digital Hall A',
+          status: 'scheduled',
+        ),
+      ],
+    );
+  }
+
+  @override
   Future<Map<String, dynamic>> recordReviewDecision({
     required String examinationId,
     required String action,
@@ -520,6 +550,8 @@ void main() {
       await tester.pumpAndSettle();
 
       // Initially locked until all 5 steps are selected
+      expect(find.byKey(const Key('exam-v2-live-dashboard')), findsOneWidget);
+      expect(find.textContaining('Morning Sitting — Term I'), findsOneWidget);
       expect(find.byKey(const Key('exam-v2-locked-notice')), findsOneWidget);
       expect(
         find.byKey(const Key('exam-v2-verified-workspace')),
@@ -574,6 +606,8 @@ void main() {
 
       // Changing Step 1 Country to Kenya clears all dependent selections and re-locks workspace
       await _selectDropdownOption(tester, 'exam-v2-step1-country', 'Kenya');
+      expect(find.byKey(const Key('exam-v2-live-dashboard')), findsOneWidget);
+      expect(find.textContaining('Morning Sitting — Term I'), findsOneWidget);
       expect(find.byKey(const Key('exam-v2-locked-notice')), findsOneWidget);
       expect(
         find.byKey(const Key('exam-v2-verified-workspace')),
@@ -595,6 +629,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Examination Centre 2.0'), findsOneWidget);
+      expect(find.byKey(const Key('exam-v2-live-dashboard')), findsOneWidget);
+      expect(find.textContaining('Morning Sitting — Term I'), findsOneWidget);
       expect(find.byKey(const Key('exam-v2-locked-notice')), findsOneWidget);
       expect(tester.takeException(), isNull);
     },

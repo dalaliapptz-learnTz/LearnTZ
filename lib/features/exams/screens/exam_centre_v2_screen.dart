@@ -152,14 +152,12 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
       label: 'Candidates',
       subtitle: 'Registration & allocation',
       icon: Icons.groups_outlined,
-      phaseBadge: 'Phase 7',
     ),
     _ExamNavItem(
       id: 'sessions',
       label: 'Examination Sessions',
       subtitle: 'Timetables & attendance',
       icon: Icons.event_note_outlined,
-      phaseBadge: 'Phase 7',
     ),
     _ExamNavItem(
       id: 'online_exams',
@@ -237,10 +235,18 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
                             if (_activeNavSection == 'review') ...[
                               _buildReviewApprovalCockpit(),
                             ] else ...[
+                              if (_activeNavSection == 'overview' ||
+                                  _activeNavSection == 'sessions' ||
+                                  _activeNavSection == 'candidates') ...[
+                                _buildLiveDashboardOverview(),
+                                const SizedBox(height: 16),
+                              ],
                               if (_activeNavSection != 'overview' &&
                                   _activeNavSection != 'examinations' &&
                                   _activeNavSection != 'question_bank' &&
-                                  _activeNavSection != 'paper_builder') ...[
+                                  _activeNavSection != 'paper_builder' &&
+                                  _activeNavSection != 'candidates' &&
+                                  _activeNavSection != 'sessions') ...[
                                 _buildUpcomingPhaseBanner(),
                                 const SizedBox(height: 16),
                               ],
@@ -561,6 +567,96 @@ class _ExamCentreV2ScreenState extends ConsumerState<ExamCentreV2Screen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildLiveDashboardOverview() {
+    final dashKey = (
+      countryCode: _selectedCountry?.countryCode,
+      educationLevelId: _selectedLevel?.id,
+      gradeId: _selectedGrade?.id,
+      subjectId: _selectedSubject?.id,
+    );
+    final dashAsync = ref.watch(examV2DashboardProvider(dashKey));
+
+    return dashAsync.when(
+      loading: () => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
+      data: (dash) => Container(
+        key: const Key('exam-v2-live-dashboard'),
+        width: double.infinity,
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: LearnTzColors.border),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Examination Overview (Live Database Metrics)',
+              style: LearnTzTypography.bodyRegular.copyWith(
+                color: const Color(0xFF0F4C81),
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 10,
+              runSpacing: 8,
+              children: [
+                _ContextPill(
+                  label: 'Examinations',
+                  value: '${dash.totalExaminations}',
+                ),
+                _ContextPill(
+                  label: 'Published',
+                  value: '${dash.publishedCount}',
+                ),
+                _ContextPill(
+                  label: 'Under Review',
+                  value: '${dash.underReviewCount}',
+                ),
+                _ContextPill(
+                  label: 'Drafts',
+                  value: '${dash.draftCount}',
+                ),
+                _ContextPill(
+                  label: 'Candidates',
+                  value: '${dash.totalCandidates}',
+                ),
+                _ContextPill(
+                  label: 'Upcoming Sessions',
+                  value: '${dash.upcomingSessionsCount}',
+                ),
+              ],
+            ),
+            if (dash.upcomingSessions.isNotEmpty) ...[
+              const SizedBox(height: 14),
+              Text(
+                'Upcoming Examination Sessions',
+                style: LearnTzTypography.bodySmall.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: LearnTzColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 6),
+              ...dash.upcomingSessions.map(
+                (s) => Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: Text(
+                    '• ${s.title} (${s.examinationTitle}) — ${s.deliveryMode.toUpperCase()}${s.venue.isNotEmpty ? ' • ${s.venue}' : ''}',
+                    style: LearnTzTypography.caption.copyWith(
+                      color: LearnTzColors.textSecondary,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
       ),
     );
   }

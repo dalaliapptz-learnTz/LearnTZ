@@ -84,3 +84,19 @@ final examV2ReviewQueueProvider = FutureProvider.autoDispose
         status: params.status,
       ),
 );
+
+final examV2DashboardProvider = FutureProvider.autoDispose.family<
+    ExamV2DashboardData,
+    ({
+      String? countryCode,
+      String? educationLevelId,
+      String? gradeId,
+      String? subjectId,
+    })>(
+  (ref, params) => ref.watch(examCentreV2RepositoryProvider).getDashboard(
+        countryCode: params.countryCode,
+        educationLevelId: params.educationLevelId,
+        gradeId: params.gradeId,
+        subjectId: params.subjectId,
+      ),
+);

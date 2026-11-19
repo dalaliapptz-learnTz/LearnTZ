@@ -1098,3 +1098,134 @@ class ExamV2ReviewQueueResult {
     );
   }
 }
+
+// ============================================================================
+// Phase 6 & 7: Dashboard, Sessions & Candidates Models
+// ============================================================================
+
+class ExamV2SessionItem {
+  const ExamV2SessionItem({
+    required this.id,
+    required this.examinationId,
+    this.examinationTitle = '',
+    required this.title,
+    required this.deliveryMode,
+    this.startsAt,
+    this.endsAt,
+    this.venue = '',
+    required this.status,
+  });
+
+  final String id;
+  final String examinationId;
+  final String examinationTitle;
+  final String title;
+  final String deliveryMode;
+  final DateTime? startsAt;
+  final DateTime? endsAt;
+  final String venue;
+  final String status;
+
+  factory ExamV2SessionItem.fromJson(Map<String, dynamic> json) {
+    return ExamV2SessionItem(
+      id: json['id'] as String? ?? '',
+      examinationId: json['examination_id'] as String? ?? '',
+      examinationTitle: json['examination_title'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      deliveryMode: json['delivery_mode'] as String? ?? 'online',
+      startsAt: json['starts_at'] is String
+          ? DateTime.tryParse(json['starts_at'] as String)
+          : null,
+      endsAt: json['ends_at'] is String
+          ? DateTime.tryParse(json['ends_at'] as String)
+          : null,
+      venue: json['venue'] as String? ?? '',
+      status: json['status'] as String? ?? 'scheduled',
+    );
+  }
+}
+
+class ExamV2DashboardActivityItem {
+  const ExamV2DashboardActivityItem({
+    required this.id,
+    required this.title,
+    required this.gradeName,
+    required this.subjectName,
+    required this.examinationTypeName,
+    required this.status,
+    required this.totalMarks,
+  });
+
+  final String id;
+  final String title;
+  final String gradeName;
+  final String subjectName;
+  final String examinationTypeName;
+  final String status;
+  final double totalMarks;
+
+  factory ExamV2DashboardActivityItem.fromJson(Map<String, dynamic> json) {
+    return ExamV2DashboardActivityItem(
+      id: json['id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      gradeName: json['grade_name'] as String? ?? '',
+      subjectName: json['subject_name'] as String? ?? '',
+      examinationTypeName: json['examination_type_name'] as String? ?? '',
+      status: json['status'] as String? ?? 'draft',
+      totalMarks: (json['total_marks'] as num?)?.toDouble() ?? 0,
+    );
+  }
+}
+
+class ExamV2DashboardData {
+  const ExamV2DashboardData({
+    required this.totalExaminations,
+    required this.draftCount,
+    required this.underReviewCount,
+    required this.approvedCount,
+    required this.publishedCount,
+    required this.completedCount,
+    required this.totalCandidates,
+    required this.upcomingSessionsCount,
+    this.recentActivity = const [],
+    this.upcomingSessions = const [],
+  });
+
+  final int totalExaminations;
+  final int draftCount;
+  final int underReviewCount;
+  final int approvedCount;
+  final int publishedCount;
+  final int completedCount;
+  final int totalCandidates;
+  final int upcomingSessionsCount;
+  final List<ExamV2DashboardActivityItem> recentActivity;
+  final List<ExamV2SessionItem> upcomingSessions;
+
+  factory ExamV2DashboardData.fromJson(Map<String, dynamic> json) {
+    final m = Map<String, dynamic>.from(
+      json['metrics'] as Map? ?? const <String, dynamic>{},
+    );
+    return ExamV2DashboardData(
+      totalExaminations: (m['total_examinations'] as num?)?.toInt() ?? 0,
+      draftCount: (m['draft_count'] as num?)?.toInt() ?? 0,
+      underReviewCount: (m['under_review_count'] as num?)?.toInt() ?? 0,
+      approvedCount: (m['approved_count'] as num?)?.toInt() ?? 0,
+      publishedCount: (m['published_count'] as num?)?.toInt() ?? 0,
+      completedCount: (m['completed_count'] as num?)?.toInt() ?? 0,
+      totalCandidates: (m['total_candidates'] as num?)?.toInt() ?? 0,
+      upcomingSessionsCount:
+          (m['upcoming_sessions_count'] as num?)?.toInt() ?? 0,
+      recentActivity: (json['recent_activity'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2DashboardActivityItem.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+      upcomingSessions: (json['upcoming_sessions'] as List<dynamic>? ?? const [])
+          .map((e) => ExamV2SessionItem.fromJson(
+                Map<String, dynamic>.from(e as Map),
+              ))
+          .toList(),
+    );
+  }
+}

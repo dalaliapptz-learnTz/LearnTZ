@@ -371,4 +371,48 @@ class ExamCentreV2Repository {
     );
     return Map<String, dynamic>.from(res as Map);
   }
+
+  Future<ExamV2DashboardData> getDashboard({
+    String? countryCode,
+    String? educationLevelId,
+    String? gradeId,
+    String? subjectId,
+  }) async {
+    final res = await _db.rpc(
+      'get_exam_v2_dashboard',
+      params: {
+        'p_country_code': countryCode,
+        'p_education_level_id': educationLevelId,
+        'p_grade_id': gradeId,
+        'p_subject_id': subjectId,
+      },
+    );
+    return ExamV2DashboardData.fromJson(
+      Map<String, dynamic>.from(res as Map),
+    );
+  }
+
+  Future<Map<String, dynamic>> createSession({
+    required String examinationId,
+    required String title,
+    required DateTime startsAt,
+    required DateTime endsAt,
+    String deliveryMode = 'online',
+    String venue = '',
+    String instructions = '',
+  }) async {
+    final res = await _db.rpc(
+      'create_exam_v2_session',
+      params: {
+        'p_examination_id': examinationId,
+        'p_title': title.trim(),
+        'p_starts_at': startsAt.toUtc().toIso8601String(),
+        'p_ends_at': endsAt.toUtc().toIso8601String(),
+        'p_delivery_mode': deliveryMode,
+        'p_venue': venue.trim(),
+        'p_instructions': instructions.trim(),
+      },
+    );
+    return Map<String, dynamic>.from(res as Map);
+  }
 }
