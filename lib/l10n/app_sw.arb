@@ -177,7 +177,7 @@
   "@invalidEmail": {},
   "nameTooLong": "Jina lazima liwe na herufi zisizozidi 120.",
   "@nameTooLong": {},
-  "passwordMinimumLength": "Tumia angalau herufi 10.",
+  "passwordMinimumLength": "Tumia angalau herufi 8.",
   "@passwordMinimumLength": {},
   "passwordsDoNotMatch": "Manenosiri hayalingani.",
   "@passwordsDoNotMatch": {},

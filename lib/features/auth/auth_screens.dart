@@ -966,7 +966,7 @@ String? _validateEmail(String? value, AppLocalizations l10n) {
 
 String? _validatePassword(String? value, AppLocalizations l10n) {
   if (value == null || value.isEmpty) return l10n.requiredField;
-  if (value.length < 10) return l10n.passwordMinimumLength;
+  if (value.length < 8) return l10n.passwordMinimumLength;
   return null;
 }
 

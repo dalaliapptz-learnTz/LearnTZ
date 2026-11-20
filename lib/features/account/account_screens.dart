@@ -1379,7 +1379,7 @@ String? _validEmail(String? value, AppLocalizations l10n) {
 
 String? _validPassword(String? value, AppLocalizations l10n) {
   if (value == null || value.isEmpty) return l10n.requiredField;
-  return value.length >= 10 ? null : l10n.passwordMinimumLength;
+  return value.length >= 8 ? null : l10n.passwordMinimumLength;
 }
 
 String _localizedStatus(String value, AppLocalizations l10n) => switch (value) {
