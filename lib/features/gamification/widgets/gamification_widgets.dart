@@ -413,7 +413,7 @@ class _StreakOverviewCard extends StatelessWidget {
     if (compact) {
       return Container(
         key: const ValueKey('gamification-streak-card'),
-        constraints: const BoxConstraints(minHeight: 118),
+        constraints: const BoxConstraints(minHeight: 96),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -600,7 +600,7 @@ class _XpAndBadgesCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           child: Container(
             key: const ValueKey('gamification-xp-badges-card'),
-            constraints: const BoxConstraints(minHeight: 118),
+            constraints: const BoxConstraints(minHeight: 96),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -650,15 +650,6 @@ class _XpAndBadgesCard extends StatelessWidget {
                     fontSize: 10,
                     color: Color(0xFF64748B),
                     fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  'Badges →',
-                  style: TextStyle(
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w800,
-                    color: style.xpAccent,
                   ),
                 ),
               ],
@@ -798,7 +789,7 @@ class _LeaderboardPreviewCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           child: Container(
             key: const ValueKey('gamification-leaderboard-card'),
-            constraints: const BoxConstraints(minHeight: 118),
+            constraints: const BoxConstraints(minHeight: 96),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -846,15 +837,6 @@ class _LeaderboardPreviewCard extends StatelessWidget {
                     fontSize: 10,
                     color: Color(0xFF64748B),
                     fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  'Rankings →',
-                  style: TextStyle(
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w800,
-                    color: style.rankAccent,
                   ),
                 ),
               ],
