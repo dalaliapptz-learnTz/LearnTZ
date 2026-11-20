@@ -11,6 +11,11 @@ import '../../core/routing/app_router.dart';
 import '../../core/state/app_providers.dart';
 import '../admin/admin_providers.dart';
 import '../curriculum/curriculum_providers.dart';
+import '../gamification/gamification_models.dart';
+import '../gamification/gamification_providers.dart';
+import '../gamification/widgets/gamification_widgets.dart';
+import '../learning/learning_models.dart';
+import '../learning/learning_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/app_button.dart';
 import '../../shared/widgets/app_card.dart';
@@ -54,6 +59,8 @@ class AccountScreen extends ConsumerWidget {
     final user = ref.watch(supabaseClientProvider)?.auth.currentUser;
     final profile = ref.watch(parentProfileProvider);
     final learners = ref.watch(parentLearnersProvider);
+    final overviewAsync = ref.watch(parentDashboardOverviewProvider);
+    final gamificationAsync = ref.watch(parentChildrenGamificationSummaryProvider);
     final adminAccess = ref.watch(adminCapabilitiesProvider);
     final curriculumAccess = ref.watch(curriculumStaffCapabilitiesProvider);
     final incomingInvitations = ref.watch(incomingGuardianInvitationsProvider);
@@ -62,7 +69,10 @@ class AccountScreen extends ConsumerWidget {
     final canAccessCurriculum =
         curriculumAccess.asData?.value.canAccess ?? false;
     final hasStaffWorkspaces = canAccessAdmin || canAccessCurriculum;
-    final learnerCount = learners.asData?.value.length ?? 0;
+
+    final learnerList = learners.asData?.value ?? const <Learner>[];
+    final overviewList = overviewAsync.asData?.value ?? const <ParentLearnerOverview>[];
+    final gamifList = gamificationAsync.asData?.value ?? const <ParentChildGamificationSummary>[];
 
     return Container(
       color: LearnTzColors.background,
@@ -70,10 +80,10 @@ class AccountScreen extends ConsumerWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1120),
+                  constraints: const BoxConstraints(maxWidth: 1080),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -88,46 +98,114 @@ class AccountScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 20),
 
-                      // 2. Responsive Two-Column Desktop Grid / Single-Column Mobile
-                      LayoutBuilder(
-                        builder: (context, constraints) {
-                          final isWide = constraints.maxWidth >= 880;
-                          final mainColumn = _buildMainFamilyColumn(
-                            context: context,
-                            ref: ref,
-                            l10n: l10n,
-                            learners: learners,
-                            learnerCount: learnerCount,
-                            incomingInvitations: incomingInvitations,
-                          );
-                          final sideColumn = _buildSideWorkspacesColumn(
-                            context: context,
-                            l10n: l10n,
-                            canAccessAdmin: canAccessAdmin,
-                            canAccessCurriculum: canAccessCurriculum,
-                            hasStaffWorkspaces: hasStaffWorkspaces,
-                          );
+                      // Incoming Guardian Invitations (if any)
+                      incomingInvitations.when(
+                        loading: () => const SizedBox.shrink(),
+                        error: (_, _) => const SizedBox.shrink(),
+                        data: (invitations) => invitations.isEmpty
+                            ? const SizedBox.shrink()
+                            : Padding(
+                                padding: const EdgeInsets.only(bottom: 20),
+                                child: _IncomingInvitationsCard(
+                                  invitations: invitations,
+                                ),
+                              ),
+                      ),
 
-                          if (isWide) {
-                            return Row(
+                      // 2. Colourful Family Quick Analytics Snapshot KPIs
+                      _FamilyQuickAnalyticsStrip(
+                        learners: learnerList,
+                        overviews: overviewList,
+                        gamification: gamifList,
+                      ),
+                      const SizedBox(height: 22),
+
+                      // 3. Learners At-a-Glance Visual Snapshot Cards
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Expanded(flex: 7, child: mainColumn),
-                                const SizedBox(width: 20),
-                                Expanded(flex: 4, child: sideColumn),
+                                Text(
+                                  'Learners at a Glance',
+                                  style: LearnTzTypography.h3.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                    color: LearnTzColors.textPrimary,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  'Track mastery, streaks, XP, and recent badges in one view.',
+                                  style: LearnTzTypography.bodySmall.copyWith(
+                                    color: LearnTzColors.textSecondary,
+                                  ),
+                                ),
                               ],
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          ds.AppButton(
+                            label: l10n.addLearnerAction,
+                            icon: Icons.person_add_alt_1_rounded,
+                            variant: ds.AppButtonVariant.primary,
+                            size: ds.AppButtonSize.sm,
+                            onPressed: () => context.go(AppRoutes.addLearner),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 14),
+                      learners.when(
+                        loading: () => const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(24),
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                        error: (error, _) => AuthInlineMessage(
+                          message: _accountErrorMessage(error, l10n),
+                          isError: true,
+                        ),
+                        data: (items) {
+                          if (items.isEmpty) {
+                            return _EmptyLearnersSnapshotCard(
+                              l10n: l10n,
+                              onAddLearner: () =>
+                                  context.go(AppRoutes.addLearner),
                             );
                           }
+                          final overviewById = {
+                            for (final o in overviewList) o.learnerId: o,
+                          };
+                          final gamifById = {
+                            for (final g in gamifList) g.learnerId: g,
+                          };
                           return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              mainColumn,
-                              const SizedBox(height: 20),
-                              sideColumn,
+                              for (var i = 0; i < items.length; i++) ...[
+                                _LearnerSnapshotAnalyticsCard(
+                                  learner: items[i],
+                                  overview: overviewById[items[i].id],
+                                  gamification: gamifById[items[i].id],
+                                  colorIndex: i,
+                                ),
+                                const SizedBox(height: 14),
+                              ],
                             ],
                           );
                         },
                       ),
+
+                      // 4. Role-Gated Staff & Academic Workspaces (only shown to staff/admins)
+                      if (hasStaffWorkspaces) ...[
+                        const SizedBox(height: 10),
+                        _buildStaffWorkspacesSection(
+                          context: context,
+                          l10n: l10n,
+                          canAccessAdmin: canAccessAdmin,
+                          canAccessCurriculum: canAccessCurriculum,
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -135,7 +213,7 @@ class AccountScreen extends ConsumerWidget {
             ),
           ),
 
-          // 3. Bottom Menu Icon Bar (Settings holds Edit profile, Account settings, Sign out)
+          // 5. Bottom Menu Icon Bar (Settings holds Edit profile, Subscriptions, Account settings, Sign out)
           _AccountBottomMenuBar(
             l10n: l10n,
             onOpenSettings: () => _showSettingsMenu(context, ref, l10n),
@@ -207,6 +285,34 @@ class AccountScreen extends ConsumerWidget {
                 onTap: () {
                   Navigator.of(sheetContext).pop();
                   context.go(AppRoutes.editParentProfile);
+                },
+              ),
+              const Divider(height: 1),
+              ListTile(
+                key: const Key('settings-menu-subscriptions'),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFDCFCE7),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.credit_card_outlined,
+                    color: Color(0xFF15803D),
+                    size: 20,
+                  ),
+                ),
+                title: Text(
+                  l10n.viewSubscriptionsAction,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: const Text('Family subscription plan and billing'),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  context.go(AppRoutes.subscriptions);
                 },
               ),
               const Divider(height: 1),
@@ -373,444 +479,105 @@ class AccountScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildMainFamilyColumn({
-    required BuildContext context,
-    required WidgetRef ref,
-    required AppLocalizations l10n,
-    required AsyncValue<List<Learner>> learners,
-    required int learnerCount,
-    required AsyncValue<List<IncomingGuardianInvitation>> incomingInvitations,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Family Quick Actions Bar
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(18),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: LearnTzColors.border),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Family Learning Hub',
-                style: LearnTzTypography.bodyRegular.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: const Color(0xFF0F4C81),
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                l10n.parentDashboardDescription,
-                style: LearnTzTypography.bodySmall.copyWith(
-                  color: LearnTzColors.textSecondary,
-                ),
-              ),
-              const SizedBox(height: 14),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: [
-                  ds.AppButton(
-                    label: l10n.learningHubTitle,
-                    icon: Icons.school_outlined,
-                    variant: ds.AppButtonVariant.primary,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => context.go(AppRoutes.learn),
-                  ),
-                  ds.AppButton(
-                    label: 'Progress & Analytics',
-                    icon: Icons.analytics_outlined,
-                    variant: ds.AppButtonVariant.outlined,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => context.go(AppRoutes.parentDashboard),
-                  ),
-                  ds.AppButton(
-                    label: l10n.viewSubscriptionsAction,
-                    icon: Icons.payments_outlined,
-                    variant: ds.AppButtonVariant.outlined,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => context.go(AppRoutes.subscriptions),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-
-        if (incomingInvitations.asData?.value.isNotEmpty ?? false) ...[
-          const SizedBox(height: 16),
-          _IncomingInvitationsCard(
-            invitations: incomingInvitations.requireValue,
-          ),
-        ],
-
-        const SizedBox(height: 16),
-
-        // Learners Management Card
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: LearnTzColors.border),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          l10n.learnersSectionTitle,
-                          style: LearnTzTypography.h3.copyWith(
-                            fontWeight: FontWeight.w800,
-                            color: LearnTzColors.textPrimary,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          l10n.learnerCount(learnerCount),
-                          style: LearnTzTypography.caption.copyWith(
-                            color: LearnTzColors.textSecondary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (learnerCount > 0)
-                    ds.AppButton(
-                      label: l10n.addLearnerAction,
-                      icon: Icons.add,
-                      variant: ds.AppButtonVariant.primary,
-                      size: ds.AppButtonSize.sm,
-                      onPressed: () => context.go(AppRoutes.addLearner),
-                    ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              learners.when(
-                loading: () => const Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(24),
-                    child: CircularProgressIndicator(),
-                  ),
-                ),
-                error: (error, _) => AuthInlineMessage(
-                  message: _accountErrorMessage(error, l10n),
-                  isError: true,
-                ),
-                data: (items) => items.isEmpty
-                    ? Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF8FAFC),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: LearnTzColors.border),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFF0F4C81)
-                                        .withValues(alpha: 0.1),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: const Icon(
-                                    Icons.person_add_alt_1_outlined,
-                                    color: Color(0xFF0F4C81),
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        l10n.noLearnersTitle,
-                                        style: LearnTzTypography.bodyRegular
-                                            .copyWith(
-                                          fontWeight: FontWeight.w700,
-                                          color: LearnTzColors.textPrimary,
-                                        ),
-                                      ),
-                                      Text(
-                                        l10n.noLearnersDescription,
-                                        style: LearnTzTypography.bodySmall
-                                            .copyWith(
-                                          color: LearnTzColors.textSecondary,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 14),
-                            const _BenefitBullet(
-                              text:
-                                  'Curriculum-aligned lessons matched to your child’s exact grade & country.',
-                            ),
-                            const _BenefitBullet(
-                              text:
-                                  'Practice quizzes, timed examinations, and competency mastery tracking.',
-                            ),
-                            const _BenefitBullet(
-                              text:
-                                  'Independent learner login on shared or dedicated devices.',
-                            ),
-                            const SizedBox(height: 16),
-                            ds.AppButton(
-                              label: l10n.addLearnerAction,
-                              icon: Icons.add,
-                              variant: ds.AppButtonVariant.primary,
-                              size: ds.AppButtonSize.md,
-                              onPressed: () => context.go(AppRoutes.addLearner),
-                            ),
-                          ],
-                        ),
-                      )
-                    : LayoutBuilder(
-                        builder: (context, constraints) {
-                          final columns = constraints.maxWidth >= 560 ? 2 : 1;
-                          final cardWidth =
-                              (constraints.maxWidth - (columns - 1) * 12) /
-                                  columns;
-                          return Wrap(
-                            spacing: 12,
-                            runSpacing: 12,
-                            children: [
-                              for (final learner in items)
-                                SizedBox(
-                                  width: cardWidth,
-                                  child: _LearnerCard(
-                                    learner: learner,
-                                    onSelected: () async {
-                                      try {
-                                        await ref
-                                            .read(
-                                              activeLearnerProvider.notifier,
-                                            )
-                                            .select(learner.id);
-                                        if (context.mounted) {
-                                          context.go(
-                                            AppRoutes.learnerProfile(
-                                              learner.id,
-                                            ),
-                                          );
-                                        }
-                                      } on PostgrestException {
-                                        if (context.mounted) {
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(
-                                              content: Text(l10n.requestFailed),
-                                            ),
-                                          );
-                                        }
-                                      } on NotSignedInException {
-                                        if (context.mounted) {
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                l10n.signInRequired,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                      }
-                                    },
-                                    onEdit: () => context.go(
-                                      AppRoutes.editLearner(learner.id),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          );
-                        },
-                      ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSideWorkspacesColumn({
+  Widget _buildStaffWorkspacesSection({
     required BuildContext context,
     required AppLocalizations l10n,
     required bool canAccessAdmin,
     required bool canAccessCurriculum,
-    required bool hasStaffWorkspaces,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (hasStaffWorkspaces) ...[
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(18),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: const Color(0xFF0F4C81).withValues(alpha: 0.35),
-                width: 1.5,
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: const Color(0xFF0F4C81).withValues(alpha: 0.35),
+          width: 1.5,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF0F4C81),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Icon(
+                  Icons.admin_panel_settings_outlined,
+                  color: Colors.white,
+                  size: 18,
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
+                    Text(
+                      'Staff & Academic Workspaces',
+                      style: LearnTzTypography.bodyRegular.copyWith(
+                        fontWeight: FontWeight.w800,
                         color: const Color(0xFF0F4C81),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Icon(
-                        Icons.admin_panel_settings_outlined,
-                        color: Colors.white,
-                        size: 18,
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Staff & Academic Workspaces',
-                            style: LearnTzTypography.bodyRegular.copyWith(
-                              fontWeight: FontWeight.w800,
-                              color: const Color(0xFF0F4C81),
-                            ),
-                          ),
-                          Text(
-                            'Role-gated platform operations',
-                            style: LearnTzTypography.caption.copyWith(
-                              color: LearnTzColors.textSecondary,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      'Role-gated platform operations',
+                      style: LearnTzTypography.caption.copyWith(
+                        color: LearnTzColors.textSecondary,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 14),
-                if (canAccessAdmin) ...[
-                  _WorkspaceShortcutTile(
-                    icon: Icons.dashboard_customize_outlined,
-                    title: l10n.adminPortalAction,
-                    subtitle: 'Platform users, countries & governance',
-                    onTap: () => context.go(AppRoutes.adminDashboard),
-                  ),
-                  const SizedBox(height: 8),
-                ],
-                _WorkspaceShortcutTile(
-                  icon: Icons.school_outlined,
-                  title: 'Examination Centre 2.0',
-                  subtitle: '5-step curriculum exams, bank & paper builder',
-                  onTap: () => context.push(AppRoutes.examCentreV2),
-                ),
-                const SizedBox(height: 8),
-                _WorkspaceShortcutTile(
-                  icon: Icons.edit_note_outlined,
-                  title: 'Content Management Studio',
-                  subtitle: 'Author curriculum-aligned lessons & media',
-                  onTap: () => context.push(AppRoutes.contentStudio),
-                ),
-                const SizedBox(height: 8),
-                _WorkspaceShortcutTile(
-                  icon: Icons.fact_check_outlined,
-                  title: 'Academic Review Queue',
-                  subtitle: 'Review, approve & publish submitted lessons',
-                  onTap: () => context.push(AppRoutes.academicReviewQueue),
-                ),
-                if (canAccessCurriculum) ...[
-                  const SizedBox(height: 8),
-                  _WorkspaceShortcutTile(
-                    icon: Icons.menu_book_outlined,
-                    title: l10n.curriculumAdminTitle,
-                    subtitle: 'Manage official national curricula & versions',
-                    onTap: () => context.go(AppRoutes.curriculumAdmin),
-                  ),
-                ],
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-        ],
-
-        // Subscription & Account Overview Card
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(18),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: LearnTzColors.border),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const Icon(
-                    Icons.credit_card_outlined,
-                    color: Color(0xFF15803D),
-                    size: 20,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    l10n.viewSubscriptionsAction,
-                    style: LearnTzTypography.bodyRegular.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: LearnTzColors.textPrimary,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              Text(
-                'Manage your family subscription plan, billing history, and multi-learner access.',
-                style: LearnTzTypography.bodySmall.copyWith(
-                  color: LearnTzColors.textSecondary,
-                ),
-              ),
-              const SizedBox(height: 12),
-              ds.AppButton(
-                label: l10n.viewSubscriptionsAction,
-                icon: Icons.arrow_forward,
-                variant: ds.AppButtonVariant.outlined,
-                size: ds.AppButtonSize.sm,
-                onPressed: () => context.go(AppRoutes.subscriptions),
               ),
             ],
           ),
-        ),
-      ],
+          const SizedBox(height: 14),
+          if (canAccessAdmin) ...[
+            _WorkspaceShortcutTile(
+              icon: Icons.dashboard_customize_outlined,
+              title: l10n.adminPortalAction,
+              subtitle: 'Platform users, countries & governance',
+              onTap: () => context.go(AppRoutes.adminDashboard),
+            ),
+            const SizedBox(height: 8),
+          ],
+          _WorkspaceShortcutTile(
+            icon: Icons.school_outlined,
+            title: 'Examination Centre 2.0',
+            subtitle: '5-step curriculum exams, bank & paper builder',
+            onTap: () => context.push(AppRoutes.examCentreV2),
+          ),
+          const SizedBox(height: 8),
+          _WorkspaceShortcutTile(
+            icon: Icons.edit_note_outlined,
+            title: 'Content Management Studio',
+            subtitle: 'Author curriculum-aligned lessons & media',
+            onTap: () => context.push(AppRoutes.contentStudio),
+          ),
+          const SizedBox(height: 8),
+          _WorkspaceShortcutTile(
+            icon: Icons.fact_check_outlined,
+            title: 'Academic Review Queue',
+            subtitle: 'Review, approve & publish submitted lessons',
+            onTap: () => context.push(AppRoutes.academicReviewQueue),
+          ),
+          if (canAccessCurriculum) ...[
+            const SizedBox(height: 8),
+            _WorkspaceShortcutTile(
+              icon: Icons.menu_book_outlined,
+              title: l10n.curriculumAdminTitle,
+              subtitle: 'Manage official national curricula & versions',
+              onTap: () => context.go(AppRoutes.curriculumAdmin),
+            ),
+          ],
+        ],
+      ),
     );
   }
 }
@@ -923,33 +690,624 @@ class _AccountBottomMenuBar extends StatelessWidget {
   }
 }
 
-class _BenefitBullet extends StatelessWidget {
-  const _BenefitBullet({required this.text});
+class _FamilyQuickAnalyticsStrip extends StatelessWidget {
+  const _FamilyQuickAnalyticsStrip({
+    required this.learners,
+    required this.overviews,
+    required this.gamification,
+  });
 
-  final String text;
+  final List<Learner> learners;
+  final List<ParentLearnerOverview> overviews;
+  final List<ParentChildGamificationSummary> gamification;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Row(
+    final totalLearners = learners.length;
+    final avgMastery = overviews.isEmpty
+        ? 0
+        : (overviews.fold<int>(0, (sum, o) => sum + o.masteryPercent) /
+                overviews.length)
+            .round();
+    final totalXp = gamification.fold<int>(0, (sum, g) => sum + g.totalXp);
+    final weeklyXp = gamification.fold<int>(0, (sum, g) => sum + g.weeklyXp);
+    final bestStreak = gamification.fold<int>(
+      overviews.fold<int>(0, (m, o) => o.streakDays > m ? o.streakDays : m),
+      (m, g) => g.currentStreak > m ? g.currentStreak : m,
+    );
+    final totalBadges =
+        gamification.fold<int>(0, (sum, g) => sum + g.earnedBadgesCount);
+
+    final cards = <Widget>[
+      _SnapshotKpiCard(
+        icon: Icons.groups_rounded,
+        title: 'Learners',
+        value: '$totalLearners',
+        subtitle: totalLearners == 1 ? 'Active profile' : 'Active profiles',
+        accent: const Color(0xFF0F4C81),
+        tint: const Color(0xFFEFF6FF),
+        border: const Color(0xFFBFDBFE),
+      ),
+      _SnapshotKpiCard(
+        icon: Icons.auto_graph_rounded,
+        title: 'Avg Mastery',
+        value: '$avgMastery%',
+        subtitle: 'Curriculum progress',
+        accent: const Color(0xFF15803D),
+        tint: const Color(0xFFF0FDF4),
+        border: const Color(0xFFBBF7D0),
+      ),
+      _SnapshotKpiCard(
+        icon: Icons.bolt_rounded,
+        title: 'Verified XP',
+        value: '$totalXp XP',
+        subtitle: '+$weeklyXp XP this week',
+        accent: const Color(0xFFD97706),
+        tint: const Color(0xFFFFFBEB),
+        border: const Color(0xFFFDE68A),
+      ),
+      _SnapshotKpiCard(
+        icon: Icons.emoji_events_rounded,
+        title: 'Streaks & Badges',
+        value: '${bestStreak}d · $totalBadges',
+        subtitle: 'Top streak · Badges',
+        accent: const Color(0xFF6D28D9),
+        tint: const Color(0xFFF5F3FF),
+        border: const Color(0xFFDDD6FE),
+      ),
+    ];
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final cols = constraints.maxWidth >= 760 ? 4 : 2;
+        const spacing = 12.0;
+        final width = (constraints.maxWidth - (spacing * (cols - 1))) / cols;
+        return Wrap(
+          spacing: spacing,
+          runSpacing: spacing,
+          children: [
+            for (final card in cards) SizedBox(width: width, child: card),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _SnapshotKpiCard extends StatelessWidget {
+  const _SnapshotKpiCard({
+    required this.icon,
+    required this.title,
+    required this.value,
+    required this.subtitle,
+    required this.accent,
+    required this.tint,
+    required this.border,
+  });
+
+  final IconData icon;
+  final String title;
+  final String value;
+  final String subtitle;
+  final Color accent;
+  final Color tint;
+  final Color border;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.white, tint],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: border, width: 1.2),
+        boxShadow: [
+          BoxShadow(
+            color: accent.withValues(alpha: 0.07),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 2),
-            child: Icon(
-              Icons.check_circle_outline,
-              size: 16,
-              color: Color(0xFF15803D),
+          Row(
+            children: [
+              Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: accent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, color: Colors.white, size: 18),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: accent,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(
+            value,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w900,
+              color: Color(0xFF0F172A),
+              letterSpacing: -0.4,
             ),
           ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              text,
-              style: LearnTzTypography.bodySmall.copyWith(
-                color: LearnTzColors.textSecondary,
+          const SizedBox(height: 2),
+          Text(
+            subtitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 11.5,
+              color: Color(0xFF64748B),
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EmptyLearnersSnapshotCard extends StatelessWidget {
+  const _EmptyLearnersSnapshotCard({
+    required this.l10n,
+    required this.onAddLearner,
+  });
+
+  final AppLocalizations l10n;
+  final VoidCallback onAddLearner;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFEFF6FF), Color(0xFFF0FDF4)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: const Color(0xFFBFDBFE)),
+      ),
+      child: Column(
+        children: [
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+              color: const Color(0xFF0F4C81),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Icon(
+              Icons.child_care_rounded,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            l10n.noLearnersTitle,
+            textAlign: TextAlign.center,
+            style: LearnTzTypography.h3.copyWith(
+              fontWeight: FontWeight.w800,
+              color: const Color(0xFF0F172A),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            l10n.noLearnersDescription,
+            textAlign: TextAlign.center,
+            style: LearnTzTypography.bodySmall.copyWith(
+              color: const Color(0xFF475569),
+            ),
+          ),
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            onPressed: onAddLearner,
+            style: FilledButton.styleFrom(
+              backgroundColor: const Color(0xFF15803D),
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
+            ),
+            icon: const Icon(Icons.person_add_alt_1_rounded, size: 18),
+            label: Text(l10n.addLearnerAction),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _LearnerSnapshotAnalyticsCard extends ConsumerWidget {
+  const _LearnerSnapshotAnalyticsCard({
+    required this.learner,
+    required this.overview,
+    required this.gamification,
+    required this.colorIndex,
+  });
+
+  final Learner learner;
+  final ParentLearnerOverview? overview;
+  final ParentChildGamificationSummary? gamification;
+  final int colorIndex;
+
+  static const _palettes = <(Color accent, Color tint, Color border)>[
+    (Color(0xFF0F4C81), Color(0xFFEFF6FF), Color(0xFFBFDBFE)),
+    (Color(0xFF15803D), Color(0xFFF0FDF4), Color(0xFFBBF7D0)),
+    (Color(0xFFD97706), Color(0xFFFFFBEB), Color(0xFFFDE68A)),
+    (Color(0xFF0D9488), Color(0xFFF0FDFA), Color(0xFF99F6E4)),
+  ];
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    final catalog = ref.watch(educationCatalogProvider).asData?.value;
+    final palette = _palettes[colorIndex % _palettes.length];
+    final accent = palette.$1;
+    final tint = palette.$2;
+    final border = palette.$3;
+
+    final gradeName = overview?.gradeName.isNotEmpty == true
+        ? overview!.gradeName
+        : (catalog?.grade(learner.gradeId)?.name ?? '');
+    final levelName = catalog?.level(learner.educationLevelId)?.name ?? '';
+    final mastery = (overview?.masteryPercent ?? 0).clamp(0, 100);
+    final completed = overview?.completedLessons ?? 0;
+    final totalLessons = overview?.totalLessons ?? 0;
+    final avgQuiz = overview?.averageQuizScorePercent ?? 0;
+    final xp = gamification?.totalXp ?? 0;
+    final streak = gamification?.currentStreak ?? overview?.streakDays ?? 0;
+    final badgesCount = gamification?.earnedBadgesCount ?? 0;
+    final recentBadges = gamification?.recentBadges ?? const <ParentChildBadgePreview>[];
+
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: border, width: 1.4),
+        boxShadow: [
+          BoxShadow(
+            color: accent.withValues(alpha: 0.08),
+            blurRadius: 14,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Colourful Top Accent Bar
+          Container(
+            height: 5,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [accent, accent.withValues(alpha: 0.55)],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Header: Visual Circular Mastery Ring + Learner Name + Quick Edit
+                Row(
+                  children: [
+                    // Circular Mastery Progress Ring Graphic
+                    SizedBox(
+                      width: 62,
+                      height: 62,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CircularProgressIndicator(
+                            value: mastery / 100.0,
+                            strokeWidth: 6.5,
+                            backgroundColor: tint,
+                            valueColor: AlwaysStoppedAnimation<Color>(accent),
+                            strokeCap: StrokeCap.round,
+                          ),
+                          Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '$mastery%',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w900,
+                                    color: accent,
+                                  ),
+                                ),
+                                const Text(
+                                  'mastery',
+                                  style: TextStyle(
+                                    fontSize: 8.5,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF64748B),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 4,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Text(
+                                learner.fullName,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w800,
+                                  color: Color(0xFF0F172A),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFDCFCE7),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  _learnerStatus(learner.status, l10n),
+                                  style: const TextStyle(
+                                    fontSize: 10.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF15803D),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 3),
+                          Text(
+                            [levelName, gradeName, learner.countryCode]
+                                .where((s) => s.isNotEmpty)
+                                .join(' · '),
+                            style: const TextStyle(
+                              fontSize: 12.5,
+                              color: Color(0xFF64748B),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: l10n.editLearnerAction,
+                      onPressed: () =>
+                          context.go(AppRoutes.editLearner(learner.id)),
+                      icon: const Icon(
+                        Icons.edit_outlined,
+                        color: Color(0xFF64748B),
+                        size: 20,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+
+                // Colourful Quick Analytics Metric Pills
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    _QuickStatPill(
+                      icon: Icons.menu_book_rounded,
+                      label: '$completed/$totalLessons lessons',
+                      color: const Color(0xFF0F4C81),
+                      bg: const Color(0xFFEFF6FF),
+                    ),
+                    _QuickStatPill(
+                      icon: Icons.quiz_rounded,
+                      label: '$avgQuiz% quiz avg',
+                      color: const Color(0xFF15803D),
+                      bg: const Color(0xFFF0FDF4),
+                    ),
+                    _QuickStatPill(
+                      icon: Icons.bolt_rounded,
+                      label: '$xp XP',
+                      color: const Color(0xFFD97706),
+                      bg: const Color(0xFFFFFBEB),
+                    ),
+                    _QuickStatPill(
+                      icon: Icons.local_fire_department_rounded,
+                      label: '${streak}d streak',
+                      color: const Color(0xFFEA580C),
+                      bg: const Color(0xFFFFF7ED),
+                    ),
+                    _QuickStatPill(
+                      icon: Icons.emoji_events_rounded,
+                      label: '$badgesCount badges',
+                      color: const Color(0xFF6D28D9),
+                      bg: const Color(0xFFF5F3FF),
+                    ),
+                  ],
+                ),
+
+                // Recent Earned Badges Preview (if any)
+                if (recentBadges.isNotEmpty) ...[
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [
+                      for (final b in recentBadges.take(3))
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFF8FAFC),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: const Color(0xFFE2E8F0)),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                gamificationBadgeIcon(b.iconName),
+                                size: 13,
+                                color: gamificationTierColor(b.tier),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                b.name,
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF334155),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+
+                const SizedBox(height: 14),
+                const Divider(height: 1, color: Color(0xFFF1F5F9)),
+                const SizedBox(height: 12),
+
+                // Direct Action Row
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    FilledButton.icon(
+                      onPressed: () async {
+                        await ref
+                            .read(activeLearnerProvider.notifier)
+                            .select(learner.id);
+                        if (context.mounted) {
+                          context.go(AppRoutes.learn);
+                        }
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: accent,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 10,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      icon: const Icon(Icons.play_arrow_rounded, size: 18),
+                      label: Text(l10n.learningHubTitle),
+                    ),
+                    OutlinedButton.icon(
+                      onPressed: () =>
+                          context.go(AppRoutes.childDevices(learner.id)),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: const Color(0xFF334155),
+                        side: const BorderSide(color: Color(0xFFCBD5E1)),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 10,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      icon: const Icon(Icons.devices_outlined, size: 16),
+                      label: const Text('Devices'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _QuickStatPill extends StatelessWidget {
+  const _QuickStatPill({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.bg,
+  });
+
+  final IconData icon;
+  final String label;
+  final Color color;
+  final Color bg;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: color),
+          const SizedBox(width: 5),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: color,
             ),
           ),
         ],
@@ -1017,79 +1375,6 @@ class _WorkspaceShortcutTile extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _LearnerCard extends ConsumerWidget {
-  const _LearnerCard({
-    required this.learner,
-    required this.onSelected,
-    required this.onEdit,
-  });
-
-  final Learner learner;
-  final VoidCallback onSelected;
-  final VoidCallback onEdit;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final catalog = ref.watch(educationCatalogProvider).asData?.value;
-    final activeLearner = ref.watch(activeLearnerProvider);
-    final isSelected = activeLearner?.id == learner.id;
-    final countryName =
-        catalog?.country(learner.countryCode)?.name ?? learner.countryCode;
-    final grade = catalog?.grade(learner.gradeId)?.name ?? '';
-    final level = catalog?.level(learner.educationLevelId)?.name ?? '';
-    final system = catalog?.system(learner.educationSystemId)?.name ?? '';
-
-    return AppCard(
-      child: InkWell(
-        onTap: onSelected,
-        borderRadius: BorderRadius.circular(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    learner.fullName,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                IconButton(
-                  tooltip: l10n.editLearnerAction,
-                  onPressed: onEdit,
-                  icon: const Icon(Icons.edit_outlined),
-                ),
-              ],
-            ),
-            Text([level, grade].where((part) => part.isNotEmpty).join(' • ')),
-            const SizedBox(height: 4),
-            Text('$countryName${system.isEmpty ? '' : ' • $system'}'),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Chip(
-                  label: Text(_learnerStatus(learner.status, l10n)),
-                  visualDensity: VisualDensity.compact,
-                ),
-                const Spacer(),
-                if (isSelected)
-                  Text(
-                    l10n.activeLearnerLabel,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-              ],
-            ),
-          ],
         ),
       ),
     );
