@@ -83,21 +83,6 @@ class AppScaffold extends ConsumerWidget {
           ),
         ),
       ),
-      bottomNavigationBar: isWide
-          ? null
-          : NavigationBar(
-              selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
-              onDestinationSelected: (index) =>
-                  context.go(destinations[index].$1),
-              destinations: [
-                for (final destination in destinations)
-                  NavigationDestination(
-                    key: ValueKey('nav-${destination.$1}'),
-                    icon: Icon(destination.$3),
-                    label: destination.$2,
-                  ),
-              ],
-            ),
     );
   }
 }
