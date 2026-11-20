@@ -20,30 +20,44 @@ class WelcomeScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final selectedCountry = ref.watch(selectedCountryProvider);
 
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final isDesktop = screenWidth >= 900;
+    final isNarrow = screenWidth < 360;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC), // Page background #F8FAFC
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // 1. Sticky, Overflow-Proof Header Navigation
-            _LandingHeader(
-              selectedCountry: selectedCountry,
-              l10n: l10n,
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: isDesktop ? 48 : (isNarrow ? 10 : 16),
             ),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1120),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // 1. Sticky, Overflow-Proof Header Navigation
+                  _LandingHeader(
+                    selectedCountry: selectedCountry,
+                    l10n: l10n,
+                  ),
 
-            // 2. Uncluttered, Centered Hero Section with Image-Only Animated Logo
-            const _LandingHeroSection(),
+                  // 2. Uncluttered, Centered Hero Section with Image-Only Animated Logo
+                  const _LandingHeroSection(),
 
-            // 3. Four Core Learning Feature Cards (Mobile: 2x2, Tablet: 2x2, Desktop: 4 cols)
-            _LandingFeaturesSection(
-              selectedCountry: selectedCountry,
-              l10n: l10n,
+                  // 3. Four Core Learning Feature Cards (Mobile: 2x2, Tablet: 2x2, Desktop: 4 cols)
+                  _LandingFeaturesSection(
+                    selectedCountry: selectedCountry,
+                    l10n: l10n,
+                  ),
+
+                  // 4. Conversion Call-to-Action Banner
+                  _LandingCtaBanner(selectedCountry: selectedCountry, l10n: l10n),
+                ],
+              ),
             ),
-
-            // 4. Conversion Call-to-Action Banner
-            _LandingCtaBanner(selectedCountry: selectedCountry, l10n: l10n),
-          ],
+          ),
         ),
       ),
     );
