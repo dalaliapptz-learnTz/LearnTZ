@@ -632,7 +632,7 @@ class _LearnerFormState extends ConsumerState<_LearnerForm> {
                   ),
                   if (selectedCountryCode != null && selectedSystemId != null)
                     Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       child: TextButton.icon(
                         key: const ValueKey('add-school-action'),
                         onPressed: _isSaving
