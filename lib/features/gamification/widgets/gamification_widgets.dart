@@ -94,22 +94,25 @@ class GamificationDashboardSection extends ConsumerWidget {
               ),
               const SizedBox(height: 14),
             ],
-            // Top 3 Gamification Summary Cards (responsive 3-col desktop / stacked mobile)
+            // Top 3 Gamification Summary Cards (3 columns on BOTH desktop and mobile!)
             LayoutBuilder(
               builder: (context, constraints) {
                 final isWide = constraints.maxWidth >= 720;
                 final streakCard = _StreakOverviewCard(
                   overview: overview,
                   style: style,
+                  compact: !isWide,
                 );
                 final xpBadgesCard = _XpAndBadgesCard(
                   overview: overview,
                   style: style,
+                  compact: !isWide,
                   onViewBadges: () => _openBadgesDialog(context, overview),
                 );
                 final leaderboardCard = _LeaderboardPreviewCard(
                   overview: overview,
                   style: style,
+                  compact: !isWide,
                   onOpenLeaderboard: () => _openLeaderboardDialog(
                     context,
                     overview: overview,
@@ -134,11 +137,25 @@ class GamificationDashboardSection extends ConsumerWidget {
 
                 return Column(
                   children: [
-                    streakCard,
-                    const SizedBox(height: 12),
-                    xpBadgesCard,
-                    const SizedBox(height: 12),
-                    leaderboardCard,
+                    IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(child: streakCard),
+                          const SizedBox(width: 8),
+                          Expanded(child: xpBadgesCard),
+                          const SizedBox(width: 8),
+                          Expanded(child: leaderboardCard),
+                        ],
+                      ),
+                    ),
+                    if (overview.weeklyCalendar.isNotEmpty) ...[
+                      const SizedBox(height: 10),
+                      _WeeklyCalendarStripCard(
+                        overview: overview,
+                        style: style,
+                      ),
+                    ],
                   ],
                 );
               },
@@ -318,8 +335,8 @@ class _AchievementUnlockedBanner extends StatelessWidget {
   }
 }
 
-class _StreakOverviewCard extends StatelessWidget {
-  const _StreakOverviewCard({
+class _WeeklyCalendarStripCard extends StatelessWidget {
+  const _WeeklyCalendarStripCard({
     required this.overview,
     required this.style,
   });
@@ -329,6 +346,129 @@ class _StreakOverviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: const Color(0xFFE2E8F0)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          for (final day in overview.weeklyCalendar)
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: day.isActive
+                        ? style.streakAccent
+                        : const Color(0xFFF1F5F9),
+                    border: day.isToday
+                        ? Border.all(color: style.streakAccent, width: 2)
+                        : null,
+                  ),
+                  child: Icon(
+                    day.isActive ? Icons.check_rounded : Icons.circle,
+                    size: day.isActive ? 14 : 4,
+                    color: day.isActive ? Colors.white : const Color(0xFFCBD5E1),
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  day.dayLabel.length > 2
+                      ? day.dayLabel.substring(0, 2)
+                      : day.dayLabel,
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: day.isToday ? FontWeight.w800 : FontWeight.w500,
+                    color: day.isToday
+                        ? style.streakAccent
+                        : const Color(0xFF64748B),
+                  ),
+                ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _StreakOverviewCard extends StatelessWidget {
+  const _StreakOverviewCard({
+    required this.overview,
+    required this.style,
+    this.compact = false,
+  });
+
+  final LearnerGamificationOverview overview;
+  final GamificationTierStyle style;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    if (compact) {
+      return Container(
+        key: const ValueKey('gamification-streak-card'),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, style.streakTint],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: style.streakAccent.withValues(alpha: 0.28)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: style.streakAccent,
+                borderRadius: BorderRadius.circular(9),
+              ),
+              child: const Icon(
+                Icons.local_fire_department_rounded,
+                color: Colors.white,
+                size: 17,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '${overview.currentStreak} ${overview.currentStreak == 1 ? 'Day' : 'Days'} Streak',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF0F172A),
+                height: 1.15,
+              ),
+            ),
+            const SizedBox(height: 3),
+            Text(
+              'Best: ${overview.longestStreak} ${overview.longestStreak == 1 ? 'day' : 'days'}',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 10.5,
+                color: Color(0xFF64748B),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return AppCard(
       key: const ValueKey('gamification-streak-card'),
       child: Column(
@@ -436,17 +576,95 @@ class _XpAndBadgesCard extends StatelessWidget {
     required this.overview,
     required this.style,
     required this.onViewBadges,
+    this.compact = false,
   });
 
   final LearnerGamificationOverview overview;
   final GamificationTierStyle style;
   final VoidCallback onViewBadges;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final nextMilestone = overview.badges
         .where((b) => !b.isEarned)
         .firstOrNull;
+
+    if (compact) {
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          key: const ValueKey('gamification-view-badges-btn'),
+          onTap: onViewBadges,
+          borderRadius: BorderRadius.circular(14),
+          child: Container(
+            key: const ValueKey('gamification-xp-badges-card'),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.white, style.xpTint],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: style.xpAccent.withValues(alpha: 0.28)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: style.xpAccent,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: const Icon(
+                    Icons.bolt_rounded,
+                    color: Colors.white,
+                    size: 17,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${overview.totalXp} XP',
+                  key: const ValueKey('gamification-xp-balance'),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  nextMilestone != null
+                      ? 'Next: ${nextMilestone.name}'
+                      : '${overview.earnedBadgesCount}/${overview.badges.length} badges',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: Color(0xFF64748B),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'Badges →',
+                  style: TextStyle(
+                    fontSize: 10.5,
+                    fontWeight: FontWeight.w800,
+                    color: style.xpAccent,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
 
     return AppCard(
       key: const ValueKey('gamification-xp-badges-card'),
@@ -555,17 +773,93 @@ class _LeaderboardPreviewCard extends StatelessWidget {
     required this.overview,
     required this.style,
     required this.onOpenLeaderboard,
+    this.compact = false,
   });
 
   final LearnerGamificationOverview overview;
   final GamificationTierStyle style;
   final VoidCallback onOpenLeaderboard;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
     final rankText = overview.weeklyRank != null
         ? '#${overview.weeklyRank}'
         : '—';
+
+    if (compact) {
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          key: const ValueKey('gamification-open-leaderboard-btn'),
+          onTap: onOpenLeaderboard,
+          borderRadius: BorderRadius.circular(14),
+          child: Container(
+            key: const ValueKey('gamification-leaderboard-card'),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.white, style.rankTint],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: style.rankAccent.withValues(alpha: 0.28)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: style.rankAccent,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: const Icon(
+                    Icons.leaderboard_rounded,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Rank $rankText',
+                  key: const ValueKey('gamification-weekly-rank'),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  overview.leaderboardOptIn ? 'Public ranking' : 'Private mode',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: Color(0xFF64748B),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'Rankings →',
+                  style: TextStyle(
+                    fontSize: 10.5,
+                    fontWeight: FontWeight.w800,
+                    color: style.rankAccent,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
 
     return AppCard(
       key: const ValueKey('gamification-leaderboard-card'),
