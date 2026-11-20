@@ -7,6 +7,8 @@ import '../../core/routing/app_router.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/app_card.dart';
 import '../auth/auth_screens.dart';
+import '../gamification/gamification_providers.dart';
+import '../gamification/widgets/gamification_widgets.dart';
 import '../learners/learner_providers.dart';
 import 'learning_models.dart';
 import 'learning_providers.dart';
@@ -227,6 +229,7 @@ class _LearningHubScreenState extends ConsumerState<LearningHubScreen> {
                         switch (_selectedTab) {
                           case _LearnerHubTab.home:
                             return _LearnerHomeTab(
+                              learnerId: activeLearner.id,
                               bundle: bundle,
                               dashboard: dashboard,
                               continueLesson: _resolveContinueLesson(bundle, dashboard),
@@ -576,6 +579,7 @@ class _LearnerHubBottomNav extends StatelessWidget {
 
 class _LearnerHomeTab extends StatelessWidget {
   const _LearnerHomeTab({
+    required this.learnerId,
     required this.bundle,
     required this.dashboard,
     required this.continueLesson,
@@ -586,6 +590,7 @@ class _LearnerHomeTab extends StatelessWidget {
     required this.onOpenSaved,
   });
 
+  final String learnerId;
   final LearningCatalogBundle? bundle;
   final LearnerDashboardData? dashboard;
   final _ResolvedContinueLesson? continueLesson;
@@ -604,6 +609,12 @@ class _LearnerHomeTab extends StatelessWidget {
           lesson: continueLesson,
           gradeLabel: dashboard?.gradeName,
           onOpenSubjects: onOpenSubjects,
+        ),
+        const SizedBox(height: 20),
+        // Gamification System 2.0: Learning Streaks, Verified XP & Badges, Leaderboards
+        GamificationDashboardSection(
+          learnerId: learnerId,
+          subjects: bundle?.subjects ?? const [],
         ),
         const SizedBox(height: 24),
         Text(
@@ -1240,7 +1251,7 @@ class _PracticeActionCard extends StatelessWidget {
   }
 }
 
-class _LearnerProfileTab extends StatelessWidget {
+class _LearnerProfileTab extends ConsumerWidget {
   const _LearnerProfileTab({
     required this.learnerId,
     required this.fullName,
@@ -1260,8 +1271,10 @@ class _LearnerProfileTab extends StatelessWidget {
   final VoidCallback onSwitchLearner;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
+    final gamificationAsync =
+        ref.watch(learnerGamificationOverviewProvider(learnerId));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1277,6 +1290,70 @@ class _LearnerProfileTab extends StatelessWidget {
           MasteryProgressBar(summary: bundle!.summary),
           const SizedBox(height: 16),
         ],
+        gamificationAsync.when(
+          loading: () => const SizedBox.shrink(),
+          error: (_, _) => const SizedBox.shrink(),
+          data: (overview) {
+            if (overview == null) return const SizedBox.shrink();
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        overview.ageTier.style.badgeTitle,
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.w800,
+                            ),
+                      ),
+                      const SizedBox(height: 12),
+                      BadgesCollectionView(overview: overview),
+                    ],
+                  ),
+                ),
+                if (overview.recentXpEvents.isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  AppCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Recent Verified XP Activity',
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w800,
+                              ),
+                        ),
+                        const SizedBox(height: 8),
+                        for (final ev in overview.recentXpEvents.take(5))
+                          ListTile(
+                            dense: true,
+                            contentPadding: EdgeInsets.zero,
+                            leading: const Icon(
+                              Icons.bolt_rounded,
+                              size: 18,
+                              color: Color(0xFF0F4C81),
+                            ),
+                            title: Text(ev.displayLabel),
+                            subtitle: Text(ev.activityDate),
+                            trailing: Text(
+                              '+${ev.xpAmount} XP',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w800,
+                                color: Color(0xFF15803D),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 16),
+              ],
+            );
+          },
+        ),
         _LearnerMasteryOverviewSection(learnerId: learnerId),
         const SizedBox(height: 16),
         _OfflineSyncStatusBar(learnerId: learnerId),
@@ -1626,6 +1703,7 @@ class _LessonReaderScreenState extends ConsumerState<LessonReaderScreen> {
         markCompleted: complete,
       );
       ref.invalidate(activeLearnerLearningCatalogProvider);
+      ref.invalidate(learnerGamificationOverviewProvider(learner.id));
       if (mounted) {
         setState(() {
           _readingProgress = updated.readingProgressPercent.toDouble();
@@ -1824,6 +1902,7 @@ class _PracticeQuizScreenState extends ConsumerState<PracticeQuizScreen> {
         selectedIndices: indices,
       );
       ref.invalidate(activeLearnerLearningCatalogProvider);
+      ref.invalidate(learnerGamificationOverviewProvider(learner.id));
       if (mounted) {
         setState(() => _submissionResult = result);
       }
@@ -1871,6 +1950,7 @@ class _PracticeQuizScreenState extends ConsumerState<PracticeQuizScreen> {
         answers: payload,
       );
       ref.invalidate(activeLearnerLearningCatalogProvider);
+      ref.invalidate(learnerGamificationOverviewProvider(learner.id));
       if (mounted) {
         setState(() => _assessmentResult = result);
       }

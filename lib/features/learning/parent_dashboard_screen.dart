@@ -6,6 +6,8 @@ import '../../core/design_system/components/components.dart';
 import '../../core/routing/app_router.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../auth/auth_screens.dart';
+import '../gamification/gamification_providers.dart';
+import '../gamification/widgets/gamification_widgets.dart';
 import '../learners/learner_providers.dart';
 import '../learners/providers/learner_auth_providers.dart';
 import 'learning_models.dart';
@@ -293,6 +295,16 @@ class _ParentLearnerCard extends ConsumerWidget {
             '${learner.completedLessons} of ${learner.totalLessons} ${l10n.lessonsCompletedLabel} • ${l10n.averageQuizLabel}: ${learner.averageQuizScorePercent}%',
             style: Theme.of(context).textTheme.bodySmall,
           ),
+          ref.watch(parentChildrenGamificationSummaryProvider).maybeWhen(
+                data: (summaries) {
+                  final childSummary = summaries
+                      .where((s) => s.learnerId == learner.learnerId)
+                      .firstOrNull;
+                  if (childSummary == null) return const SizedBox.shrink();
+                  return ParentChildGamificationStrip(summary: childSummary);
+                },
+                orElse: () => const SizedBox.shrink(),
+              ),
           if (learner.lastLessonAccessed != null) ...[
             const SizedBox(height: 12),
             Container(
