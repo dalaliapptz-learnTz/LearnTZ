@@ -433,6 +433,23 @@ class LearningRepository {
     );
   }
 
+  Future<List<RevisionDrillSubject>> getLearnerRevisionDrillCatalog(
+    String learnerId,
+  ) async {
+    _requireUser();
+    final result = await _client.rpc(
+      'get_learner_revision_drill_catalog',
+      params: {'p_learner_id': learnerId},
+    );
+    return (result as List<dynamic>)
+        .map(
+          (item) => RevisionDrillSubject.fromJson(
+            Map<String, dynamic>.from(item as Map),
+          ),
+        )
+        .toList(growable: false);
+  }
+
   User _requireUser() {
     final user = _client.auth.currentUser;
     if (user == null) {

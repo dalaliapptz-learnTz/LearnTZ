@@ -1398,3 +1398,95 @@ class SubjectOfflinePack {
     );
   }
 }
+
+class RevisionDrillSpecificCompetence {
+  const RevisionDrillSpecificCompetence({
+    required this.specificCompetenceId,
+    required this.code,
+    required this.title,
+    required this.accuracyRate,
+    required this.quizzesAttempted,
+    required this.masteryStatus,
+    required this.questionCount,
+    this.topicId,
+  });
+
+  final String specificCompetenceId;
+  final String? topicId;
+  final String code;
+  final String title;
+  final double accuracyRate;
+  final int quizzesAttempted;
+  final String masteryStatus;
+  final int questionCount;
+
+  factory RevisionDrillSpecificCompetence.fromJson(Map<String, dynamic> json) {
+    return RevisionDrillSpecificCompetence(
+      specificCompetenceId: json['specific_competence_id'].toString(),
+      topicId: json['topic_id']?.toString(),
+      code: json['code'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      accuracyRate: (json['accuracy_rate'] as num?)?.toDouble() ?? 0.0,
+      quizzesAttempted: (json['quizzes_attempted'] as num?)?.toInt() ?? 0,
+      masteryStatus: json['mastery_status'] as String? ?? 'not_started',
+      questionCount: (json['question_count'] as num?)?.toInt() ?? 0,
+    );
+  }
+}
+
+class RevisionDrillCompetence {
+  const RevisionDrillCompetence({
+    required this.mainCompetenceId,
+    required this.code,
+    required this.title,
+    required this.specificCompetences,
+  });
+
+  final String mainCompetenceId;
+  final String code;
+  final String title;
+  final List<RevisionDrillSpecificCompetence> specificCompetences;
+
+  factory RevisionDrillCompetence.fromJson(Map<String, dynamic> json) {
+    final rawSpecific = json['specific_competences'] as List<dynamic>? ?? const [];
+    return RevisionDrillCompetence(
+      mainCompetenceId: json['main_competence_id'].toString(),
+      code: json['code'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      specificCompetences: rawSpecific
+          .map(
+            (e) => RevisionDrillSpecificCompetence.fromJson(
+              Map<String, dynamic>.from(e as Map),
+            ),
+          )
+          .toList(growable: false),
+    );
+  }
+}
+
+class RevisionDrillSubject {
+  const RevisionDrillSubject({
+    required this.subjectId,
+    required this.subjectName,
+    required this.competences,
+  });
+
+  final String subjectId;
+  final String subjectName;
+  final List<RevisionDrillCompetence> competences;
+
+  factory RevisionDrillSubject.fromJson(Map<String, dynamic> json) {
+    final rawComp = json['competences'] as List<dynamic>? ?? const [];
+    return RevisionDrillSubject(
+      subjectId: json['subject_id'].toString(),
+      subjectName: json['subject_name'] as String? ?? '',
+      competences: rawComp
+          .map(
+            (e) => RevisionDrillCompetence.fromJson(
+              Map<String, dynamic>.from(e as Map),
+            ),
+          )
+          .toList(growable: false),
+    );
+  }
+}

@@ -6,6 +6,7 @@ import '../../core/routing/app_router.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../shared/widgets/app_card.dart';
 import '../learners/learner_providers.dart';
+import 'learning_models.dart';
 import 'learning_providers.dart';
 
 class RevisionCentreScreen extends ConsumerWidget {
@@ -258,136 +259,384 @@ class _MetricPill extends StatelessWidget {
   }
 }
 
-class _WeakTopicDrillsSection extends ConsumerWidget {
+class _WeakTopicDrillsSection extends ConsumerStatefulWidget {
   const _WeakTopicDrillsSection({required this.learnerId});
 
   final String learnerId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final overviewAsync = ref.watch(learnerRevisionOverviewProvider(learnerId));
+  ConsumerState<_WeakTopicDrillsSection> createState() =>
+      _WeakTopicDrillsSectionState();
+}
 
-    return overviewAsync.when(
-      loading: () => const SizedBox.shrink(),
-      error: (context, error) => const SizedBox.shrink(),
-      data: (overview) {
-        final weakTopics = overview.weakTopics;
+class _WeakTopicDrillsSectionState
+    extends ConsumerState<_WeakTopicDrillsSection> {
+  String? _selectedSubjectId;
+  String? _selectedCompetenceId;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final catalogAsync =
+        ref.watch(learnerRevisionDrillCatalogProvider(widget.learnerId));
+
+    return catalogAsync.when(
+      loading: () => const Padding(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (e, _) => AppCard(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text('${l10n.requestFailed}: $e'),
+        ),
+      ),
+      data: (subjects) {
+        if (subjects.isEmpty) {
+          return AppCard(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  const Icon(Icons.celebration_outlined, color: Colors.green),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      l10n.noWeakAreasFound,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        // Validate selected subject & competence against live catalog
+        final activeSubjectId =
+            subjects.any((s) => s.subjectId == _selectedSubjectId)
+                ? _selectedSubjectId
+                : subjects.first.subjectId;
+        final activeSubject = subjects.firstWhere(
+          (s) => s.subjectId == activeSubjectId,
+          orElse: () => subjects.first,
+        );
+
+        final competences = activeSubject.competences;
+        final activeCompetenceId = competences.any(
+          (c) => c.mainCompetenceId == _selectedCompetenceId,
+        )
+            ? _selectedCompetenceId
+            : null; // null = All Main Competences in selected Subject
+
+        final visibleCompetences = activeCompetenceId == null
+            ? competences
+            : competences
+                .where((c) => c.mainCompetenceId == activeCompetenceId)
+                .toList();
+
+        // First drillable specific competence for quick Start Drill button
+        final firstDrillable = visibleCompetences
+            .expand((c) => c.specificCompetences)
+            .where((sc) => sc.topicId != null && sc.topicId!.isNotEmpty)
+            .firstOrNull;
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 12,
+              runSpacing: 8,
               children: [
-                Text(
-                  l10n.weakAreaDrillsTitle,
-                  style: Theme.of(context).textTheme.titleLarge,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.weakAreaDrillsTitle,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w800,
+                          ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Categorized by Subject, Main Competence & Specific Competence',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: const Color(0xFF64748B),
+                          ),
+                    ),
+                  ],
                 ),
-                if (weakTopics.isNotEmpty)
+                if (firstDrillable != null)
                   FilledButton.tonalIcon(
-                    onPressed: () {
-                      final firstTopic = weakTopics.first;
-                      context.go(
-                        AppRoutes.lessonQuiz(firstTopic.topicId),
-                      );
-                    },
-                    icon: const Icon(Icons.bolt, size: 18),
+                    onPressed: () =>
+                        context.go(AppRoutes.lessonQuiz(firstDrillable.topicId!)),
+                    icon: const Icon(Icons.bolt_rounded, size: 18),
                     label: Text(l10n.startWeakAreaDrill),
                   ),
               ],
             ),
-            const SizedBox(height: 12),
-            if (weakTopics.isEmpty)
-              AppCard(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.celebration_outlined, color: Colors.green),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          l10n.noWeakAreasFound,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                    ],
+            const SizedBox(height: 14),
+
+            // Level 1: Subject Filter Chips
+            Text(
+              '1. Subject',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFF0F4C81),
+                  ),
+            ),
+            const SizedBox(height: 6),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final subject in subjects)
+                  ChoiceChip(
+                    key: ValueKey('drill-subject-${subject.subjectId}'),
+                    label: Text(subject.subjectName),
+                    selected: subject.subjectId == activeSubject.subjectId,
+                    onSelected: (_) {
+                      setState(() {
+                        _selectedSubjectId = subject.subjectId;
+                        _selectedCompetenceId = null;
+                      });
+                    },
+                  ),
+              ],
+            ),
+            const SizedBox(height: 14),
+
+            // Level 2: Main Competence Dropdown Filter
+            if (competences.isNotEmpty) ...[
+              Text(
+                '2. Main Competence',
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xFF15803D),
+                    ),
+              ),
+              const SizedBox(height: 6),
+              DropdownButtonFormField<String?>(
+                key: ValueKey(
+                  'drill-comp-${activeSubject.subjectId}-${activeCompetenceId ?? 'all'}',
+                ),
+                initialValue: activeCompetenceId,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 12,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
                   ),
                 ),
-              )
-            else
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: weakTopics.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 8),
-                itemBuilder: (context, index) {
-                  final topic = weakTopics[index];
-                  final accuracy = topic.accuracyRate;
-                  final accuracyColor = accuracy < 50
-                      ? Colors.red
-                      : (accuracy < 75 ? Colors.orange : Colors.green);
-
-                  return AppCard(
-                    child: Padding(
-                      padding: const EdgeInsets.all(14),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: accuracyColor.withValues(alpha: 0.12),
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            child: Text(
-                              '${accuracy.toStringAsFixed(0)}%',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: accuracyColor,
-                                fontSize: 13,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 14),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  topic.topicTitle,
-                                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  '${topic.subjectName} • ${topic.quizzesAttempted} ${l10n.attemptsLabel}',
-                                  style: Theme.of(context).textTheme.bodySmall,
-                                ),
-                              ],
-                            ),
-                          ),
-                          OutlinedButton(
-                            onPressed: () {
-                              context.go(
-                                AppRoutes.lessonQuiz(topic.topicId),
-                              );
-                            },
-                            child: Text(l10n.drillAction),
-                          ),
-                        ],
+                items: [
+                  DropdownMenuItem<String?>(
+                    value: null,
+                    child: Text(
+                      'All Competences (${competences.length})',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  for (final comp in competences)
+                    DropdownMenuItem<String?>(
+                      value: comp.mainCompetenceId,
+                      child: Text(
+                        comp.code.isNotEmpty
+                            ? '${comp.code} · ${comp.title}'
+                            : comp.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                  );
-                },
+                ],
+                onChanged: (val) => setState(() => _selectedCompetenceId = val),
               ),
+              const SizedBox(height: 16),
+            ],
+
+            // Level 3: Specific Competences grouped under each Main Competence
+            Text(
+              '3. Specific Competences',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFFB45309),
+                  ),
+            ),
+            const SizedBox(height: 8),
+            for (final comp in visibleCompetences) ...[
+              AppCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFE0F2FE),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            comp.code.isNotEmpty ? comp.code : 'COMP',
+                            style: const TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xFF0F4C81),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            comp.title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: const Color(0xFF0F172A),
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    const Divider(height: 1),
+                    const SizedBox(height: 8),
+                    if (comp.specificCompetences.isEmpty)
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 6),
+                        child: Text(
+                          'No specific competences published under this competence yet.',
+                          style: TextStyle(
+                            fontSize: 12.5,
+                            color: Color(0xFF64748B),
+                          ),
+                        ),
+                      )
+                    else
+                      for (final sc in comp.specificCompetences) ...[
+                        _SpecificCompetenceDrillRow(
+                          item: sc,
+                          attemptsLabel: l10n.attemptsLabel,
+                          drillLabel: l10n.drillAction,
+                          onDrill: sc.topicId != null && sc.topicId!.isNotEmpty
+                              ? () =>
+                                  context.go(AppRoutes.lessonQuiz(sc.topicId!))
+                              : () => context.go(AppRoutes.learn),
+                        ),
+                        const SizedBox(height: 8),
+                      ],
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
           ],
         );
       },
+    );
+  }
+}
+
+class _SpecificCompetenceDrillRow extends StatelessWidget {
+  const _SpecificCompetenceDrillRow({
+    required this.item,
+    required this.attemptsLabel,
+    required this.drillLabel,
+    required this.onDrill,
+  });
+
+  final RevisionDrillSpecificCompetence item;
+  final String attemptsLabel;
+  final String drillLabel;
+  final VoidCallback onDrill;
+
+  @override
+  Widget build(BuildContext context) {
+    final isNew = item.quizzesAttempted == 0;
+    final accuracy = item.accuracyRate;
+    final badgeColor = isNew
+        ? const Color(0xFF0F4C81)
+        : (accuracy < 50
+            ? const Color(0xFFDC2626)
+            : (accuracy < 75
+                ? const Color(0xFFD97706)
+                : const Color(0xFF15803D)));
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF8FAFC),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: const Color(0xFFE2E8F0)),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: badgeColor.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Text(
+              isNew ? 'New' : '${accuracy.toStringAsFixed(0)}%',
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                color: badgeColor,
+                fontSize: 12,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.code.isNotEmpty
+                      ? '${item.code} · ${item.title}'
+                      : item.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13.5,
+                    color: Color(0xFF0F172A),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '${item.quizzesAttempted} $attemptsLabel'
+                  '${item.questionCount > 0 ? ' · ${item.questionCount} questions' : ''}',
+                  style: const TextStyle(
+                    fontSize: 11.5,
+                    color: Color(0xFF64748B),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          OutlinedButton(
+            onPressed: onDrill,
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            child: Text(drillLabel),
+          ),
+        ],
+      ),
     );
   }
 }

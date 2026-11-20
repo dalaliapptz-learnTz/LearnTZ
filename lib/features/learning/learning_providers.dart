@@ -229,3 +229,10 @@ final offlineSyncNotifierProvider =
     NotifierProvider<OfflineSyncNotifier, OfflineSyncState>(
   OfflineSyncNotifier.new,
 );
+
+final learnerRevisionDrillCatalogProvider = FutureProvider.autoDispose
+    .family<List<RevisionDrillSubject>, String>((ref, learnerId) async {
+      final repository = ref.watch(learningRepositoryProvider);
+      if (repository == null) throw const AuthNotConfiguredException();
+      return repository.getLearnerRevisionDrillCatalog(learnerId);
+    });

@@ -271,6 +271,12 @@ class _StubLearningRepository implements LearningRepository {
       packedAt: DateTime.utc(2026, 11, 13),
     );
   }
+
+  @override
+  Future<List<RevisionDrillSubject>> getLearnerRevisionDrillCatalog(
+    String learnerId,
+  ) async =>
+      const [];
 }
 
 void main() {
