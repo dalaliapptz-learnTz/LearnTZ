@@ -2,7 +2,6 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/auth/auth_providers.dart';
 import '../../core/config/country_configuration.dart';
 import '../../core/design_system/tokens/design_tokens.dart';
 import '../../core/routing/app_router.dart';
@@ -20,10 +19,6 @@ class WelcomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final selectedCountry = ref.watch(selectedCountryProvider);
-    final authEvent = ref.watch(authStateChangesProvider).asData?.value;
-    final client = ref.watch(supabaseClientProvider);
-    final isSignedIn =
-        authEvent?.session != null || client?.auth.currentSession != null;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC), // Page background #F8FAFC
@@ -35,7 +30,6 @@ class WelcomeScreen extends ConsumerWidget {
             _LandingHeader(
               selectedCountry: selectedCountry,
               l10n: l10n,
-              isSignedIn: isSignedIn,
             ),
 
             // 2. Uncluttered, Centered Hero Section with Image-Only Animated Logo
@@ -66,12 +60,10 @@ class _LandingHeader extends ConsumerWidget {
   const _LandingHeader({
     required this.selectedCountry,
     required this.l10n,
-    required this.isSignedIn,
   });
 
   final CountryConfiguration selectedCountry;
   final AppLocalizations l10n;
-  final bool isSignedIn;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -295,86 +287,6 @@ class _LandingHeader extends ConsumerWidget {
                       ),
                       onPressed: () => context.go(AppRoutes.notifications),
                     ),
-                    SizedBox(width: isNarrow ? 4 : 8),
-
-                    // Authentication State Driven Actions
-                    if (isSignedIn) ...[
-                      IconButton(
-                        key: const ValueKey('account-action'),
-                        tooltip: l10n.accountTitle,
-                        icon: const Icon(
-                          Icons.account_circle_outlined,
-                          color: LearnTzColors.primary,
-                        ),
-                        onPressed: () => context.go(AppRoutes.account),
-                      ),
-                    ] else ...[
-                      // Sign In Button
-                      SizedBox(
-                        height: isDesktop ? 36 : 30,
-                        child: OutlinedButton(
-                          key: const Key('landing-header-sign-in-btn'),
-                          onPressed: () => context.go(AppRoutes.signIn),
-                          style: OutlinedButton.styleFrom(
-                            minimumSize: Size.zero,
-                            visualDensity: const VisualDensity(
-                              horizontal: -3,
-                              vertical: -3,
-                            ),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            foregroundColor: LearnTzColors.primary,
-                            side: const BorderSide(
-                              color: LearnTzColors.primary,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: isDesktop ? 14 : (isNarrow ? 6 : 10),
-                              vertical: isDesktop ? 8 : 4,
-                            ),
-                            textStyle: TextStyle(
-                              fontSize: isDesktop ? 13 : 11,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: Text(l10n.signInAction),
-                        ),
-                      ),
-                      SizedBox(width: isNarrow ? 4 : 8),
-
-                      // Get Started Button
-                      SizedBox(
-                        height: isDesktop ? 36 : 30,
-                        child: FilledButton(
-                          key: const Key('landing-header-get-started-btn'),
-                          onPressed: () =>
-                              context.go(AppRoutes.onboardingCountry),
-                          style: FilledButton.styleFrom(
-                            minimumSize: Size.zero,
-                            visualDensity: const VisualDensity(
-                              horizontal: -3,
-                              vertical: -3,
-                            ),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            backgroundColor: LearnTzColors.secondary,
-                            foregroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: isDesktop ? 16 : (isNarrow ? 8 : 12),
-                              vertical: isDesktop ? 8 : 4,
-                            ),
-                            textStyle: TextStyle(
-                              fontSize: isDesktop ? 13 : 11,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: const Text('Get Started'),
-                        ),
-                      ),
-                    ],
                   ],
                 ),
               ),
@@ -607,30 +519,6 @@ class _LandingFeaturesSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Section Header Pill
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: LearnTzColors.primary50,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: LearnTzColors.primary200),
-                ),
-                child: Text(
-                  isSwahili
-                      ? 'MFUMO KAMILI WA MAFUNZO'
-                      : 'COMPREHENSIVE LEARNING ECOSYSTEM',
-                  style: const TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.8,
-                    color: LearnTzColors.primary,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
               Text(
                 isSwahili
                     ? 'Kila Kitu Anachohitaji Mtoto Wako Kufanikiwa'
@@ -641,21 +529,6 @@ class _LandingFeaturesSection extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                   color: LearnTzColors.textPrimary,
                   letterSpacing: -0.4,
-                ),
-              ),
-              const SizedBox(height: 6),
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 620),
-                child: Text(
-                  isSwahili
-                      ? 'Nyanja nne kuu zinazomwezesha mwanafunzi kuanzia msingi wa darasani hadi kufaulu mitihani ya kitaifa.'
-                      : 'Four core pillars empowering African learners from classroom fundamentals to competitive national examinations.',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: LearnTzColors.neutral600,
-                    height: 1.4,
-                  ),
                 ),
               ),
               SizedBox(height: isDesktop ? 32 : 20),
@@ -929,29 +802,6 @@ class _LandingCtaBanner extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  // Badge: "PARENT ONBOARDING" in Kilimanjaro Gold #F59E0B
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: LearnTzColors.accent.withValues(alpha: 0.20),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: LearnTzColors.accent, width: 1.2),
-                    ),
-                    child: Text(
-                      isSwahili ? 'USAJILI WA MZAZI' : 'PARENT ONBOARDING',
-                      style: const TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: 1.0,
-                        color: LearnTzColors.accent,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-
                   // Heading
                   Text(
                     isSwahili
@@ -985,62 +835,27 @@ class _LandingCtaBanner extends StatelessWidget {
                   ),
                   SizedBox(height: isDesktop ? 26 : 20),
 
-                  // Dual Buttons: REGISTER AS A PARENT + PARENT SIGN IN
-                  Wrap(
-                    spacing: 12,
-                    runSpacing: 10,
-                    alignment: WrapAlignment.center,
-                    children: [
-                      FilledButton.icon(
-                        key: const Key('landing-cta-register-parent-btn'),
-                        onPressed: () => context.go(AppRoutes.onboardingCountry),
-                        icon: const Icon(Icons.person_add_rounded, size: 16),
-                        label: Text(
-                          isSwahili
-                              ? 'JISAJILI KAMA MZAZI'
-                              : 'REGISTER AS A PARENT',
-                        ),
-                        style: FilledButton.styleFrom(
-                          backgroundColor:
-                              LearnTzColors.secondary, // Savannah Green #15803D
-                          foregroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: isDesktop ? 24 : 18,
-                            vertical: isDesktop ? 14 : 12,
-                          ),
-                          textStyle: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
+                  // Single Primary Action Button: SIGN IN
+                  FilledButton.icon(
+                    key: const Key('landing-cta-sign-in-btn'),
+                    onPressed: () => context.go(AppRoutes.signIn),
+                    icon: const Icon(Icons.login_rounded, size: 16),
+                    label: Text(isSwahili ? 'INGIA' : 'SIGN IN'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: LearnTzColors.secondary,
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isDesktop ? 28 : 22,
+                        vertical: isDesktop ? 14 : 12,
                       ),
-                      OutlinedButton.icon(
-                        key: const Key('landing-cta-sign-in-btn'),
-                        onPressed: () => context.go(AppRoutes.signIn),
-                        icon: const Icon(Icons.login_rounded, size: 16),
-                        label: Text(
-                          isSwahili ? 'INGIA KAMA MZAZI' : 'PARENT SIGN IN',
-                        ),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          side: const BorderSide(color: Colors.white, width: 1.5),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: isDesktop ? 24 : 18,
-                            vertical: isDesktop ? 14 : 12,
-                          ),
-                          textStyle: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
+                      textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
-                    ],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
                   ),
                 ],
               ),

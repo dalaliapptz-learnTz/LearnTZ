@@ -45,7 +45,7 @@ void main() {
         await tester.pumpWidget(_buildTestApp());
         await tester.pumpAndSettle();
 
-        // 1. Header Navigation
+        // 1. Header Navigation (auth actions removed)
         expect(find.byKey(const Key('header-brand-logo-btn')), findsOneWidget);
         expect(find.byKey(const ValueKey('nav-/country')), findsOneWidget);
         expect(
@@ -58,12 +58,13 @@ void main() {
         );
         expect(
           find.byKey(const Key('landing-header-sign-in-btn')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const Key('landing-header-get-started-btn')),
-          findsOneWidget,
+          findsNothing,
         );
+        expect(find.byKey(const ValueKey('account-action')), findsNothing);
 
         // 2. Hero Section (Image-Only Official Logo, "Learn Anywhere, Anytime.")
         expect(
@@ -72,7 +73,12 @@ void main() {
         );
         expect(find.text('Learn Anywhere, Anytime.'), findsWidgets);
 
-        // 3. Four Core Learning Feature Cards (2x2 on mobile)
+        // 3. Four Core Learning Feature Cards (section pill & subtitle removed)
+        expect(find.text('COMPREHENSIVE LEARNING ECOSYSTEM'), findsNothing);
+        expect(
+          find.textContaining('Four core pillars empowering African learners'),
+          findsNothing,
+        );
         expect(find.text('National Syllabi Coverage'), findsOneWidget);
         expect(find.text('Interactive Practice'), findsOneWidget);
         expect(find.text('Examination Preparation'), findsOneWidget);
@@ -82,22 +88,21 @@ void main() {
         expect(find.text('View Exam Centre →'), findsOneWidget);
         expect(find.text('See Analytics →'), findsOneWidget);
 
-        // 4. Call to Action Banner
-        expect(find.text("PARENT ONBOARDING"), findsOneWidget);
+        // 4. Call to Action Banner (PARENT ONBOARDING pill removed, single SIGN IN CTA)
+        expect(find.text('PARENT ONBOARDING'), findsNothing);
         expect(
           find.text("YOUR CHILD'S LEARNING JOURNEY STARTS HERE."),
           findsOneWidget,
         );
         expect(
           find.byKey(const Key('landing-cta-register-parent-btn')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const Key('landing-cta-sign-in-btn')),
           findsOneWidget,
         );
-        expect(find.text('REGISTER AS A PARENT'), findsOneWidget);
-        expect(find.text('PARENT SIGN IN'), findsOneWidget);
+        expect(find.text('SIGN IN'), findsOneWidget);
 
         expect(tester.takeException(), isNull);
       },
@@ -129,7 +134,7 @@ void main() {
             findsOneWidget,
           );
           expect(find.text('National Syllabi Coverage'), findsOneWidget);
-          expect(find.text('PARENT ONBOARDING'), findsOneWidget);
+          expect(find.text('SIGN IN'), findsOneWidget);
           expect(
             tester.takeException(),
             isNull,
