@@ -457,8 +457,10 @@ class _LandingFeaturesSection extends StatelessWidget {
     final cards = [
       _FeatureCardData(
         icon: Icons.menu_book_rounded,
-        iconColor: LearnTzColors.primary,
-        iconBgColor: LearnTzColors.primary50,
+        iconColor: const Color(0xFF0F4C81),
+        cardTintColor: const Color(0xFFEFF6FF),
+        borderColor: const Color(0xFFBFDBFE),
+        imageAsset: 'assets/images/welcome/feature_syllabi.jpg',
         badge: isSwahili ? 'Mtaala wa Taifa' : 'Curriculum Aligned',
         title: isSwahili ? 'Mitaala ya Kitaifa' : 'National Syllabi Coverage',
         description: isSwahili
@@ -469,8 +471,10 @@ class _LandingFeaturesSection extends StatelessWidget {
       ),
       _FeatureCardData(
         icon: Icons.quiz_rounded,
-        iconColor: LearnTzColors.secondary,
-        iconBgColor: LearnTzColors.secondary50,
+        iconColor: const Color(0xFF15803D),
+        cardTintColor: const Color(0xFFF0FDF4),
+        borderColor: const Color(0xFFBBF7D0),
+        imageAsset: 'assets/images/welcome/feature_practice.jpg',
         badge: isSwahili ? 'Mazoezi Shirikishi' : 'Active Practice',
         title: isSwahili ? 'Mazoezi Shirikishi' : 'Interactive Practice',
         description: isSwahili
@@ -481,8 +485,10 @@ class _LandingFeaturesSection extends StatelessWidget {
       ),
       _FeatureCardData(
         icon: Icons.assignment_turned_in_rounded,
-        iconColor: LearnTzColors.accent,
-        iconBgColor: LearnTzColors.accent50,
+        iconColor: const Color(0xFFD97706),
+        cardTintColor: const Color(0xFFFFFBEB),
+        borderColor: const Color(0xFFFDE68A),
+        imageAsset: 'assets/images/welcome/feature_exams.jpg',
         badge: isSwahili ? 'Mitihani ya Taifa' : 'Exam Preparation',
         title: isSwahili ? 'Maandalizi ya Mitihani' : 'Examination Preparation',
         description: isSwahili
@@ -494,7 +500,9 @@ class _LandingFeaturesSection extends StatelessWidget {
       _FeatureCardData(
         icon: Icons.insights_rounded,
         iconColor: const Color(0xFF0D9488),
-        iconBgColor: const Color(0xFFCCFBF1),
+        cardTintColor: const Color(0xFFF0FDFA),
+        borderColor: const Color(0xFF99F6E4),
+        imageAsset: 'assets/images/welcome/feature_analytics.jpg',
         badge: isSwahili ? 'Usimamizi wa Mzazi' : 'Parent Oversight',
         title: isSwahili
             ? 'Takwimu za Maendeleo'
@@ -589,7 +597,9 @@ class _FeatureCardData {
   const _FeatureCardData({
     required this.icon,
     required this.iconColor,
-    required this.iconBgColor,
+    required this.cardTintColor,
+    required this.borderColor,
+    required this.imageAsset,
     required this.badge,
     required this.title,
     required this.description,
@@ -599,7 +609,9 @@ class _FeatureCardData {
 
   final IconData icon;
   final Color iconColor;
-  final Color iconBgColor;
+  final Color cardTintColor;
+  final Color borderColor;
+  final String imageAsset;
   final String badge;
   final String title;
   final String description;
@@ -631,124 +643,193 @@ class _FeatureCardState extends State<_FeatureCard> {
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 220),
+        clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-            color: _isHovered
-                ? data.iconColor.withValues(alpha: 0.6)
-                : const Color(0xFFE2E8F0),
-            width: _isHovered ? 1.5 : 1.0,
+          gradient: LinearGradient(
+            colors: [Colors.white, data.cardTintColor],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          boxShadow: _isHovered
-              ? [
-                  BoxShadow(
-                    color: data.iconColor.withValues(alpha: 0.08),
-                    blurRadius: 12,
-                    offset: const Offset(0, 4),
-                  ),
-                ]
-              : null,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: _isHovered ? data.iconColor : data.borderColor,
+            width: _isHovered ? 1.8 : 1.2,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: data.iconColor.withValues(alpha: _isHovered ? 0.18 : 0.08),
+              blurRadius: _isHovered ? 18 : 10,
+              offset: Offset(0, _isHovered ? 8 : 4),
+            ),
+          ],
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
             onTap: () => context.go(data.route),
-            borderRadius: BorderRadius.circular(14),
-            child: Padding(
-              padding: EdgeInsets.all(
-                isCompact ? (screenWidth < 360 ? 10 : 12) : 18,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            borderRadius: BorderRadius.circular(18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Real Photo Banner with Vibrant Colour Scrim, Icon Medallion & Category Pill
+                AspectRatio(
+                  aspectRatio: 16 / 10,
+                  child: Stack(
+                    fit: StackFit.expand,
                     children: [
-                      Container(
-                        width: isCompact ? 32 : 38,
-                        height: isCompact ? 32 : 38,
-                        decoration: BoxDecoration(
-                          color: data.iconBgColor,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(
-                          data.icon,
-                          color: data.iconColor,
-                          size: isCompact ? 18 : 20,
-                        ),
-                      ),
-                      if (showBadge) ...[
-                        const SizedBox(width: 6),
-                        Flexible(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 6,
-                              vertical: 2,
-                            ),
-                            decoration: BoxDecoration(
-                              color: LearnTzColors.neutral100,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Text(
-                              data.badge,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 9,
-                                fontWeight: FontWeight.w700,
-                                color: LearnTzColors.neutral700,
-                              ),
+                      Image.asset(
+                        data.imageAsset,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                data.iconColor,
+                                data.iconColor.withValues(alpha: 0.72),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
                           ),
+                          child: Icon(
+                            data.icon,
+                            color: Colors.white.withValues(alpha: 0.9),
+                            size: isCompact ? 34 : 44,
+                          ),
                         ),
-                      ],
+                      ),
+                      // Subtle coloured bottom scrim so overlays stay sharp & readable
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.black.withValues(alpha: 0.05),
+                              data.iconColor.withValues(alpha: 0.55),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                      ),
+                      // Bottom-left icon medallion + category badge
+                      Positioned(
+                        left: isCompact ? 8 : 12,
+                        right: isCompact ? 8 : 12,
+                        bottom: isCompact ? 8 : 10,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: isCompact ? 28 : 34,
+                              height: isCompact ? 28 : 34,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(9),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: 0.14),
+                                    blurRadius: 6,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: Icon(
+                                data.icon,
+                                color: data.iconColor,
+                                size: isCompact ? 16 : 19,
+                              ),
+                            ),
+                            if (showBadge) ...[
+                              const SizedBox(width: 6),
+                              Flexible(
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 3,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: data.iconColor.withValues(alpha: 0.92),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Text(
+                                    data.badge,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(height: isCompact ? 10 : 14),
-                  Text(
-                    data.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: isCompact ? 13 : 15,
-                      fontWeight: FontWeight.bold,
-                      color: LearnTzColors.textPrimary,
-                      height: 1.25,
-                    ),
+                ),
+
+                // Colourful Card Content Body
+                Padding(
+                  padding: EdgeInsets.all(
+                    isCompact ? (screenWidth < 360 ? 10 : 12) : 16,
                   ),
-                  const SizedBox(height: 5),
-                  Text(
-                    data.description,
-                    maxLines: isCompact ? 3 : 4,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: isCompact ? 11 : 12,
-                      color: LearnTzColors.textSecondary,
-                      height: 1.4,
-                    ),
-                  ),
-                  SizedBox(height: isCompact ? 10 : 14),
-                  Row(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Flexible(
+                      Text(
+                        data.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: isCompact ? 13 : 16,
+                          fontWeight: FontWeight.w800,
+                          color: LearnTzColors.textPrimary,
+                          height: 1.25,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        data.description,
+                        maxLines: isCompact ? 3 : 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: isCompact ? 11 : 12.5,
+                          color: const Color(0xFF475569),
+                          height: 1.4,
+                        ),
+                      ),
+                      SizedBox(height: isCompact ? 10 : 14),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isCompact ? 9 : 12,
+                          vertical: isCompact ? 5 : 7,
+                        ),
+                        decoration: BoxDecoration(
+                          color: _isHovered
+                              ? data.iconColor
+                              : data.iconColor.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: Text(
                           data.actionLabel,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: isCompact ? 11 : 12,
+                            fontSize: isCompact ? 10.5 : 12,
                             fontWeight: FontWeight.w800,
-                            color: data.iconColor,
+                            color: _isHovered ? Colors.white : data.iconColor,
                           ),
                         ),
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
