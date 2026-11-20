@@ -321,6 +321,22 @@ class LearnerRepository {
         .map((row) => AcademicTerm.fromJson(Map<String, dynamic>.from(row as Map)))
         .toList(growable: false);
   }
+
+  Future<School> addSchool({
+    required String countryCode,
+    required String educationSystemId,
+    required String name,
+  }) async {
+    final response = await _client.rpc(
+      'add_parent_school',
+      params: {
+        'p_country_code': countryCode,
+        'p_education_system_id': educationSystemId,
+        'p_name': name.trim(),
+      },
+    );
+    return School.fromJson(Map<String, dynamic>.from(response as Map));
+  }
 }
 
 class EducationCatalogRepository {

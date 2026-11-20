@@ -81,6 +81,7 @@ class _LearnerFormState extends ConsumerState<_LearnerForm> {
   String? _dateError;
   String? _error;
   bool _isSaving = false;
+  final List<School> _addedSchools = [];
 
   @override
   void initState() {
@@ -208,6 +209,145 @@ class _LearnerFormState extends ConsumerState<_LearnerForm> {
     }
   }
 
+  Future<void> _showAddSchoolDialog({
+    required String countryCode,
+    required String educationSystemId,
+  }) async {
+    final nameController = TextEditingController();
+    final dialogFormKey = GlobalKey<FormState>();
+    String? dialogError;
+    bool isSubmitting = false;
+
+    final createdSchool = await showDialog<School>(
+      context: context,
+      builder: (dialogContext) => StatefulBuilder(
+        builder: (ctx, setDialogState) => AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Row(
+            children: [
+              Icon(Icons.add_business_outlined, color: Color(0xFF0F4C81)),
+              SizedBox(width: 10),
+              Expanded(child: Text('Add a New School')),
+            ],
+          ),
+          content: Form(
+            key: dialogFormKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Enter the official name of your child\'s school. It will be saved and selected automatically.',
+                  style: TextStyle(fontSize: 13, color: Color(0xFF64748B)),
+                ),
+                const SizedBox(height: 14),
+                TextFormField(
+                  key: const ValueKey('new-school-name-field'),
+                  controller: nameController,
+                  autofocus: true,
+                  textCapitalization: TextCapitalization.words,
+                  decoration: const InputDecoration(
+                    labelText: 'School Name',
+                    hintText: 'e.g. Mlimani Primary School',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    final trimmed = value?.trim() ?? '';
+                    if (trimmed.length < 2) {
+                      return 'Please enter a valid school name (at least 2 characters)';
+                    }
+                    if (trimmed.length > 200) {
+                      return 'School name must be 200 characters or less';
+                    }
+                    return null;
+                  },
+                ),
+                if (dialogError != null) ...[
+                  const SizedBox(height: 10),
+                  Text(
+                    dialogError!,
+                    style: const TextStyle(
+                      color: Color(0xFFDC2626),
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: isSubmitting
+                  ? null
+                  : () => Navigator.of(dialogContext).pop(),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              key: const ValueKey('confirm-add-school-btn'),
+              onPressed: isSubmitting
+                  ? null
+                  : () async {
+                      if (!dialogFormKey.currentState!.validate()) return;
+                      final repo = ref.read(learnerRepositoryProvider);
+                      if (repo == null) {
+                        setDialogState(
+                          () => dialogError = 'Please sign in first.',
+                        );
+                        return;
+                      }
+                      setDialogState(() {
+                        isSubmitting = true;
+                        dialogError = null;
+                      });
+                      try {
+                        final school = await repo.addSchool(
+                          countryCode: countryCode,
+                          educationSystemId: educationSystemId,
+                          name: nameController.text.trim(),
+                        );
+                        if (dialogContext.mounted) {
+                          Navigator.of(dialogContext).pop(school);
+                        }
+                      } catch (e) {
+                        setDialogState(() {
+                          isSubmitting = false;
+                          dialogError = e.toString().replaceAll('Exception: ', '');
+                        });
+                      }
+                    },
+              child: isSubmitting
+                  ? const SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: Colors.white,
+                      ),
+                    )
+                  : const Text('Add School'),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    nameController.dispose();
+
+    if (createdSchool != null && mounted) {
+      setState(() {
+        if (!_addedSchools.any((s) => s.id == createdSchool.id)) {
+          _addedSchools.add(createdSchool);
+        }
+        _schoolId = createdSchool.id;
+      });
+      ref.invalidate(educationCatalogProvider);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Added "${createdSchool.name}" and selected it.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -240,10 +380,18 @@ class _LearnerFormState extends ConsumerState<_LearnerForm> {
     final selectedGradeId = grades.any((grade) => grade.id == _gradeId)
         ? _gradeId
         : null;
-    final schools = widget.catalog.schoolsForSystem(
+    final catalogSchools = widget.catalog.schoolsForSystem(
       selectedCountryCode,
       selectedSystemId,
     );
+    final schools = <School>[
+      ...catalogSchools,
+      for (final extra in _addedSchools)
+        if (extra.countryCode == selectedCountryCode &&
+            extra.educationSystemId == selectedSystemId &&
+            !catalogSchools.any((s) => s.id == extra.id))
+          extra,
+    ]..sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     final selectedSchoolId = schools.any((school) => school.id == _schoolId)
         ? _schoolId
         : null;
@@ -482,6 +630,21 @@ class _LearnerFormState extends ConsumerState<_LearnerForm> {
                           : value,
                     ),
                   ),
+                  if (selectedCountryCode != null && selectedSystemId != null)
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton.icon(
+                        key: const ValueKey('add-school-action'),
+                        onPressed: _isSaving
+                            ? null
+                            : () => _showAddSchoolDialog(
+                                  countryCode: selectedCountryCode,
+                                  educationSystemId: selectedSystemId,
+                                ),
+                        icon: const Icon(Icons.add_business_outlined, size: 18),
+                        label: const Text('School not listed? Add a new school'),
+                      ),
+                    ),
                   if (_error != null)
                     AuthInlineMessage(message: _error!, isError: true),
                   const SizedBox(height: 16),
