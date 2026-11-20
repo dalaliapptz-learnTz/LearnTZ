@@ -431,7 +431,7 @@ class LearnerDashboardScreen extends ConsumerWidget {
                             crossAxisCount: cols,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12,
-                            mainAxisExtent: isCompact ? 236 : 292,
+                            mainAxisExtent: isCompact ? 196 : 248,
                           ),
                           itemBuilder: (_, index) => hubs[index],
                         );
@@ -600,25 +600,6 @@ class LearnerDashboardScreen extends ConsumerWidget {
                           fontSize: isCompact ? 11 : 12,
                           color: const Color(0xFF475569),
                           height: 1.32,
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 9,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: color.withValues(alpha: 0.12),
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: Text(
-                          'Explore →',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: color,
-                          ),
                         ),
                       ),
                     ],
