@@ -137,17 +137,15 @@ class GamificationDashboardSection extends ConsumerWidget {
 
                 return Column(
                   children: [
-                    IntrinsicHeight(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Expanded(child: streakCard),
-                          const SizedBox(width: 8),
-                          Expanded(child: xpBadgesCard),
-                          const SizedBox(width: 8),
-                          Expanded(child: leaderboardCard),
-                        ],
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(child: streakCard),
+                        const SizedBox(width: 8),
+                        Expanded(child: xpBadgesCard),
+                        const SizedBox(width: 8),
+                        Expanded(child: leaderboardCard),
+                      ],
                     ),
                     if (overview.weeklyCalendar.isNotEmpty) ...[
                       const SizedBox(height: 10),
@@ -415,6 +413,7 @@ class _StreakOverviewCard extends StatelessWidget {
     if (compact) {
       return Container(
         key: const ValueKey('gamification-streak-card'),
+        constraints: const BoxConstraints(minHeight: 118),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -601,6 +600,7 @@ class _XpAndBadgesCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           child: Container(
             key: const ValueKey('gamification-xp-badges-card'),
+            constraints: const BoxConstraints(minHeight: 118),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -798,6 +798,7 @@ class _LeaderboardPreviewCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           child: Container(
             key: const ValueKey('gamification-leaderboard-card'),
+            constraints: const BoxConstraints(minHeight: 118),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               gradient: LinearGradient(
