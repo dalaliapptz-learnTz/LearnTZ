@@ -346,9 +346,6 @@ class LearnerDashboardScreen extends ConsumerWidget {
                     LayoutBuilder(
                       builder: (context, constraints) {
                         final cols = constraints.maxWidth >= 720 ? 3 : 2;
-                        const spacing = 12.0;
-                        final cardWidth =
-                            (constraints.maxWidth - (spacing * (cols - 1))) / cols;
                         final isCompact = cols == 2;
 
                         final hubs = <Widget>[
@@ -426,13 +423,17 @@ class LearnerDashboardScreen extends ConsumerWidget {
                           ),
                         ];
 
-                        return Wrap(
-                          spacing: spacing,
-                          runSpacing: spacing,
-                          children: [
-                            for (final hub in hubs)
-                              SizedBox(width: cardWidth, child: hub),
-                          ],
+                        return GridView.builder(
+                          itemCount: hubs.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: cols,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            mainAxisExtent: isCompact ? 236 : 292,
+                          ),
+                          itemBuilder: (_, index) => hubs[index],
                         );
                       },
                     ),
@@ -483,11 +484,11 @@ class LearnerDashboardScreen extends ConsumerWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
             children: [
-              // Real Photo Banner with Coloured Scrim & Floating Icon Medallion
-              AspectRatio(
-                aspectRatio: isCompact ? 16 / 9 : 16 / 10,
+              // Fixed-height Real Photo Banner so every card aligns identically
+              SizedBox(
+                height: isCompact ? 104 : 148,
+                width: double.infinity,
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
@@ -573,53 +574,55 @@ class LearnerDashboardScreen extends ConsumerWidget {
                 ),
               ),
 
-              // Card Text & Colourful Action Pill
-              Padding(
-                padding: EdgeInsets.all(isCompact ? 10 : 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: isCompact ? 13.5 : 15.5,
-                        color: LearnTzColors.textPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: isCompact ? 11 : 12,
-                        color: const Color(0xFF475569),
-                        height: 1.32,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 9,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: color.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Text(
-                        'Explore →',
+              // Card Text & Colourful Action Pill pinned cleanly to bottom
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(isCompact ? 10 : 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 11,
                           fontWeight: FontWeight.w800,
-                          color: color,
+                          fontSize: isCompact ? 13.5 : 15.5,
+                          color: LearnTzColors.textPrimary,
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 3),
+                      Text(
+                        description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: isCompact ? 11 : 12,
+                          color: const Color(0xFF475569),
+                          height: 1.32,
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 9,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: color.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Text(
+                          'Explore →',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                            color: color,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
