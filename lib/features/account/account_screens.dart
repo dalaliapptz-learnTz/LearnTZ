@@ -80,14 +80,14 @@ class AccountScreen extends ConsumerWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1080),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 1. Clean Full-Width Identity & Status Header Card
+                      // 1. Warm Full-Width Identity & Status Header Card
                       _buildIdentityHeader(
                         context: context,
                         l10n: l10n,
@@ -96,7 +96,7 @@ class AccountScreen extends ConsumerWidget {
                         canAccessAdmin: canAccessAdmin,
                         canAccessCurriculum: canAccessCurriculum,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 14),
 
                       // Incoming Guardian Invitations (if any)
                       incomingInvitations.when(
@@ -105,20 +105,20 @@ class AccountScreen extends ConsumerWidget {
                         data: (invitations) => invitations.isEmpty
                             ? const SizedBox.shrink()
                             : Padding(
-                                padding: const EdgeInsets.only(bottom: 20),
+                                padding: const EdgeInsets.only(bottom: 14),
                                 child: _IncomingInvitationsCard(
                                   invitations: invitations,
                                 ),
                               ),
                       ),
 
-                      // 2. Colourful Family Quick Analytics Snapshot KPIs
+                      // 2. Colourful Interactive Family Quick Analytics Snapshot KPIs
                       _FamilyQuickAnalyticsStrip(
                         learners: learnerList,
                         overviews: overviewList,
                         gamification: gamifList,
                       ),
-                      const SizedBox(height: 22),
+                      const SizedBox(height: 18),
 
                       // 3. Learners At-a-Glance Visual Snapshot Cards
                       Row(
@@ -390,91 +390,128 @@ class AccountScreen extends ConsumerWidget {
   }) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: LearnTzColors.border),
-      ),
-      child: profile.when(
-        loading: () => const Center(
-          child: Padding(
-            padding: EdgeInsets.all(12),
-            child: CircularProgressIndicator(),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF0F172A).withValues(alpha: 0.04),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
-        ),
-        error: (error, _) => AuthInlineMessage(
-          message: _accountErrorMessage(error, l10n),
-          isError: true,
-        ),
-        data: (value) {
-          final initials = _initials(value.fullName, email);
-          return Row(
-            children: [
-              CircleAvatar(
-                radius: 26,
-                backgroundColor: const Color(0xFF0F4C81),
-                child: Text(
-                  initials,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 18,
-                  ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            height: 4,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF0F4C81), Color(0xFF15803D)],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: profile.when(
+              loading: () => const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: CircularProgressIndicator(),
                 ),
               ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              error: (error, _) => AuthInlineMessage(
+                message: _accountErrorMessage(error, l10n),
+                isError: true,
+              ),
+              data: (value) {
+                final initials = _initials(value.fullName, email);
+                final displayName = value.fullName.trim().isNotEmpty
+                    ? value.fullName
+                        .trim()
+                        .split(RegExp(r'\s+'))
+                        .map((w) => w.isEmpty
+                            ? w
+                            : '${w[0].toUpperCase()}${w.substring(1)}')
+                        .join(' ')
+                    : l10n.parentDashboardTitle;
+                return Row(
                   children: [
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 4,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text(
-                          value.fullName.isNotEmpty
-                              ? value.fullName
-                              : l10n.parentDashboardTitle,
-                          style: LearnTzTypography.h3.copyWith(
-                            fontWeight: FontWeight.w800,
-                            color: LearnTzColors.textPrimary,
-                          ),
+                    CircleAvatar(
+                      radius: 24,
+                      backgroundColor: const Color(0xFF0F4C81),
+                      child: Text(
+                        initials,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
                         ),
-                        ds.AppBadge(
-                          label: value.countryCode,
-                          variant: ds.AppBadgeVariant.neutral,
-                          size: ds.AppBadgeSize.sm,
-                        ),
-                        if (canAccessAdmin)
-                          const ds.AppBadge(
-                            label: 'Admin',
-                            variant: ds.AppBadgeVariant.primary,
-                            size: ds.AppBadgeSize.sm,
-                          ),
-                        if (canAccessCurriculum && !canAccessAdmin)
-                          const ds.AppBadge(
-                            label: 'Curriculum Staff',
-                            variant: ds.AppBadgeVariant.success,
-                            size: ds.AppBadgeSize.sm,
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      email,
-                      style: LearnTzTypography.bodySmall.copyWith(
-                        color: LearnTzColors.textSecondary,
                       ),
-                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            spacing: 6,
+                            runSpacing: 4,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Text(
+                                displayName,
+                                style: LearnTzTypography.h3.copyWith(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800,
+                                  color: LearnTzColors.textPrimary,
+                                ),
+                              ),
+                              ds.AppBadge(
+                                label: value.countryCode,
+                                variant: ds.AppBadgeVariant.neutral,
+                                size: ds.AppBadgeSize.sm,
+                              ),
+                              if (canAccessAdmin)
+                                const ds.AppBadge(
+                                  label: 'Admin',
+                                  variant: ds.AppBadgeVariant.primary,
+                                  size: ds.AppBadgeSize.sm,
+                                )
+                              else if (canAccessCurriculum)
+                                const ds.AppBadge(
+                                  label: 'Curriculum Staff',
+                                  variant: ds.AppBadgeVariant.success,
+                                  size: ds.AppBadgeSize.sm,
+                                )
+                              else
+                                const ds.AppBadge(
+                                  label: 'Parent',
+                                  variant: ds.AppBadgeVariant.primary,
+                                  size: ds.AppBadgeSize.sm,
+                                ),
+                            ],
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            email,
+                            style: LearnTzTypography.bodySmall.copyWith(
+                              color: LearnTzColors.textSecondary,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
-                ),
-              ),
-            ],
-          );
-        },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -722,45 +759,236 @@ class _FamilyQuickAnalyticsStrip extends StatelessWidget {
       _SnapshotKpiCard(
         icon: Icons.groups_rounded,
         title: 'Learners',
-        value: '$totalLearners',
-        subtitle: totalLearners == 1 ? 'Active profile' : 'Active profiles',
         accent: const Color(0xFF0F4C81),
         tint: const Color(0xFFEFF6FF),
         border: const Color(0xFFBFDBFE),
+        onTap: () => context.go(AppRoutes.addLearner),
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              '$totalLearners',
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF0F172A),
+                letterSpacing: -0.4,
+              ),
+            ),
+            const Spacer(),
+            if (learners.isNotEmpty)
+              SizedBox(
+                height: 26,
+                width: (learners.take(3).length * 18.0) + 10,
+                child: Stack(
+                  children: [
+                    for (var i = 0; i < learners.take(3).length; i++)
+                      Positioned(
+                        left: i * 16.0,
+                        child: Container(
+                          width: 24,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            color: i.isEven
+                                ? const Color(0xFF0F4C81)
+                                : const Color(0xFF15803D),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 1.5),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            learners[i].firstName.isNotEmpty
+                                ? learners[i].firstName[0].toUpperCase()
+                                : 'L',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+        footer: Text(
+          totalLearners == 1 ? 'Active profile' : 'Active profiles',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            fontSize: 11,
+            color: Color(0xFF64748B),
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
       _SnapshotKpiCard(
         icon: Icons.auto_graph_rounded,
         title: 'Avg Mastery',
-        value: '$avgMastery%',
-        subtitle: 'Curriculum progress',
         accent: const Color(0xFF15803D),
         tint: const Color(0xFFF0FDF4),
         border: const Color(0xFFBBF7D0),
+        onTap: () => context.go(AppRoutes.parentDashboard),
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              '$avgMastery%',
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF0F172A),
+                letterSpacing: -0.4,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: LinearProgressIndicator(
+                  value: avgMastery.clamp(0, 100) / 100.0,
+                  minHeight: 7,
+                  backgroundColor: const Color(0xFFDCFCE7),
+                  valueColor:
+                      const AlwaysStoppedAnimation<Color>(Color(0xFF15803D)),
+                ),
+              ),
+            ),
+          ],
+        ),
+        footer: const Text(
+          'Curriculum progress',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 11,
+            color: Color(0xFF64748B),
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
       _SnapshotKpiCard(
         icon: Icons.bolt_rounded,
         title: 'Verified XP',
-        value: '$totalXp XP',
-        subtitle: '+$weeklyXp XP this week',
         accent: const Color(0xFFD97706),
         tint: const Color(0xFFFFFBEB),
         border: const Color(0xFFFDE68A),
+        onTap: () => context.go(AppRoutes.parentDashboard),
+        body: Text(
+          '$totalXp XP',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w900,
+            color: Color(0xFF0F172A),
+            letterSpacing: -0.4,
+          ),
+        ),
+        footer: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFEF3C7),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Text(
+            '+$weeklyXp XP this week',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 10.5,
+              color: Color(0xFFB45309),
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
       ),
       _SnapshotKpiCard(
         icon: Icons.emoji_events_rounded,
         title: 'Streaks & Badges',
-        value: '${bestStreak}d · $totalBadges',
-        subtitle: 'Top streak · Badges',
         accent: const Color(0xFF6D28D9),
         tint: const Color(0xFFF5F3FF),
         border: const Color(0xFFDDD6FE),
+        onTap: () => context.go(AppRoutes.parentDashboard),
+        body: Wrap(
+          spacing: 6,
+          runSpacing: 4,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFF7ED),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xFFFED7AA)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.local_fire_department_rounded,
+                    size: 14,
+                    color: Color(0xFFEA580C),
+                  ),
+                  const SizedBox(width: 3),
+                  Text(
+                    '${bestStreak}d',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF9A3412),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: const Color(0xFFEDE9FE),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xFFDDD6FE)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.workspace_premium_rounded,
+                    size: 14,
+                    color: Color(0xFF6D28D9),
+                  ),
+                  const SizedBox(width: 3),
+                  Text(
+                    '$totalBadges',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF5B21B6),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        footer: Text(
+          'Top streak · ${totalBadges == 1 ? '1 badge' : '$totalBadges badges'}',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            fontSize: 11,
+            color: Color(0xFF64748B),
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
     ];
 
     return LayoutBuilder(
       builder: (context, constraints) {
         final cols = constraints.maxWidth >= 760 ? 4 : 2;
-        const spacing = 12.0;
+        const spacing = 10.0;
         final width = (constraints.maxWidth - (spacing * (cols - 1))) / cols;
         return Wrap(
           spacing: spacing,
@@ -778,94 +1006,86 @@ class _SnapshotKpiCard extends StatelessWidget {
   const _SnapshotKpiCard({
     required this.icon,
     required this.title,
-    required this.value,
-    required this.subtitle,
+    required this.body,
+    required this.footer,
     required this.accent,
     required this.tint,
     required this.border,
+    this.onTap,
   });
 
   final IconData icon;
   final String title;
-  final String value;
-  final String subtitle;
+  final Widget body;
+  final Widget footer;
   final Color accent;
   final Color tint;
   final Color border;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.white, tint],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: border, width: 1.2),
-        boxShadow: [
-          BoxShadow(
-            color: accent.withValues(alpha: 0.07),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: accent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(icon, color: Colors.white, size: 18),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
-                    color: accent,
-                  ),
-                ),
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 112),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.white, tint],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: border, width: 1.2),
+            boxShadow: [
+              BoxShadow(
+                color: accent.withValues(alpha: 0.07),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
             ],
           ),
-          const SizedBox(height: 10),
-          Text(
-            value,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w900,
-              color: Color(0xFF0F172A),
-              letterSpacing: -0.4,
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: accent,
+                      borderRadius: BorderRadius.circular(9),
+                    ),
+                    child: Icon(icon, color: Colors.white, size: 16),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: accent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              body,
+              const SizedBox(height: 6),
+              footer,
+            ],
           ),
-          const SizedBox(height: 2),
-          Text(
-            subtitle,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 11.5,
-              color: Color(0xFF64748B),
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
