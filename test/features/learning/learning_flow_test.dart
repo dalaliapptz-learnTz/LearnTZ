@@ -533,4 +533,81 @@ void main() {
       );
     },
   );
+
+  testWidgets(
+    'Learners Hub 2.0 renders simplified 4-destination layout on mobile (390x844) without overflow',
+    (tester) async {
+      final stubRepo = _StubLearningRepository(
+        bundle: LearningCatalogBundle(
+          subjects: const [subject],
+          topicsBySubject: const {
+            'subj-1': [topic],
+          },
+          lessonsByTopic: const {
+            'topic-1': [lesson],
+          },
+          progressByLesson: const {},
+          summary: const LearnerLearningSummary(
+            learnerId: 'learner-1',
+            totalLessons: 1,
+            completedLessons: 0,
+            inProgressLessons: 0,
+            averageQuizScorePercent: 0,
+            masteryPercent: 0,
+            hasActiveSubscription: true,
+          ),
+        ),
+        lesson: lesson,
+        quiz: quiz,
+        submissionResult: submissionResult,
+      );
+
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
+      await tester.pumpWidget(
+        buildTestScope(
+          stubRepo: stubRepo,
+          child: const LearningHubScreen(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Home tab: greeting, Continue Learning hero, 4 My Learning tiles, no admin clutter.
+      expect(find.text('Hello, Amani!'), findsOneWidget);
+      expect(find.text("Let's continue learning today."), findsOneWidget);
+      expect(find.text('CONTINUE LEARNING'), findsOneWidget);
+      expect(find.byKey(const ValueKey('continue-learning-cta')), findsOneWidget);
+      expect(find.byKey(const ValueKey('hub-tile-subjects')), findsOneWidget);
+      expect(find.byKey(const ValueKey('hub-tile-practice')), findsOneWidget);
+      expect(find.byKey(const ValueKey('hub-tile-progress')), findsOneWidget);
+      expect(find.byKey(const ValueKey('hub-tile-saved')), findsOneWidget);
+      expect(find.text('Parent Dashboard'), findsNothing);
+      expect(find.text('Communities Hub'), findsNothing);
+
+      // Switch to Subjects tab via 4-item bottom navigation.
+      await tester.tap(find.byKey(const ValueKey('learner-nav-subjects')));
+      await tester.pumpAndSettle();
+      expect(find.text('My Subjects'), findsOneWidget);
+      expect(find.text('Kiswahili'), findsOneWidget);
+      expect(find.text('Sauti za Irabu na Silabi Sahili'), findsOneWidget);
+
+      // Switch to Practice tab.
+      await tester.tap(find.byKey(const ValueKey('learner-nav-practice')));
+      await tester.pumpAndSettle();
+      expect(find.text('Revision & Flashcards'), findsOneWidget);
+      expect(find.text('Practice Examinations'), findsOneWidget);
+      expect(find.text('Academic Challenges'), findsOneWidget);
+
+      // Switch to Profile tab.
+      await tester.tap(find.byKey(const ValueKey('learner-nav-profile')));
+      await tester.pumpAndSettle();
+      expect(find.text('My Progress & Profile'), findsOneWidget);
+      expect(find.text('Academic Profile & Badges'), findsOneWidget);
+    },
+  );
 }

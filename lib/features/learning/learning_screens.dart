@@ -61,190 +61,1254 @@ class MasteryProgressBar extends StatelessWidget {
   }
 }
 
-class LearningHubScreen extends ConsumerWidget {
+enum _LearnerHubTab { home, subjects, practice, profile }
+
+class _ResolvedContinueLesson {
+  const _ResolvedContinueLesson({
+    required this.lessonId,
+    required this.subjectName,
+    required this.lessonTitle,
+    this.topicTitle,
+    this.estimatedMinutes,
+    this.progressPercent = 0,
+  });
+
+  final String lessonId;
+  final String subjectName;
+  final String lessonTitle;
+  final String? topicTitle;
+  final int? estimatedMinutes;
+  final int progressPercent;
+}
+
+class LearningHubScreen extends ConsumerStatefulWidget {
   const LearningHubScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<LearningHubScreen> createState() => _LearningHubScreenState();
+}
+
+class _LearningHubScreenState extends ConsumerState<LearningHubScreen> {
+  _LearnerHubTab _selectedTab = _LearnerHubTab.home;
+
+  void _selectTab(_LearnerHubTab tab) {
+    if (_selectedTab == tab) return;
+    setState(() => _selectedTab = tab);
+  }
+
+  _ResolvedContinueLesson? _resolveContinueLesson(
+    LearningCatalogBundle? bundle,
+    LearnerDashboardData? dashboard,
+  ) {
+    final resume = dashboard?.resumeLesson;
+    if (resume != null) {
+      return _ResolvedContinueLesson(
+        lessonId: resume.lessonId,
+        subjectName: resume.subjectName,
+        lessonTitle: resume.lessonTitle,
+        progressPercent: resume.readingProgressPercent,
+      );
+    }
+    if (bundle == null) return null;
+
+    _ResolvedContinueLesson? firstNotStarted;
+    _ResolvedContinueLesson? firstAny;
+
+    for (final subject in bundle.subjects) {
+      final topics = bundle.topicsBySubject[subject.id] ?? const <LearningTopic>[];
+      for (final topic in topics) {
+        final lessons = bundle.lessonsByTopic[topic.id] ?? const <LearningLesson>[];
+        for (final lesson in lessons) {
+          final progress = bundle.progressByLesson[lesson.id];
+          final candidate = _ResolvedContinueLesson(
+            lessonId: lesson.id,
+            subjectName: subject.name,
+            lessonTitle: lesson.title,
+            topicTitle: topic.title,
+            estimatedMinutes: lesson.estimatedMinutes,
+            progressPercent: progress?.readingProgressPercent ?? 0,
+          );
+          firstAny ??= candidate;
+          if (progress != null && progress.status == 'in_progress') {
+            return candidate;
+          }
+          if (progress == null || !progress.isCompleted) {
+            firstNotStarted ??= candidate;
+          }
+        }
+      }
+    }
+
+    return firstNotStarted ?? firstAny;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final activeLearner = ref.watch(activeLearnerProvider);
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 880),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l10n.learningHubTitle,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    l10n.learningHubSubtitle,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 16),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.revisionCentre),
-                        icon: const Icon(Icons.assignment_turned_in_outlined, size: 18),
-                        label: Text(l10n.revisionCentreTitle),
+    if (activeLearner == null) {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.learningHubTitle,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
                       ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.socialProfile),
-                        icon: const Icon(Icons.badge_outlined, size: 18),
-                        label: const Text('Academic Profile'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.communityFeed),
-                        icon: const Icon(Icons.forum_outlined, size: 18),
-                        label: const Text('Community Feed'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.communities),
-                        icon: const Icon(Icons.groups_outlined, size: 18),
-                        label: const Text('Communities Hub'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.challenges),
-                        icon: const Icon(Icons.emoji_events_outlined, size: 18),
-                        label: const Text('Academic Arena'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.notifications),
-                        icon: const Icon(Icons.notifications_outlined, size: 18),
-                        label: const Text('Notifications'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.examCentre),
-                        icon: const Icon(Icons.school_outlined, size: 18),
-                        label: const Text('Examination Centre'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.resourceLibrary),
-                        icon: const Icon(Icons.menu_book_outlined, size: 18),
-                        label: Text(l10n.resourceLibraryTitle),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.curriculumExplorer),
-                        icon: const Icon(Icons.explore_outlined, size: 18),
-                        label: Text(l10n.curriculumExplorerAction),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => context.go(AppRoutes.parentDashboard),
-                        icon: const Icon(Icons.analytics_outlined, size: 18),
-                        label: Text(l10n.parentDashboardTitle),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              if (activeLearner == null)
-                _SelectLearnerPrompt()
-              else ...[
-                AppCard(
-                  child: Row(
-                    children: [
-                      const Icon(Icons.school_outlined),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              activeLearner.fullName,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            Text(
-                              '${activeLearner.countryCode} • ${activeLearner.status}',
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ],
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () =>
-                            ref.read(activeLearnerProvider.notifier).clear(),
-                        child: Text(l10n.switchLearnerAction),
-                      ),
-                    ],
-                  ),
                 ),
-                const SizedBox(height: 16),
-                _OfflineSyncStatusBar(learnerId: activeLearner.id),
-                _LearnerDailyTargetAndResumeSection(learnerId: activeLearner.id),
-                const SizedBox(height: 16),
-                _LearnerRecommendationsSection(learnerId: activeLearner.id),
-                _LearnerMasteryOverviewSection(learnerId: activeLearner.id),
-                const SizedBox(height: 16),
-                ref
-                    .watch(activeLearnerLearningCatalogProvider)
-                    .when(
-                      loading: () =>
-                          const Center(child: CircularProgressIndicator()),
-                      error: (error, _) => AuthInlineMessage(
+                const SizedBox(height: 6),
+                Text(
+                  'Choose a learner profile to start learning.',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: const Color(0xFF475569),
+                      ),
+                ),
+                const SizedBox(height: 20),
+                _SelectLearnerPrompt(),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    final catalogAsync = ref.watch(activeLearnerLearningCatalogProvider);
+    final dashboardAsync = ref.watch(learnerDashboardDataProvider(activeLearner.id));
+    final dashboard = dashboardAsync.asData?.value;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 680;
+
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+              horizontal: isMobile ? 16 : 24,
+              vertical: isMobile ? 16 : 24,
+            ),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 920),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _LearnerGreetingHeader(
+                      firstName: activeLearner.firstName,
+                      fullName: activeLearner.fullName,
+                      gradeLabel: dashboard?.gradeName,
+                      countryCode: activeLearner.countryCode,
+                      onSwitchLearner: () =>
+                          ref.read(activeLearnerProvider.notifier).clear(),
+                    ),
+                    if (!isMobile) ...[
+                      const SizedBox(height: 16),
+                      _LearnerHubDesktopNav(
+                        selectedTab: _selectedTab,
+                        onSelect: _selectTab,
+                      ),
+                    ],
+                    const SizedBox(height: 20),
+                    catalogAsync.when(
+                      loading: () => const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 48),
+                        child: Center(child: CircularProgressIndicator()),
+                      ),
+                      error: (_, _) => AuthInlineMessage(
                         message: l10n.requestFailed,
                         isError: true,
                       ),
                       data: (bundle) {
-                        if (bundle == null) return const SizedBox.shrink();
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            MasteryProgressBar(summary: bundle.summary),
-                            if (!bundle.summary.hasActiveSubscription) ...[
-                              const SizedBox(height: 12),
-                              AppCard(
-                                child: Row(
-                                  children: [
-                                    const Icon(Icons.lock_open_outlined),
-                                    const SizedBox(width: 12),
-                                    Expanded(
-                                      child: Text(l10n.learningPreviewBanner),
-                                    ),
-                                    FilledButton(
-                                      onPressed: () =>
-                                          context.go(AppRoutes.subscriptions),
-                                      child: Text(l10n.viewSubscriptionsAction),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                            const SizedBox(height: 20),
-                            if (bundle.subjects.isEmpty)
-                              AppCard(child: Text(l10n.noSubjectsPublished))
-                            else
-                              for (final subject in bundle.subjects) ...[
-                                _SubjectSectionCard(
-                                  subject: subject,
-                                  topics:
-                                      bundle.topicsBySubject[subject.id] ??
-                                      const [],
-                                  lessonsByTopic: bundle.lessonsByTopic,
-                                  progressByLesson: bundle.progressByLesson,
-                                ),
-                                const SizedBox(height: 16),
-                              ],
-                          ],
-                        );
+                        switch (_selectedTab) {
+                          case _LearnerHubTab.home:
+                            return _LearnerHomeTab(
+                              bundle: bundle,
+                              dashboard: dashboard,
+                              continueLesson: _resolveContinueLesson(bundle, dashboard),
+                              isMobile: isMobile,
+                              onOpenSubjects: () => _selectTab(_LearnerHubTab.subjects),
+                              onOpenPractice: () => _selectTab(_LearnerHubTab.practice),
+                              onOpenProgress: () => _selectTab(_LearnerHubTab.profile),
+                              onOpenSaved: () => context.go(AppRoutes.resourceLibrary),
+                            );
+                          case _LearnerHubTab.subjects:
+                            return _LearnerSubjectsTab(
+                              bundle: bundle,
+                              gradeLabel: dashboard?.gradeName,
+                              countryCode: activeLearner.countryCode,
+                            );
+                          case _LearnerHubTab.practice:
+                            return _LearnerPracticeTab(
+                              learnerId: activeLearner.id,
+                            );
+                          case _LearnerHubTab.profile:
+                            return _LearnerProfileTab(
+                              learnerId: activeLearner.id,
+                              fullName: activeLearner.fullName,
+                              gradeLabel: dashboard?.gradeName,
+                              countryCode: activeLearner.countryCode,
+                              bundle: bundle,
+                              dashboard: dashboard,
+                              onSwitchLearner: () =>
+                                  ref.read(activeLearnerProvider.notifier).clear(),
+                            );
+                        }
                       },
                     ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        if (isMobile)
+          _LearnerHubBottomNav(
+            selectedTab: _selectedTab,
+            onSelect: _selectTab,
+          ),
+      ],
+    );
+  }
+}
+
+class _LearnerGreetingHeader extends StatelessWidget {
+  const _LearnerGreetingHeader({
+    required this.firstName,
+    required this.fullName,
+    required this.gradeLabel,
+    required this.countryCode,
+    required this.onSwitchLearner,
+  });
+
+  final String firstName;
+  final String fullName;
+  final String? gradeLabel;
+  final String countryCode;
+  final VoidCallback onSwitchLearner;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final cleanFirst = firstName.trim().isNotEmpty ? firstName.trim() : fullName;
+
+    return Wrap(
+      alignment: WrapAlignment.spaceBetween,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 12,
+      runSpacing: 10,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Hello, $cleanFirst!',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: const Color(0xFF0F172A),
+                  ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "Let's continue learning today.",
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: const Color(0xFF475569),
+                  ),
+            ),
+          ],
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: const Color(0xFFE2E8F0)),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircleAvatar(
+                radius: 15,
+                backgroundColor: const Color(0xFFE0F2FE),
+                child: Text(
+                  cleanFirst.substring(0, 1).toUpperCase(),
+                  style: const TextStyle(
+                    color: Color(0xFF0F4C81),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      fullName,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xFF0F172A),
+                          ),
+                    ),
+                    Text(
+                      gradeLabel != null && gradeLabel!.isNotEmpty
+                          ? '$gradeLabel · $countryCode'
+                          : countryCode,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: const Color(0xFF64748B),
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 6),
+              TextButton(
+                onPressed: onSwitchLearner,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: Text(l10n.switchLearnerAction),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _LearnerHubDesktopNav extends StatelessWidget {
+  const _LearnerHubDesktopNav({
+    required this.selectedTab,
+    required this.onSelect,
+  });
+
+  final _LearnerHubTab selectedTab;
+  final ValueChanged<_LearnerHubTab> onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    final items = <(
+      _LearnerHubTab tab,
+      String label,
+      IconData icon,
+      IconData activeIcon,
+    )>[
+      (_LearnerHubTab.home, 'Home', Icons.home_outlined, Icons.home_rounded),
+      (
+        _LearnerHubTab.subjects,
+        'Subjects',
+        Icons.menu_book_outlined,
+        Icons.menu_book_rounded,
+      ),
+      (
+        _LearnerHubTab.practice,
+        'Practice',
+        Icons.quiz_outlined,
+        Icons.quiz_rounded,
+      ),
+      (
+        _LearnerHubTab.profile,
+        'Profile',
+        Icons.person_outline_rounded,
+        Icons.person_rounded,
+      ),
+    ];
+
+    return Container(
+      padding: const EdgeInsets.all(6),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF1F5F9),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: const Color(0xFFE2E8F0)),
+      ),
+      child: Row(
+        children: [
+          for (final item in items)
+            Expanded(
+              child: InkWell(
+                key: ValueKey('learner-nav-${item.$1.name}'),
+                onTap: () => onSelect(item.$1),
+                borderRadius: BorderRadius.circular(10),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 160),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: selectedTab == item.$1
+                        ? const Color(0xFF0F4C81)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        selectedTab == item.$1 ? item.$4 : item.$3,
+                        size: 18,
+                        color: selectedTab == item.$1
+                            ? Colors.white
+                            : const Color(0xFF475569),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        item.$2,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          color: selectedTab == item.$1
+                              ? Colors.white
+                              : const Color(0xFF334155),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _LearnerHubBottomNav extends StatelessWidget {
+  const _LearnerHubBottomNav({
+    required this.selectedTab,
+    required this.onSelect,
+  });
+
+  final _LearnerHubTab selectedTab;
+  final ValueChanged<_LearnerHubTab> onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    final items = <(
+      _LearnerHubTab tab,
+      String label,
+      IconData icon,
+      IconData activeIcon,
+    )>[
+      (_LearnerHubTab.home, 'Home', Icons.home_outlined, Icons.home_rounded),
+      (
+        _LearnerHubTab.subjects,
+        'Subjects',
+        Icons.menu_book_outlined,
+        Icons.menu_book_rounded,
+      ),
+      (
+        _LearnerHubTab.practice,
+        'Practice',
+        Icons.quiz_outlined,
+        Icons.quiz_rounded,
+      ),
+      (
+        _LearnerHubTab.profile,
+        'Profile',
+        Icons.person_outline_rounded,
+        Icons.person_rounded,
+      ),
+    ];
+
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: Color(0xFFE2E8F0))),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      child: SafeArea(
+        top: false,
+        child: Row(
+          children: [
+            for (final item in items)
+              Expanded(
+                child: InkWell(
+                  key: ValueKey('learner-nav-${item.$1.name}'),
+                  onTap: () => onSelect(item.$1),
+                  borderRadius: BorderRadius.circular(10),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          selectedTab == item.$1 ? item.$4 : item.$3,
+                          size: 22,
+                          color: selectedTab == item.$1
+                              ? const Color(0xFF0F4C81)
+                              : const Color(0xFF64748B),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          item.$2,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: selectedTab == item.$1
+                                ? FontWeight.w700
+                                : FontWeight.w500,
+                            color: selectedTab == item.$1
+                                ? const Color(0xFF0F4C81)
+                                : const Color(0xFF64748B),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _LearnerHomeTab extends StatelessWidget {
+  const _LearnerHomeTab({
+    required this.bundle,
+    required this.dashboard,
+    required this.continueLesson,
+    required this.isMobile,
+    required this.onOpenSubjects,
+    required this.onOpenPractice,
+    required this.onOpenProgress,
+    required this.onOpenSaved,
+  });
+
+  final LearningCatalogBundle? bundle;
+  final LearnerDashboardData? dashboard;
+  final _ResolvedContinueLesson? continueLesson;
+  final bool isMobile;
+  final VoidCallback onOpenSubjects;
+  final VoidCallback onOpenPractice;
+  final VoidCallback onOpenProgress;
+  final VoidCallback onOpenSaved;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _ContinueLearningHeroCard(
+          lesson: continueLesson,
+          gradeLabel: dashboard?.gradeName,
+          onOpenSubjects: onOpenSubjects,
+        ),
+        const SizedBox(height: 24),
+        Text(
+          'My Learning',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: const Color(0xFF0F172A),
+              ),
+        ),
+        const SizedBox(height: 12),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final crossAxisCount = constraints.maxWidth >= 680 ? 4 : 2;
+            const spacing = 12.0;
+            final cardWidth =
+                (constraints.maxWidth - (spacing * (crossAxisCount - 1))) /
+                    crossAxisCount;
+
+            final tiles = <Widget>[
+              _LearningDestinationTile(
+                key: const ValueKey('hub-tile-subjects'),
+                title: 'My Subjects',
+                subtitle: 'Explore lessons',
+                icon: Icons.menu_book_rounded,
+                accentColor: const Color(0xFF0F4C81),
+                tintColor: const Color(0xFFE0F2FE),
+                onTap: onOpenSubjects,
+              ),
+              _LearningDestinationTile(
+                key: const ValueKey('hub-tile-practice'),
+                title: 'Practice',
+                subtitle: 'Test your knowledge',
+                icon: Icons.quiz_rounded,
+                accentColor: const Color(0xFF15803D),
+                tintColor: const Color(0xFFDCFCE7),
+                onTap: onOpenPractice,
+              ),
+              _LearningDestinationTile(
+                key: const ValueKey('hub-tile-progress'),
+                title: 'My Progress',
+                subtitle: 'See your improvement',
+                icon: Icons.trending_up_rounded,
+                accentColor: const Color(0xFFB45309),
+                tintColor: const Color(0xFFFEF3C7),
+                onTap: onOpenProgress,
+              ),
+              _LearningDestinationTile(
+                key: const ValueKey('hub-tile-saved'),
+                title: 'Saved Lessons',
+                subtitle: 'Learn again anytime',
+                icon: Icons.bookmark_rounded,
+                accentColor: const Color(0xFF4338CA),
+                tintColor: const Color(0xFFE0E7FF),
+                onTap: onOpenSaved,
+              ),
+            ];
+
+            return Wrap(
+              spacing: spacing,
+              runSpacing: spacing,
+              children: [
+                for (final tile in tiles)
+                  SizedBox(width: cardWidth, child: tile),
               ],
+            );
+          },
+        ),
+        if (bundle != null) ...[
+          const SizedBox(height: 24),
+          MasteryProgressBar(summary: bundle!.summary),
+        ],
+        if (dashboard != null) ...[
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: const Color(0xFFE2E8F0)),
+            ),
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.bolt_rounded,
+                      size: 20,
+                      color: Color(0xFFF59E0B),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Today: ${dashboard!.todayCompletedLessons}/${dashboard!.dailyTargetLessons} lessons',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF0F172A),
+                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFF7ED),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: const Color(0xFFFED7AA)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.local_fire_department_rounded,
+                        size: 16,
+                        color: Color(0xFFEA580C),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        '${dashboard!.streakDays} day streak',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF9A3412),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _ContinueLearningHeroCard extends StatelessWidget {
+  const _ContinueLearningHeroCard({
+    required this.lesson,
+    required this.gradeLabel,
+    required this.onOpenSubjects,
+  });
+
+  final _ResolvedContinueLesson? lesson;
+  final String? gradeLabel;
+  final VoidCallback onOpenSubjects;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF0F4C81), Color(0xFF1D63A1)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF0F4C81).withValues(alpha: 0.18),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: lesson == null
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _HeroPill(label: 'START LEARNING'),
+                const SizedBox(height: 12),
+                const Text(
+                  'Explore your subjects',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'Pick a subject to start your first lesson today.',
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.88),
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 18),
+                FilledButton.icon(
+                  onPressed: onOpenSubjects,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF0F4C81),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 14,
+                    ),
+                  ),
+                  icon: const Icon(Icons.menu_book_rounded, size: 18),
+                  label: const Text(
+                    'Browse subjects',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _HeroPill(label: 'CONTINUE LEARNING'),
+                const SizedBox(height: 12),
+                Text(
+                  lesson!.subjectName,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.9),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  lesson!.lessonTitle,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                    height: 1.25,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 10,
+                  runSpacing: 6,
+                  children: [
+                    if (gradeLabel != null && gradeLabel!.isNotEmpty)
+                      Text(
+                        gradeLabel!,
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.82),
+                          fontSize: 13,
+                        ),
+                      ),
+                    if (lesson!.estimatedMinutes != null)
+                      Text(
+                        '${lesson!.estimatedMinutes} min',
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.82),
+                          fontSize: 13,
+                        ),
+                      ),
+                    if (lesson!.progressPercent > 0)
+                      Text(
+                        '${lesson!.progressPercent}% complete',
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.9),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                  ],
+                ),
+                if (lesson!.progressPercent > 0) ...[
+                  const SizedBox(height: 12),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: LinearProgressIndicator(
+                      value: (lesson!.progressPercent.clamp(0, 100)) / 100.0,
+                      minHeight: 6,
+                      backgroundColor: Colors.white.withValues(alpha: 0.24),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                        Color(0xFF4ADE80),
+                      ),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 18),
+                FilledButton.icon(
+                  key: const ValueKey('continue-learning-cta'),
+                  onPressed: () =>
+                      context.go(AppRoutes.lessonReader(lesson!.lessonId)),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF0F4C81),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 14,
+                    ),
+                  ),
+                  icon: const Icon(Icons.play_arrow_rounded, size: 20),
+                  label: const Text(
+                    'Continue lesson',
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
+            ),
+    );
+  }
+}
+
+class _HeroPill extends StatelessWidget {
+  const _HeroPill({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.18),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.8,
+        ),
+      ),
+    );
+  }
+}
+
+class _LearningDestinationTile extends StatelessWidget {
+  const _LearningDestinationTile({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.accentColor,
+    required this.tintColor,
+    required this.onTap,
+    super.key,
+  });
+
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color accentColor;
+  final Color tintColor;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFFE2E8F0)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: BoxDecoration(
+                  color: tintColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(icon, color: accentColor, size: 22),
+              ),
+              const SizedBox(height: 14),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xFF0F172A),
+                    ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                subtitle,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: const Color(0xFF64748B),
+                    ),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class _LearnerSubjectsTab extends StatelessWidget {
+  const _LearnerSubjectsTab({
+    required this.bundle,
+    required this.gradeLabel,
+    required this.countryCode,
+  });
+
+  final LearningCatalogBundle? bundle;
+  final String? gradeLabel;
+  final String countryCode;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    if (bundle == null || bundle!.subjects.isEmpty) {
+      return AppCard(child: Text(l10n.noSubjectsPublished));
+    }
+
+    // Put subjects with available lessons first so learners immediately see actionable lessons.
+    final sortedSubjects = [...bundle!.subjects]..sort((a, b) {
+      final aCount = _countSubjectLessons(a.id, bundle!);
+      final bCount = _countSubjectLessons(b.id, bundle!);
+      if (aCount > 0 && bCount == 0) return -1;
+      if (aCount == 0 && bCount > 0) return 1;
+      return a.displayOrder.compareTo(b.displayOrder);
+    });
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'My Subjects',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFF0F172A),
+                        ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    gradeLabel != null && gradeLabel!.isNotEmpty
+                        ? 'Your lessons for $gradeLabel ($countryCode)'
+                        : 'Select a subject to open its lessons.',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: const Color(0xFF64748B),
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        for (var i = 0; i < sortedSubjects.length; i++) ...[
+          _SubjectSectionCard(
+            subject: sortedSubjects[i],
+            topics: bundle!.topicsBySubject[sortedSubjects[i].id] ?? const [],
+            lessonsByTopic: bundle!.lessonsByTopic,
+            progressByLesson: bundle!.progressByLesson,
+            initiallyExpanded:
+                i == 0 && _countSubjectLessons(sortedSubjects[i].id, bundle!) > 0,
+          ),
+          const SizedBox(height: 12),
+        ],
+      ],
+    );
+  }
+
+  int _countSubjectLessons(String subjectId, LearningCatalogBundle bundle) {
+    var count = 0;
+    final topics = bundle.topicsBySubject[subjectId] ?? const <LearningTopic>[];
+    for (final topic in topics) {
+      count += (bundle.lessonsByTopic[topic.id] ?? const <LearningLesson>[]).length;
+    }
+    return count;
+  }
+}
+
+class _LearnerPracticeTab extends StatelessWidget {
+  const _LearnerPracticeTab({required this.learnerId});
+
+  final String learnerId;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Practice',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: const Color(0xFF0F172A),
+              ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Test your knowledge, revise weak topics, and prepare for exams.',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: const Color(0xFF64748B),
+              ),
+        ),
+        const SizedBox(height: 16),
+        _PracticeActionCard(
+          title: 'Revision & Flashcards',
+          subtitle: 'Review key concepts and strengthen topics you need help with.',
+          icon: Icons.style_rounded,
+          accentColor: const Color(0xFF15803D),
+          tintColor: const Color(0xFFDCFCE7),
+          actionLabel: 'Start revision',
+          onTap: () => context.go(AppRoutes.revisionCentre),
+        ),
+        const SizedBox(height: 12),
+        _PracticeActionCard(
+          title: 'Practice Examinations',
+          subtitle: 'Take timed practice papers and get instant scores.',
+          icon: Icons.school_rounded,
+          accentColor: const Color(0xFF0F4C81),
+          tintColor: const Color(0xFFE0F2FE),
+          actionLabel: 'Open exams',
+          onTap: () => context.go(AppRoutes.examCentre),
+        ),
+        const SizedBox(height: 12),
+        _PracticeActionCard(
+          title: 'Academic Challenges',
+          subtitle: 'Join friendly subject quizzes and earn badges.',
+          icon: Icons.emoji_events_rounded,
+          accentColor: const Color(0xFFB45309),
+          tintColor: const Color(0xFFFEF3C7),
+          actionLabel: 'View challenges',
+          onTap: () => context.go(AppRoutes.challenges),
+        ),
+        const SizedBox(height: 20),
+        _LearnerRecommendationsSection(learnerId: learnerId),
+      ],
+    );
+  }
+}
+
+class _PracticeActionCard extends StatelessWidget {
+  const _PracticeActionCard({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.accentColor,
+    required this.tintColor,
+    required this.actionLabel,
+    required this.onTap,
+  });
+
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color accentColor;
+  final Color tintColor;
+  final String actionLabel;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isCompact = constraints.maxWidth < 460;
+          final headerRow = Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: tintColor,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(icon, color: accentColor, size: 24),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: const Color(0xFF64748B),
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              if (!isCompact) ...[
+                const SizedBox(width: 12),
+                FilledButton.tonal(
+                  onPressed: onTap,
+                  child: Text(actionLabel),
+                ),
+              ],
+            ],
+          );
+
+          if (!isCompact) return headerRow;
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              headerRow,
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.tonal(
+                  onPressed: onTap,
+                  child: Text(actionLabel),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _LearnerProfileTab extends StatelessWidget {
+  const _LearnerProfileTab({
+    required this.learnerId,
+    required this.fullName,
+    required this.gradeLabel,
+    required this.countryCode,
+    required this.bundle,
+    required this.dashboard,
+    required this.onSwitchLearner,
+  });
+
+  final String learnerId;
+  final String fullName;
+  final String? gradeLabel;
+  final String countryCode;
+  final LearningCatalogBundle? bundle;
+  final LearnerDashboardData? dashboard;
+  final VoidCallback onSwitchLearner;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'My Progress & Profile',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: const Color(0xFF0F172A),
+              ),
+        ),
+        const SizedBox(height: 12),
+        if (bundle != null) ...[
+          MasteryProgressBar(summary: bundle!.summary),
+          const SizedBox(height: 16),
+        ],
+        _LearnerMasteryOverviewSection(learnerId: learnerId),
+        const SizedBox(height: 16),
+        _OfflineSyncStatusBar(learnerId: learnerId),
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.badge_outlined, color: Color(0xFF0F4C81)),
+                title: const Text('Academic Profile & Badges'),
+                subtitle: Text(
+                  gradeLabel != null && gradeLabel!.isNotEmpty
+                      ? '$fullName · $gradeLabel ($countryCode)'
+                      : '$fullName · $countryCode',
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                onTap: () => context.go(AppRoutes.socialProfile),
+              ),
+              const Divider(height: 1),
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.swap_horiz_rounded, color: Color(0xFF475569)),
+                title: Text(l10n.switchLearnerAction),
+                subtitle: const Text('Switch to another learner profile on this device'),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                onTap: onSwitchLearner,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -308,58 +1372,223 @@ class _SelectLearnerPrompt extends ConsumerWidget {
   }
 }
 
-class _SubjectSectionCard extends StatelessWidget {
+class _SubjectSectionCard extends StatefulWidget {
   const _SubjectSectionCard({
     required this.subject,
     required this.topics,
     required this.lessonsByTopic,
     required this.progressByLesson,
+    this.initiallyExpanded = false,
   });
 
   final LearningSubject subject;
   final List<LearningTopic> topics;
   final Map<String, List<LearningLesson>> lessonsByTopic;
   final Map<String, LearnerProgressRecord> progressByLesson;
+  final bool initiallyExpanded;
+
+  @override
+  State<_SubjectSectionCard> createState() => _SubjectSectionCardState();
+}
+
+class _SubjectSectionCardState extends State<_SubjectSectionCard> {
+  late bool _expanded = widget.initiallyExpanded;
+
+  (IconData icon, Color accent, Color tint) _subjectVisual(String name) {
+    final lower = name.toLowerCase();
+    if (lower.contains('math') || lower.contains('hisabati')) {
+      return (Icons.calculate_rounded, const Color(0xFF0F4C81), const Color(0xFFE0F2FE));
+    }
+    if (lower.contains('science') || lower.contains('sayansi')) {
+      return (Icons.science_rounded, const Color(0xFF15803D), const Color(0xFFDCFCE7));
+    }
+    if (lower.contains('english')) {
+      return (Icons.menu_book_rounded, const Color(0xFFB45309), const Color(0xFFFEF3C7));
+    }
+    if (lower.contains('kiswahili') || lower.contains('kusoma')) {
+      return (Icons.auto_stories_rounded, const Color(0xFF0F766E), const Color(0xFFCCFBF1));
+    }
+    return (Icons.school_rounded, const Color(0xFF4338CA), const Color(0xFFE0E7FF));
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final visual = _subjectVisual(widget.subject.name);
+
+    var totalLessons = 0;
+    var completedLessons = 0;
+    for (final topic in widget.topics) {
+      final lessons = widget.lessonsByTopic[topic.id] ?? const <LearningLesson>[];
+      totalLessons += lessons.length;
+      for (final lesson in lessons) {
+        if (widget.progressByLesson[lesson.id]?.isCompleted ?? false) {
+          completedLessons++;
+        }
+      }
+    }
+    final percent = totalLessons == 0
+        ? 0
+        : ((completedLessons / totalLessons) * 100).round();
+
+    final topicsWithLessons = widget.topics
+        .where((t) => (widget.lessonsByTopic[t.id] ?? const []).isNotEmpty)
+        .toList();
+    final upcomingTopics = widget.topics
+        .where((t) => (widget.lessonsByTopic[t.id] ?? const []).isEmpty)
+        .toList();
+
     return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(subject.name, style: Theme.of(context).textTheme.titleLarge),
-          if (subject.description.isNotEmpty) ...[
-            const SizedBox(height: 4),
-            Text(subject.description),
-          ],
-          const SizedBox(height: 12),
-          for (final topic in topics) ...[
-            Text(
-              topic.title,
-              style: Theme.of(context).textTheme.titleMedium,
+          InkWell(
+            onTap: () => setState(() => _expanded = !_expanded),
+            borderRadius: BorderRadius.circular(12),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: visual.$3,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(visual.$1, color: visual.$2, size: 22),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.subject.name,
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: const Color(0xFF0F172A),
+                            ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        totalLessons > 0
+                            ? '$totalLessons ${totalLessons == 1 ? 'lesson' : 'lessons'} · $percent% completed'
+                            : '${widget.topics.length} ${widget.topics.length == 1 ? 'topic' : 'topics'} · Lessons coming soon',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: const Color(0xFF64748B),
+                            ),
+                      ),
+                      if (totalLessons > 0) ...[
+                        const SizedBox(height: 6),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: LinearProgressIndicator(
+                            value: completedLessons / totalLessons,
+                            minHeight: 5,
+                            backgroundColor: const Color(0xFFE2E8F0),
+                            valueColor: AlwaysStoppedAnimation<Color>(visual.$2),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Icon(
+                  _expanded
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  color: const Color(0xFF64748B),
+                ),
+              ],
             ),
-            const SizedBox(height: 6),
-            for (final lesson
-                in lessonsByTopic[topic.id] ?? const <LearningLesson>[])
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: Icon(
-                  (progressByLesson[lesson.id]?.isCompleted ?? false)
-                      ? Icons.check_circle
-                      : Icons.menu_book_outlined,
+          ),
+          if (_expanded) ...[
+            const SizedBox(height: 14),
+            const Divider(height: 1),
+            const SizedBox(height: 12),
+            if (topicsWithLessons.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Text(
+                  'Lessons for this subject are being prepared.',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: const Color(0xFF64748B),
+                      ),
                 ),
-                title: Text(lesson.title),
-                subtitle: Text(
-                  '${lesson.estimatedMinutes} min • '
-                  '${progressByLesson[lesson.id]?.status ?? "not_started"}'
-                  '${progressByLesson[lesson.id]?.bestQuizScorePercent != null ? " • ${l10n.bestScoreLabel(progressByLesson[lesson.id]!.bestQuizScorePercent!)}" : ""}',
+              )
+            else
+              for (final topic in topicsWithLessons) ...[
+                Text(
+                  topic.title,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFF334155),
+                      ),
                 ),
-                trailing: lesson.isFreePreview
-                    ? Chip(label: Text(l10n.freePreviewLabel))
-                    : const Icon(Icons.arrow_forward),
-                onTap: () => context.go(AppRoutes.lessonReader(lesson.id)),
+                const SizedBox(height: 6),
+                for (final lesson
+                    in widget.lessonsByTopic[topic.id] ?? const <LearningLesson>[])
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                    leading: Icon(
+                      (widget.progressByLesson[lesson.id]?.isCompleted ?? false)
+                          ? Icons.check_circle_rounded
+                          : Icons.play_circle_outline_rounded,
+                      color: (widget.progressByLesson[lesson.id]?.isCompleted ??
+                              false)
+                          ? const Color(0xFF15803D)
+                          : const Color(0xFF0F4C81),
+                    ),
+                    title: Text(
+                      lesson.title,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    subtitle: Text(
+                      '${lesson.estimatedMinutes} min'
+                      '${(widget.progressByLesson[lesson.id]?.isCompleted ?? false) ? ' · Completed' : (widget.progressByLesson[lesson.id]?.status == 'in_progress' ? ' · In progress' : '')}'
+                      '${widget.progressByLesson[lesson.id]?.bestQuizScorePercent != null ? ' · ${l10n.bestScoreLabel(widget.progressByLesson[lesson.id]!.bestQuizScorePercent!)}' : ''}',
+                    ),
+                    trailing: const Icon(Icons.arrow_forward_rounded, size: 18),
+                    onTap: () => context.go(AppRoutes.lessonReader(lesson.id)),
+                  ),
+                const SizedBox(height: 8),
+              ],
+            if (upcomingTopics.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                'Upcoming topics (${upcomingTopics.length})',
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: const Color(0xFF64748B),
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
+              const SizedBox(height: 6),
+              Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: [
+                  for (final topic in upcomingTopics)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xFFE2E8F0)),
+                      ),
+                      child: Text(
+                        topic.title,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF475569),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ],
           ],
         ],
       ),
@@ -1678,118 +2907,6 @@ class _InlineCheckpointWidgetState extends State<_InlineCheckpointWidget> {
           ],
         ],
       ),
-    );
-  }
-}
-
-class _LearnerDailyTargetAndResumeSection extends ConsumerWidget {
-  const _LearnerDailyTargetAndResumeSection({required this.learnerId});
-
-  final String learnerId;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final dashboardAsync = ref.watch(learnerDashboardDataProvider(learnerId));
-
-    return dashboardAsync.when(
-      loading: () => const SizedBox.shrink(),
-      error: (_, _) => const SizedBox.shrink(),
-      data: (data) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppCard(
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor:
-                        Theme.of(context).colorScheme.primaryContainer,
-                    child: const Icon(Icons.bolt, color: Colors.amber),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${l10n.dailyGoalTitle}: ${data.todayCompletedLessons}/${data.dailyTargetLessons} ${l10n.lessonsCompletedLabel}',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                        Text(
-                          data.activeTermName != null
-                              ? '${l10n.activeTermLabel}: ${data.activeTermName}'
-                              : '${data.dailyTargetMinutes} ${l10n.targetMinutesLabel}',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Chip(
-                    avatar: const Icon(
-                      Icons.local_fire_department,
-                      size: 18,
-                      color: Colors.deepOrange,
-                    ),
-                    label: Text('${data.streakDays} ${l10n.streakDaysSuffix}'),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 12),
-            if (data.resumeLesson != null) ...[
-              AppCard(
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.play_circle_outline,
-                      size: 36,
-                      color: Colors.teal,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            l10n.resumeLearningTitle,
-                            style: Theme.of(context).textTheme.labelLarge
-                                ?.copyWith(
-                                  color:
-                                      Theme.of(context).colorScheme.primary,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          Text(
-                            '${data.resumeLesson!.subjectName}: ${data.resumeLesson!.lessonTitle}',
-                            style: Theme.of(context).textTheme.titleSmall,
-                          ),
-                          const SizedBox(height: 4),
-                          LinearProgressIndicator(
-                            value: (data.resumeLesson!.readingProgressPercent
-                                    .clamp(0, 100)) /
-                                100.0,
-                            minHeight: 6,
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    FilledButton(
-                      onPressed: () => context.go(
-                        AppRoutes.lessonReader(data.resumeLesson!.lessonId),
-                      ),
-                      child: Text(l10n.continueAction),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-            ],
-          ],
-        );
-      },
     );
   }
 }
