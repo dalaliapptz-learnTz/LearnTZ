@@ -283,4 +283,48 @@ void main() {
     expect(find.text('3 badges'), findsOneWidget);
     expect(find.text('First Step'), findsOneWidget);
   });
+
+  testWidgets(
+    'GamificationDashboardSection renders without overflow across all 8 viewports (320px to 1280px)',
+    (tester) async {
+      final repo = _StubGamificationRepository(
+        overview: sampleOverview,
+        leaderboard: sampleLeaderboard,
+      );
+      final widths = [320.0, 360.0, 390.0, 480.0, 680.0, 720.0, 820.0, 1280.0];
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
+      for (final w in widths) {
+        tester.view.physicalSize = Size(w, 844);
+        tester.view.devicePixelRatio = 1;
+        await tester.pumpWidget(
+          ProviderScope(
+            overrides: [
+              gamificationRepositoryProvider.overrideWithValue(repo),
+            ],
+            child: MaterialApp(
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: GamificationDashboardSection(
+                    learnerId: 'learner-1',
+                    subjects: sampleSubjects,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: 'Overflowed at width $w',
+        );
+      }
+    },
+  );
 }

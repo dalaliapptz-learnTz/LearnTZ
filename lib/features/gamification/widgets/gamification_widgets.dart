@@ -97,7 +97,7 @@ class GamificationDashboardSection extends ConsumerWidget {
             // Top 3 Gamification Summary Cards (3 columns on BOTH desktop and mobile!)
             LayoutBuilder(
               builder: (context, constraints) {
-                final isWide = constraints.maxWidth >= 720;
+                final isWide = constraints.maxWidth >= 860;
                 final streakCard = _StreakOverviewCard(
                   overview: overview,
                   style: style,
@@ -515,46 +515,48 @@ class _StreakOverviewCard extends StatelessWidget {
           const SizedBox(height: 12),
           // 7-day learner-local activity calendar
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               for (final day in overview.weeklyCalendar)
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 26,
-                      height: 26,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: day.isActive
-                            ? style.streakAccent
-                            : const Color(0xFFF1F5F9),
-                        border: day.isToday
-                            ? Border.all(color: style.streakAccent, width: 2)
-                            : null,
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: day.isActive
+                              ? style.streakAccent
+                              : const Color(0xFFF1F5F9),
+                          border: day.isToday
+                              ? Border.all(color: style.streakAccent, width: 2)
+                              : null,
+                        ),
+                        child: Icon(
+                          day.isActive ? Icons.check_rounded : Icons.circle,
+                          size: day.isActive ? 14 : 5,
+                          color: day.isActive
+                              ? Colors.white
+                              : const Color(0xFFCBD5E1),
+                        ),
                       ),
-                      child: Icon(
-                        day.isActive ? Icons.check_rounded : Icons.circle,
-                        size: day.isActive ? 15 : 5,
-                        color: day.isActive
-                            ? Colors.white
-                            : const Color(0xFFCBD5E1),
+                      const SizedBox(height: 4),
+                      Text(
+                        day.dayLabel.length > 2
+                            ? day.dayLabel.substring(0, 2)
+                            : day.dayLabel,
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight:
+                              day.isToday ? FontWeight.w800 : FontWeight.w500,
+                          color: day.isToday
+                              ? style.streakAccent
+                              : const Color(0xFF64748B),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      day.dayLabel.length > 2
-                          ? day.dayLabel.substring(0, 2)
-                          : day.dayLabel,
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: day.isToday ? FontWeight.w800 : FontWeight.w500,
-                        color: day.isToday
-                            ? style.streakAccent
-                            : const Color(0xFF64748B),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
             ],
           ),
@@ -931,14 +933,18 @@ class _LeaderboardPreviewCard extends StatelessWidget {
                       : const Color(0xFF475569),
                 ),
                 const SizedBox(width: 4),
-                Text(
-                  overview.leaderboardOptIn ? 'Public ranking' : 'Private mode',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: overview.leaderboardOptIn
-                        ? const Color(0xFF15803D)
-                        : const Color(0xFF475569),
+                Flexible(
+                  child: Text(
+                    overview.leaderboardOptIn ? 'Public ranking' : 'Private mode',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      color: overview.leaderboardOptIn
+                          ? const Color(0xFF15803D)
+                          : const Color(0xFF475569),
+                    ),
                   ),
                 ),
               ],
@@ -947,16 +953,20 @@ class _LeaderboardPreviewCard extends StatelessWidget {
           const SizedBox(height: 10),
           Align(
             alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              key: const ValueKey('gamification-open-leaderboard-btn'),
-              onPressed: onOpenLeaderboard,
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                key: const ValueKey('gamification-open-leaderboard-btn'),
+                onPressed: onOpenLeaderboard,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                icon: const Icon(Icons.arrow_forward_rounded, size: 16),
+                label: const Text('Rankings & privacy'),
               ),
-              icon: const Icon(Icons.arrow_forward_rounded, size: 16),
-              label: const Text('Rankings & privacy'),
             ),
           ),
         ],
