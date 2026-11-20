@@ -858,8 +858,8 @@ class _LandingCtaBanner extends StatelessWidget {
       top: false,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: isDesktop ? 32 : (isNarrow ? 14 : 18),
-          vertical: isDesktop ? 32 : 12,
+          horizontal: isDesktop ? 32 : (isNarrow ? 12 : 16),
+          vertical: isDesktop ? 24 : 14,
         ),
         decoration: const BoxDecoration(
           color: Color(0xFFF8FAFC),
@@ -867,61 +867,66 @@ class _LandingCtaBanner extends StatelessWidget {
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Sentence-case heading
-                Text(
-                  isSwahili
-                      ? 'Safari ya masomo ya mtoto wako inaanzia hapa.'
-                      : "Your child's learning journey starts here.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: isDesktop ? 24 : (isNarrow ? 16 : 18),
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: -0.3,
-                    color: LearnTzColors.textPrimary,
-                    height: 1.2,
+                // Left: Sentence-case heading & short description
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        isSwahili
+                            ? 'Safari ya masomo ya mtoto wako inaanzia hapa.'
+                            : "Your child's learning journey starts here.",
+                        style: TextStyle(
+                          fontSize: isDesktop ? 22 : (isNarrow ? 14 : 16),
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: -0.3,
+                          color: LearnTzColors.textPrimary,
+                          height: 1.2,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        isSwahili
+                            ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
+                            : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: isDesktop ? 13.5 : (isNarrow ? 11 : 12),
+                          color: const Color(0xFF475569),
+                          height: 1.35,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(width: isDesktop ? 24 : (isNarrow ? 10 : 14)),
 
-                // Short setup description
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 560),
-                  child: Text(
-                    isSwahili
-                        ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
-                        : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: isDesktop ? 14 : 12,
-                      color: const Color(0xFF475569),
-                      height: 1.4,
-                    ),
-                  ),
-                ),
-                SizedBox(height: isDesktop ? 20 : 12),
-
-                // Single Primary Action Button: Sign In
+                // Right: Single Primary Action Button (Sign In)
                 FilledButton.icon(
                   key: const Key('landing-cta-sign-in-btn'),
                   onPressed: () => context.go(AppRoutes.signIn),
-                  icon: const Icon(Icons.login_rounded, size: 17),
+                  icon: Icon(
+                    Icons.login_rounded,
+                    size: isNarrow ? 15 : 17,
+                  ),
                   label: Text(isSwahili ? 'Ingia' : 'Sign In'),
                   style: FilledButton.styleFrom(
                     backgroundColor: LearnTzColors.secondary,
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(
-                      horizontal: isDesktop ? 32 : 28,
+                      horizontal: isDesktop ? 28 : (isNarrow ? 14 : 18),
                       vertical: isDesktop ? 14 : 11,
                     ),
                     textStyle: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: isDesktop ? 15 : 14,
+                      fontSize: isDesktop ? 15 : (isNarrow ? 12.5 : 13.5),
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
