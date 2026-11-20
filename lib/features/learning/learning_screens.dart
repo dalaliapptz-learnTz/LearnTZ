@@ -299,95 +299,129 @@ class _LearnerGreetingHeader extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final cleanFirst = firstName.trim().isNotEmpty ? firstName.trim() : fullName;
 
-    return Wrap(
-      alignment: WrapAlignment.spaceBetween,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: 12,
-      runSpacing: 10,
+    final greeting = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Text(
+          'Hello, $cleanFirst!',
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: const Color(0xFF0F172A),
+              ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          "Let's continue learning today.",
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: const Color(0xFF475569),
+              ),
+        ),
+      ],
+    );
+
+    Widget buildLearnerPill({required bool expandFullWidth}) {
+      final nameColumn = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            fullName,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFF0F172A),
+                  height: 1.2,
+                ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            gradeLabel != null && gradeLabel!.isNotEmpty
+                ? '$gradeLabel · $countryCode'
+                : countryCode,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: const Color(0xFF64748B),
+                  height: 1.2,
+                ),
+          ),
+        ],
+      );
+
+      return Container(
+        width: expandFullWidth ? double.infinity : null,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: const Color(0xFFE2E8F0)),
+        ),
+        child: Row(
+          mainAxisSize: expandFullWidth ? MainAxisSize.max : MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Hello, $cleanFirst!',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                    color: const Color(0xFF0F172A),
-                  ),
+            CircleAvatar(
+              radius: 17,
+              backgroundColor: const Color(0xFFE0F2FE),
+              child: Text(
+                cleanFirst.substring(0, 1).toUpperCase(),
+                style: const TextStyle(
+                  color: Color(0xFF0F4C81),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+              ),
             ),
-            const SizedBox(height: 4),
-            Text(
-              "Let's continue learning today.",
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: const Color(0xFF475569),
-                  ),
+            const SizedBox(width: 10),
+            if (expandFullWidth)
+              Expanded(child: nameColumn)
+            else
+              Flexible(child: nameColumn),
+            const SizedBox(width: 10),
+            TextButton(
+              onPressed: onSwitchLearner,
+              style: TextButton.styleFrom(
+                foregroundColor: const Color(0xFF0F4C81),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 6,
+                ),
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+              ),
+              child: Text(l10n.switchLearnerAction),
             ),
           ],
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: const Color(0xFFE2E8F0)),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
+      );
+    }
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 640) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CircleAvatar(
-                radius: 15,
-                backgroundColor: const Color(0xFFE0F2FE),
-                child: Text(
-                  cleanFirst.substring(0, 1).toUpperCase(),
-                  style: const TextStyle(
-                    color: Color(0xFF0F4C81),
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      fullName,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xFF0F172A),
-                          ),
-                    ),
-                    Text(
-                      gradeLabel != null && gradeLabel!.isNotEmpty
-                          ? '$gradeLabel · $countryCode'
-                          : countryCode,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: const Color(0xFF64748B),
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 6),
-              TextButton(
-                onPressed: onSwitchLearner,
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: Text(l10n.switchLearnerAction),
-              ),
+              greeting,
+              const SizedBox(height: 12),
+              buildLearnerPill(expandFullWidth: true),
             ],
-          ),
-        ),
-      ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(child: greeting),
+            const SizedBox(width: 16),
+            buildLearnerPill(expandFullWidth: false),
+          ],
+        );
+      },
     );
   }
 }
