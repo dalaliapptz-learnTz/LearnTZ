@@ -316,8 +316,8 @@ class _LandingHeroSection extends StatelessWidget {
         border: Border(bottom: BorderSide(color: Color(0xFFE2E8F0))),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 48 : (isNarrow ? 14 : 20),
-        vertical: isDesktop ? 48 : 30,
+        horizontal: isDesktop ? 48 : (isNarrow ? 12 : 16),
+        vertical: isDesktop ? 40 : 10,
       ),
       child: Center(
         child: ConstrainedBox(
@@ -328,17 +328,17 @@ class _LandingHeroSection extends StatelessWidget {
             children: [
               // Prominent Official Brand Logo Only (Smooth entrance animation, NO words, NO TZ badge)
               _AnimatedHeroLogo(isDesktop: isDesktop),
-              SizedBox(height: isDesktop ? 24 : 16),
+              SizedBox(height: isDesktop ? 20 : 6),
 
               // Main Headline: "Learn Anywhere, Anytime."
               Text(
                 'Learn Anywhere, Anytime.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: isDesktop ? 38 : (isNarrow ? 22 : 28),
+                  fontSize: isDesktop ? 36 : (isNarrow ? 20 : 22),
                   fontWeight: FontWeight.w900,
-                  letterSpacing: -0.6,
-                  height: 1.18,
+                  letterSpacing: -0.5,
+                  height: 1.15,
                   color: LearnTzColors.primary, // Deep Academic Blue #0F4C81
                 ),
               ),
@@ -393,7 +393,7 @@ class _AnimatedHeroLogoState extends State<_AnimatedHeroLogo>
 
   @override
   Widget build(BuildContext context) {
-    final logoHeight = widget.isDesktop ? 88.0 : 60.0;
+    final logoHeight = widget.isDesktop ? 84.0 : 38.0;
 
     return AnimatedBuilder(
       animation: _controller,
@@ -517,8 +517,8 @@ class _LandingFeaturesSection extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: isDesktop ? 32 : (isNarrow ? 12 : 18),
-        vertical: isDesktop ? 48 : 32,
+        horizontal: isDesktop ? 32 : (isNarrow ? 10 : 14),
+        vertical: isDesktop ? 36 : 10,
       ),
       color: Colors.white,
       child: Center(
@@ -533,13 +533,13 @@ class _LandingFeaturesSection extends StatelessWidget {
                     : 'Everything Your Child Needs To Excel',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: isDesktop ? 26 : 20,
+                  fontSize: isDesktop ? 24 : 16,
                   fontWeight: FontWeight.w900,
                   color: LearnTzColors.textPrimary,
-                  letterSpacing: -0.4,
+                  letterSpacing: -0.3,
                 ),
               ),
-              SizedBox(height: isDesktop ? 32 : 20),
+              SizedBox(height: isDesktop ? 24 : 10),
 
               // Responsive Feature Grid: Desktop = 4 Columns, Mobile & Tablet = 2x2 Grid
               if (isDesktop)
@@ -675,7 +675,7 @@ class _FeatureCardState extends State<_FeatureCard> {
               children: [
                 // Real Photo Banner with Vibrant Colour Scrim, Icon Medallion & Category Pill
                 AspectRatio(
-                  aspectRatio: 16 / 10,
+                  aspectRatio: isCompact ? 16 / 7 : 16 / 10,
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
@@ -775,7 +775,7 @@ class _FeatureCardState extends State<_FeatureCard> {
                 // Colourful Card Content Body
                 Padding(
                   padding: EdgeInsets.all(
-                    isCompact ? (screenWidth < 360 ? 10 : 12) : 16,
+                    isCompact ? 8 : 16,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -786,28 +786,28 @@ class _FeatureCardState extends State<_FeatureCard> {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: isCompact ? 13 : 16,
+                          fontSize: isCompact ? 12 : 16,
                           fontWeight: FontWeight.w800,
                           color: LearnTzColors.textPrimary,
-                          height: 1.25,
+                          height: 1.18,
                         ),
                       ),
-                      const SizedBox(height: 6),
+                      const SizedBox(height: 3),
                       Text(
                         data.description,
-                        maxLines: isCompact ? 3 : 4,
+                        maxLines: isCompact ? 2 : 4,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: isCompact ? 11 : 12.5,
+                          fontSize: isCompact ? 10 : 12.5,
                           color: const Color(0xFF475569),
-                          height: 1.4,
+                          height: 1.28,
                         ),
                       ),
-                      SizedBox(height: isCompact ? 10 : 14),
+                      SizedBox(height: isCompact ? 6 : 14),
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: isCompact ? 9 : 12,
-                          vertical: isCompact ? 5 : 7,
+                          horizontal: isCompact ? 8 : 12,
+                          vertical: isCompact ? 4 : 7,
                         ),
                         decoration: BoxDecoration(
                           color: _isHovered
@@ -820,7 +820,7 @@ class _FeatureCardState extends State<_FeatureCard> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: isCompact ? 10.5 : 12,
+                            fontSize: isCompact ? 10 : 12,
                             fontWeight: FontWeight.w800,
                             color: _isHovered ? Colors.white : data.iconColor,
                           ),
@@ -839,7 +839,7 @@ class _FeatureCardState extends State<_FeatureCard> {
 }
 
 // ============================================================================
-// 4. CONVERSION CALL-TO-ACTION BANNER
+// 4. CONVERSION CALL-TO-ACTION SECTION (Clean Open Surface, Sentence Case)
 // ============================================================================
 class _LandingCtaBanner extends StatelessWidget {
   const _LandingCtaBanner({required this.selectedCountry, required this.l10n});
@@ -858,88 +858,77 @@ class _LandingCtaBanner extends StatelessWidget {
       top: false,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: isDesktop ? 32 : (isNarrow ? 12 : 16),
-          vertical: isDesktop ? 40 : 28,
+          horizontal: isDesktop ? 32 : (isNarrow ? 14 : 18),
+          vertical: isDesktop ? 32 : 12,
         ),
-        color: const Color(0xFFF8FAFC),
+        decoration: const BoxDecoration(
+          color: Color(0xFFF8FAFC),
+          border: Border(top: BorderSide(color: Color(0xFFE2E8F0))),
+        ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 960),
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: isDesktop ? 40 : (isNarrow ? 16 : 24),
-                vertical: isDesktop ? 40 : 28,
-              ),
-              decoration: BoxDecoration(
-                color: LearnTzColors.primary, // Deep Academic Blue #0F4C81
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: LearnTzColors.primary.withValues(alpha: 0.18),
-                    blurRadius: 20,
-                    offset: const Offset(0, 8),
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Sentence-case heading
+                Text(
+                  isSwahili
+                      ? 'Safari ya masomo ya mtoto wako inaanzia hapa.'
+                      : "Your child's learning journey starts here.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: isDesktop ? 24 : (isNarrow ? 16 : 18),
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -0.3,
+                    color: LearnTzColors.textPrimary,
+                    height: 1.2,
                   ),
-                ],
-              ),
-              child: Column(
-                children: [
-                  // Heading
-                  Text(
+                ),
+                const SizedBox(height: 6),
+
+                // Short setup description
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: Text(
                     isSwahili
-                        ? 'SAFARI YA MASOMO YA MTOTO WAKO INAANZIA HAPA.'
-                        : 'YOUR CHILD\'S LEARNING JOURNEY STARTS HERE.',
+                        ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
+                        : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
                     textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: isDesktop ? 25 : (isNarrow ? 17 : 20),
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: -0.5,
-                      color: Colors.white,
-                      height: 1.2,
+                      fontSize: isDesktop ? 14 : 12,
+                      color: const Color(0xFF475569),
+                      height: 1.4,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                ),
+                SizedBox(height: isDesktop ? 20 : 12),
 
-                  // Description
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 620),
-                    child: Text(
-                      isSwahili
-                          ? 'Fungua akaunti ya mzazi, ongeza watoto wako, na ufungue masomo yote yanayozingatia mtaala kamili.'
-                          : 'Set up your parent account, add your children, and unlock complete curriculum-aligned learning.',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFFE2E8F0),
-                        height: 1.45,
-                      ),
+                // Single Primary Action Button: Sign In
+                FilledButton.icon(
+                  key: const Key('landing-cta-sign-in-btn'),
+                  onPressed: () => context.go(AppRoutes.signIn),
+                  icon: const Icon(Icons.login_rounded, size: 17),
+                  label: Text(isSwahili ? 'Ingia' : 'Sign In'),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: LearnTzColors.secondary,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isDesktop ? 32 : 28,
+                      vertical: isDesktop ? 14 : 11,
+                    ),
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: isDesktop ? 15 : 14,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  SizedBox(height: isDesktop ? 26 : 20),
-
-                  // Single Primary Action Button: SIGN IN
-                  FilledButton.icon(
-                    key: const Key('landing-cta-sign-in-btn'),
-                    onPressed: () => context.go(AppRoutes.signIn),
-                    icon: const Icon(Icons.login_rounded, size: 16),
-                    label: Text(isSwahili ? 'INGIA' : 'SIGN IN'),
-                    style: FilledButton.styleFrom(
-                      backgroundColor: LearnTzColors.secondary,
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isDesktop ? 28 : 22,
-                        vertical: isDesktop ? 14 : 12,
-                      ),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

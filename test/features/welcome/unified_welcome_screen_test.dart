@@ -88,21 +88,27 @@ void main() {
         expect(find.text('View Exam Centre →'), findsOneWidget);
         expect(find.text('See Analytics →'), findsOneWidget);
 
-        // 4. Call to Action Banner (PARENT ONBOARDING pill removed, single SIGN IN CTA)
+        // 4. Call to Action Section (clean open surface, sentence case, fits within 390x844 smartphone screen)
         expect(find.text('PARENT ONBOARDING'), findsNothing);
         expect(
-          find.text("YOUR CHILD'S LEARNING JOURNEY STARTS HERE."),
+          find.text("Your child's learning journey starts here."),
           findsOneWidget,
         );
         expect(
           find.byKey(const Key('landing-cta-register-parent-btn')),
           findsNothing,
         );
+        final ctaFinder = find.byKey(const Key('landing-cta-sign-in-btn'));
+        expect(ctaFinder, findsOneWidget);
+        expect(find.text('Sign In'), findsOneWidget);
+
+        // Verify the entire welcome page fits inside a standard 390x844 smartphone viewport
+        final ctaBottom = tester.getBottomRight(ctaFinder).dy;
         expect(
-          find.byKey(const Key('landing-cta-sign-in-btn')),
-          findsOneWidget,
+          ctaBottom,
+          lessThanOrEqualTo(844),
+          reason: 'Welcome page CTA should fit within a standard 390x844 smartphone screen (got bottom=$ctaBottom)',
         );
-        expect(find.text('SIGN IN'), findsOneWidget);
 
         expect(tester.takeException(), isNull);
       },
@@ -134,7 +140,7 @@ void main() {
             findsOneWidget,
           );
           expect(find.text('National Syllabi Coverage'), findsOneWidget);
-          expect(find.text('SIGN IN'), findsOneWidget);
+          expect(find.text('Sign In'), findsOneWidget);
           expect(
             tester.takeException(),
             isNull,

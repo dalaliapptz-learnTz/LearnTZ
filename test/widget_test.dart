@@ -38,7 +38,7 @@ void main() {
 
     expect(find.byKey(const Key('hero-official-brand-logo')), findsOneWidget);
     expect(find.text('Learn Anywhere, Anytime.'), findsWidgets);
-    expect(find.text('SIGN IN'), findsOneWidget);
+    expect(find.text('Sign In'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('nav-/country')));
     await tester.pumpAndSettle();
