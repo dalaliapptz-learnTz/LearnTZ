@@ -465,7 +465,7 @@ class _LandingFeaturesSection extends StatelessWidget {
             ? 'Ujifunzaji unaozingatia mitaala ya kitaifa katika nchi zote zinazoungwa mkono.'
             : 'Curriculum-aligned learning across supported countries.',
         actionLabel: isSwahili ? 'Tazama Mitaala →' : 'Explore Syllabi →',
-        route: AppRoutes.curriculumExplorer,
+        route: AppRoutes.signIn,
       ),
       _FeatureCardData(
         icon: Icons.quiz_rounded,
@@ -477,7 +477,7 @@ class _LandingFeaturesSection extends StatelessWidget {
             ? 'Maswali, mazoezi na shughuli za kuvutia za kujifunzia.'
             : 'Exercises, questions and engaging learning activities.',
         actionLabel: isSwahili ? 'Anza Mazoezi →' : 'Start Practice →',
-        route: AppRoutes.revisionCentre,
+        route: AppRoutes.signIn,
       ),
       _FeatureCardData(
         icon: Icons.assignment_turned_in_rounded,
@@ -489,7 +489,7 @@ class _LandingFeaturesSection extends StatelessWidget {
             ? 'Marudio, mitihani ya majaribio na maandalizi ya tathmini.'
             : 'Revision, mock examinations and assessment preparation.',
         actionLabel: isSwahili ? 'Kituo cha Mitihani →' : 'View Exam Centre →',
-        route: AppRoutes.examCentre,
+        route: AppRoutes.signIn,
       ),
       _FeatureCardData(
         icon: Icons.insights_rounded,
@@ -503,7 +503,7 @@ class _LandingFeaturesSection extends StatelessWidget {
             ? 'Ufuatiliaji wa maendeleo, viashiria vya umahiri na mapendekezo ya masomo.'
             : 'Performance tracking, mastery indicators and learning recommendations.',
         actionLabel: isSwahili ? 'Tazama Takwimu →' : 'See Analytics →',
-        route: AppRoutes.parentDashboard,
+        route: AppRoutes.signIn,
       ),
     ];
 
