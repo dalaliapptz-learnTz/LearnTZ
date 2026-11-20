@@ -66,68 +66,208 @@ class AccountScreen extends ConsumerWidget {
 
     return Container(
       color: LearnTzColors.background,
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1120),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // 1. Full-Width Identity & Status Header Card
-                _buildIdentityHeader(
-                  context: context,
-                  ref: ref,
-                  l10n: l10n,
-                  profile: profile,
-                  email: user?.email ?? '',
-                  canAccessAdmin: canAccessAdmin,
-                  canAccessCurriculum: canAccessCurriculum,
-                ),
-                const SizedBox(height: 20),
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1120),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // 1. Clean Full-Width Identity & Status Header Card
+                      _buildIdentityHeader(
+                        context: context,
+                        l10n: l10n,
+                        profile: profile,
+                        email: user?.email ?? '',
+                        canAccessAdmin: canAccessAdmin,
+                        canAccessCurriculum: canAccessCurriculum,
+                      ),
+                      const SizedBox(height: 20),
 
-                // 2. Responsive Two-Column Desktop Grid / Single-Column Mobile
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    final isWide = constraints.maxWidth >= 880;
-                    final mainColumn = _buildMainFamilyColumn(
-                      context: context,
-                      ref: ref,
-                      l10n: l10n,
-                      learners: learners,
-                      learnerCount: learnerCount,
-                      incomingInvitations: incomingInvitations,
-                    );
-                    final sideColumn = _buildSideWorkspacesColumn(
-                      context: context,
-                      l10n: l10n,
-                      canAccessAdmin: canAccessAdmin,
-                      canAccessCurriculum: canAccessCurriculum,
-                      hasStaffWorkspaces: hasStaffWorkspaces,
-                    );
+                      // 2. Responsive Two-Column Desktop Grid / Single-Column Mobile
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          final isWide = constraints.maxWidth >= 880;
+                          final mainColumn = _buildMainFamilyColumn(
+                            context: context,
+                            ref: ref,
+                            l10n: l10n,
+                            learners: learners,
+                            learnerCount: learnerCount,
+                            incomingInvitations: incomingInvitations,
+                          );
+                          final sideColumn = _buildSideWorkspacesColumn(
+                            context: context,
+                            l10n: l10n,
+                            canAccessAdmin: canAccessAdmin,
+                            canAccessCurriculum: canAccessCurriculum,
+                            hasStaffWorkspaces: hasStaffWorkspaces,
+                          );
 
-                    if (isWide) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(flex: 7, child: mainColumn),
-                          const SizedBox(width: 20),
-                          Expanded(flex: 4, child: sideColumn),
-                        ],
-                      );
-                    }
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        mainColumn,
-                        const SizedBox(height: 20),
-                        sideColumn,
-                      ],
-                    );
-                  },
+                          if (isWide) {
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(flex: 7, child: mainColumn),
+                                const SizedBox(width: 20),
+                                Expanded(flex: 4, child: sideColumn),
+                              ],
+                            );
+                          }
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              mainColumn,
+                              const SizedBox(height: 20),
+                              sideColumn,
+                            ],
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
+          ),
+
+          // 3. Bottom Menu Icon Bar (Settings holds Edit profile, Account settings, Sign out)
+          _AccountBottomMenuBar(
+            l10n: l10n,
+            onOpenSettings: () => _showSettingsMenu(context, ref, l10n),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showSettingsMenu(
+    BuildContext context,
+    WidgetRef ref,
+    AppLocalizations l10n,
+  ) {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 36,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFCBD5E1),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Settings',
+                style: LearnTzTypography.h3.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: LearnTzColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 12),
+              ListTile(
+                key: const Key('settings-menu-edit-profile'),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE0F2FE),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.edit_outlined,
+                    color: Color(0xFF0F4C81),
+                    size: 20,
+                  ),
+                ),
+                title: Text(
+                  l10n.editProfileAction,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: const Text('Update your name and country details'),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  context.go(AppRoutes.editParentProfile);
+                },
+              ),
+              const Divider(height: 1),
+              ListTile(
+                key: const Key('settings-menu-account-settings'),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF1F5F9),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.settings_outlined,
+                    color: Color(0xFF334155),
+                    size: 20,
+                  ),
+                ),
+                title: Text(
+                  l10n.accountSettingsAction,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: const Text('Password, security, and account preferences'),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  context.go(AppRoutes.accountSettings);
+                },
+              ),
+              const Divider(height: 1),
+              ListTile(
+                key: const Key('settings-menu-sign-out'),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFEF2F2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.logout_rounded,
+                    color: Color(0xFFDC2626),
+                    size: 20,
+                  ),
+                ),
+                title: Text(
+                  l10n.signOutAction,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFFDC2626),
+                  ),
+                ),
+                subtitle: const Text('Sign out of your LearnTZ account'),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  _signOut(context, ref);
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -136,7 +276,6 @@ class AccountScreen extends ConsumerWidget {
 
   Widget _buildIdentityHeader({
     required BuildContext context,
-    required WidgetRef ref,
     required AppLocalizations l10n,
     required AsyncValue<ParentProfile> profile,
     required String email,
@@ -164,122 +303,70 @@ class AccountScreen extends ConsumerWidget {
         ),
         data: (value) {
           final initials = _initials(value.fullName, email);
-          return LayoutBuilder(
-            builder: (context, constraints) {
-              final isNarrow = constraints.maxWidth < 700;
-              final identityRow = Row(
-                children: [
-                  CircleAvatar(
-                    radius: 26,
-                    backgroundColor: const Color(0xFF0F4C81),
-                    child: Text(
-                      initials,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18,
-                      ),
-                    ),
+          return Row(
+            children: [
+              CircleAvatar(
+                radius: 26,
+                backgroundColor: const Color(0xFF0F4C81),
+                child: Text(
+                  initials,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 18,
                   ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          spacing: 8,
-                          runSpacing: 4,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            Text(
-                              value.fullName.isNotEmpty
-                                  ? value.fullName
-                                  : l10n.parentDashboardTitle,
-                              style: LearnTzTypography.h3.copyWith(
-                                fontWeight: FontWeight.w800,
-                                color: LearnTzColors.textPrimary,
-                              ),
-                            ),
-                            ds.AppBadge(
-                              label: value.countryCode,
-                              variant: ds.AppBadgeVariant.neutral,
-                              size: ds.AppBadgeSize.sm,
-                            ),
-                            if (canAccessAdmin)
-                              const ds.AppBadge(
-                                label: 'Admin',
-                                variant: ds.AppBadgeVariant.primary,
-                                size: ds.AppBadgeSize.sm,
-                              ),
-                            if (canAccessCurriculum && !canAccessAdmin)
-                              const ds.AppBadge(
-                                label: 'Curriculum Staff',
-                                variant: ds.AppBadgeVariant.success,
-                                size: ds.AppBadgeSize.sm,
-                              ),
-                          ],
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          email,
-                          style: LearnTzTypography.bodySmall.copyWith(
-                            color: LearnTzColors.textSecondary,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              );
-
-              final actions = Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  ds.AppButton(
-                    label: l10n.editProfileAction,
-                    icon: Icons.edit_outlined,
-                    variant: ds.AppButtonVariant.outlined,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => context.go(AppRoutes.editParentProfile),
-                  ),
-                  ds.AppButton(
-                    label: l10n.accountSettingsAction,
-                    icon: Icons.settings_outlined,
-                    variant: ds.AppButtonVariant.outlined,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => context.go(AppRoutes.accountSettings),
-                  ),
-                  ds.AppButton(
-                    label: l10n.signOutAction,
-                    icon: Icons.logout,
-                    variant: ds.AppButtonVariant.outlined,
-                    size: ds.AppButtonSize.sm,
-                    onPressed: () => _signOut(context, ref),
-                  ),
-                ],
-              );
-
-              if (isNarrow) {
-                return Column(
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    identityRow,
-                    const SizedBox(height: 14),
-                    actions,
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 4,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text(
+                          value.fullName.isNotEmpty
+                              ? value.fullName
+                              : l10n.parentDashboardTitle,
+                          style: LearnTzTypography.h3.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: LearnTzColors.textPrimary,
+                          ),
+                        ),
+                        ds.AppBadge(
+                          label: value.countryCode,
+                          variant: ds.AppBadgeVariant.neutral,
+                          size: ds.AppBadgeSize.sm,
+                        ),
+                        if (canAccessAdmin)
+                          const ds.AppBadge(
+                            label: 'Admin',
+                            variant: ds.AppBadgeVariant.primary,
+                            size: ds.AppBadgeSize.sm,
+                          ),
+                        if (canAccessCurriculum && !canAccessAdmin)
+                          const ds.AppBadge(
+                            label: 'Curriculum Staff',
+                            variant: ds.AppBadgeVariant.success,
+                            size: ds.AppBadgeSize.sm,
+                          ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      email,
+                      style: LearnTzTypography.bodySmall.copyWith(
+                        color: LearnTzColors.textSecondary,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
-                );
-              }
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(child: identityRow),
-                  const SizedBox(width: 16),
-                  actions,
-                ],
-              );
-            },
+                ),
+              ),
+            ],
           );
         },
       ),
@@ -724,6 +811,114 @@ class AccountScreen extends ConsumerWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _AccountBottomMenuBar extends StatelessWidget {
+  const _AccountBottomMenuBar({
+    required this.l10n,
+    required this.onOpenSettings,
+  });
+
+  final AppLocalizations l10n;
+  final VoidCallback onOpenSettings;
+
+  @override
+  Widget build(BuildContext context) {
+    final items = <(
+      String key,
+      IconData icon,
+      String label,
+      bool isActive,
+      VoidCallback onTap,
+    )>[
+      (
+        'account-nav-home',
+        Icons.home_rounded,
+        'Home',
+        true,
+        () => context.go(AppRoutes.account),
+      ),
+      (
+        'account-nav-learning',
+        Icons.school_outlined,
+        l10n.learningHubTitle,
+        false,
+        () => context.go(AppRoutes.learn),
+      ),
+      (
+        'account-nav-progress',
+        Icons.analytics_outlined,
+        'Progress',
+        false,
+        () => context.go(AppRoutes.parentDashboard),
+      ),
+      (
+        'account-nav-settings',
+        Icons.settings_outlined,
+        'Settings',
+        false,
+        onOpenSettings,
+      ),
+    ];
+
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: Color(0xFFE2E8F0))),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      child: SafeArea(
+        top: false,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Row(
+              children: [
+                for (final item in items)
+                  Expanded(
+                    child: InkWell(
+                      key: Key(item.$1),
+                      onTap: item.$5,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 6),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              item.$2,
+                              size: 22,
+                              color: item.$4
+                                  ? const Color(0xFF0F4C81)
+                                  : const Color(0xFF64748B),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              item.$3,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 11.5,
+                                fontWeight: item.$4
+                                    ? FontWeight.w700
+                                    : FontWeight.w500,
+                                color: item.$4
+                                    ? const Color(0xFF0F4C81)
+                                    : const Color(0xFF64748B),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
